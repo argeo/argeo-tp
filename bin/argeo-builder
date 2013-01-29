@@ -1,0 +1,19 @@
+#!/bin/bash
+
+function argeo_builder_variables() {
+	export ARTIFACT_DIR=$1
+	export ARTIFACT=${ARTIFACT_DIR##*/}
+	export GROUP_DIR=$(dirname "$ARTIFACT_DIR")
+	export GROUP=${GROUP_DIR##*/}
+	export SOURCE_DIR=${ARTIFACT_DIR/specs/sources}
+	export BUILD_DIR=${ARTIFACT_DIR/specs/build}
+}
+
+function argeo_builder_download_eclipse() {
+	ECLIPSE_MIRROR=http://ftp.halifax.rwth-aachen.de/eclipse
+	ECLIPSE_FILE=$1
+	ECLIPSE_URL=$ECLIPSE_MIRROR$ECLIPSE_FILE
+	mkdir -p $SOURCE_DIR
+	(cd $SOURCE_DIR && wget --timestamping $ECLIPSE_URL)
+}
+
