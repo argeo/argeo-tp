@@ -11,24 +11,20 @@ CLASSES_DIR=$BUILD_DIR/classes
 BUNDLE_VERSION=3.8.2
 
 # TODO make javac choice more configurable 
-JAVAC=javac
-JAR=jar
+JAVAC=$JAVA_HOME/bin/javac
+JAR=$JAVA_HOME/bin/jar
 
-JAVAC_OPTS="-nowarn -source 1.6 -target 1.6"
+JAVAC_OPTS="-nowarn -source 1.6 -target 1.6 -classpath $CACHE_BASE/bootstrap/ant.jar"
 
 echo Download sources
 argeo_builder_download_eclipse $SOURCE_FILE
 
 echo Unjar sources
-rm -rf $SRC_DIR
-mkdir -p $SRC_DIR
-(cd $SRC_DIR && $JAR -xf $SOURCE_DIR/$SOURCE_FILENAME)
-# Remove Ant dependant file
-rm  $SRC_DIR/org/eclipse/jdt/core/JDTCompilerAdapter.java
+reset_dir $SRC_DIR
+(cd $SRC_DIR && $JAR -xvf $SOURCE_DIR/$SOURCE_FILENAME)
 
 echo Compile
-rm -rf $CLASSES_DIR
-mkdir -p $CLASSES_DIR
+reset_dir $CLASSES_DIR
 $JAVAC $JAVAC_OPTS -d $CLASSES_DIR $(find $SRC_DIR/org/* | grep .java) 2>&1 | tee $BUILD_DIR/build.log
 
 echo Copy additional files
