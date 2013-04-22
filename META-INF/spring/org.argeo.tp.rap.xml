@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
+
+	<bean id="org.argeo.tp.rap.platform_2.1.0-M1" parent="template.importRapZip">
+		<constructor-arg>
+			<map>
+				<entry key="rapBranch" value="2.1" />
+				<entry key="rapVersion" value="2.1.0-M1-20130318-2137" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<!-- RAP specs and templates -->
+	<flow:spec id="rapVersion.spec">
+		<flow:primitive name="rapBranch" isParameter="true" />
+		<flow:primitive name="rapVersion" isParameter="true" />
+	</flow:spec>
+
+	<flow:flow id="template.importRapZip" spec="rapVersion.spec"
+		abstract="true">
+		<bean class="org.argeo.slc.repo.osgi.ImportBundlesZip">
+			<property name="workspace" value="org.argeo.tp.rap-@{rapBranch}.x" />
+			<property name="groupId" value="org.argeo.tp.rap.platform" />
+			<property name="zipFile"
+				value="http://mirror.netcologne.de/eclipse//rt/rap/@{rapBranch}/rap-@{rapVersion}.zip" />
+			<property name="repository" ref="javaRepository" />
+		</bean>
+	</flow:flow>
+
+	<!-- Import bundles zip -->
+	<!-- <flow:spec id="importZip.spec"> -->
+	<!-- <flow:primitive name="groupId" /> -->
+	<!-- <flow:primitive name="workspace" /> -->
+	<!-- <flow:primitive name="zipFile" value="file:///tmp/" /> -->
+	<!-- </flow:spec> -->
+
+	<!-- <flow:flow id="importZip.template" spec="importZip.spec" -->
+	<!-- abstract="true"> -->
+	<!-- <bean class="org.argeo.slc.repo.osgi.ImportBundlesZip"> -->
+	<!-- <property name="workspace" value="@{workspace}" /> -->
+	<!-- <property name="groupId" value="@{groupId}" /> -->
+	<!-- <property name="zipFile" value="@{zipFile}" /> -->
+	<!-- <property name="repository" ref="javaRepository" /> -->
+	<!-- </bean> -->
+	<!-- </flow:flow> -->
+</beans>
