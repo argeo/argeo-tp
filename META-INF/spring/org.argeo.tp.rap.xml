@@ -7,7 +7,8 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
-	<bean id="org.argeo.tp.rap.platform_2.1.0-M1" parent="template.importRapZip">
+	<bean name="org.argeo.tp.rap/org.argeo.tp.rap.platform_2.1.0-M1"
+		parent="template.importRapZip">
 		<constructor-arg>
 			<map>
 				<entry key="rapBranch" value="2.1" />
