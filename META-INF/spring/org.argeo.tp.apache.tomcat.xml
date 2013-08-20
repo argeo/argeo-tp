@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+	<!-- REGISTER -->
+	<bean id="org.apache.catalina" parent="template.org.apache.tomcat" />
+	<bean id="org.apache.jasper" parent="template.org.apache.tomcat" />
+	<bean id="org.apache.el" parent="template.org.apache.tomcat" />
+	<bean id="org.apache.coyote" parent="template.org.apache.tomcat" />
+	<bean id="org.apache.tomcat.api" parent="template.org.apache.tomcat" />
+	<bean id="org.apache.tomcat.util" parent="template.org.apache.tomcat" />
+
+	<!-- SLF4J Factory -->
+	<bean id="template.org.apache.tomcat" parent="template.bndWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.apache.tomcat" />
+	</bean>
+
+	<flow:flow name="org.argeo.tp.apache.tomcat/org.apache.tomcat"
+		spec="spec.version">
+		<flow:arg name="version" value="7.0.42" />
+		<bean parent="template.archiveWrapper">
+			<property name="uri"
+				value="http://archive.apache.org/dist/tomcat/tomcat-7/v@{version}/bin/apache-tomcat-@{version}.zip" />
+			<property name="wrappers">
+				<map>
+					<!-- Tomcat -->
+					<entry key="apache-tomcat-@{version}/lib/catalina.jar"
+						value-ref="org.apache.catalina" />
+					<entry key="apache-tomcat-@{version}/lib/jasper.jar"
+						value-ref="org.apache.jasper" />
+					<entry key="apache-tomcat-@{version}/lib/jasper-el.jar"
+						value-ref="org.apache.el" />
+					<entry key="apache-tomcat-@{version}/lib/tomcat-coyote.jar"
+						value-ref="org.apache.coyote" />
+					<entry key="apache-tomcat-@{version}/lib/tomcat-api.jar"
+						value-ref="org.apache.tomcat.api" />
+					<entry key="apache-tomcat-@{version}/lib/tomcat-util.jar"
+						value-ref="org.apache.tomcat.util" />
+					<!-- Javax -->
+					<entry key="apache-tomcat-@{version}/lib/annotations-api.jar"
+						value-ref="javax.annotation" />
+					<entry key="apache-tomcat-@{version}/lib/el-api.jar"
+						value-ref="javax.el" />
+					<entry key="apache-tomcat-@{version}/lib/jsp-api.jar"
+						value-ref="javax.servlet.jsp" />
+					<entry key="apache-tomcat-@{version}/lib/servlet-api.jar"
+						value-ref="javax.servlet" />
+				</map>
+			</property>
+		</bean>
+	</flow:flow>
+
+</beans>

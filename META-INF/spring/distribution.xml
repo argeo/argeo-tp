@@ -5,8 +5,22 @@
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
-	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
+	<!-- REGISTER -->
+	<bean id="org.argeo.tp" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistribution"
+		init-method="init" destroy-method="destroy">
+		<constructor-arg value="org.argeo.tp:org.argeo.tp:2.1.1" />
+		<property name="modules">
+			<set>
+				<!-- <ref bean="org.slf4j.log4j12" /> -->
+				<!-- <ref bean="org.slf4j.api" /> -->
+				<!-- <ref bean="org.slf4j.commons.logging" /> -->
+			</set>
+		</property>
+	</bean>
+
+	<!-- Factory -->
 	<bean id="osgiFactory" class="org.argeo.slc.repo.osgi.OsgiFactoryImpl"
 		init-method="init" destroy-method="destroy">
 		<property name="workspace" value="org.argeo.tp-2.1.x" />
@@ -20,39 +34,6 @@
 		<property name="distRepository" ref="distRepository" />
 	</bean>
 
-	<bean name="org.argeo.tp/org.slf4j" parent="template.wrapDistribution">
-		<constructor-arg>
-			<map>
-				<entry key="version" value="1.7.5" />
-			</map>
-		</constructor-arg>
-	</bean>
-
-	<!-- Specs and templates -->
-	<flow:spec id="wrapDistribution.spec">
-		<flow:primitive name="version" isParameter="true" />
-	</flow:spec>
-
-	<flow:flow id="template.wrapDistribution" spec="wrapDistribution.spec"
-		abstract="true">
-		<bean class="org.argeo.slc.repo.osgi.DistributionWrapper">
-			<property name="groupId" value="org.argeo.tp" />
-			<property name="uri"
-				value="http://www.slf4j.org/dist/slf4j-@{version}.zip" />
-			<property name="wrappers">
-				<map>
-					<entry key="slf4j-@{version}/slf4j-api-@{version}.jar">
-						<bean class="org.argeo.slc.repo.osgi.BndWrapper">
-							<property name="bsn" value="org.slf4j.api" />
-							<property name="version" value="@{version}" />
-						</bean>
-					</entry>
-				</map>
-			</property>
-			<property name="osgiFactory" ref="osgiFactory" />
-		</bean>
-	</flow:flow>
-
 	<bean
 		class="org.argeo.security.core.AuthenticatedApplicationContextInitialization">
 		<property name="authenticationManager" ref="authenticationManager" />
@@ -60,6 +41,26 @@
 			<list>
 				<value>osgiFactory</value>
 			</list>
+		</property>
+	</bean>
+
+	<!-- Specs and templates -->
+	<flow:spec id="spec.version">
+		<flow:primitive name="version" isParameter="true" />
+	</flow:spec>
+
+	<bean id="template.archiveWrapper" class="org.argeo.slc.repo.osgi.ArchiveWrapper"
+		init-method="init" destroy-method="destroy" abstract="true">
+		<property name="version" value="@{version}" />
+		<property name="osgiFactory" ref="osgiFactory" />
+	</bean>
+
+	<bean id="template.bndWrapper" class="org.argeo.slc.repo.osgi.BndWrapper"
+		abstract="true">
+		<property name="bndProperties">
+			<value>
+				Export-Package=*
+			</value>
 		</property>
 	</bean>
 

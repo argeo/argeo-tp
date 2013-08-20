@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+	<!-- REGISTER -->
+	<bean id="org.apache.log4j" p:groupId="org.argeo.tp.apache"
+		parent="template.bndWrapper" />
+	<bean id="org.slf4j.log4j12" parent="template.org.slf4j" />
+	<bean id="org.slf4j.api" parent="template.org.slf4j" />
+	<bean id="org.slf4j.commons.logging" parent="template.org.slf4j" />
+
+	<!-- Log4j12 Factory -->
+	<flow:flow name="org.argeo.tp/org.apache.log4j" spec="spec.version">
+		<flow:arg name="version" value="1.2.17" />
+		<bean parent="template.archiveWrapper">
+			<property name="uri"
+				value="http://archive.apache.org/dist/logging/log4j/@{version}/log4j-@{version}.zip" />
+			<property name="wrappers">
+				<map>
+					<entry key="apache-log4j-@{version}/log4j-@{version}.jar"
+						value-ref="org.apache.log4j" />
+				</map>
+			</property>
+		</bean>
+	</flow:flow>
+
+	<!-- SLF4J Factory -->
+	<bean id="template.org.slf4j" parent="template.bndWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp" />
+	</bean>
+
+	<flow:flow name="org.argeo.tp/org.slf4j" spec="spec.version">
+		<flow:arg name="version" value="1.7.5" />
+		<bean parent="template.archiveWrapper">
+			<property name="uri"
+				value="http://www.slf4j.org/dist/slf4j-@{version}.zip" />
+			<property name="wrappers">
+				<map>
+					<entry key="slf4j-@{version}/slf4j-log4j12-@{version}.jar"
+						value-ref="org.slf4j.log4j12" />
+					<entry key="slf4j-@{version}/slf4j-api-@{version}.jar"
+						value-ref="org.slf4j.api" />
+					<entry key="slf4j-@{version}/jcl-over-slf4j-@{version}.jar"
+						value-ref="org.slf4j.commons.logging" />
+				</map>
+			</property>
+		</bean>
+	</flow:flow>
+
+</beans>
