@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+	<!-- REGISTER -->
+	<bean id="org.springframework.aop" parent="template.org.springframework" />
+	<bean id="org.springframework.aspects" parent="template.org.springframework" />
+	<bean id="org.springframework.beans" parent="template.org.springframework" />
+	<bean id="org.springframework.context" parent="template.org.springframework" />
+	<bean id="org.springframework.context.support" parent="template.org.springframework" />
+	<bean id="org.springframework.core" parent="template.org.springframework" />
+	<bean id="org.springframework.expression" parent="template.org.springframework" />
+	<bean id="org.springframework.instrument" parent="template.org.springframework" />
+	<bean id="org.springframework.instrument.tomcat" parent="template.org.springframework" />
+	<bean id="org.springframework.jdbc" parent="template.org.springframework" />
+	<bean id="org.springframework.jms" parent="template.org.springframework" />
+	<bean id="org.springframework.orm" parent="template.org.springframework" />
+	<bean id="org.springframework.oxm" parent="template.org.springframework" />
+	<bean id="org.springframework.test" parent="template.org.springframework" />
+	<bean id="org.springframework.tx" parent="template.org.springframework" />
+	<bean id="org.springframework.web" parent="template.org.springframework" />
+	<bean id="org.springframework.web.servlet" parent="template.org.springframework" />
+
+	<!-- FACTORY -->
+	<bean id="template.org.springframework" parent="template.bndWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.spring" />
+	</bean>
+
+	<flow:flow name="org.argeo.tp.spring/org.springframework"
+		spec="spec.version">
+		<flow:arg name="version" value="3.2.4" />
+		<bean parent="template.archiveWrapper">
+			<property name="uri"
+				value="http://repo.springsource.org/libs-release-local/org/springframework/spring/@{version}.RELEASE/spring-framework-@{version}.RELEASE-dist.zip" />
+			<property name="wrappers">
+				<map>
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-aop-@{version}.RELEASE.jar"
+						value-ref="org.springframework.aop" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-aspects-@{version}.RELEASE.jar"
+						value-ref="org.springframework.aspects" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-beans-@{version}.RELEASE.jar"
+						value-ref="org.springframework.beans" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-context-@{version}.RELEASE.jar"
+						value-ref="org.springframework.context" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-context-support-@{version}.RELEASE.jar"
+						value-ref="org.springframework.context.support" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-core-@{version}.RELEASE.jar"
+						value-ref="org.springframework.core" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-expression-@{version}.RELEASE.jar"
+						value-ref="org.springframework.expression" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-instrument-@{version}.RELEASE.jar"
+						value-ref="org.springframework.instrument" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-instrument-tomcat-@{version}.RELEASE.jar"
+						value-ref="org.springframework.instrument.tomcat" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-jdbc-@{version}.RELEASE.jar"
+						value-ref="org.springframework.jdbc" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-jms-@{version}.RELEASE.jar"
+						value-ref="org.springframework.jms" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-orm-@{version}.RELEASE.jar"
+						value-ref="org.springframework.orm" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-oxm-@{version}.RELEASE.jar"
+						value-ref="org.springframework.oxm" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-test-@{version}.RELEASE.jar"
+						value-ref="org.springframework.test" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-tx-@{version}.RELEASE.jar"
+						value-ref="org.springframework.tx" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-web-@{version}.RELEASE.jar"
+						value-ref="org.springframework.web" />
+					<entry
+						key="spring-framework-@{version}.RELEASE/libs/spring-webmvc-@{version}.RELEASE.jar"
+						value-ref="org.springframework.web.servlet" />
+				</map>
+			</property>
+		</bean>
+	</flow:flow>
+
+</beans>

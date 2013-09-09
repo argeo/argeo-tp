@@ -15,7 +15,7 @@
 	<bean id="org.apache.tomcat.api" parent="template.org.apache.tomcat" />
 	<bean id="org.apache.tomcat.util" parent="template.org.apache.tomcat" />
 
-	<!-- SLF4J Factory -->
+	<!-- FACTORY -->
 	<bean id="template.org.apache.tomcat" parent="template.bndWrapper"
 		abstract="true">
 		<property name="groupId" value="org.argeo.tp.apache.tomcat" />

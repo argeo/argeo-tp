@@ -58,9 +58,9 @@
 	<bean id="template.bndWrapper" class="org.argeo.slc.repo.osgi.BndWrapper"
 		abstract="true">
 		<property name="bndProperties">
-			<value>
-				Export-Package=*
-			</value>
+			<props>
+				<prop key="Export-Package">*</prop>
+			</props>
 		</property>
 	</bean>
 

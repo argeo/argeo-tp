@@ -13,7 +13,7 @@
 	<bean id="javax.servlet" p:version="3.0.0" parent="template.javax" />
 	<bean id="javax.servlet.jsp" p:version="2.2.0" parent="template.javax" />
 
-	<!-- Javax Factory -->
+	<!-- FACTORY -->
 	<bean id="template.javax" parent="template.bndWrapper" abstract="true">
 		<property name="groupId" value="org.argeo.tp.javax" />
 	</bean>
