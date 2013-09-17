@@ -55,8 +55,10 @@
 		<property name="osgiFactory" ref="osgiFactory" />
 	</bean>
 
+	<!-- Must be a prototype since wrapper are stateful objects, properties 
+		such as version can be set by caller. -->
 	<bean id="template.bndWrapper" class="org.argeo.slc.repo.osgi.BndWrapper"
-		abstract="true">
+		abstract="true" scope="prototype">
 		<property name="bndProperties">
 			<props>
 				<prop key="Export-Package">*</prop>
