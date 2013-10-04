@@ -12,11 +12,12 @@
 		init-method="init" destroy-method="destroy">
 		<constructor-arg value="org.argeo.tp:org.argeo.tp:2.1.1" />
 		<property name="modules">
-			<set>
-				<!-- <ref bean="org.slf4j.log4j12" /> -->
-				<!-- <ref bean="org.slf4j.api" /> -->
-				<!-- <ref bean="org.slf4j.commons.logging" /> -->
-			</set>
+			<list>
+				<ref bean="org.argeo.tp/org.apache.log4j" />
+				<ref bean="org.argeo.tp/org.slf4j" />
+				<ref bean="org.argeo.tp.apache.tomcat/org.apache.tomcat" />
+				<ref bean="org.argeo.tp.spring/org.springframework" />
+			</list>
 		</property>
 	</bean>
 
