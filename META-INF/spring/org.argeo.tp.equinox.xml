@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
+
+	<!-- REGISTER -->
+	<bean id="org.eclipse.osgi" parent="template.org.eclipse.osgi" />
+
+	<!-- FACTORY -->
+	<bean id="template.org.eclipse.osgi" parent="template.bndWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.equinox" />
+	</bean>
+
+	<!-- Equinox Kepler SR1 (3.9.1) -->
+	<flow:flow name="org.argeo.tp.equinox/org.argeo.tp.equinox_KeplerSR1"
+		parent="template.importEquinox">
+		<flow:arg name="equinoxRelease" value="KeplerSR1" />
+		<flow:arg name="equinoxTimestamp" value="201309111000" />
+	</flow:flow>
+
+
+	<!-- RAP specs and templates -->
+	<flow:spec id="equinoxVersion.spec">
+		<flow:primitive name="equinoxRelease" isParameter="true" />
+		<flow:primitive name="equinoxTimestamp" isParameter="true" />
+	</flow:spec>
+
+	<flow:flow id="template.importEquinox" spec="equinoxVersion.spec"
+		abstract="true">
+		<bean class="org.argeo.slc.repo.osgi.ArchiveWrapper">
+			<property name="uri"
+				value="http://www.eclipse.org/downloads/equinox/drops/R-@{equinoxRelease}-@{equinoxTimestamp}/equinox-SDK-@{equinoxRelease}.zip" />
+			<property name="wrappers">
+				<map>
+					<!-- Tomcat -->
+					<entry key="plugins/org.eclipse.osgi_*.jar" value-ref="org.eclipse.osgi" />
+				</map>
+			</property>
+			<!-- <property name="includes"> -->
+			<!-- <map> -->
+			<!-- <entry key="plugins/*.jar" value="org.argeo.tp.equinox" /> -->
+			<!-- </map> -->
+			<!-- </property> -->
+			<property name="osgiFactory" ref="osgiFactory" />
+		</bean>
+	</flow:flow>
+</beans>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+	<!-- REGISTER -->
+	<bean id="org.apache.ant" parent="template.org.apache.ant" />
+	<bean id="org.apache.ant.launch" parent="template.org.apache.ant" />
+
+	<!-- Ant Factory -->
+	<bean id="template.org.apache.ant" parent="template.bndWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.ant" />
+	</bean>
+
+	<flow:flow name="org.argeo.tp.ant/org.apache.ant" spec="spec.version">
+		<flow:arg name="version" value="1.9.2" />
+		<bean parent="template.archiveWrapper">
+			<property name="uri"
+				value="http://archive.apache.org/dist/ant/binaries/apache-ant-@{version}-bin.zip" />
+			<property name="wrappers">
+				<map>
+					<entry key="apache-ant-@{version}/lib/ant.jar" value-ref="org.apache.ant" />
+					<entry key="apache-ant-@{version}/lib/ant-launcher.jar"
+						value-ref="org.apache.ant.launch" />
+				</map>
+			</property>
+		</bean>
+	</flow:flow>
+</beans>

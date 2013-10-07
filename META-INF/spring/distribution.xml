@@ -16,6 +16,7 @@
 				<ref bean="org.argeo.tp/org.apache.log4j" />
 				<ref bean="org.argeo.tp/org.slf4j" />
 				<ref bean="org.argeo.tp.apache.tomcat/org.apache.tomcat" />
+				<ref bean="org.argeo.tp/org.aopalliance" />
 				<ref bean="org.argeo.tp.spring/org.springframework" />
 			</list>
 		</property>
@@ -30,6 +31,23 @@
 				<bean class="org.argeo.slc.repo.ArtifactIndexer" />
 				<bean class="org.argeo.slc.repo.JarFileIndexer" />
 			</list>
+		</property>
+		<property name="mirrors">
+			<map>
+				<entry key="http://archive.apache.org/dist">
+					<list>
+						<value>http://mirror.derwebwolf.net/apache</value>
+						<value>http://archive.apache.org/dist</value>
+					</list>
+				</entry>
+				<entry key="http://www.eclipse.org/downloads">
+					<list>
+						<value>http://mirror.netcologne.de/eclipse</value>
+						<value>http://mirror.selfnet.de/eclipse</value>
+						<value><![CDATA[http://www.eclipse.org/downloads/download.php?file=]]></value>
+					</list>
+				</entry>
+			</map>
 		</property>
 		<property name="javaRepository" ref="javaRepository" />
 		<property name="distRepository" ref="distRepository" />
@@ -60,11 +78,22 @@
 		such as version can be set by caller. -->
 	<bean id="template.bndWrapper" class="org.argeo.slc.repo.osgi.BndWrapper"
 		abstract="true" scope="prototype">
+		<property name="groupId" value="org.argeo.tp" />
 		<property name="bndProperties">
 			<props>
 				<prop key="Export-Package">*</prop>
 			</props>
 		</property>
+	</bean>
+	<bean id="template.mavenWrapper" class="org.argeo.slc.repo.osgi.MavenWrapper"
+		abstract="true" scope="prototype">
+		<property name="groupId" value="org.argeo.tp" />
+		<property name="bndProperties">
+			<props>
+				<prop key="Export-Package">*</prop>
+			</props>
+		</property>
+		<property name="osgiFactory" ref="osgiFactory" />
 	</bean>
 
 </beans>

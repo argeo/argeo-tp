@@ -8,22 +8,125 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
 	<!-- REGISTER -->
-	<bean id="org.springframework.aop" parent="template.org.springframework" />
-	<bean id="org.springframework.aspects" parent="template.org.springframework" />
+	<bean id="org.springframework.aop" parent="template.org.springframework">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					com.jamonapi;resolution:=optional,
+					org.apache.commons.pool.*;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="org.springframework.aspects" parent="template.org.springframework">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
+
 	<bean id="org.springframework.beans" parent="template.org.springframework" />
-	<bean id="org.springframework.context" parent="template.org.springframework" />
-	<bean id="org.springframework.context.support" parent="template.org.springframework" />
-	<bean id="org.springframework.core" parent="template.org.springframework" />
+
+	<bean id="org.springframework.context" parent="template.org.springframework">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					bsh;resolution:=optional,
+					com.sun.net.httpserver;resolution:=optional,
+					edu.emory.mathcs.backport.java.util.concurrent;resolution:=optional,
+					groovy.lang;resolution:=optional,
+					javax.interceptor;resolution:=optional,
+					javax.jms;resolution:=optional,
+					javax.persistence.spi;resolution:=optional,
+					javax.validation.*;resolution:=optional,
+					org.codehaus.groovy.control;resolution:=optional,
+					org.hibernate.validator.*;resolution:=optional,
+					org.joda.time.*;resolution:=optional,
+					org.jruby.*;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="org.springframework.context.support" parent="template.org.springframework">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="org.springframework.core" parent="template.org.springframework">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					joptsimple;resolution:=optional,
+					org.springframework.asm.tree;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
 	<bean id="org.springframework.expression" parent="template.org.springframework" />
+
 	<bean id="org.springframework.instrument" parent="template.org.springframework" />
+
 	<bean id="org.springframework.instrument.tomcat" parent="template.org.springframework" />
-	<bean id="org.springframework.jdbc" parent="template.org.springframework" />
+
+	<bean id="org.springframework.jdbc" parent="template.org.springframework">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					com.mchange.v2.c3p0;resolution:=optional,
+					com.sun.rowset;resolution:=optional,
+					org.apache.derby.*;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
+
 	<bean id="org.springframework.jms" parent="template.org.springframework" />
+
 	<bean id="org.springframework.orm" parent="template.org.springframework" />
-	<bean id="org.springframework.oxm" parent="template.org.springframework" />
+
+	<bean id="org.springframework.oxm" parent="template.org.springframework">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					com.thoughtworks.xstream.*;resolution:=optional,
+					org.apache.xmlbeans.*;resolution:=optional,
+					org.exolab.castor.*;resolution:=optional,
+					org.jibx.runtime.*;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
+
 	<bean id="org.springframework.test" parent="template.org.springframework" />
-	<bean id="org.springframework.tx" parent="template.org.springframework" />
+
+	<bean id="org.springframework.tx" parent="template.org.springframework">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					com.ibm.wsspi.uow;resolution:=optional,
+					javax.resource.*;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
+
 	<bean id="org.springframework.web" parent="template.org.springframework" />
+
 	<bean id="org.springframework.web.servlet" parent="template.org.springframework" />
 
 	<!-- FACTORY -->

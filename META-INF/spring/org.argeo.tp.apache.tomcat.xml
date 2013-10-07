@@ -8,12 +8,51 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
 	<!-- REGISTER -->
-	<bean id="org.apache.catalina" parent="template.org.apache.tomcat" />
-	<bean id="org.apache.jasper" parent="template.org.apache.tomcat" />
+	<bean id="org.apache.catalina" parent="template.org.apache.tomcat">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					javax.mail.*;resolution:=optional,
+					org.apache.juli.*;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="org.apache.jasper" parent="template.org.apache.tomcat">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					org.apache.juli.logging;resolution:=optional,
+					org.apache.tools.ant.*;resolution:=optional,
+					org.eclipse.jdt.*;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
 	<bean id="org.apache.el" parent="template.org.apache.tomcat" />
-	<bean id="org.apache.coyote" parent="template.org.apache.tomcat" />
+	<bean id="org.apache.coyote" parent="template.org.apache.tomcat">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					*,
+					org.apache.juli.logging;resolution:=optional,
+				</prop>
+			</props>
+		</property>
+	</bean>
 	<bean id="org.apache.tomcat.api" parent="template.org.apache.tomcat" />
-	<bean id="org.apache.tomcat.util" parent="template.org.apache.tomcat" />
+	<bean id="org.apache.tomcat.util" parent="template.org.apache.tomcat">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					org.apache.juli.logging;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
 
 	<!-- FACTORY -->
 	<bean id="template.org.apache.tomcat" parent="template.bndWrapper"

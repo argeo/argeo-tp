@@ -8,11 +8,60 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
 	<!-- REGISTER -->
+	<bean id="org.aspectj.weaver" parent="template.bndWrapper">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					*,
+					com.bea.jvm;resolution:=optional,
+				</prop>
+			</props>
+		</property>
+	</bean>
 	<bean id="org.apache.log4j" p:groupId="org.argeo.tp.apache"
-		parent="template.bndWrapper" />
+		parent="template.bndWrapper">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					*,
+					com.ibm.uvm.tools;resolution:=optional,
+					com.sun.jdmk.comm;resolution:=optional,
+					javax.jmdns;resolution:=optional,
+					javax.jms;resolution:=optional,
+					javax.mail;resolution:=optional,
+					javax.mail.internet;resolution:=optional,
+				</prop>
+			</props>
+		</property>
+	</bean>
 	<bean id="org.slf4j.log4j12" parent="template.org.slf4j" />
 	<bean id="org.slf4j.api" parent="template.org.slf4j" />
 	<bean id="org.slf4j.commons.logging" parent="template.org.slf4j" />
+
+	<bean id="org.aopalliance" p:version="1.0.0" 
+		p:sourceCoords="aopalliance:aopalliance:1.0" parent="template.mavenWrapper" />
+
+	<!-- AOP Alliance factory -->
+	<flow:flow name="org.argeo.tp/org.aopalliance">
+		<ref bean="org.aopalliance" />
+	</flow:flow>
+
+	<!-- Eclipse Batch Compiler (ECJ) factory -->
+	<flow:flow name="org.argeo.tp/org.eclipse.jdt.core.compiler.batch"
+		spec="spec.version">
+		<flow:arg name="version" value="4.3.1" />
+		<!-- <bean parent="template.archiveWrapper"> -->
+		<!-- <property name="uri" -->
+		<!-- value="http://archive.apache.org/dist/logging/log4j/@{version}/log4j-@{version}.zip" 
+			/> -->
+		<!-- <property name="wrappers"> -->
+		<!-- <map> -->
+		<!-- <entry key="plugins/ecj-.jar" -->
+		<!-- value-ref="org.eclipse.jdt.core.compiler.batch" /> -->
+		<!-- </map> -->
+		<!-- </property> -->
+		<!-- </bean> -->
+	</flow:flow>
 
 	<!-- Log4j12 Factory -->
 	<flow:flow name="org.argeo.tp/org.apache.log4j" spec="spec.version">
@@ -24,6 +73,20 @@
 				<map>
 					<entry key="apache-log4j-@{version}/log4j-@{version}.jar"
 						value-ref="org.apache.log4j" />
+				</map>
+			</property>
+		</bean>
+	</flow:flow>
+
+	<!-- AspectJ Factory -->
+	<flow:flow name="org.argeo.tp/org.aspectj" spec="spec.version">
+		<flow:arg name="version" value="1.7.3" />
+		<bean parent="template.archiveWrapper">
+			<property name="uri"
+				value="http://www.eclipse.org/downloads/tools/aspectj/aspectj-@{version}.jar" />
+			<property name="wrappers">
+				<map>
+					<entry key="lib/aspectjweaver.jar" value-ref="org.aspectj.weaver" />
 				</map>
 			</property>
 		</bean>
