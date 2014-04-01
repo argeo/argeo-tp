@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.argeo.slc</groupId>
 		<artifactId>lib</artifactId>
-		<version>1.1.14-SNAPSHOT</version>
+		<version>1.1.16</version>
 	</parent>
 	<groupId>org.argeo.tp.slc</groupId>
 	<artifactId>org.argeo.tp.slc.factory</artifactId>
