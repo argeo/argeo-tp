@@ -25,11 +25,14 @@
 	<!-- Factory -->
 	<bean id="osgiFactory" class="org.argeo.slc.repo.osgi.OsgiFactoryImpl"
 		init-method="init" destroy-method="destroy">
-		<property name="workspace" value="org.argeo.tp-2.1.x" />
+		<property name="workspace" value="argeo-tp-2.1" />
 		<property name="nodeIndexers">
 			<list>
 				<bean class="org.argeo.slc.repo.ArtifactIndexer" />
 				<bean class="org.argeo.slc.repo.JarFileIndexer" />
+				<!--  Added by BSinou - To be checked -->
+				<!--  <bean class="org.argeo.slc.repo.ModularDistributionIndexer" />
+				<bean class="org.argeo.slc.repo.PdeSourcesIndexer" />  -->
 			</list>
 		</property>
 		<property name="mirrors">

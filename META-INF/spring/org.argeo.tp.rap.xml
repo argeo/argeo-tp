@@ -8,6 +8,12 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
 	<!-- RAP 2.2 -->
+	<flow:flow name="org.argeo.tp.rap/org.argeo.tp.rap.platform_2.2.0"
+		parent="template.importRapZip">
+		<flow:arg name="rapBranch" value="2.2" />
+		<flow:arg name="rapVersion" value="2.2.0-R-20131204-0942" />
+	</flow:flow>
+
 	<flow:flow name="org.argeo.tp.rap/org.argeo.tp.rap.platform_2.2.0-M1"
 		parent="template.importRapZip">
 		<flow:arg name="rapBranch" value="2.2" />
@@ -15,6 +21,12 @@
 	</flow:flow>
 
 	<!-- RAP 2.1 -->
+	<flow:flow name="org.argeo.tp.rap/org.argeo.tp.rap.platform_2.1.2"
+		parent="template.importRapZip">
+		<flow:arg name="rapBranch" value="2.1" />
+		<flow:arg name="rapVersion" value="2.1.2-R-20140210-0628" />
+	</flow:flow>
+
 	<flow:flow name="org.argeo.tp.rap/org.argeo.tp.rap.platform_2.1.0-R"
 		parent="template.importRapZip">
 		<flow:arg name="rapBranch" value="2.1" />
@@ -48,7 +60,7 @@
 			<property name="osgiFactory">
 				<bean class="org.argeo.slc.repo.osgi.OsgiFactoryImpl"
 					init-method="init" destroy-method="destroy">
-					<property name="workspace" value="org.argeo.tp.rap-@{rapBranch}.x" />
+					<property name="workspace" value="eclipse-rap-@{rapBranch}" />
 					<property name="mirrors">
 						<map>
 							<entry key="http://www.eclipse.org/downloads">
@@ -65,6 +77,8 @@
 						<list>
 							<bean class="org.argeo.slc.repo.ArtifactIndexer" />
 							<bean class="org.argeo.slc.repo.JarFileIndexer" />
+							<!-- Works with SLC 1.1.17+ <bean class="org.argeo.slc.repo.ModularDistributionIndexer" 
+								/> <bean class="org.argeo.slc.repo.PdeSourcesIndexer" /> -->
 						</list>
 					</property>
 					<property name="javaRepository" ref="javaRepository" />
@@ -73,6 +87,26 @@
 			</property>
 		</bean>
 	</flow:flow>
+
+
+	<!-- WORK IN PROGRESS add bundle from the incubator to the platform <flow:flow 
+		id="org.argeo.tp.rap.addons/org.argeo.tp.rap.dropdown_2.2" spec="rapVersion.spec" 
+		abstract="true"> <flow:arg name="rapBranch" value="2.2" /> <flow:arg name="rapVersion" 
+		value="0.2.0.20131212-1229" /> <bean class="org.argeo.slc.repo.osgi.ArchiveWrapper"> 
+		<property name="version" value="@{rapVersion}" /> <property name="mavenGroupIndexes" 
+		value="true" /> <property name="uri" value="file:///tmp/" /> <property name="includes"> 
+		<map> <entry key="plugins/*.jar" value="org.argeo.tp.rap.addons" /> </map> 
+		</property> <property name="osgiFactory"> <bean class="org.argeo.slc.repo.osgi.OsgiFactoryImpl" 
+		init-method="init" destroy-method="destroy"> <property name="workspace" value="eclipse-rap-@{rapBranch}" 
+		/> <property name="mirrors"> <map> <entry key="http://www.eclipse.org/downloads"> 
+		<list> <value>http://mirror.netcologne.de/eclipse</value> <value>http://mirror.selfnet.de/eclipse</value> 
+		<value><![CDATA[http://www.eclipse.org/downloads/download.php?file=]]></value> 
+		</list> </entry> </map> </property> <property name="nodeIndexers"> <list> 
+		<bean class="org.argeo.slc.repo.ArtifactIndexer" /> <bean class="org.argeo.slc.repo.JarFileIndexer" 
+		/> <bean class="org.argeo.slc.repo.ModularDistributionIndexer" /> <bean class="org.argeo.slc.repo.PdeSourcesIndexer" 
+		/> </list> </property> <property name="javaRepository" ref="javaRepository" 
+		/> <property name="distRepository" ref="distRepository" /> </bean> </property> 
+		</bean> </flow:flow> -->
 
 	<!-- Import bundles zip -->
 	<!-- <flow:spec id="importZip.spec"> -->
