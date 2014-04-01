@@ -20,6 +20,47 @@
 		<flow:arg name="rapVersion" value="2.2.0-M1-20130821-1618" />
 	</flow:flow>
 
+	<!-- RAP ADDONS - experimental: use a zip that has been manually uploaded 
+		in the dist repo -->
+	<flow:flow name="org.argeo.tp.rap/org.argeo.tp.rap.addons_0.2.0"
+		parent="template.importRapAddonsZip">
+		<flow:arg name="rapBranch" value="2.2" />
+		<flow:arg name="rapVersion" value="0.2.0.20131212-1229" />
+	</flow:flow>
+
+	<flow:flow id="template.importRapAddonsZip" spec="rapVersion.spec"
+		abstract="true">
+		<bean class="org.argeo.slc.repo.osgi.ArchiveWrapper">
+			<property name="version" value="@{rapVersion}" />
+			<property name="mavenGroupIndexes" value="true" />
+			<property name="uri"
+				value="http://www.eclipse.org/downloads/rt/rap/@{rapBranch}/rap-addons-@{rapVersion}.zip" />
+			<property name="includes">
+				<map>
+					<entry key="plugins/*.jar" value="org.argeo.tp.rap.addons" />
+				</map>
+			</property>
+			<property name="osgiFactory">
+				<bean class="org.argeo.slc.repo.osgi.OsgiFactoryImpl"
+					init-method="init" destroy-method="destroy">
+					<property name="workspace" value="eclipse-rap-@{rapBranch}" />
+
+					<property name="nodeIndexers">
+						<list>
+							<bean class="org.argeo.slc.repo.ArtifactIndexer" />
+							<bean class="org.argeo.slc.repo.JarFileIndexer" />
+							<!-- Works with SLC 1.1.17+ <bean class="org.argeo.slc.repo.ModularDistributionIndexer" 
+								/> <bean class="org.argeo.slc.repo.PdeSourcesIndexer" /> -->
+						</list>
+					</property>
+					<property name="javaRepository" ref="javaRepository" />
+					<property name="distRepository" ref="distRepository" />
+				</bean>
+			</property>
+		</bean>
+	</flow:flow>
+
+
 	<!-- RAP 2.1 -->
 	<flow:flow name="org.argeo.tp.rap/org.argeo.tp.rap.platform_2.1.2"
 		parent="template.importRapZip">
@@ -87,6 +128,8 @@
 			</property>
 		</bean>
 	</flow:flow>
+
+
 
 
 	<!-- WORK IN PROGRESS add bundle from the incubator to the platform <flow:flow 
