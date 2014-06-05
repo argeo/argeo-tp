@@ -17,7 +17,15 @@
 				<ref bean="org.argeo.tp/org.slf4j" />
 				<ref bean="org.argeo.tp.apache.tomcat/org.apache.tomcat" />
 				<ref bean="org.argeo.tp/org.aopalliance" />
+				<ref bean="org.argeo.tp/org.aspectj" />
 				<ref bean="org.argeo.tp.spring/org.springframework" />
+				<ref bean="org.argeo.tp.apache.ant/org.apache.ant" />
+				<!-- Felix -->
+				<ref bean="org.apache.felix.framework" />
+				<ref bean="org.apache.felix.bundlerepository" />
+				<ref bean="org.apache.felix.gogo.command" />
+				<ref bean="org.apache.felix.gogo.runtime" />
+				<ref bean="org.apache.felix.gogo.shell" />
 			</list>
 		</property>
 	</bean>
@@ -65,6 +73,13 @@
 			</list>
 		</property>
 	</bean>
+
+	<flow:flow name="processDistribution">
+		<bean class="org.argeo.slc.repo.osgi.ProcessDistribution">
+			<property name="osgiDistribution" ref="org.argeo.tp" />
+			<property name="osgiFactory" ref="osgiFactory" />
+		</bean>
+	</flow:flow>
 
 	<!-- Specs and templates -->
 	<flow:spec id="spec.version">

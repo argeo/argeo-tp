@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.argeo.slc</groupId>
 		<artifactId>lib</artifactId>
-		<version>1.1.16</version>
+		<version>1.1.19-SNAPSHOT</version>
 	</parent>
 	<groupId>org.argeo.tp.slc</groupId>
 	<artifactId>org.argeo.tp.slc.factory</artifactId>
@@ -18,7 +18,35 @@
 				</includes>
 			</resource>
 		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.argeo.maven.plugins</groupId>
+				<artifactId>maven-argeo-osgi-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-descriptors</id>
+						<goals>
+							<goal>descriptors</goal>
+						</goals>
+						<phase>generate-resources</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.argeo.slc</groupId>
+			<artifactId>org.argeo.slc.repo</artifactId>
+			<version>${version.slc}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.argeo.slc</groupId>
+			<artifactId>org.argeo.slc.dep.rcp</artifactId>
+			<version>${version.slc}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 	<repositories>
 		<repository>
 			<id>argeo-slc</id>
