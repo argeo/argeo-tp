@@ -49,8 +49,8 @@
 						<list>
 							<bean class="org.argeo.slc.repo.ArtifactIndexer" />
 							<bean class="org.argeo.slc.repo.JarFileIndexer" />
-							<!-- Works with SLC 1.1.17+ <bean class="org.argeo.slc.repo.ModularDistributionIndexer" 
-								/> <bean class="org.argeo.slc.repo.PdeSourcesIndexer" /> -->
+							<bean class="org.argeo.slc.repo.ModularDistributionIndexer" />
+							<bean class="org.argeo.slc.repo.PdeSourcesIndexer" />
 						</list>
 					</property>
 					<property name="javaRepository" ref="javaRepository" />
@@ -118,8 +118,8 @@
 						<list>
 							<bean class="org.argeo.slc.repo.ArtifactIndexer" />
 							<bean class="org.argeo.slc.repo.JarFileIndexer" />
-							<!-- Works with SLC 1.1.17+ <bean class="org.argeo.slc.repo.ModularDistributionIndexer" 
-								/> <bean class="org.argeo.slc.repo.PdeSourcesIndexer" /> -->
+							<bean class="org.argeo.slc.repo.ModularDistributionIndexer" />
+							<bean class="org.argeo.slc.repo.PdeSourcesIndexer" />
 						</list>
 					</property>
 					<property name="javaRepository" ref="javaRepository" />

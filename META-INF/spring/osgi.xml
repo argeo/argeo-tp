@@ -10,7 +10,9 @@
 	<beans:import resource="classpath:org/argeo/slc/osgi/execution.xml" />
 
 	<!-- SERVICES -->
-	<service ref="osgiFactory" interface="org.argeo.slc.repo.OsgiFactory" />
+	<!-- <service ref="osgiFactory" interface="org.argeo.slc.repo.OsgiFactory" 
+		/> -->
+	<service ref="argeo-tp" interface="org.argeo.slc.repo.ArgeoOsgiDistribution" />
 
 	<!-- REFERENCES -->
 	<reference id="authenticationManager"

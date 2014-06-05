@@ -8,9 +8,9 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
 	<!-- REGISTER -->
-	<bean id="org.argeo.tp" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistribution"
+	<bean id="argeo-tp" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:org.argeo.tp:2.1.1" />
+		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.1" />
 		<property name="modules">
 			<list>
 				<ref bean="org.argeo.tp/org.apache.log4j" />
@@ -38,9 +38,8 @@
 			<list>
 				<bean class="org.argeo.slc.repo.ArtifactIndexer" />
 				<bean class="org.argeo.slc.repo.JarFileIndexer" />
-				<!--  Added by BSinou - To be checked -->
-				<!--  <bean class="org.argeo.slc.repo.ModularDistributionIndexer" />
-				<bean class="org.argeo.slc.repo.PdeSourcesIndexer" />  -->
+				<bean class="org.argeo.slc.repo.ModularDistributionIndexer" />
+				<bean class="org.argeo.slc.repo.PdeSourcesIndexer" />
 			</list>
 		</property>
 		<property name="mirrors">
@@ -64,6 +63,14 @@
 		<property name="distRepository" ref="distRepository" />
 	</bean>
 
+	<flow:flow name="processDistribution">
+		<bean class="org.argeo.slc.repo.osgi.ProcessDistribution">
+			<property name="osgiDistribution" ref="argeo-tp" />
+			<property name="osgiFactory" ref="osgiFactory" />
+		</bean>
+	</flow:flow>
+
+	<!-- Security -->
 	<bean
 		class="org.argeo.security.core.AuthenticatedApplicationContextInitialization">
 		<property name="authenticationManager" ref="authenticationManager" />
@@ -73,45 +80,4 @@
 			</list>
 		</property>
 	</bean>
-
-	<flow:flow name="processDistribution">
-		<bean class="org.argeo.slc.repo.osgi.ProcessDistribution">
-			<property name="osgiDistribution" ref="org.argeo.tp" />
-			<property name="osgiFactory" ref="osgiFactory" />
-		</bean>
-	</flow:flow>
-
-	<!-- Specs and templates -->
-	<flow:spec id="spec.version">
-		<flow:primitive name="version" isParameter="true" />
-	</flow:spec>
-
-	<bean id="template.archiveWrapper" class="org.argeo.slc.repo.osgi.ArchiveWrapper"
-		init-method="init" destroy-method="destroy" abstract="true">
-		<property name="version" value="@{version}" />
-		<property name="osgiFactory" ref="osgiFactory" />
-	</bean>
-
-	<!-- Must be a prototype since wrapper are stateful objects, properties 
-		such as version can be set by caller. -->
-	<bean id="template.bndWrapper" class="org.argeo.slc.repo.osgi.BndWrapper"
-		abstract="true" scope="prototype">
-		<property name="groupId" value="org.argeo.tp" />
-		<property name="bndProperties">
-			<props>
-				<prop key="Export-Package">*</prop>
-			</props>
-		</property>
-	</bean>
-	<bean id="template.mavenWrapper" class="org.argeo.slc.repo.osgi.MavenWrapper"
-		abstract="true" scope="prototype">
-		<property name="groupId" value="org.argeo.tp" />
-		<property name="bndProperties">
-			<props>
-				<prop key="Export-Package">*</prop>
-			</props>
-		</property>
-		<property name="osgiFactory" ref="osgiFactory" />
-	</bean>
-
 </beans>
