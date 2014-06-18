@@ -20,5 +20,8 @@
 	<!-- FACTORY -->
 	<bean id="template.javax" parent="template.bndWrapper" abstract="true">
 		<property name="groupId" value="org.argeo.tp.javax" />
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.CDDL" />
+		</property>
 	</bean>
 </beans>

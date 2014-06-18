@@ -66,6 +66,9 @@
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
 				value="http://archive.apache.org/dist/tomcat/tomcat-7/v@{version}/bin/apache-tomcat-@{version}.zip" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			</property>
 			<property name="wrappers">
 				<map>
 					<!-- Tomcat -->

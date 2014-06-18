@@ -18,10 +18,8 @@
 		<property name="osgiFactory" ref="osgiFactory" />
 	</bean>
 
-	<!-- Must be a prototype since wrapper are stateful objects, properties 
-		such as version can be set by caller. -->
 	<bean id="template.bndWrapper" class="org.argeo.slc.repo.osgi.BndWrapper"
-		abstract="true" scope="prototype">
+		abstract="true">
 		<property name="groupId" value="org.argeo.tp" />
 		<property name="bndProperties">
 			<props>
@@ -30,7 +28,7 @@
 		</property>
 	</bean>
 	<bean id="template.mavenWrapper" class="org.argeo.slc.repo.osgi.MavenWrapper"
-		abstract="true" scope="prototype">
+		abstract="true">
 		<property name="groupId" value="org.argeo.tp" />
 		<property name="bndProperties">
 			<props>

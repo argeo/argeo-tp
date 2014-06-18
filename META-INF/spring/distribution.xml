@@ -16,7 +16,7 @@
 				<ref bean="org.argeo.tp/org.apache.log4j" />
 				<ref bean="org.argeo.tp/org.slf4j" />
 				<ref bean="org.argeo.tp.apache.tomcat/org.apache.tomcat" />
-				<ref bean="org.argeo.tp/org.aopalliance" />
+				<ref bean="org.aopalliance" />
 				<ref bean="org.argeo.tp/org.aspectj" />
 				<ref bean="org.argeo.tp.spring/org.springframework" />
 				<ref bean="org.argeo.tp.apache.ant/org.apache.ant" />
@@ -36,10 +36,10 @@
 		<property name="workspace" value="argeo-tp-2.1" />
 		<property name="nodeIndexers">
 			<list>
-				<bean class="org.argeo.slc.repo.ArtifactIndexer" />
 				<bean class="org.argeo.slc.repo.JarFileIndexer" />
 				<bean class="org.argeo.slc.repo.ModularDistributionIndexer" />
 				<bean class="org.argeo.slc.repo.PdeSourcesIndexer" />
+				<bean class="org.argeo.slc.repo.ArtifactIndexer" />
 			</list>
 		</property>
 		<property name="mirrors">

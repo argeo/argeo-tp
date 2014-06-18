@@ -38,13 +38,12 @@
 	<bean id="org.slf4j.api" parent="template.org.slf4j" />
 	<bean id="org.slf4j.commons.logging" parent="template.org.slf4j" />
 
-	<bean id="org.aopalliance" p:version="1.0.0" 
-		p:sourceCoords="aopalliance:aopalliance:1.0" parent="template.mavenWrapper" />
-
-	<!-- AOP Alliance factory -->
-	<flow:flow name="org.argeo.tp/org.aopalliance">
-		<ref bean="org.aopalliance" />
-	</flow:flow>
+	<bean id="org.aopalliance" p:version="1.0.0" p:sourceCoords="aopalliance:aopalliance:1.0"
+		parent="template.mavenWrapper">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.PUBLIC_DOMAIN" />
+		</property>
+	</bean>
 
 	<!-- Eclipse Batch Compiler (ECJ) factory -->
 	<flow:flow name="org.argeo.tp/org.eclipse.jdt.core.compiler.batch"
@@ -69,6 +68,9 @@
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
 				value="http://archive.apache.org/dist/logging/log4j/@{version}/log4j-@{version}.zip" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			</property>
 			<property name="wrappers">
 				<map>
 					<entry key="apache-log4j-@{version}/log4j-@{version}.jar"
@@ -84,6 +86,9 @@
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
 				value="http://www.eclipse.org/downloads/tools/aspectj/aspectj-@{version}.jar" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
+			</property>
 			<property name="wrappers">
 				<map>
 					<entry key="lib/aspectjweaver.jar" value-ref="org.aspectj.weaver" />
@@ -103,6 +108,9 @@
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
 				value="http://www.slf4j.org/dist/slf4j-@{version}.zip" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.MIT" />
+			</property>
 			<property name="wrappers">
 				<map>
 					<entry key="slf4j-@{version}/slf4j-log4j12-@{version}.jar"
