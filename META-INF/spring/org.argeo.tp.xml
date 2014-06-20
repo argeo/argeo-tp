@@ -45,23 +45,6 @@
 		</property>
 	</bean>
 
-	<!-- Eclipse Batch Compiler (ECJ) factory -->
-	<flow:flow name="org.argeo.tp/org.eclipse.jdt.core.compiler.batch"
-		spec="spec.version">
-		<flow:arg name="version" value="4.3.1" />
-		<!-- <bean parent="template.archiveWrapper"> -->
-		<!-- <property name="uri" -->
-		<!-- value="http://archive.apache.org/dist/logging/log4j/@{version}/log4j-@{version}.zip" 
-			/> -->
-		<!-- <property name="wrappers"> -->
-		<!-- <map> -->
-		<!-- <entry key="plugins/ecj-.jar" -->
-		<!-- value-ref="org.eclipse.jdt.core.compiler.batch" /> -->
-		<!-- </map> -->
-		<!-- </property> -->
-		<!-- </bean> -->
-	</flow:flow>
-
 	<!-- Log4j12 Factory -->
 	<flow:flow name="org.argeo.tp/org.apache.log4j" spec="spec.version">
 		<flow:arg name="version" value="1.2.17" />
@@ -76,6 +59,14 @@
 					<entry key="apache-log4j-@{version}/log4j-@{version}.jar"
 						value-ref="org.apache.log4j" />
 				</map>
+			</property>
+			<property name="sourcesProvider">
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="uri"
+						value="http://archive.apache.org/dist/logging/log4j/@{version}/log4j-@{version}.zip" />
+					<property name="base" value="apache-log4j-@{version}/src/main/java/" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
 			</property>
 		</bean>
 	</flow:flow>

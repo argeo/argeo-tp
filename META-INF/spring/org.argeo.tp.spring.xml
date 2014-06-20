@@ -141,6 +141,9 @@
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
 				value="http://repo.springsource.org/libs-release-local/org/springframework/spring/@{version}.RELEASE/spring-framework-@{version}.RELEASE-dist.zip" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			</property>
 			<property name="wrappers">
 				<map>
 					<entry

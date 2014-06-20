@@ -95,6 +95,14 @@
 						value-ref="javax.servlet" />
 				</map>
 			</property>
+			<property name="sourcesProvider">
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="uri"
+						value="http://archive.apache.org/dist/tomcat/tomcat-7/v@{version}/src/apache-tomcat-@{version}-src.zip" />
+					<property name="base" value="apache-tomcat-@{version}-src/java/" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
+			</property>
 		</bean>
 	</flow:flow>
 

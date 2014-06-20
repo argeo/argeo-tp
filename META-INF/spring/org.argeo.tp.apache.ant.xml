@@ -17,17 +17,29 @@
 		<property name="groupId" value="org.argeo.tp.apache.ant" />
 	</bean>
 
-	<flow:flow name="org.argeo.tp.apache.ant/org.apache.ant" spec="spec.version">
+	<flow:flow name="org.argeo.tp.apache.ant/org.apache.ant"
+		spec="spec.version">
 		<flow:arg name="version" value="1.9.2" />
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
 				value="http://archive.apache.org/dist/ant/binaries/apache-ant-@{version}-bin.zip" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			</property>
 			<property name="wrappers">
 				<map>
 					<entry key="apache-ant-@{version}/lib/ant.jar" value-ref="org.apache.ant" />
 					<entry key="apache-ant-@{version}/lib/ant-launcher.jar"
 						value-ref="org.apache.ant.launch" />
 				</map>
+			</property>
+			<property name="sourcesProvider">
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="uri"
+						value="http://archive.apache.org/dist/ant/source/apache-ant-@{version}-src.zip" />
+					<property name="base" value="apache-ant-@{version}/src/main/" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
 			</property>
 		</bean>
 	</flow:flow>

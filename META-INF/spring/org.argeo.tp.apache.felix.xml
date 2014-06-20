@@ -25,11 +25,15 @@
 	</bean>
 
 	<!-- FACTORY -->
+	<!-- TODO sources -->
 	<bean id="template.org.apache.felix" class="org.argeo.slc.repo.osgi.UriWrapper"
 		abstract="true">
 		<property name="baseUri" value="http://archive.apache.org/dist/felix" />
 		<property name="groupId" value="org.argeo.tp.apache.felix" />
 		<property name="doNotModify" value="true" />
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
 		<property name="osgiFactory" ref="osgiFactory" />
 	</bean>
 </beans>
