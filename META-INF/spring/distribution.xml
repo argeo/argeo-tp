@@ -36,9 +36,9 @@
 		<property name="workspace" value="argeo-tp-2.1" />
 		<property name="nodeIndexers">
 			<list>
-				<bean class="org.argeo.slc.repo.JarFileIndexer" />
 				<bean class="org.argeo.slc.repo.ModularDistributionIndexer" />
 				<bean class="org.argeo.slc.repo.PdeSourcesIndexer" />
+				<bean class="org.argeo.slc.repo.JarFileIndexer" />
 				<bean class="org.argeo.slc.repo.ArtifactIndexer" />
 			</list>
 		</property>
