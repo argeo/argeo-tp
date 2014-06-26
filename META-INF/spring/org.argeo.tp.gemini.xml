@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+	<!-- REGISTER -->
+	<!-- Gemini Blueprint -->
+	<bean id="org.eclipse.gemini.blueprint.core" parent="template.gemini" />
+	<bean id="org.eclipse.gemini.blueprint.extender" parent="template.gemini" />
+	<bean id="org.eclipse.gemini.blueprint.io" parent="template.gemini" />
+
+	<!-- Gemini Web -->
+	<!-- <flow:flow name="org.argeo.tp.gemini/org.gemini.web" -->
+	<!-- spec="spec.version"> -->
+	<!-- <flow:arg name="version" value="2.2.2.RELEASE" /> -->
+	<!-- <bean id="org.eclipse.gemini.web.core" parent="template.geminiMaven" -->
+	<!-- p:version="@{version}" p:sourceCoords="org.eclipse.gemini:org.eclipse.gemini.web.core:@{version}" 
+		/> -->
+	<!-- <bean id="org.eclipse.gemini.web.extender" parent="template.geminiMaven" -->
+	<!-- p:version="@{version}" -->
+	<!-- p:sourceCoords="org.eclipse.gemini:org.eclipse.gemini.web.extender:@{version}" 
+		/> -->
+	<!-- <bean id="org.eclipse.gemini.web.tomcat" parent="template.geminiMaven" -->
+	<!-- p:version="@{version}" -->
+	<!-- p:sourceCoords="org.eclipse.gemini:org.eclipse.gemini.web.tomcat:@{version}" 
+		/> -->
+	<!-- </flow:flow> -->
+
+	<bean id="org.eclipse.gemini.web.core" parent="template.geminiMaven"
+		p:version="2.2.2.RELEASE" p:sourceCoords="org.eclipse.gemini:org.eclipse.gemini.web.core" />
+	<bean id="org.eclipse.gemini.web.extender" parent="template.geminiMaven"
+		p:version="2.2.2.RELEASE" p:sourceCoords="org.eclipse.gemini:org.eclipse.gemini.web.extender" />
+	<bean id="org.eclipse.gemini.web.tomcat" parent="template.geminiMaven"
+		p:version="2.2.2.RELEASE" p:sourceCoords="org.eclipse.gemini:org.eclipse.gemini.web.tomcat" />
+
+
+	<!-- FACTORY -->
+	<bean id="template.gemini" parent="template.bndWrapper" abstract="true">
+		<property name="groupId" value="org.argeo.tp.gemini" />
+		<property name="doNotModify" value="true" />
+	</bean>
+
+	<bean id="template.geminiMaven" parent="template.mavenWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.gemini" />
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
+		</property>
+		<property name="doNotModify" value="true" />
+	</bean>
+
+	<!-- Gemini Blueprint -->
+	<flow:flow name="org.argeo.tp.gemini/org.gemini.blueprint"
+		spec="spec.version">
+		<flow:arg name="version" value="1.0.2.RELEASE" />
+		<bean parent="template.archiveWrapper">
+			<property name="uri"
+				value="http://www.eclipse.org/downloads/blueprint/gemini-blueprint-@{version}.zip" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
+			</property>
+			<property name="wrappers">
+				<map>
+					<entry
+						key="gemini-blueprint-1.0.2.RELEASE/dist/gemini-blueprint-core-@{version}.jar"
+						value-ref="org.eclipse.gemini.blueprint.core" />
+					<entry
+						key="gemini-blueprint-1.0.2.RELEASE/dist/gemini-blueprint-extender-@{version}.jar"
+						value-ref="org.eclipse.gemini.blueprint.extender" />
+					<entry
+						key="gemini-blueprint-1.0.2.RELEASE/dist/gemini-blueprint-io-@{version}.jar"
+						value-ref="org.eclipse.gemini.blueprint.io" />
+				</map>
+			</property>
+		</bean>
+	</flow:flow>
+
+</beans>

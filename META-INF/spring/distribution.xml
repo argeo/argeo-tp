@@ -26,6 +26,12 @@
 				<ref bean="org.apache.felix.gogo.command" />
 				<ref bean="org.apache.felix.gogo.runtime" />
 				<ref bean="org.apache.felix.gogo.shell" />
+				<!-- Gemini -->
+				<ref bean="org.argeo.tp.gemini/org.gemini.blueprint" />
+				<!-- <ref bean="org.argeo.tp.gemini/org.gemini.web" /> -->
+				<ref bean="org.eclipse.gemini.web.core" />
+				<ref bean="org.eclipse.gemini.web.extender" />
+				<ref bean="org.eclipse.gemini.web.tomcat" />
 			</list>
 		</property>
 	</bean>
@@ -58,6 +64,12 @@
 					</list>
 				</entry>
 			</map>
+		</property>
+		<property name="mavenRepositories">
+			<list>
+				<value>http://repo1.maven.org/maven2/</value>
+				<value>http://download.eclipse.org/gemini/mvn/</value>
+			</list>
 		</property>
 		<property name="javaRepository" ref="javaRepository" />
 		<property name="distRepository" ref="distRepository" />
