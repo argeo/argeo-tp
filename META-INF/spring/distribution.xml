@@ -10,16 +10,19 @@
 	<!-- REGISTER -->
 	<bean id="argeo-tp" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.1" />
+		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.2" />
 		<property name="modules">
 			<list>
 				<ref bean="org.argeo.tp/org.apache.log4j" />
 				<ref bean="org.argeo.tp/org.slf4j" />
 				<ref bean="org.argeo.tp.apache.tomcat/org.apache.tomcat" />
 				<ref bean="org.aopalliance" />
+				<ref bean="org.junit" />
 				<ref bean="org.argeo.tp/org.aspectj" />
 				<ref bean="org.argeo.tp.spring/org.springframework" />
 				<ref bean="org.argeo.tp.apache.ant/org.apache.ant" />
+				<ref bean="org.argeo.tp.apache.commons/org.apache.commons.io" />
+				<ref bean="org.argeo.tp.apache.commons/org.apache.commons.fileupload" />
 				<!-- Felix -->
 				<ref bean="org.apache.felix.framework" />
 				<ref bean="org.apache.felix.bundlerepository" />
@@ -32,6 +35,8 @@
 				<ref bean="org.eclipse.gemini.web.core" />
 				<ref bean="org.eclipse.gemini.web.extender" />
 				<ref bean="org.eclipse.gemini.web.tomcat" />
+				<!-- Jackrabbit -->
+				<ref bean="org.argeo.tp.javax/javax.jcr" />
 			</list>
 		</property>
 	</bean>

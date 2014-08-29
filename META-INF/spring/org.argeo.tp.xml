@@ -45,6 +45,13 @@
 		</property>
 	</bean>
 
+	<bean id="org.junit" p:version="4.11.0" p:sourceCoords="junit:junit:4.11"
+		parent="template.mavenWrapper">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
+		</property>
+	</bean>
+
 	<!-- Log4j12 Factory -->
 	<flow:flow name="org.argeo.tp/org.apache.log4j" spec="spec.version">
 		<flow:arg name="version" value="1.2.17" />

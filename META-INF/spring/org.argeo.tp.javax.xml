@@ -17,6 +17,10 @@
 		p:version="1.0.0" p:groupId="org.argeo.tp.javax" p:sourceCoords="javax.inject:javax.inject:1"
 		parent="template.mavenWrapper" />
 
+	<bean id="javax.jcr" flow:as-flow="org.argeo.tp.javax/javax.jcr"
+		p:version="2.0.0" p:groupId="org.argeo.tp.javax" p:sourceCoords="javax.jcr:jcr:2.0"
+		parent="template.mavenWrapper" />
+
 	<!-- FACTORY -->
 	<bean id="template.javax" parent="template.bndWrapper" abstract="true">
 		<property name="groupId" value="org.argeo.tp.javax" />

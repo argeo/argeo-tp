@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+	<!-- REGISTER -->
+	<bean id="org.apache.commons.io" parent="template.org.apache.commons" />
+	<bean id="org.apache.commons.fileupload" parent="template.org.apache.commons" />
+
+	<!-- Ant Factory -->
+	<bean id="template.org.apache.commons" parent="template.bndWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.apache.commons" />
+	</bean>
+
+	<flow:flow name="org.argeo.tp.apache.commons/org.apache.commons.io"
+		spec="spec.version">
+		<flow:arg name="version" value="2.4" />
+		<bean parent="template.archiveWrapper">
+			<property name="uri"
+				value="http://archive.apache.org/dist/commons/io/binaries/commons-io-@{version}-bin.zip" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			</property>
+			<property name="wrappers">
+				<map>
+					<entry key="commons-io-@{version}/commons-io-@{version}.jar"
+						value-ref="org.apache.commons.io" />
+				</map>
+			</property>
+		</bean>
+	</flow:flow>
+
+	<flow:flow name="org.argeo.tp.apache.commons/org.apache.commons.fileupload"
+		spec="spec.version">
+		<flow:arg name="version" value="1.3.1" />
+		<bean parent="template.archiveWrapper">
+			<property name="uri"
+				value="http://archive.apache.org/dist/commons/fileupload/binaries/commons-fileupload-@{version}-bin.zip" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			</property>
+			<property name="wrappers">
+				<map>
+					<entry
+						key="commons-fileupload-@{version}-bin/lib/commons-fileupload-@{version}.jar"
+						value-ref="org.apache.commons.fileupload" />
+				</map>
+			</property>
+			<property name="sourcesProvider">
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="uri"
+						value="http://archive.apache.org/dist/commons/fileupload/source/commons-fileupload-@{version}-src.zip" />
+					<property name="base"
+						value="commons-fileupload-@{version}-src/src/main/java/" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
+			</property>
+		</bean>
+	</flow:flow>
+
+</beans>
