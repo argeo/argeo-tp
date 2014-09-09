@@ -7,11 +7,11 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
-	<!-- RAP 2.2 -->
-	<flow:flow name="org.argeo.tp.eclipse.ide/org.argeo.tp.eclipse.ide_4.2.2"
+	<!-- RCP 3.8 -->
+	<flow:flow name="org.argeo.tp.eclipse.ide/org.argeo.tp.eclipse.ide_3.8.2"
 		parent="template.eclipseIde">
-		<flow:arg name="version" value="4.2.2" />
-		<flow:arg name="release" value="R-4.2.2-201302041200" />
+		<flow:arg name="version" value="3.8.2" />
+		<flow:arg name="release" value="R-3.8.2-201301310800" />
 	</flow:flow>
 
 	<!-- RAP specs and templates -->
@@ -43,7 +43,7 @@
 			<property name="version" value="@{version}" />
 			<property name="mavenGroupIndexes" value="true" />
 			<property name="uri"
-				value="http://www.eclipse.org/downloads/eclipse/downloads/drops4/@{release}/org.eclipse.rcp.source-@{version}.zip" />
+				value="http://www.eclipse.org/downloads/eclipse/downloads/drops/@{release}/org.eclipse.rcp.source-@{version}.zip" />
 			<property name="includes">
 				<map>
 					<entry key="plugins/*.jar" value="org.argeo.tp.rcp.platform" />
@@ -55,7 +55,7 @@
 
 	<bean id="osgiFactory.eclipseIde" class="org.argeo.slc.repo.osgi.OsgiFactoryImpl"
 		init-method="init" destroy-method="destroy">
-		<property name="workspace" value="eclipse-ide-4.2" />
+		<property name="workspace" value="eclipse-ide-3.8" />
 		<property name="mirrors">
 			<map>
 				<entry key="http://www.eclipse.org/downloads">
