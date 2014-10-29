@@ -22,6 +22,12 @@
 
 	<!-- RAP ADDONS - experimental: use a zip that has been manually uploaded 
 		in the dist repo -->
+	<flow:flow name="org.argeo.tp.rap/org.argeo.tp.rap.addons_0.5.0"
+		parent="template.importRapAddonsZip">
+		<flow:arg name="rapBranch" value="2.2" />
+		<flow:arg name="rapVersion" value="0.5.0.argeo.20141029" />
+	</flow:flow>
+
 	<flow:flow name="org.argeo.tp.rap/org.argeo.tp.rap.addons_0.2.0"
 		parent="template.importRapAddonsZip">
 		<flow:arg name="rapBranch" value="2.2" />
