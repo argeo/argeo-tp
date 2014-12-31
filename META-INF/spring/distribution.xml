@@ -15,7 +15,7 @@
 			<list>
 				<ref bean="org.argeo.tp/org.apache.log4j" />
 				<ref bean="org.argeo.tp/org.slf4j" />
-				<ref bean="org.argeo.tp.apache.tomcat/org.apache.tomcat" />
+<!-- 				<ref bean="org.argeo.tp.apache.tomcat/org.apache.tomcat" /> -->
 				<ref bean="org.aopalliance" />
 				<ref bean="org.junit" />
 				<ref bean="org.argeo.tp/org.aspectj" />
@@ -24,17 +24,19 @@
 				<ref bean="org.argeo.tp.apache.commons/org.apache.commons.io" />
 				<ref bean="org.argeo.tp.apache.commons/org.apache.commons.fileupload" />
 				<!-- Felix -->
-				<ref bean="org.apache.felix.framework" />
-				<ref bean="org.apache.felix.bundlerepository" />
-				<ref bean="org.apache.felix.gogo.command" />
-				<ref bean="org.apache.felix.gogo.runtime" />
-				<ref bean="org.apache.felix.gogo.shell" />
-				<!-- Gemini -->
-				<ref bean="org.argeo.tp.gemini/org.gemini.blueprint" />
+				<!-- <ref bean="org.apache.felix.framework" /> -->
+				<!-- <ref bean="org.apache.felix.bundlerepository" /> -->
+				<!-- <ref bean="org.apache.felix.gogo.command" /> -->
+				<!-- <ref bean="org.apache.felix.gogo.runtime" /> -->
+				<!-- <ref bean="org.apache.felix.gogo.shell" /> -->
+				<!-- Eclipse -->
+				<ref bean="org.argeo.tp.eclipse/org.argeo.tp.jetty" />
+				<ref bean="org.argeo.tp.eclipse/org.argeo.tp.equinox" />
+				<ref bean="org.argeo.tp.eclipse/org.argeo.tp.gemini" />
 				<!-- <ref bean="org.argeo.tp.gemini/org.gemini.web" /> -->
-				<ref bean="org.eclipse.gemini.web.core" />
-				<ref bean="org.eclipse.gemini.web.extender" />
-				<ref bean="org.eclipse.gemini.web.tomcat" />
+				<!-- <ref bean="org.eclipse.gemini.web.core" /> -->
+				<!-- <ref bean="org.eclipse.gemini.web.extender" /> -->
+				<!-- <ref bean="org.eclipse.gemini.web.tomcat" /> -->
 				<!-- Jackrabbit -->
 				<ref bean="org.argeo.tp.javax/javax.jcr" />
 			</list>
@@ -57,7 +59,7 @@
 			<map>
 				<entry key="http://archive.apache.org/dist">
 					<list>
-						<value>http://mirror.derwebwolf.net/apache</value>
+						<value>http://mirror.netcologne.de/apache.org</value>
 						<value>http://archive.apache.org/dist</value>
 					</list>
 				</entry>

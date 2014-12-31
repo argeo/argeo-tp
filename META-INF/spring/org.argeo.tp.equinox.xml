@@ -7,25 +7,17 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
-	<!-- REGISTER -->
-	<bean id="org.eclipse.osgi" parent="template.org.eclipse.osgi" />
-
-	<!-- FACTORY -->
-	<bean id="template.org.eclipse.osgi" parent="template.bndWrapper"
-		abstract="true">
-		<property name="groupId" value="org.argeo.tp.equinox" />
-	</bean>
-
-	<!-- Equinox Kepler SR1 (3.9.1) -->
-	<flow:flow name="org.argeo.tp.equinox/org.argeo.tp.equinox_KeplerSR1"
+	<!-- Equinox Kepler SR2 (3.9.1) -->
+	<flow:flow name="org.argeo.tp.eclipse/org.argeo.tp.equinox"
 		parent="template.importEquinox">
-		<flow:arg name="equinoxRelease" value="KeplerSR1" />
-		<flow:arg name="equinoxTimestamp" value="201309111000" />
+		<!-- <flow:arg name="version" value="3.9.1" /> -->
+		<flow:arg name="equinoxRelease" value="KeplerSR2" />
+		<flow:arg name="equinoxTimestamp" value="201402211700" />
 	</flow:flow>
 
-
-	<!-- RAP specs and templates -->
+	<!-- Equinox specs and templates -->
 	<flow:spec id="equinoxVersion.spec">
+		<!-- <flow:primitive name="version" isParameter="true" /> -->
 		<flow:primitive name="equinoxRelease" isParameter="true" />
 		<flow:primitive name="equinoxTimestamp" isParameter="true" />
 	</flow:spec>
@@ -35,17 +27,14 @@
 		<bean class="org.argeo.slc.repo.osgi.ArchiveWrapper">
 			<property name="uri"
 				value="http://www.eclipse.org/downloads/equinox/drops/R-@{equinoxRelease}-@{equinoxTimestamp}/equinox-SDK-@{equinoxRelease}.zip" />
-			<property name="wrappers">
+			<property name="includes">
 				<map>
-					<!-- Tomcat -->
-					<entry key="plugins/org.eclipse.osgi_*.jar" value-ref="org.eclipse.osgi" />
+					<entry key="plugins/org.eclipse.osgi_*.jar" value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.osgi.*.jar" value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.osgi.equinox.security_*.jar"
+						value="org.argeo.tp.equinox" />
 				</map>
 			</property>
-			<!-- <property name="includes"> -->
-			<!-- <map> -->
-			<!-- <entry key="plugins/*.jar" value="org.argeo.tp.equinox" /> -->
-			<!-- </map> -->
-			<!-- </property> -->
 			<property name="osgiFactory" ref="osgiFactory" />
 		</bean>
 	</flow:flow>

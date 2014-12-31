@@ -54,7 +54,7 @@
 	</bean>
 
 	<!-- Gemini Blueprint -->
-	<flow:flow name="org.argeo.tp.gemini/org.gemini.blueprint"
+	<flow:flow name="org.argeo.tp.eclipse/org.argeo.tp.gemini"
 		spec="spec.version">
 		<flow:arg name="version" value="1.0.2.RELEASE" />
 		<bean parent="template.archiveWrapper">
@@ -66,13 +66,13 @@
 			<property name="wrappers">
 				<map>
 					<entry
-						key="gemini-blueprint-1.0.2.RELEASE/dist/gemini-blueprint-core-@{version}.jar"
+						key="gemini-blueprint-@{version}/dist/gemini-blueprint-core-@{version}.jar"
 						value-ref="org.eclipse.gemini.blueprint.core" />
 					<entry
-						key="gemini-blueprint-1.0.2.RELEASE/dist/gemini-blueprint-extender-@{version}.jar"
+						key="gemini-blueprint-@{version}/dist/gemini-blueprint-extender-@{version}.jar"
 						value-ref="org.eclipse.gemini.blueprint.extender" />
 					<entry
-						key="gemini-blueprint-1.0.2.RELEASE/dist/gemini-blueprint-io-@{version}.jar"
+						key="gemini-blueprint-@{version}/dist/gemini-blueprint-io-@{version}.jar"
 						value-ref="org.eclipse.gemini.blueprint.io" />
 				</map>
 			</property>

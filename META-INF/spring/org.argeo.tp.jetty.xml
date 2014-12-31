@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
+
+	<flow:flow name="org.argeo.tp.eclipse/org.argeo.tp.jetty"
+		parent="template.importJettyZip">
+		<flow:arg name="jettyVersion" value="8.1.16.v20140903" />
+	</flow:flow>
+
+	<!-- Jetty specs and templates -->
+	<flow:spec id="jettyVersion.spec">
+		<flow:primitive name="jettyVersion" isParameter="true" />
+	</flow:spec>
+
+	<flow:flow id="template.importJettyZip" spec="jettyVersion.spec"
+		abstract="true">
+		<bean class="org.argeo.slc.repo.osgi.ArchiveWrapper">
+			<property name="uri"
+				value="http://www.eclipse.org/downloads/jetty/@{jettyVersion}/dist/jetty-distribution-@{jettyVersion}.zip" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			</property>
+			<property name="includes">
+				<map>
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-*.jar"
+						value="org.argeo.tp.jetty" />
+					<entry key="jetty-distribution-@{jettyVersion}/lib/servlet-api-*.jar"
+						value="org.argeo.tp.javax" />
+				</map>
+			</property>
+			<property name="excludes">
+				<list>
+					<value><![CDATA[jetty-distribution-@{jettyVersion}/lib/jetty-overlay-deployer-*.jar]]></value>
+				</list>
+			</property>
+			<property name="sourcesProvider">
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="uri"
+						value="http://repo1.maven.org/maven2/org/eclipse/jetty/aggregate/jetty-all/@{jettyVersion}/jetty-all-@{jettyVersion}-sources.jar" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
+			</property>
+			<property name="osgiFactory" ref="osgiFactory" />
+		</bean>
+	</flow:flow>
+
+</beans>
