@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+	<flow:flow name="apache/org.apache.lucene" spec="spec.version">
+		<flow:arg name="version" value="3.6.2" />
+		<bean id="org.apache.lucene" parent="template.apacheMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.lucene:lucene-core:@{version}" />
+	</flow:flow>
+
+	<flow:flow name="apache/org.apache.tika" spec="spec.version">
+		<flow:arg name="version" value="1.6" />
+		<bean id="org.apache.tika.core" parent="template.tikaMaven"
+			p:sourceCoords="org.apache.tika:tika-core:@{version}" />
+		<bean id="org.apache.tika.parser" parent="template.tikaMaven"
+			p:sourceCoords="org.apache.tika:tika-core:@{version}" />
+	</flow:flow>
+
+	<bean id="org.apache.log4j" p:groupId="org.argeo.tp.apache"
+		parent="template.bndWrapper">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					*,
+					com.ibm.uvm.tools;resolution:=optional,
+					com.sun.jdmk.comm;resolution:=optional,
+					javax.jmdns;resolution:=optional,
+					javax.jms;resolution:=optional,
+					javax.mail;resolution:=optional,
+					javax.mail.internet;resolution:=optional,
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Log4j12 Factory -->
+	<flow:flow name="apache/org.apache.log4j" spec="spec.version">
+		<flow:arg name="version" value="1.2.17" />
+		<bean parent="template.archiveWrapper">
+			<property name="uri"
+				value="http://archive.apache.org/dist/logging/log4j/@{version}/log4j-@{version}.zip" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			</property>
+			<property name="wrappers">
+				<map>
+					<entry key="apache-log4j-@{version}/log4j-@{version}.jar"
+						value-ref="org.apache.log4j" />
+				</map>
+			</property>
+			<property name="sourcesProvider">
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="uri"
+						value="http://archive.apache.org/dist/logging/log4j/@{version}/log4j-@{version}.zip" />
+					<property name="base" value="apache-log4j-@{version}/src/main/java/" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
+			</property>
+		</bean>
+	</flow:flow>
+
+
+	<!-- Templates -->
+	<bean id="template.apacheMaven" parent="template.mavenWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.apache" />
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+	</bean>
+
+	<bean id="template.tikaMaven" parent="template.apacheMaven"
+		abstract="true">
+		<property name="version" value="@{version}.0" />
+		<property name="doNotModify" value="true" />
+	</bean>
+</beans>

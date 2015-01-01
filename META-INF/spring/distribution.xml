@@ -13,12 +13,13 @@
 		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.2" />
 		<property name="modules">
 			<list>
-				<ref bean="misc/org.apache.log4j" />
+				<ref bean="apache/org.apache.log4j" />
 				<ref bean="misc/org.slf4j" />
 				<!-- <ref bean="apache.tomcat/org.apache.tomcat" /> -->
 				<ref bean="org.aopalliance" />
 				<ref bean="org.junit" />
 				<ref bean="misc/org.aspectj" />
+				<ref bean="misc/org.bouncycastle" />
 				<ref bean="spring/org.springframework" />
 				<ref bean="spring/org.springframework.security" />
 				<ref bean="apache/org.apache.ant" />
@@ -45,6 +46,8 @@
 				<!-- <ref bean="org.eclipse.gemini.web.tomcat" /> -->
 				<!-- Jackrabbit -->
 				<ref bean="javax/javax.jcr" />
+				<ref bean="apache/org.apache.tika" />
+				<ref bean="apache/org.apache.lucene" />
 				<ref bean="apache/org.apache.jackrabbit" />
 			</list>
 		</property>

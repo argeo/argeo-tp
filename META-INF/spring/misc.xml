@@ -18,22 +18,6 @@
 			</props>
 		</property>
 	</bean>
-	<bean id="org.apache.log4j" p:groupId="org.argeo.tp.apache"
-		parent="template.bndWrapper">
-		<property name="bndProperties">
-			<props merge="true">
-				<prop key="Import-Package">
-					*,
-					com.ibm.uvm.tools;resolution:=optional,
-					com.sun.jdmk.comm;resolution:=optional,
-					javax.jmdns;resolution:=optional,
-					javax.jms;resolution:=optional,
-					javax.mail;resolution:=optional,
-					javax.mail.internet;resolution:=optional,
-				</prop>
-			</props>
-		</property>
-	</bean>
 	<bean id="org.slf4j.log4j12" parent="template.org.slf4j" />
 	<bean id="org.slf4j.api" parent="template.org.slf4j" />
 	<bean id="org.slf4j.commons.logging" parent="template.org.slf4j" />
@@ -51,32 +35,6 @@
 			<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
 		</property>
 	</bean>
-
-	<!-- Log4j12 Factory -->
-	<flow:flow name="misc/org.apache.log4j" spec="spec.version">
-		<flow:arg name="version" value="1.2.17" />
-		<bean parent="template.archiveWrapper">
-			<property name="uri"
-				value="http://archive.apache.org/dist/logging/log4j/@{version}/log4j-@{version}.zip" />
-			<property name="license">
-				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
-			</property>
-			<property name="wrappers">
-				<map>
-					<entry key="apache-log4j-@{version}/log4j-@{version}.jar"
-						value-ref="org.apache.log4j" />
-				</map>
-			</property>
-			<property name="sourcesProvider">
-				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
-					<property name="uri"
-						value="http://archive.apache.org/dist/logging/log4j/@{version}/log4j-@{version}.zip" />
-					<property name="base" value="apache-log4j-@{version}/src/main/java/" />
-					<property name="osgiFactory" ref="osgiFactory" />
-				</bean>
-			</property>
-		</bean>
-	</flow:flow>
 
 	<!-- AspectJ Factory -->
 	<flow:flow name="misc/org.aspectj" spec="spec.version">
