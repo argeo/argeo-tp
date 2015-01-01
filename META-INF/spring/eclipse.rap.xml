@@ -8,13 +8,13 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
 	<!-- RAP 2.2 -->
-	<flow:flow name="org.argeo.tp.rap/org.argeo.tp.rap.platform_2.2.0"
+	<flow:flow name="eclipse/org.argeo.tp.rap.platform_2.2.0"
 		parent="template.importRapZip">
 		<flow:arg name="rapBranch" value="2.2" />
 		<flow:arg name="rapVersion" value="2.2.0-R-20131204-0942" />
 	</flow:flow>
 
-	<flow:flow name="org.argeo.tp.rap/org.argeo.tp.rap.platform_2.2.0-M1"
+	<flow:flow name="eclipse/org.argeo.tp.rap.platform_2.2.0-M1"
 		parent="template.importRapZip">
 		<flow:arg name="rapBranch" value="2.2" />
 		<flow:arg name="rapVersion" value="2.2.0-M1-20130821-1618" />
@@ -22,13 +22,13 @@
 
 	<!-- RAP ADDONS - experimental: use a zip that has been manually uploaded 
 		in the dist repo -->
-	<flow:flow name="org.argeo.tp.rap/org.argeo.tp.rap.addons_0.5.0"
+	<flow:flow name="eclipse/org.argeo.tp.rap.addons_0.5.0"
 		parent="template.importRapAddonsZip">
 		<flow:arg name="rapBranch" value="2.2" />
 		<flow:arg name="rapVersion" value="0.5.0.argeo.20141029" />
 	</flow:flow>
 
-	<flow:flow name="org.argeo.tp.rap/org.argeo.tp.rap.addons_0.2.0"
+	<flow:flow name="eclipse/org.argeo.tp.rap.addons_0.2.0"
 		parent="template.importRapAddonsZip">
 		<flow:arg name="rapBranch" value="2.2" />
 		<flow:arg name="rapVersion" value="0.2.0.20131212-1229" />
@@ -68,19 +68,19 @@
 
 
 	<!-- RAP 2.1 -->
-	<flow:flow name="org.argeo.tp.rap/org.argeo.tp.rap.platform_2.1.2"
+	<flow:flow name="eclipse/org.argeo.tp.rap.platform_2.1.2"
 		parent="template.importRapZip">
 		<flow:arg name="rapBranch" value="2.1" />
 		<flow:arg name="rapVersion" value="2.1.2-R-20140210-0628" />
 	</flow:flow>
 
-	<flow:flow name="org.argeo.tp.rap/org.argeo.tp.rap.platform_2.1.0-R"
+	<flow:flow name="eclipse/org.argeo.tp.rap.platform_2.1.0-R"
 		parent="template.importRapZip">
 		<flow:arg name="rapBranch" value="2.1" />
 		<flow:arg name="rapVersion" value="2.1.0-R-20130611-2139" />
 	</flow:flow>
 
-	<flow:flow name="org.argeo.tp.rap/org.argeo.tp.rap.platform_2.1.0-M1"
+	<flow:flow name="eclipse/org.argeo.tp.rap.platform_2.1.0-M1"
 		parent="template.importRapZip">
 		<flow:arg name="rapBranch" value="2.1" />
 		<flow:arg name="rapVersion" value="2.1.0-M1-20130318-2137" />

@@ -13,22 +13,22 @@
 		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.2" />
 		<property name="modules">
 			<list>
-				<ref bean="org.argeo.tp/org.apache.log4j" />
-				<ref bean="org.argeo.tp/org.slf4j" />
-				<!-- <ref bean="org.argeo.tp.apache.tomcat/org.apache.tomcat" /> -->
+				<ref bean="misc/org.apache.log4j" />
+				<ref bean="misc/org.slf4j" />
+				<!-- <ref bean="apache.tomcat/org.apache.tomcat" /> -->
 				<ref bean="org.aopalliance" />
 				<ref bean="org.junit" />
-				<ref bean="org.argeo.tp/org.aspectj" />
-				<ref bean="org.argeo.tp.spring/org.springframework" />
-				<ref bean="org.argeo.tp.spring/org.springframework.security" />
-				<ref bean="org.argeo.tp.apache/org.apache.ant" />
-				<ref bean="org.argeo.tp.apache/org.apache.commons.io" />
-				<ref bean="org.argeo.tp.apache/org.apache.commons.fileupload" />
-				<ref bean="org.argeo.tp.apache/org.apache.commons.collections" />
-				<ref bean="org.argeo.tp.apache/org.apache.commons.dbcp" />
-				<ref bean="org.argeo.tp.apache/org.apache.commons.pool" />
-				<ref bean="org.argeo.tp.apache/org.apache.commons.codec" />
-				<ref bean="org.argeo.tp.apache/org.apache.commons.httpclient" />
+				<ref bean="misc/org.aspectj" />
+				<ref bean="spring/org.springframework" />
+				<ref bean="spring/org.springframework.security" />
+				<ref bean="apache/org.apache.ant" />
+				<ref bean="apache/org.apache.commons.io" />
+				<ref bean="apache/org.apache.commons.fileupload" />
+				<ref bean="apache/org.apache.commons.collections" />
+				<ref bean="apache/org.apache.commons.dbcp" />
+				<ref bean="apache/org.apache.commons.pool" />
+				<ref bean="apache/org.apache.commons.codec" />
+				<ref bean="apache/org.apache.commons.httpclient" />
 				<!-- Felix -->
 				<!-- <ref bean="org.apache.felix.framework" /> -->
 				<!-- <ref bean="org.apache.felix.bundlerepository" /> -->
@@ -36,16 +36,16 @@
 				<!-- <ref bean="org.apache.felix.gogo.runtime" /> -->
 				<!-- <ref bean="org.apache.felix.gogo.shell" /> -->
 				<!-- Eclipse -->
-				<ref bean="org.argeo.tp.eclipse/org.argeo.tp.jetty" />
-				<ref bean="org.argeo.tp.eclipse/org.argeo.tp.equinox" />
-				<ref bean="org.argeo.tp.eclipse/org.argeo.tp.gemini" />
+				<ref bean="eclipse/org.argeo.tp.jetty" />
+				<ref bean="eclipse/org.argeo.tp.equinox" />
+				<ref bean="eclipse/org.argeo.tp.gemini" />
 				<!-- <ref bean="org.argeo.tp.gemini/org.gemini.web" /> -->
 				<!-- <ref bean="org.eclipse.gemini.web.core" /> -->
 				<!-- <ref bean="org.eclipse.gemini.web.extender" /> -->
 				<!-- <ref bean="org.eclipse.gemini.web.tomcat" /> -->
 				<!-- Jackrabbit -->
-				<ref bean="org.argeo.tp.javax/javax.jcr" />
-				<ref bean="org.argeo.tp.apache/org.apache.jackrabbit" />
+				<ref bean="javax/javax.jcr" />
+				<ref bean="apache/org.apache.jackrabbit" />
 			</list>
 		</property>
 	</bean>

@@ -57,7 +57,7 @@
 	</bean>
 
 	<!-- Gemini Blueprint -->
-	<flow:flow name="org.argeo.tp.eclipse/org.argeo.tp.gemini"
+	<flow:flow name="eclipse/org.argeo.tp.gemini"
 		spec="spec.version">
 		<flow:arg name="version" value="1.0.2.RELEASE" />
 		<bean parent="template.archiveWrapper">

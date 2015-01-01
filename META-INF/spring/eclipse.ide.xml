@@ -8,7 +8,7 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
 	<!-- RCP 3.8 -->
-	<flow:flow name="org.argeo.tp.eclipse/org.argeo.tp.eclipse.ide_3.8.2"
+	<flow:flow name="eclipse/org.argeo.tp.eclipse.ide_3.8.2"
 		parent="template.eclipseIde">
 		<flow:arg name="version" value="3.8.2" />
 		<flow:arg name="release" value="R-3.8.2-201301310800" />

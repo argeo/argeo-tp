@@ -53,7 +53,7 @@
 	</bean>
 
 	<!-- Log4j12 Factory -->
-	<flow:flow name="org.argeo.tp/org.apache.log4j" spec="spec.version">
+	<flow:flow name="misc/org.apache.log4j" spec="spec.version">
 		<flow:arg name="version" value="1.2.17" />
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
@@ -79,7 +79,7 @@
 	</flow:flow>
 
 	<!-- AspectJ Factory -->
-	<flow:flow name="org.argeo.tp/org.aspectj" spec="spec.version">
+	<flow:flow name="misc/org.aspectj" spec="spec.version">
 		<flow:arg name="version" value="1.7.3" />
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
@@ -101,7 +101,7 @@
 		<property name="groupId" value="org.argeo.tp" />
 	</bean>
 
-	<flow:flow name="org.argeo.tp/org.slf4j" spec="spec.version">
+	<flow:flow name="misc/org.slf4j" spec="spec.version">
 		<flow:arg name="version" value="1.7.5" />
 		<bean parent="template.archiveWrapper">
 			<property name="uri"

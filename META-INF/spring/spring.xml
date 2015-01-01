@@ -135,7 +135,7 @@
 		<property name="groupId" value="org.argeo.tp.spring" />
 	</bean>
 
-	<flow:flow name="org.argeo.tp.spring/org.springframework"
+	<flow:flow name="spring/org.springframework"
 		spec="spec.version">
 		<flow:arg name="version" value="3.2.4" />
 		<bean parent="template.archiveWrapper">

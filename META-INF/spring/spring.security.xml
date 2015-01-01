@@ -14,7 +14,7 @@
 		<property name="doNotModify" value="true" />
 	</bean>
 
-	<flow:flow name="org.argeo.tp.spring/org.springframework.security"
+	<flow:flow name="spring/org.springframework.security"
 		spec="spec.version">
 		<flow:arg name="version" value="3.2.5.RELEASE" />
 		<bean parent="template.archiveWrapper">

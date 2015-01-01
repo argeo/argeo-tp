@@ -8,7 +8,7 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
 	<!-- Equinox Kepler SR2 (3.9.1) -->
-	<flow:flow name="org.argeo.tp.eclipse/org.argeo.tp.equinox"
+	<flow:flow name="eclipse/org.argeo.tp.equinox"
 		parent="template.importEquinox">
 		<!-- <flow:arg name="version" value="3.9.1" /> -->
 		<flow:arg name="equinoxRelease" value="KeplerSR2" />

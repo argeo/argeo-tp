@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+	<flow:flow name="apache/org.apache.jackrabbit"
+		spec="spec.version">
+		<flow:arg name="version" value="2.8.0" />
+		<bean id="org.apache.jackrabbit.api" parent="template.jackrabbitMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-api:@{version}" />
+		<bean id="org.apache.jackrabbit.jcr.commons" parent="template.jackrabbitMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-jcr-commons:@{version}" />
+		<bean id="org.apache.jackrabbit.spi" parent="template.jackrabbitMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-spi:@{version}" />
+		<bean id="org.apache.jackrabbit.spi.commons" parent="template.jackrabbitMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-spi-commons:@{version}" />
+		<bean id="org.apache.jackrabbit.data" parent="template.jackrabbitMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-data:@{version}" />
+		<bean id="org.apache.jackrabbit.core" parent="template.jackrabbitMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-core:@{version}" />
+	</flow:flow>
+
+	<bean id="template.jackrabbitMaven" parent="template.mavenWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.apache.jackrabbit" />
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<!-- <property name="doNotModify" value="true" /> -->
+	</bean>
+
+</beans>

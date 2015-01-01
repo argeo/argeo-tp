@@ -7,7 +7,7 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
-	<flow:flow name="org.argeo.tp.eclipse/org.argeo.tp.jetty"
+	<flow:flow name="eclipse/org.argeo.tp.jetty"
 		parent="template.importJettyZip">
 		<flow:arg name="jettyVersion" value="8.1.16.v20140903" />
 	</flow:flow>

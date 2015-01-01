@@ -60,7 +60,7 @@
 		<property name="groupId" value="org.argeo.tp.apache.tomcat" />
 	</bean>
 
-	<flow:flow name="org.argeo.tp.apache.tomcat/org.apache.tomcat"
+	<flow:flow name="apache/org.apache.tomcat"
 		spec="spec.version">
 		<flow:arg name="version" value="7.0.42" />
 		<bean parent="template.archiveWrapper">

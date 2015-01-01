@@ -7,7 +7,7 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
-	<flow:flow name="org.argeo.tp.apache/org.apache.ant" spec="spec.version">
+	<flow:flow name="apache/org.apache.ant" spec="spec.version">
 		<flow:arg name="version" value="1.9.2" />
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
