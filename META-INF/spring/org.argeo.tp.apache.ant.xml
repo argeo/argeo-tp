@@ -7,18 +7,7 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
-	<!-- REGISTER -->
-	<bean id="org.apache.ant" parent="template.org.apache.ant" />
-	<bean id="org.apache.ant.launch" parent="template.org.apache.ant" />
-
-	<!-- Ant Factory -->
-	<bean id="template.org.apache.ant" parent="template.bndWrapper"
-		abstract="true">
-		<property name="groupId" value="org.argeo.tp.apache.ant" />
-	</bean>
-
-	<flow:flow name="org.argeo.tp.apache.ant/org.apache.ant"
-		spec="spec.version">
+	<flow:flow name="org.argeo.tp.apache/org.apache.ant" spec="spec.version">
 		<flow:arg name="version" value="1.9.2" />
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
@@ -28,9 +17,12 @@
 			</property>
 			<property name="wrappers">
 				<map>
-					<entry key="apache-ant-@{version}/lib/ant.jar" value-ref="org.apache.ant" />
-					<entry key="apache-ant-@{version}/lib/ant-launcher.jar"
-						value-ref="org.apache.ant.launch" />
+					<entry key="apache-ant-@{version}/lib/ant.jar">
+						<bean id="org.apache.ant" parent="template.org.apache.ant" />
+					</entry>
+					<entry key="apache-ant-@{version}/lib/ant-launcher.jar">
+						<bean id="org.apache.ant.launch" parent="template.org.apache.ant" />
+					</entry>
 				</map>
 			</property>
 			<property name="sourcesProvider">
@@ -43,4 +35,10 @@
 			</property>
 		</bean>
 	</flow:flow>
+
+	<!-- Specs and templates -->
+	<bean id="template.org.apache.ant" parent="template.bndWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.apache.ant" />
+	</bean>
 </beans>

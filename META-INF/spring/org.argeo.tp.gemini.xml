@@ -30,12 +30,15 @@
 		/> -->
 	<!-- </flow:flow> -->
 
-	<bean id="org.eclipse.gemini.web.core" parent="template.geminiMaven"
-		p:version="2.2.2.RELEASE" p:sourceCoords="org.eclipse.gemini:org.eclipse.gemini.web.core" />
-	<bean id="org.eclipse.gemini.web.extender" parent="template.geminiMaven"
-		p:version="2.2.2.RELEASE" p:sourceCoords="org.eclipse.gemini:org.eclipse.gemini.web.extender" />
-	<bean id="org.eclipse.gemini.web.tomcat" parent="template.geminiMaven"
-		p:version="2.2.2.RELEASE" p:sourceCoords="org.eclipse.gemini:org.eclipse.gemini.web.tomcat" />
+	<!-- <bean id="org.eclipse.gemini.web.core" parent="template.geminiMaven" -->
+	<!-- p:version="2.2.2.RELEASE" p:sourceCoords="org.eclipse.gemini:org.eclipse.gemini.web.core" 
+		/> -->
+	<!-- <bean id="org.eclipse.gemini.web.extender" parent="template.geminiMaven" -->
+	<!-- p:version="2.2.2.RELEASE" p:sourceCoords="org.eclipse.gemini:org.eclipse.gemini.web.extender" 
+		/> -->
+	<!-- <bean id="org.eclipse.gemini.web.tomcat" parent="template.geminiMaven" -->
+	<!-- p:version="2.2.2.RELEASE" p:sourceCoords="org.eclipse.gemini:org.eclipse.gemini.web.tomcat" 
+		/> -->
 
 
 	<!-- FACTORY -->

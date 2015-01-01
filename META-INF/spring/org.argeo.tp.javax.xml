@@ -8,10 +8,10 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
 	<!-- REGISTER -->
-	<bean id="javax.annotation" p:version="3.0.0" parent="template.javax" />
-	<bean id="javax.el" p:version="2.2.0" parent="template.javax" />
-	<bean id="javax.servlet" p:version="3.0.0" parent="template.javax" />
-	<bean id="javax.servlet.jsp" p:version="2.2.0" parent="template.javax" />
+<!-- 	<bean id="javax.annotation" p:version="3.0.0" parent="template.javax" /> -->
+<!-- 	<bean id="javax.el" p:version="2.2.0" parent="template.javax" /> -->
+<!-- 	<bean id="javax.servlet" p:version="3.0.0" parent="template.javax" /> -->
+<!-- 	<bean id="javax.servlet.jsp" p:version="2.2.0" parent="template.javax" /> -->
 
 	<bean id="javax.inject" flow:as-flow="org.argeo.tp.javax/javax.inject"
 		p:version="1.0.0" p:groupId="org.argeo.tp.javax" p:sourceCoords="javax.inject:javax.inject:1"
