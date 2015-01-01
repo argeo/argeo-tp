@@ -7,10 +7,6 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
-	<!-- REGISTER -->
-	<bean id="org.springframework.security.acls" parent="template.spring.security" />
-
-
 	<!-- FACTORY -->
 	<bean id="template.spring.security" parent="template.bndWrapper"
 		abstract="true">
@@ -18,9 +14,9 @@
 		<property name="doNotModify" value="true" />
 	</bean>
 
-	<flow:flow name="org.argeo.tp.spring.security/org.springframework.security"
+	<flow:flow name="org.argeo.tp.spring/org.springframework.security"
 		spec="spec.version">
-		<flow:arg name="version" value="3.2.4.RELEASE" />
+		<flow:arg name="version" value="3.2.5.RELEASE" />
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
 				value="http://repo.spring.io/libs-release-local/org/springframework/security/spring-security/@{version}/spring-security-@{version}-dist.zip" />
@@ -29,8 +25,27 @@
 			</property>
 			<property name="wrappers">
 				<map>
-					<entry key="spring-security-@{version}/libs/spring-acl-@{version}.jar"
-						value-ref="org.springframework.security.acls" />
+					<entry key="spring-security-@{version}/dist/spring-security-acl-@{version}.jar">
+						<bean id="org.springframework.security.acls" parent="template.spring.security" />
+					</entry>
+					<entry key="spring-security-@{version}/dist/spring-security-config-@{version}.jar">
+						<bean id="org.springframework.security.config" parent="template.spring.security" />
+					</entry>
+					<entry key="spring-security-@{version}/dist/spring-security-core-@{version}.jar">
+						<bean id="org.springframework.security" parent="template.spring.security" />
+					</entry>
+					<entry key="spring-security-@{version}/dist/spring-security-crypto-@{version}.jar">
+						<bean id="org.springframework.security.crypto" parent="template.spring.security" />
+					</entry>
+					<entry key="spring-security-@{version}/dist/spring-security-ldap-@{version}.jar">
+						<bean id="org.springframework.security.ldap" parent="template.spring.security" />
+					</entry>
+					<entry key="spring-security-@{version}/dist/spring-security-openid-@{version}.jar">
+						<bean id="org.springframework.security.openid" parent="template.spring.security" />
+					</entry>
+					<entry key="spring-security-@{version}/dist/spring-security-web-@{version}.jar">
+						<bean id="org.springframework.security.web" parent="template.spring.security" />
+					</entry>
 				</map>
 			</property>
 		</bean>

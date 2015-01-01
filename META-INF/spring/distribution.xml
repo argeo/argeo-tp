@@ -20,7 +20,8 @@
 				<ref bean="org.junit" />
 				<ref bean="org.argeo.tp/org.aspectj" />
 				<ref bean="org.argeo.tp.spring/org.springframework" />
-				<ref bean="org.argeo.tp.apache.ant/org.apache.ant" />
+				<ref bean="org.argeo.tp.spring/org.springframework.security" />
+				<ref bean="org.argeo.tp.apache/org.apache.ant" />
 				<ref bean="org.argeo.tp.apache/org.apache.commons.io" />
 				<ref bean="org.argeo.tp.apache/org.apache.commons.fileupload" />
 				<ref bean="org.argeo.tp.apache/org.apache.commons.collections" />
