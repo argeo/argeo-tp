@@ -44,7 +44,7 @@
 				<!-- <ref bean="org.eclipse.gemini.web.tomcat" /> -->
 				<!-- Jackrabbit -->
 				<ref bean="org.argeo.tp.javax/javax.jcr" />
-<!-- 				<ref bean="org.argeo.tp.apache/org.apache.jackrabbit" /> -->
+				<ref bean="org.argeo.tp.apache/org.apache.jackrabbit" />
 			</list>
 		</property>
 	</bean>
