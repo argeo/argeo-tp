@@ -31,7 +31,9 @@
 				<map>
 					<entry key="plugins/org.eclipse.osgi_*.jar" value="org.argeo.tp.equinox" />
 					<entry key="plugins/org.eclipse.osgi.*.jar" value="org.argeo.tp.equinox" />
-					<entry key="plugins/org.eclipse.osgi.equinox.security_*.jar"
+					<entry key="plugins/org.eclipse.equinox.security_*.jar"
+						value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.equinox.security.*.jar"
 						value="org.argeo.tp.equinox" />
 				</map>
 			</property>
