@@ -46,7 +46,7 @@
 			</property>
 		</bean>
 		<bean id="bcpg"
-			p:uri="https://www.bouncycastle.org/download/bcpg-jdk15on-151.jar"
+			p:uri="http://www.bouncycastle.org/download/bcpg-jdk15on-151.jar"
 			parent="template.bouncycastle">
 			<property name="sourcesProvider">
 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
