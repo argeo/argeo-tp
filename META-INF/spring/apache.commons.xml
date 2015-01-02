@@ -7,43 +7,37 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
-	<flow:flow name="apache/org.apache.commons.codec"
-		spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.codec" spec="spec.commons">
 		<flow:arg name="project" value="codec" />
 		<flow:arg name="version" value="1.9" />
-		<bean parent="template.commonsArchiveWrapper" />
+		<bean p:version="1.9.0" parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.dbcp"
-		spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.dbcp" spec="spec.commons">
+		<flow:arg name="project" value="dbcp" />
+		<flow:arg name="version" value="1.4" />
+		<bean p:version="1.4.0" parent="template.commonsArchiveWrapper" />
+	</flow:flow>
+
+	<flow:flow name="apache/org.apache.commons.pool" spec="spec.commons">
 		<flow:arg name="project" value="pool" />
 		<flow:arg name="version" value="1.5.7" />
 		<bean parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.pool"
-		spec="spec.commons">
-		<flow:arg name="project" value="pool" />
-		<flow:arg name="version" value="1.5.7" />
-		<bean parent="template.commonsArchiveWrapper" />
-	</flow:flow>
-
-	<flow:flow name="apache/org.apache.commons.collections"
-		spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.collections" spec="spec.commons">
 		<flow:arg name="project" value="collections" />
 		<flow:arg name="version" value="3.2.1" />
 		<bean parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.io"
-		spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.io" spec="spec.commons">
 		<flow:arg name="project" value="io" />
 		<flow:arg name="version" value="2.4" />
-		<bean parent="template.commonsArchiveWrapper" />
+		<bean p:version="2.4.0" parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.fileupload"
-		spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.fileupload" spec="spec.commons">
 		<flow:arg name="project" value="fileupload" />
 		<flow:arg name="version" value="1.3.1" />
 		<bean parent="template.commonsArchiveWrapper">
@@ -69,8 +63,7 @@
 		</bean>
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.httpclient"
-		spec="spec.version">
+	<flow:flow name="apache/org.apache.commons.httpclient" spec="spec.version">
 		<flow:arg name="version" value="3.1" />
 		<bean parent="template.commonsArchiveWrapper">
 			<property name="version" value="@{version}.0" />
