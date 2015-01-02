@@ -22,11 +22,24 @@
 			<property name="bndProperties">
 				<props merge="true">
 					<prop key="Fragment-Host"><![CDATA[org.apache.jackrabbit.core]]></prop>
+					<prop key="Import-Package"><![CDATA[
+EDU.oswego.cs.dl.util.concurrent;resolution:=optional,
+org.apache.jackrabbit.test;resolution:=optional,
+*]]></prop>
 				</props>
 			</property>
 		</bean>
 		<bean id="org.apache.jackrabbit.core" parent="template.jackrabbitMaven"
-			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-core:@{version}" />
+			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-core:@{version}">
+			<property name="bndProperties">
+				<props merge="true">
+					<prop key="Import-Package"><![CDATA[
+EDU.oswego.cs.dl.util.concurrent;resolution:=optional,
+org.apache.jackrabbit.test;resolution:=optional,
+*]]></prop>
+				</props>
+			</property>
+		</bean>
 		<bean id="org.apache.jackrabbit.jcr.client" parent="template.jackrabbitMaven"
 			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-jcr-client:@{version}" />
 		<bean id="org.apache.jackrabbit.jcr.server" parent="template.jackrabbitMaven"
@@ -39,8 +52,20 @@
 			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-spi2jcr:@{version}" />
 		<bean id="org.apache.jackrabbit.jcr2dav" parent="template.jackrabbitMaven"
 			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-jcr2dav:@{version}" />
+		<bean id="org.apache.jackrabbit.jcr2spi" parent="template.jackrabbitMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-jcr2spi:@{version}" />
 		<bean id="org.apache.jackrabbit.webapp" parent="template.jackrabbitMaven"
 			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-webapp:@{version}" />
+		<bean id="org.apache.jackrabbit.test" parent="template.jackrabbitMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-jcr-tests:@{version}">
+			<property name="bndProperties">
+				<props merge="true">
+					<prop key="Import-Package"><![CDATA[
+EDU.oswego.cs.dl.util.concurrent;resolution:=optional,
+*]]></prop>
+				</props>
+			</property>
+		</bean>
 	</flow:flow>
 
 	<bean id="template.jackrabbitMaven" parent="template.mavenWrapper"

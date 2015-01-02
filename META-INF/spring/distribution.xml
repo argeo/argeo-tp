@@ -15,9 +15,12 @@
 			<list>
 				<ref bean="apache/org.apache.log4j" />
 				<ref bean="misc/org.slf4j" />
-				<!-- <ref bean="apache.tomcat/org.apache.tomcat" /> -->
+				<ref bean="apache/org.apache.tomcat" />
 				<ref bean="org.aopalliance" />
 				<ref bean="org.junit" />
+				<ref bean="org.h2" />
+				<ref bean="javax.el" />
+				<ref bean="javax.inject" />
 				<ref bean="misc/org.aspectj" />
 				<ref bean="misc/org.bouncycastle" />
 				<ref bean="spring/org.springframework" />

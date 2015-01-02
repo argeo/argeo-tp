@@ -12,8 +12,8 @@
 		<property name="bndProperties">
 			<props merge="true">
 				<prop key="Import-Package">
-					*,
 					com.bea.jvm;resolution:=optional,
+					*
 				</prop>
 			</props>
 		</property>
@@ -31,6 +31,23 @@
 
 	<bean id="org.junit" p:version="4.11.0" p:sourceCoords="junit:junit:4.11"
 		parent="template.mavenWrapper">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
+		</property>
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					org.hamcrest;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="org.h2" p:sourceCoords="com.h2database:h2:1.4.184"
+		parent="template.mavenWrapper">
+		<property name="doNotModify" value="true" />
+		<!-- <property name="doNotModifySources" value="true" /> -->
 		<property name="license">
 			<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
 		</property>

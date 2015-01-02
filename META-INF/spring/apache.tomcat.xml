@@ -60,8 +60,7 @@
 		<property name="groupId" value="org.argeo.tp.apache.tomcat" />
 	</bean>
 
-	<flow:flow name="apache/org.apache.tomcat"
-		spec="spec.version">
+	<flow:flow name="apache/org.apache.tomcat" spec="spec.version">
 		<flow:arg name="version" value="7.0.42" />
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
@@ -72,27 +71,27 @@
 			<property name="wrappers">
 				<map>
 					<!-- Tomcat -->
-					<entry key="apache-tomcat-@{version}/lib/catalina.jar"
-						value-ref="org.apache.catalina" />
-					<entry key="apache-tomcat-@{version}/lib/jasper.jar"
-						value-ref="org.apache.jasper" />
+					<!-- <entry key="apache-tomcat-@{version}/lib/catalina.jar" -->
+					<!-- value-ref="org.apache.catalina" /> -->
+					<!-- <entry key="apache-tomcat-@{version}/lib/jasper.jar" -->
+					<!-- value-ref="org.apache.jasper" /> -->
 					<entry key="apache-tomcat-@{version}/lib/jasper-el.jar"
 						value-ref="org.apache.el" />
-					<entry key="apache-tomcat-@{version}/lib/tomcat-coyote.jar"
-						value-ref="org.apache.coyote" />
-					<entry key="apache-tomcat-@{version}/lib/tomcat-api.jar"
-						value-ref="org.apache.tomcat.api" />
-					<entry key="apache-tomcat-@{version}/lib/tomcat-util.jar"
-						value-ref="org.apache.tomcat.util" />
+					<!-- <entry key="apache-tomcat-@{version}/lib/tomcat-coyote.jar" -->
+					<!-- value-ref="org.apache.coyote" /> -->
+					<!-- <entry key="apache-tomcat-@{version}/lib/tomcat-api.jar" -->
+					<!-- value-ref="org.apache.tomcat.api" /> -->
+					<!-- <entry key="apache-tomcat-@{version}/lib/tomcat-util.jar" -->
+					<!-- value-ref="org.apache.tomcat.util" /> -->
 					<!-- Javax -->
 					<entry key="apache-tomcat-@{version}/lib/annotations-api.jar"
 						value-ref="javax.annotation" />
-					<entry key="apache-tomcat-@{version}/lib/el-api.jar"
-						value-ref="javax.el" />
+					<!-- <entry key="apache-tomcat-@{version}/lib/el-api.jar" -->
+					<!-- value-ref="javax.el" /> -->
 					<entry key="apache-tomcat-@{version}/lib/jsp-api.jar"
 						value-ref="javax.servlet.jsp" />
-					<entry key="apache-tomcat-@{version}/lib/servlet-api.jar"
-						value-ref="javax.servlet" />
+					<!-- <entry key="apache-tomcat-@{version}/lib/servlet-api.jar" -->
+					<!-- value-ref="javax.servlet" /> -->
 				</map>
 			</property>
 			<property name="sourcesProvider">
