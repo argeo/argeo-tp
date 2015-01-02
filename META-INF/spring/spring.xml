@@ -135,8 +135,7 @@
 		<property name="groupId" value="org.argeo.tp.spring" />
 	</bean>
 
-	<flow:flow name="spring/org.springframework"
-		spec="spec.version">
+	<flow:flow name="spring/org.springframework" spec="spec.version">
 		<flow:arg name="version" value="3.2.4" />
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
@@ -201,5 +200,12 @@
 			</property>
 		</bean>
 	</flow:flow>
+
+	<bean id="org.springframework.ldap" p:sourceCoords="org.springframework.ldap:spring-ldap-core:2.0.2.RELEASE"
+		parent="template.mavenWrapper">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+	</bean>
 
 </beans>

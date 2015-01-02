@@ -21,6 +21,7 @@
 				<ref bean="misc/org.aspectj" />
 				<ref bean="misc/org.bouncycastle" />
 				<ref bean="spring/org.springframework" />
+				<ref bean="org.springframework.ldap" />
 				<ref bean="spring/org.springframework.security" />
 				<ref bean="apache/org.apache.ant" />
 				<ref bean="apache/org.apache.commons.io" />
