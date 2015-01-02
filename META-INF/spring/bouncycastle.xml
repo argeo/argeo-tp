@@ -13,7 +13,7 @@
 	<flow:flow name="misc/org.bouncycastle" spec="spec.version">
 		<flow:arg name="version" value="1.51" />
 		<bean id="bcprov"
-			p:uri="https://www.bouncycastle.org/download/bcprov-jdk15on-151.jar"
+			p:uri="http://www.bouncycastle.org/download/bcprov-jdk15on-151.jar"
 			parent="template.bouncycastle">
 			<property name="sourcesProvider">
 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
@@ -24,7 +24,7 @@
 			</property>
 		</bean>
 		<bean id="bcpkix"
-			p:uri="https://www.bouncycastle.org/download/bcpkix-jdk15on-151.jar"
+			p:uri="http://www.bouncycastle.org/download/bcpkix-jdk15on-151.jar"
 			parent="template.bouncycastle">
 			<property name="sourcesProvider">
 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
@@ -35,7 +35,7 @@
 			</property>
 		</bean>
 		<bean id="bcmail"
-			p:uri="https://www.bouncycastle.org/download/bcmail-jdk15on-151.jar"
+			p:uri="http://www.bouncycastle.org/download/bcmail-jdk15on-151.jar"
 			parent="template.bouncycastle">
 			<property name="sourcesProvider">
 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
