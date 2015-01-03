@@ -7,8 +7,7 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
-	<flow:flow name="eclipse/org.argeo.tp.jetty"
-		parent="template.importJettyZip">
+	<flow:flow name="eclipse/org.argeo.tp.jetty" parent="template.importJettyZip">
 		<flow:arg name="jettyVersion" value="8.1.16.v20140903" />
 	</flow:flow>
 
@@ -27,9 +26,39 @@
 			</property>
 			<property name="includes">
 				<map>
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-*.jar"
+					<entry
+						key="jetty-distribution-@{jettyVersion}/lib/jetty-continuation.jar"
 						value="org.argeo.tp.jetty" />
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-http.jar"
+						value="org.argeo.tp.jetty" />
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-io.jar"
+						value="org.argeo.tp.jetty" />
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-jmx.jar"
+						value="org.argeo.tp.jetty" />
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-security.jar"
+						value="org.argeo.tp.jetty" />
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-server.jar"
+						value="org.argeo.tp.jetty" />
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-servlet.jar"
+						value="org.argeo.tp.jetty" />
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-servlets.jar"
+						value="org.argeo.tp.jetty" />
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-util.jar"
+						value="org.argeo.tp.jetty" />
+					<!-- Javax -->
 					<entry key="jetty-distribution-@{jettyVersion}/lib/servlet-api-*.jar"
+						value="org.argeo.tp.javax" />
+					<entry
+						key="jetty-distribution-@{jettyVersion}/lib/annotations/javax.annotation-*.jar"
+						value="org.argeo.tp.javax" />
+					<entry
+						key="jetty-distribution-@{jettyVersion}/lib/annotations/org.objectweb.asm-*.jar"
+						value="org.argeo.tp" />
+					<entry
+						key="jetty-distribution-@{jettyVersion}/lib/jndi/javax.activation-*.jar"
+						value="org.argeo.tp.javax" />
+					<entry
+						key="jetty-distribution-@{jettyVersion}/lib/jta/javax.transaction-*.jar"
 						value="org.argeo.tp.javax" />
 				</map>
 			</property>

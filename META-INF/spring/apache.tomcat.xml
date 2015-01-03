@@ -75,8 +75,8 @@
 					<!-- value-ref="org.apache.catalina" /> -->
 					<!-- <entry key="apache-tomcat-@{version}/lib/jasper.jar" -->
 					<!-- value-ref="org.apache.jasper" /> -->
-					<entry key="apache-tomcat-@{version}/lib/jasper-el.jar"
-						value-ref="org.apache.el" />
+<!-- 					<entry key="apache-tomcat-@{version}/lib/jasper-el.jar" -->
+<!-- 						value-ref="org.apache.el" /> -->
 					<!-- <entry key="apache-tomcat-@{version}/lib/tomcat-coyote.jar" -->
 					<!-- value-ref="org.apache.coyote" /> -->
 					<!-- <entry key="apache-tomcat-@{version}/lib/tomcat-api.jar" -->
@@ -84,12 +84,12 @@
 					<!-- <entry key="apache-tomcat-@{version}/lib/tomcat-util.jar" -->
 					<!-- value-ref="org.apache.tomcat.util" /> -->
 					<!-- Javax -->
-					<entry key="apache-tomcat-@{version}/lib/annotations-api.jar"
-						value-ref="javax.annotation" />
+<!-- 					<entry key="apache-tomcat-@{version}/lib/annotations-api.jar" -->
+<!-- 						value-ref="javax.annotation" /> -->
 					<!-- <entry key="apache-tomcat-@{version}/lib/el-api.jar" -->
 					<!-- value-ref="javax.el" /> -->
-					<entry key="apache-tomcat-@{version}/lib/jsp-api.jar"
-						value-ref="javax.servlet.jsp" />
+<!-- 					<entry key="apache-tomcat-@{version}/lib/jsp-api.jar" -->
+<!-- 						value-ref="javax.servlet.jsp" /> -->
 					<!-- <entry key="apache-tomcat-@{version}/lib/servlet-api.jar" -->
 					<!-- value-ref="javax.servlet" /> -->
 				</map>

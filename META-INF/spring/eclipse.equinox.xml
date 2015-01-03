@@ -8,8 +8,7 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
 	<!-- Equinox Kepler SR2 (3.9.1) -->
-	<flow:flow name="eclipse/org.argeo.tp.equinox"
-		parent="template.importEquinox">
+	<flow:flow name="eclipse/org.argeo.tp.equinox" parent="template.importEquinox">
 		<!-- <flow:arg name="version" value="3.9.1" /> -->
 		<flow:arg name="equinoxRelease" value="KeplerSR2" />
 		<flow:arg name="equinoxTimestamp" value="201402211700" />
@@ -33,7 +32,7 @@
 					<entry key="plugins/org.eclipse.osgi.*.jar" value="org.argeo.tp.equinox" />
 					<entry key="plugins/org.eclipse.equinox.security_*.jar"
 						value="org.argeo.tp.equinox" />
-					<entry key="plugins/org.eclipse.equinox.security.*.jar"
+					<entry key="plugins/org.eclipse.equinox.security.source_*.jar"
 						value="org.argeo.tp.equinox" />
 				</map>
 			</property>

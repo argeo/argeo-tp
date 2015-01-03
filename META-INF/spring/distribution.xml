@@ -15,7 +15,6 @@
 			<list>
 				<ref bean="apache/org.apache.log4j" />
 				<ref bean="misc/org.slf4j" />
-				<ref bean="apache/org.apache.tomcat" />
 				<ref bean="org.aopalliance" />
 				<ref bean="org.junit" />
 				<ref bean="org.h2" />

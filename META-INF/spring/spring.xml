@@ -76,42 +76,47 @@
 	</bean>
 	<bean id="org.springframework.expression" parent="template.org.springframework" />
 
-	<bean id="org.springframework.instrument" parent="template.org.springframework" />
+	<!-- <bean id="org.springframework.instrument" parent="template.org.springframework" 
+		/> -->
 
-	<bean id="org.springframework.instrument.tomcat" parent="template.org.springframework" />
+	<!-- <bean id="org.springframework.instrument.tomcat" parent="template.org.springframework" 
+		/> -->
 
-	<bean id="org.springframework.jdbc" parent="template.org.springframework">
-		<property name="bndProperties">
-			<props merge="true">
-				<prop key="Import-Package">
-					com.mchange.v2.c3p0;resolution:=optional,
-					com.sun.rowset;resolution:=optional,
-					org.apache.derby.*;resolution:=optional,
-					*
-				</prop>
-			</props>
-		</property>
-	</bean>
+	<!-- <bean id="org.springframework.jdbc" parent="template.org.springframework"> -->
+	<!-- <property name="bndProperties"> -->
+	<!-- <props merge="true"> -->
+	<!-- <prop key="Import-Package"> -->
+	<!-- com.mchange.v2.c3p0;resolution:=optional, -->
+	<!-- com.sun.rowset;resolution:=optional, -->
+	<!-- org.apache.derby.*;resolution:=optional, -->
+	<!-- * -->
+	<!-- </prop> -->
+	<!-- </props> -->
+	<!-- </property> -->
+	<!-- </bean> -->
 
-	<bean id="org.springframework.jms" parent="template.org.springframework" />
+	<!-- <bean id="org.springframework.jms" parent="template.org.springframework" 
+		/> -->
 
-	<bean id="org.springframework.orm" parent="template.org.springframework" />
+	<!-- <bean id="org.springframework.orm" parent="template.org.springframework" 
+		/> -->
 
-	<bean id="org.springframework.oxm" parent="template.org.springframework">
-		<property name="bndProperties">
-			<props merge="true">
-				<prop key="Import-Package">
-					com.thoughtworks.xstream.*;resolution:=optional,
-					org.apache.xmlbeans.*;resolution:=optional,
-					org.exolab.castor.*;resolution:=optional,
-					org.jibx.runtime.*;resolution:=optional,
-					*
-				</prop>
-			</props>
-		</property>
-	</bean>
+	<!-- <bean id="org.springframework.oxm" parent="template.org.springframework"> -->
+	<!-- <property name="bndProperties"> -->
+	<!-- <props merge="true"> -->
+	<!-- <prop key="Import-Package"> -->
+	<!-- com.thoughtworks.xstream.*;resolution:=optional, -->
+	<!-- org.apache.xmlbeans.*;resolution:=optional, -->
+	<!-- org.exolab.castor.*;resolution:=optional, -->
+	<!-- org.jibx.runtime.*;resolution:=optional, -->
+	<!-- * -->
+	<!-- </prop> -->
+	<!-- </props> -->
+	<!-- </property> -->
+	<!-- </bean> -->
 
-	<bean id="org.springframework.test" parent="template.org.springframework" />
+	<!-- <bean id="org.springframework.test" parent="template.org.springframework" 
+		/> -->
 
 	<bean id="org.springframework.tx" parent="template.org.springframework">
 		<property name="bndProperties">
@@ -166,27 +171,27 @@
 					<entry
 						key="spring-framework-@{version}.RELEASE/libs/spring-expression-@{version}.RELEASE.jar"
 						value-ref="org.springframework.expression" />
-					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-instrument-@{version}.RELEASE.jar"
-						value-ref="org.springframework.instrument" />
-					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-instrument-tomcat-@{version}.RELEASE.jar"
-						value-ref="org.springframework.instrument.tomcat" />
-					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-jdbc-@{version}.RELEASE.jar"
-						value-ref="org.springframework.jdbc" />
-					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-jms-@{version}.RELEASE.jar"
-						value-ref="org.springframework.jms" />
-					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-orm-@{version}.RELEASE.jar"
-						value-ref="org.springframework.orm" />
-					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-oxm-@{version}.RELEASE.jar"
-						value-ref="org.springframework.oxm" />
-					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-test-@{version}.RELEASE.jar"
-						value-ref="org.springframework.test" />
+					<!-- <entry -->
+					<!-- key="spring-framework-@{version}.RELEASE/libs/spring-instrument-@{version}.RELEASE.jar" -->
+					<!-- value-ref="org.springframework.instrument" /> -->
+					<!-- <entry -->
+					<!-- key="spring-framework-@{version}.RELEASE/libs/spring-instrument-tomcat-@{version}.RELEASE.jar" -->
+					<!-- value-ref="org.springframework.instrument.tomcat" /> -->
+					<!-- <entry -->
+					<!-- key="spring-framework-@{version}.RELEASE/libs/spring-jdbc-@{version}.RELEASE.jar" -->
+					<!-- value-ref="org.springframework.jdbc" /> -->
+					<!-- <entry -->
+					<!-- key="spring-framework-@{version}.RELEASE/libs/spring-jms-@{version}.RELEASE.jar" -->
+					<!-- value-ref="org.springframework.jms" /> -->
+					<!-- <entry -->
+					<!-- key="spring-framework-@{version}.RELEASE/libs/spring-orm-@{version}.RELEASE.jar" -->
+					<!-- value-ref="org.springframework.orm" /> -->
+					<!-- <entry -->
+					<!-- key="spring-framework-@{version}.RELEASE/libs/spring-oxm-@{version}.RELEASE.jar" -->
+					<!-- value-ref="org.springframework.oxm" /> -->
+					<!-- <entry -->
+					<!-- key="spring-framework-@{version}.RELEASE/libs/spring-test-@{version}.RELEASE.jar" -->
+					<!-- value-ref="org.springframework.test" /> -->
 					<entry
 						key="spring-framework-@{version}.RELEASE/libs/spring-tx-@{version}.RELEASE.jar"
 						value-ref="org.springframework.tx" />
