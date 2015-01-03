@@ -47,7 +47,16 @@
 				<map>
 					<entry
 						key="commons-@{project}-@{version}-bin/lib/commons-@{project}-@{version}.jar">
-						<bean id="org.apache.commons.fileupload" parent="template.org.apache.commons" />
+						<bean id="org.apache.commons.fileupload" parent="template.org.apache.commons">
+							<property name="bndProperties">
+								<props merge="true">
+									<prop key="Import-Package">
+										javax.portlet;resolution:=optional,
+										*
+									</prop>
+								</props>
+							</property>
+						</bean>
 					</entry>
 				</map>
 			</property>

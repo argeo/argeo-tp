@@ -30,10 +30,13 @@
 				<map>
 					<entry key="plugins/org.eclipse.osgi_*.jar" value="org.argeo.tp.equinox" />
 					<entry key="plugins/org.eclipse.osgi.*.jar" value="org.argeo.tp.equinox" />
+					<!-- FIXME move it to RAP or Addons, only used for build -->
 					<entry key="plugins/org.eclipse.equinox.security_*.jar"
 						value="org.argeo.tp.equinox" />
 					<entry key="plugins/org.eclipse.equinox.security.source_*.jar"
 						value="org.argeo.tp.equinox" />
+					<!-- <entry key="plugins/org.eclipse.core.*.jar" -->
+					<!-- value="org.argeo.tp.equinox" /> -->
 				</map>
 			</property>
 			<property name="osgiFactory" ref="osgiFactory" />

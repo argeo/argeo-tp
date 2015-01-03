@@ -21,11 +21,12 @@
 			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-data:@{version}">
 			<property name="bndProperties">
 				<props merge="true">
-					<prop key="Fragment-Host"><![CDATA[org.apache.jackrabbit.core]]></prop>
-					<prop key="Import-Package"><![CDATA[
-EDU.oswego.cs.dl.util.concurrent;resolution:=optional,
-org.apache.jackrabbit.test;resolution:=optional,
-*]]></prop>
+					<prop key="Fragment-Host">org.apache.jackrabbit.core</prop>
+					<prop key="Import-Package">
+						EDU.oswego.cs.dl.util.concurrent;resolution:=optional,
+						org.apache.jackrabbit.test;resolution:=optional,
+						*
+					</prop>
 				</props>
 			</property>
 		</bean>
@@ -33,17 +34,30 @@ org.apache.jackrabbit.test;resolution:=optional,
 			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-core:@{version}">
 			<property name="bndProperties">
 				<props merge="true">
-					<prop key="Import-Package"><![CDATA[
-EDU.oswego.cs.dl.util.concurrent;resolution:=optional,
-org.apache.jackrabbit.test;resolution:=optional,
-*]]></prop>
+					<prop key="Import-Package">
+						EDU.oswego.cs.dl.util.concurrent;resolution:=optional,
+						org.apache.jackrabbit.test;resolution:=optional,
+						*
+					</prop>
 				</props>
 			</property>
 		</bean>
 		<bean id="org.apache.jackrabbit.jcr.client" parent="template.jackrabbitMaven"
 			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-jcr-client:@{version}" />
-		<bean id="org.apache.jackrabbit.jcr.server" parent="template.jackrabbitMaven"
+		<bean id="org.apache.jackrabbit.server" parent="template.jackrabbitMaven"
 			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-jcr-server:@{version}" />
+		<bean id="org.apache.jackrabbit.servlet" parent="template.jackrabbitMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-jcr-servlet:@{version}">
+			<property name="bndProperties">
+				<props merge="true">
+					<prop key="Fragment-Host">org.apache.jackrabbit.core</prop>
+					<prop key="Import-Package">
+						org.apache.jackrabbit.rmi.*;resolution:=optional,
+						*
+					</prop>
+				</props>
+			</property>
+		</bean>
 		<bean id="org.apache.jackrabbit.webdav" parent="template.jackrabbitMaven"
 			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-webdav:@{version}" />
 		<bean id="org.apache.jackrabbit.spi2dav" parent="template.jackrabbitMaven"
@@ -54,15 +68,17 @@ org.apache.jackrabbit.test;resolution:=optional,
 			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-jcr2dav:@{version}" />
 		<bean id="org.apache.jackrabbit.jcr2spi" parent="template.jackrabbitMaven"
 			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-jcr2spi:@{version}" />
-		<bean id="org.apache.jackrabbit.webapp" parent="template.jackrabbitMaven"
-			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-webapp:@{version}" />
+		<!-- <bean id="org.apache.jackrabbit.webapp" parent="template.jackrabbitMaven" -->
+		<!-- p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-webapp:@{version}" 
+			/> -->
 		<bean id="org.apache.jackrabbit.test" parent="template.jackrabbitMaven"
 			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-jcr-tests:@{version}">
 			<property name="bndProperties">
 				<props merge="true">
-					<prop key="Import-Package"><![CDATA[
-EDU.oswego.cs.dl.util.concurrent;resolution:=optional,
-*]]></prop>
+					<prop key="Import-Package">
+						EDU.oswego.cs.dl.util.concurrent;resolution:=optional,
+						*
+					</prop>
 				</props>
 			</property>
 		</bean>

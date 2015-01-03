@@ -24,6 +24,7 @@
 		<property name="bndProperties">
 			<props merge="true">
 				<prop key="Import-Package">
+					org.springframework.orm.jpa;resolution:=optional,
 					*
 				</prop>
 			</props>
@@ -36,6 +37,7 @@
 		<property name="bndProperties">
 			<props merge="true">
 				<prop key="Import-Package">
+					javax.ejb;resolution:=optional,
 					bsh;resolution:=optional,
 					com.sun.net.httpserver;resolution:=optional,
 					edu.emory.mathcs.backport.java.util.concurrent;resolution:=optional,
@@ -57,7 +59,7 @@
 		<property name="bndProperties">
 			<props merge="true">
 				<prop key="Import-Package">
-					*
+					*;resolution:=optional
 				</prop>
 			</props>
 		</property>
@@ -76,24 +78,23 @@
 	</bean>
 	<bean id="org.springframework.expression" parent="template.org.springframework" />
 
-	<!-- <bean id="org.springframework.instrument" parent="template.org.springframework" 
-		/> -->
+	<bean id="org.springframework.instrument" parent="template.org.springframework" />
 
 	<!-- <bean id="org.springframework.instrument.tomcat" parent="template.org.springframework" 
 		/> -->
 
-	<!-- <bean id="org.springframework.jdbc" parent="template.org.springframework"> -->
-	<!-- <property name="bndProperties"> -->
-	<!-- <props merge="true"> -->
-	<!-- <prop key="Import-Package"> -->
-	<!-- com.mchange.v2.c3p0;resolution:=optional, -->
-	<!-- com.sun.rowset;resolution:=optional, -->
-	<!-- org.apache.derby.*;resolution:=optional, -->
-	<!-- * -->
-	<!-- </prop> -->
-	<!-- </props> -->
-	<!-- </property> -->
-	<!-- </bean> -->
+	<bean id="org.springframework.jdbc" parent="template.org.springframework">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					com.mchange.v2.c3p0;resolution:=optional,
+					com.sun.rowset;resolution:=optional,
+					org.apache.derby.*;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
 
 	<!-- <bean id="org.springframework.jms" parent="template.org.springframework" 
 		/> -->
@@ -123,6 +124,7 @@
 			<props merge="true">
 				<prop key="Import-Package">
 					com.ibm.wsspi.uow;resolution:=optional,
+					javax.ejb;resolution:=optional,
 					javax.resource.*;resolution:=optional,
 					*
 				</prop>
@@ -130,9 +132,51 @@
 		</property>
 	</bean>
 
-	<bean id="org.springframework.web" parent="template.org.springframework" />
+	<bean id="org.springframework.web" parent="template.org.springframework">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					com.caucho.hessian.*;resolution:=optional,
+					com.caucho.burlap.*;resolution:=optional,
+					com.fasterxml.jackson.*;resolution:=optional,
+					com.sun.net.httpserver.*;resolution:=optional,
+					com.sun.syndication.*;resolution:=optional,
+					javax.faces.*;resolution:=optional,
+					javax.portlet;resolution:=optional,
+					javax.servlet.jsp.*;resolution:=optional,
+					javax.xml.rpc.*;resolution:=optional,
+					org.apache.http.*;resolution:=optional,
+					org.codehaus.jackson.*;resolution:=optional,
+					org.apache.commons.fileupload.*;resolution:=optional,
+					org.springframework.oxm;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
 
-	<bean id="org.springframework.web.servlet" parent="template.org.springframework" />
+
+	<bean id="org.springframework.web.servlet" parent="template.org.springframework">
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					com.fasterxml.jackson.*;resolution:=optional,
+					com.lowagie.text.*;resolution:=optional,
+					com.sun.syndication.*;resolution:=optional,
+					freemarker.*;resolution:=optional,
+					javax.servlet.jsp.*;resolution:=optional,
+					jxl.*;resolution:=optional,
+					net.sf.jasperreports.engine.*;resolution:=optional,
+					org.apache.poi.*;resolution:=optional,
+					org.apache.tiles.*;resolution:=optional,
+					org.apache.velocity.*;resolution:=optional,
+					org.codehaus.jackson.*;resolution:=optional,
+					org.springframework.oxm;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
 
 	<!-- FACTORY -->
 	<bean id="template.org.springframework" parent="template.bndWrapper"
@@ -141,75 +185,84 @@
 	</bean>
 
 	<flow:flow name="spring/org.springframework" spec="spec.version">
-		<flow:arg name="version" value="3.2.4" />
+		<flow:arg name="version" value="3.2.13.RELEASE" />
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
-				value="http://repo.springsource.org/libs-release-local/org/springframework/spring/@{version}.RELEASE/spring-framework-@{version}.RELEASE-dist.zip" />
+				value="http://repo.springsource.org/libs-release-local/org/springframework/spring/@{version}/spring-framework-@{version}-dist.zip" />
 			<property name="license">
 				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 			</property>
 			<property name="wrappers">
 				<map>
-					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-aop-@{version}.RELEASE.jar"
+					<entry key="spring-framework-@{version}/libs/spring-aop-@{version}.jar"
 						value-ref="org.springframework.aop" />
 					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-aspects-@{version}.RELEASE.jar"
+						key="spring-framework-@{version}/libs/spring-aspects-@{version}.jar"
 						value-ref="org.springframework.aspects" />
 					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-beans-@{version}.RELEASE.jar"
+						key="spring-framework-@{version}/libs/spring-beans-@{version}.jar"
 						value-ref="org.springframework.beans" />
 					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-context-@{version}.RELEASE.jar"
+						key="spring-framework-@{version}/libs/spring-context-@{version}.jar"
 						value-ref="org.springframework.context" />
 					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-context-support-@{version}.RELEASE.jar"
+						key="spring-framework-@{version}/libs/spring-context-support-@{version}.jar"
 						value-ref="org.springframework.context.support" />
 					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-core-@{version}.RELEASE.jar"
+						key="spring-framework-@{version}/libs/spring-core-@{version}.jar"
 						value-ref="org.springframework.core" />
 					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-expression-@{version}.RELEASE.jar"
+						key="spring-framework-@{version}/libs/spring-expression-@{version}.jar"
 						value-ref="org.springframework.expression" />
+					<entry
+						key="spring-framework-@{version}/libs/spring-instrument-@{version}.jar"
+						value-ref="org.springframework.instrument" />
 					<!-- <entry -->
-					<!-- key="spring-framework-@{version}.RELEASE/libs/spring-instrument-@{version}.RELEASE.jar" -->
-					<!-- value-ref="org.springframework.instrument" /> -->
-					<!-- <entry -->
-					<!-- key="spring-framework-@{version}.RELEASE/libs/spring-instrument-tomcat-@{version}.RELEASE.jar" -->
+					<!-- key="spring-framework-@{version}/libs/spring-instrument-tomcat-@{version}.jar" -->
 					<!-- value-ref="org.springframework.instrument.tomcat" /> -->
+					<entry
+						key="spring-framework-@{version}/libs/spring-jdbc-@{version}.jar"
+						value-ref="org.springframework.jdbc" />
 					<!-- <entry -->
-					<!-- key="spring-framework-@{version}.RELEASE/libs/spring-jdbc-@{version}.RELEASE.jar" -->
-					<!-- value-ref="org.springframework.jdbc" /> -->
-					<!-- <entry -->
-					<!-- key="spring-framework-@{version}.RELEASE/libs/spring-jms-@{version}.RELEASE.jar" -->
+					<!-- key="spring-framework-@{version}/libs/spring-jms-@{version}.jar" -->
 					<!-- value-ref="org.springframework.jms" /> -->
 					<!-- <entry -->
-					<!-- key="spring-framework-@{version}.RELEASE/libs/spring-orm-@{version}.RELEASE.jar" -->
+					<!-- key="spring-framework-@{version}/libs/spring-orm-@{version}.jar" -->
 					<!-- value-ref="org.springframework.orm" /> -->
 					<!-- <entry -->
-					<!-- key="spring-framework-@{version}.RELEASE/libs/spring-oxm-@{version}.RELEASE.jar" -->
+					<!-- key="spring-framework-@{version}/libs/spring-oxm-@{version}.jar" -->
 					<!-- value-ref="org.springframework.oxm" /> -->
 					<!-- <entry -->
-					<!-- key="spring-framework-@{version}.RELEASE/libs/spring-test-@{version}.RELEASE.jar" -->
+					<!-- key="spring-framework-@{version}/libs/spring-test-@{version}.jar" -->
 					<!-- value-ref="org.springframework.test" /> -->
-					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-tx-@{version}.RELEASE.jar"
+					<entry key="spring-framework-@{version}/libs/spring-tx-@{version}.jar"
 						value-ref="org.springframework.tx" />
-					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-web-@{version}.RELEASE.jar"
+					<entry key="spring-framework-@{version}/libs/spring-web-@{version}.jar"
 						value-ref="org.springframework.web" />
 					<entry
-						key="spring-framework-@{version}.RELEASE/libs/spring-webmvc-@{version}.RELEASE.jar"
+						key="spring-framework-@{version}/libs/spring-webmvc-@{version}.jar"
 						value-ref="org.springframework.web.servlet" />
 				</map>
 			</property>
 		</bean>
 	</flow:flow>
 
-	<bean id="org.springframework.ldap" p:sourceCoords="org.springframework.ldap:spring-ldap-core:2.0.2.RELEASE"
+	<bean id="org.springframework.ldap" p:sourceCoords="org.springframework.ldap:spring-ldap-core:1.3.2.RELEASE"
 		parent="template.mavenWrapper">
 		<property name="license">
 			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<property name="groupId" value="org.argeo.tp.spring" />
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					org.apache.commons.lang.*;resolution:=optional,
+					com.sun.jndi.ldap.*;resolution:=optional,
+					org.springframework.data.*;resolution:=optional,
+					org.springframework.orm.hibernate3;resolution:=optional,
+					*
+				</prop>
+			</props>
 		</property>
 	</bean>
 

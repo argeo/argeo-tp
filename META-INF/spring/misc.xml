@@ -38,9 +38,17 @@
 			<props merge="true">
 				<prop key="Import-Package">
 					org.hamcrest;resolution:=optional,
+					org.hamcrest.core;resolution:=optional,
 					*
 				</prop>
 			</props>
+		</property>
+	</bean>
+
+	<bean id="org.openid4java" p:sourceCoords="org.openid4java:openid4java:0.9.8"
+		parent="template.mavenWrapper">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
 	</bean>
 
