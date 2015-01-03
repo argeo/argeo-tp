@@ -38,7 +38,7 @@
 					</entry>
 					<entry
 						key="spring-security-@{version}/dist/spring-security-core-@{version}.jar">
-						<bean id="org.springframework.security" parent="template.spring.security" />
+						<bean id="org.springframework.security.core" parent="template.spring.security" />
 					</entry>
 					<entry
 						key="spring-security-@{version}/dist/spring-security-crypto-@{version}.jar">
