@@ -18,7 +18,7 @@
 				<ref bean="org.aopalliance" />
 				<ref bean="org.junit" />
 				<ref bean="org.h2" />
-				<!-- <ref bean="org.openid4java" /> -->
+				<ref bean="EDU.oswego.cs.dl.util.concurrent" />
 				<ref bean="javax.el" />
 				<ref bean="javax.inject" />
 				<ref bean="misc/org.aspectj" />

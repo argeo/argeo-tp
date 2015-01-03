@@ -23,7 +23,6 @@
 				<props merge="true">
 					<prop key="Fragment-Host">org.apache.jackrabbit.core</prop>
 					<prop key="Import-Package">
-						EDU.oswego.cs.dl.util.concurrent;resolution:=optional,
 						org.apache.jackrabbit.test;resolution:=optional,
 						*
 					</prop>
@@ -35,7 +34,6 @@
 			<property name="bndProperties">
 				<props merge="true">
 					<prop key="Import-Package">
-						EDU.oswego.cs.dl.util.concurrent;resolution:=optional,
 						org.apache.jackrabbit.test;resolution:=optional,
 						*
 					</prop>
@@ -76,7 +74,6 @@
 			<property name="bndProperties">
 				<props merge="true">
 					<prop key="Import-Package">
-						EDU.oswego.cs.dl.util.concurrent;resolution:=optional,
 						*
 					</prop>
 				</props>

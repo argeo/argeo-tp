@@ -18,7 +18,7 @@
 		<bean id="org.apache.tika.core" parent="template.tikaMaven"
 			p:sourceCoords="org.apache.tika:tika-core:@{version}" />
 		<bean id="org.apache.tika.parser" parent="template.tikaMaven"
-			p:sourceCoords="org.apache.tika:tika-core:@{version}" />
+			p:sourceCoords="org.apache.tika:tika-parsers:@{version}" />
 	</flow:flow>
 
 	<bean id="org.apache.log4j" p:groupId="org.argeo.tp.apache"
