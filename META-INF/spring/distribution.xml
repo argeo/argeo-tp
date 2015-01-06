@@ -19,6 +19,8 @@
 				<ref bean="org.junit" />
 				<ref bean="org.h2" />
 				<ref bean="joda-time" />
+				<!-- This has been defined as optional via bnd -->
+				<!--   <ref bean="com.jcraft.jzlib" /> -->
 				<ref bean="com.jcraft.jsch" />
 				<ref bean="EDU.oswego.cs.dl.util.concurrent" />
 				<ref bean="javax.el" />
