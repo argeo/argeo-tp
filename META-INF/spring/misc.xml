@@ -68,6 +68,24 @@
 		</property>
 	</bean>
 
+	<!-- TODO: Rather use the binary provided here: https://github.com/JodaOrg/joda-time/releases 
+		once the archiveMapper can manage tar.gz archives -->
+	<bean id="joda-time" p:sourceCoords="joda-time:joda-time:2.6"
+		parent="template.mavenWrapper">
+		<property name="doNotModify" value="true" />
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+	</bean>
+
+	<bean id="com.jcraft.jsch" p:sourceCoords="com.jcraft:jsch:0.1.51"
+		parent="template.mavenWrapper">
+		<!--  <property name="doNotModify" value="true" />  -->
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.BSD" />
+		</property>
+	</bean>
+
 	<!-- AspectJ Factory -->
 	<flow:flow name="misc/org.aspectj" spec="spec.version">
 		<flow:arg name="version" value="1.7.3" />
@@ -111,5 +129,4 @@
 			</property>
 		</bean>
 	</flow:flow>
-
 </beans>

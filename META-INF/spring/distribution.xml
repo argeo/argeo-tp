@@ -18,6 +18,8 @@
 				<ref bean="org.aopalliance" />
 				<ref bean="org.junit" />
 				<ref bean="org.h2" />
+				<ref bean="joda-time" />
+				<ref bean="com.jcraft.jsch" />
 				<ref bean="EDU.oswego.cs.dl.util.concurrent" />
 				<ref bean="javax.el" />
 				<ref bean="javax.inject" />
