@@ -89,7 +89,7 @@
 	<!-- RAP specs and templates -->
 	<flow:spec id="rapVersion.spec">
 		<flow:primitive name="rapBranch" isParameter="true" />
-		<flow:primitive name="rapVersion" isParameter="true" />
+		<flow:primitive name="rapVersion" isParameter="false" />
 	</flow:spec>
 
 	<flow:flow id="template.importRapZip" spec="rapVersion.spec"
