@@ -37,6 +37,33 @@
 		<bean p:version="2.4.0" parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
+	<flow:flow name="apache/org.apache.commons.vfs" spec="spec.commons">
+		<flow:arg name="project" value="vfs" />
+		<flow:arg name="version" value="2.0" />
+		<bean parent="template.commonsArchiveWrapper">
+			<property name="version" value="@{version}.0" />
+			<property name="uri"
+				value="http://archive.apache.org/dist/commons/vfs/binaries/commons-vfs-@{version}.zip" />
+			<property name="wrappers">
+				<map>
+					<entry key="commons-@{project}-@{version}/commons-vfs2-@{version}.jar">
+						<bean id="org.apache.commons.vfs" parent="template.org.apache.commons" />
+					</entry>
+				</map>
+			</property>
+			<!-- <property name="sourcesProvider"> -->
+			<!-- <bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider"> -->
+			<!-- <property name="uri" -->
+			<!-- value="http://archive.apache.org/dist/httpcomponents/commons-httpclient/source/commons-httpclient-@{version}-src.zip" 
+				/> -->
+			<!-- <property name="base" value="commons-httpclient-@{version}/src/java/" 
+				/> -->
+			<!-- <property name="osgiFactory" ref="osgiFactory" /> -->
+			<!-- </bean> -->
+			<!-- </property> -->
+		</bean>
+	</flow:flow>
+
 	<flow:flow name="apache/org.apache.commons.fileupload" spec="spec.commons">
 		<flow:arg name="project" value="fileupload" />
 		<flow:arg name="version" value="1.3.1" />

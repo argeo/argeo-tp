@@ -34,6 +34,7 @@
 				<ref bean="apache/org.apache.commons.pool" />
 				<ref bean="apache/org.apache.commons.codec" />
 				<ref bean="apache/org.apache.commons.httpclient" />
+				<ref bean="apache/org.apache.commons.vfs" />
 				<!-- Felix -->
 				<!-- <ref bean="org.apache.felix.framework" /> -->
 				<!-- <ref bean="org.apache.felix.bundlerepository" /> -->
@@ -64,9 +65,9 @@
 		<property name="nodeIndexers">
 			<list>
 				<bean class="org.argeo.slc.repo.ModularDistributionIndexer" />
-				<bean class="org.argeo.slc.repo.PdeSourcesIndexer" />
 				<bean class="org.argeo.slc.repo.JarFileIndexer" />
 				<bean class="org.argeo.slc.repo.ArtifactIndexer" />
+				<bean class="org.argeo.slc.repo.PdeSourcesIndexer" />
 			</list>
 		</property>
 		<property name="mirrors">
