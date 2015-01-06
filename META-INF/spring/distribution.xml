@@ -39,6 +39,7 @@
 				<ref bean="apache/org.apache.commons.codec" />
 				<ref bean="apache/org.apache.commons.httpclient" />
 				<ref bean="apache/org.apache.commons.vfs" />
+				<ref bean="apache/org.apache.commons.net" />
 				<ref bean="apache/org.apache.commons.exec" />
 				<!-- Felix -->
 				<!-- <ref bean="org.apache.felix.framework" /> -->
