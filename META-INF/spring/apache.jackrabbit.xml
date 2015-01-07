@@ -87,16 +87,16 @@
 		<!-- <bean id="org.apache.jackrabbit.webapp" parent="template.jackrabbitMaven" -->
 		<!-- p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-webapp:@{version}" 
 			/> -->
-		<bean id="org.apache.jackrabbit.test" parent="template.jackrabbitMaven"
-			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-jcr-tests:@{version}">
-			<property name="bndProperties">
-				<props merge="true">
-					<prop key="Import-Package">
-						*
-					</prop>
-				</props>
-			</property>
-		</bean>
+		<!-- <bean id="org.apache.jackrabbit.test" parent="template.jackrabbitMaven" -->
+		<!-- p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-jcr-tests:@{version}"> -->
+		<!-- <property name="bndProperties"> -->
+		<!-- <props merge="true"> -->
+		<!-- <prop key="Import-Package"> -->
+		<!-- * -->
+		<!-- </prop> -->
+		<!-- </props> -->
+		<!-- </property> -->
+		<!-- </bean> -->
 	</flow:flow>
 
 	<bean id="template.jackrabbitMaven" parent="template.mavenWrapper"
