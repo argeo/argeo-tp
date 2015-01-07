@@ -11,8 +11,7 @@
 	<name>Argeo Distribution Factory</name>
 	<properties>
 		<additionalImports.slc-lib>
-			javax.security.auth.callback;resolution:="optional",
-			*
+			javax.security.auth.callback;resolution:="optional"
 		</additionalImports.slc-lib>
 	</properties>
 	<build>
