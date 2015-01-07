@@ -27,23 +27,25 @@
 			<property name="includes">
 				<map>
 					<entry
-						key="jetty-distribution-@{jettyVersion}/lib/jetty-continuation.jar"
+						key="jetty-distribution-@{jettyVersion}/lib/jetty-continuation-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-http.jar"
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-http-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-io.jar"
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-io-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-jmx.jar"
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-jmx-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-security.jar"
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-security-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-server.jar"
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-server-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-servlet.jar"
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-servlet-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-servlets.jar"
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-servlets-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-util.jar"
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-util-@{jettyVersion}.jar"
+						value="org.argeo.tp.jetty" />
+					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-client-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
 					<!-- Javax -->
 					<entry key="jetty-distribution-@{jettyVersion}/lib/servlet-api-*.jar"
