@@ -18,13 +18,15 @@
 				<ref bean="org.aopalliance" />
 				<ref bean="org.junit" />
 				<ref bean="org.h2" />
-				<ref bean="joda-time" />
+				<ref bean="org.joda.time" />
 				<!-- This has been defined as optional via bnd -->
-				<!--   <ref bean="com.jcraft.jzlib" /> -->
+				<!-- <ref bean="com.jcraft.jzlib" /> -->
 				<ref bean="com.jcraft.jsch" />
 				<ref bean="EDU.oswego.cs.dl.util.concurrent" />
 				<ref bean="javax.el" />
 				<ref bean="javax.inject" />
+				<ref bean="javax.jcr" />
+				<ref bean="javax.mail" />
 				<ref bean="misc/org.aspectj" />
 				<ref bean="misc/org.bouncycastle" />
 				<ref bean="spring/org.springframework" />
@@ -56,7 +58,6 @@
 				<!-- <ref bean="org.eclipse.gemini.web.extender" /> -->
 				<!-- <ref bean="org.eclipse.gemini.web.tomcat" /> -->
 				<!-- Jackrabbit -->
-				<ref bean="javax/javax.jcr" />
 				<ref bean="apache/org.apache.tika" />
 				<ref bean="apache/org.apache.lucene" />
 				<ref bean="apache/org.apache.jackrabbit" />
