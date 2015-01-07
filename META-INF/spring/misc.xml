@@ -70,7 +70,7 @@
 
 	<!-- TODO: Rather use the binary provided here: https://github.com/JodaOrg/joda-time/releases 
 		once the archiveMapper can manage tar.gz archives -->
-	<bean id="joda-time" p:sourceCoords="joda-time:joda-time:2.6"
+	<bean id="org.joda.time" p:sourceCoords="joda-time:joda-time:2.6"
 		parent="template.mavenWrapper">
 		<property name="doNotModify" value="true" />
 		<property name="license">
