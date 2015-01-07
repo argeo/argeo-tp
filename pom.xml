@@ -9,6 +9,12 @@
 	<groupId>org.argeo.tp.slc</groupId>
 	<artifactId>org.argeo.tp.slc.factory</artifactId>
 	<name>Argeo Distribution Factory</name>
+	<properties>
+		<additionalImports.slc-lib>
+			javax.security.auth.callback;resolution:="optional",
+			*
+		</additionalImports.slc-lib>
+	</properties>
 	<build>
 		<resources>
 			<resource>
@@ -31,18 +37,6 @@
 						<phase>generate-resources</phase>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<configuration>
-					<instructions>
-						<Import-Package>
-							javax.security.auth.callback;resolution:="optional",
-							*
-						</Import-Package>
-					</instructions>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
