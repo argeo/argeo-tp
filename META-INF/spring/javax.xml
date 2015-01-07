@@ -16,6 +16,6 @@
 	<bean id="javax.jcr" p:version="2.0.0" p:groupId="org.argeo.tp.javax"
 		p:sourceCoords="javax.jcr:jcr:2.0" parent="template.mavenWrapper" />
 
-	<bean id="javax.mail" p:groupId="org.argeo.tp.mail"
+	<bean id="javax.mail" p:groupId="org.argeo.tp.javax"
 		p:sourceCoords="com.sun.mail:javax.mail:1.5.2" parent="template.mavenWrapper" />
 </beans>
