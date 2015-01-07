@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1409307022380
-Build-Jdk: 1.7.0_65
+Bnd-LastModified: 1420628026316
+Build-Jdk: 1.6.0_33
 Built-By: mbaudier
 Bundle-Description: SLC execution modules for generic tasks, to be used 
  as parent pom
@@ -11,7 +11,7 @@ Bundle-Name: Argeo Distribution Factory
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-SymbolicName: org.argeo.tp.slc.factory
 Bundle-Vendor: Argeo
-Bundle-Version: 1.1.19.SNAPSHOT-r140829_1210
+Bundle-Version: 1.1.19.r150107_1153
 Created-By: Apache Maven Bundle Plugin
 Import-Package: com.jcraft.jsch;resolution:=optional,javax.jcr;version="
  [2.0,3)",net.sf.cglib.core;version="[2.1,3)",net.sf.cglib.proxy;version
