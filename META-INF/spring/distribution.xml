@@ -19,8 +19,6 @@
 				<ref bean="org.junit" />
 				<ref bean="org.h2" />
 				<ref bean="org.joda.time" />
-				<!-- This has been defined as optional via bnd -->
-				<!-- <ref bean="com.jcraft.jzlib" /> -->
 				<ref bean="com.jcraft.jsch" />
 				<ref bean="EDU.oswego.cs.dl.util.concurrent" />
 				<ref bean="javax.el" />
@@ -53,6 +51,9 @@
 				<ref bean="eclipse/org.argeo.tp.jetty" />
 				<ref bean="eclipse/org.argeo.tp.equinox" />
 				<ref bean="eclipse/org.argeo.tp.gemini" />
+				
+				<!-- Rap -->
+				<ref bean="eclipse/org.argeo.tp.rap.platform" />
 				<!-- <ref bean="org.argeo.tp.gemini/org.gemini.web" /> -->
 				<!-- <ref bean="org.eclipse.gemini.web.core" /> -->
 				<!-- <ref bean="org.eclipse.gemini.web.extender" /> -->

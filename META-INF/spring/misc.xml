@@ -78,7 +78,7 @@
 		</property>
 	</bean>
 
-	<!--  Needed by jsch -->
+	<!--  Needed by jsch: it is defined as optional via bnd -->
 	<!--  <bean id="com.jcraft.jzlib" p:sourceCoords="com.jcraft:jzlib:1.1.3"
 		parent="template.mavenWrapper">
 		<property name="license">
@@ -88,7 +88,6 @@
 
 	<bean id="com.jcraft.jsch" p:sourceCoords="com.jcraft:jsch:0.1.51"
 		parent="template.mavenWrapper">
-		<!--  <property name="doNotModify" value="true" />  -->
 		<property name="license">
 			<util:constant static-field="org.argeo.slc.repo.FreeLicense.BSD" />
 		</property>
