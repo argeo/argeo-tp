@@ -58,6 +58,11 @@
 					<entry key="plugins/org.eclipse.equinox.*.jar" value="org.argeo.tp.rap" />
 				</map>
 			</property>
+			<property name="excludes">
+				<list>
+					<value><![CDATA[plugins/org.eclipse.equinox.console*.jar]]></value>
+				</list>
+			</property>
 			<property name="osgiFactory" ref="osgiFactory" />
 		</bean>
 	</flow:flow>
