@@ -8,15 +8,13 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
 	<!-- Eclipse rap platform -->
+	<!-- <flow:flow name="eclipse/org.argeo.tp.rap.platform" parent="template.importRap"> 
+		<flow:arg name="rapRelease" value="2.3" /> <flow:arg name="rapTimestamp" 
+		value="2.3.1-SR1-20140909-1638" /> </flow:flow> -->
 	<flow:flow name="eclipse/org.argeo.tp.rap.platform" parent="template.importRap">
-		<flow:arg name="rapRelease" value="2.3" />
-		<flow:arg name="rapTimestamp" value="2.3.1-SR1-20140909-1638" />
+		<flow:arg name="rapRelease" value="2.2" />
+		<flow:arg name="rapTimestamp" value="2.2.0-R-20131204-0942" />
 	</flow:flow>
-	<!--  <flow:flow name="eclipse/org.argeo.tp.rap.platform" parent="template.importRap">
-		<flow:arg name="rapRelease" value="2.2.0" />
-		<flow:arg name="rapTimestamp" value="20131204-0942" />
-	</flow:flow>
-	 -->
 
 	<!-- Rap specs and templates -->
 	<flow:spec id="rapVersion.spec">
@@ -31,128 +29,85 @@
 				value="http://www.eclipse.org/downloads/rt/rap/@{rapRelease}/rap-@{rapTimestamp}.zip" />
 			<property name="includes">
 				<map>
+					<!-- Misc -->
 					<entry key="plugins/com.ibm.icu.base*.jar" value="org.argeo.tp.rap.platform" />
+
+					<!-- Javax -->
 					<entry key="plugins/javax.xml_*.jar" value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.apache.felix.gogo.*.jar" value="org.argeo.tp.rap.platform" />
+					<!-- Provided by jetty -->
+					<!-- <entry key="plugins/javax.servlet_*.jar" value="org.argeo.tp.rap.platform" 
+						/> -->
+
+					<!-- Eclipse core -->
 					<entry key="plugins/org.eclipse.core.*.jar" value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.rap.jface.*.jar" value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.rap.rwt.*.jar" value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.rap.ui*.jar" value="org.argeo.tp.rap.platform" />
+
+					<!-- RWT -->
+					<entry key="plugins/org.eclipse.rap.rwt_*.jar" value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/org.eclipse.rap.rwt.osgi_*.jar" value="org.argeo.tp.rap.platform" />
+
+					<!-- RAP UI with the workbench -->
+					<!-- Note: we do not include ui.cheatsheets for the time being -->
+					<entry key="plugins/org.eclipse.rap.ui.workbench*.jar" value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/org.eclipse.rap.ui_*.jar" value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/org.eclipse.rap.ui.views*.jar" value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/org.eclipse.rap.jface*.jar" value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/org.eclipse.rap.ui.forms*.jar" value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/org.eclipse.help*.jar" value="org.argeo.tp.rap.platform" />
+
+					<!-- Minimal Equinox dependencies, to be refined -->
+					<entry key="plugins/org.eclipse.equinox.common*.jar" value="org.argeo.tp.rap" />
+					<entry key="plugins/org.eclipse.equinox.registry*.jar" value="org.argeo.tp.rap" />
+					<entry key="plugins/org.eclipse.equinox.preferences*.jar"
+						value="org.argeo.tp.rap" />
+					<entry key="plugins/org.eclipse.equinox.app*.jar" value="org.argeo.tp.rap" />
+					<entry key="plugins/org.eclipse.equinox.http.registry*.jar"
+						value="org.argeo.tp.rap" />
+					<!-- <entry key="plugins/org.eclipse.equinox.cm*.jar" value="org.argeo.tp.rap.platform" 
+						/> <entry key="plugins/org.eclipse.equinox.ds*.jar" value="org.argeo.tp.rap.platform" 
+						/> <entry key="plugins/org.eclipse.equinox.event*.jar" value="org.argeo.tp.rap.platform" 
+						/> -->
 				</map>
 			</property>
 			<property name="osgiFactory" ref="osgiFactory" />
 		</bean>
 	</flow:flow>
 
+	<!-- File upload Addons -->
 
-	<!-- <flow:flow name="eclipse/org.argeo.tp.rap.platform_2.2.0" parent="template.importRapZip"> 
-		<flow:arg name="rapBranch" value="2.2" /> <flow:arg name="rapVersion" value="2.2.0-R-20131204-0942" 
-		/> </flow:flow> <flow:flow name="eclipse/org.argeo.tp.rap.platform_2.2.0-M1" 
-		parent="template.importRapZip"> <flow:arg name="rapBranch" value="2.2" /> 
-		<flow:arg name="rapVersion" value="2.2.0-M1-20130821-1618" /> </flow:flow> -->
+	<!-- !!!! WARNING !!!! The corresponding zip must be manually imported in 
+		corresponding workspace of the dist repo at path org/eclipse/www/downloads/rt/rap/addons/@{rapRelease}/ 
+		until we implement a cleaner way to directly retrieve the corresponding jars 
+		for eclipse repository -->
 
-	<!-- RAP ADDONS - experimental: use a zip that has been manually uploaded 
-		in the dist repo -->
-	<!-- <flow:flow name="eclipse/org.argeo.tp.rap.addons_0.5.0" parent="template.importRapAddonsZip"> 
-		<flow:arg name="rapBranch" value="2.2" /> <flow:arg name="rapVersion" value="0.5.0.argeo.20141029" 
-		/> </flow:flow> -->
-	<!-- <flow:flow name="eclipse/org.argeo.tp.rap.addons_0.2.0" parent="template.importRapAddonsZip"> 
-		<flow:arg name="rapBranch" value="2.2" /> <flow:arg name="rapVersion" value="0.2.0.20131212-1229" 
-		/> </flow:flow> -->
-	<flow:flow id="template.importRapAddonsZip" spec="rapVersion.spec"
-		abstract="true">
-		<bean class="org.argeo.slc.repo.osgi.ArchiveWrapper">
-			<property name="version" value="@{rapVersion}" />
-			<property name="mavenGroupIndexes" value="true" />
-			<property name="uri"
-				value="http://www.eclipse.org/downloads/rt/rap/@{rapBranch}/rap-addons-@{rapVersion}.zip" />
-			<property name="includes">
-				<map>
-					<entry key="plugins/*.jar" value="org.argeo.tp.rap.addons" />
-				</map>
-			</property>
-			<property name="osgiFactory">
-				<bean class="org.argeo.slc.repo.osgi.OsgiFactoryImpl"
-					init-method="init" destroy-method="destroy">
-					<property name="workspace" value="eclipse-rap-@{rapBranch}" />
-
-					<property name="nodeIndexers">
-						<list>
-							<bean class="org.argeo.slc.repo.ArtifactIndexer" />
-							<bean class="org.argeo.slc.repo.JarFileIndexer" />
-							<bean class="org.argeo.slc.repo.ModularDistributionIndexer" />
-							<bean class="org.argeo.slc.repo.PdeSourcesIndexer" />
-						</list>
-					</property>
-					<property name="javaRepository" ref="javaRepository" />
-					<property name="distRepository" ref="distRepository" />
-				</bean>
-			</property>
-		</bean>
+	<flow:flow name="eclipse/org.argeo.tp.rap.addons" parent="template.importRapAddons">
+		<flow:arg name="rapRelease" value="0.5" />
+		<flow:arg name="rapTimestamp" value="0.5.0.argeo.20150109" />
 	</flow:flow>
 
+  <flow:flow id="template.importRapAddons" spec="rapVersion.spec"
+		abstract="true">
+		<bean class="org.argeo.slc.repo.osgi.ArchiveWrapper">
+			<property name="uri"
+				value="http://www.eclipse.org/downloads/rt/rap/addons/@{rapRelease}/addons-@{rapTimestamp}.zip" />
+			<property name="includes">
+				<map>
+					<entry key="plugins/org.eclipse.rap.addons.*.jar" value="org.argeo.tp.rap" />
+				</map>
+			</property>
+			<property name="osgiFactory" ref="osgiFactory" />
+		</bean>
+	</flow:flow>
+	<!-- !!!! WARNING !!!! The corresponding zip must be manually imported in 
+		corresponding workspace of the dist repo at path org/eclipse/www/downloads/rt/rap/addons/fileupload/@{rapRelease}/ 
+		until we implement a cleaner way to directly retrieve the corresponding jars 
+		for eclipse repository -->
 
-	<!-- RAP 2.1 -->
-	<!-- <flow:flow name="eclipse/org.argeo.tp.rap.platform_2.1.2" parent="template.importRapZip"> 
-		<flow:arg name="rapBranch" value="2.1" /> <flow:arg name="rapVersion" value="2.1.2-R-20140210-0628" 
-		/> </flow:flow> <flow:flow name="eclipse/org.argeo.tp.rap.platform_2.1.0-R" 
-		parent="template.importRapZip"> <flow:arg name="rapBranch" value="2.1" /> 
-		<flow:arg name="rapVersion" value="2.1.0-R-20130611-2139" /> </flow:flow> 
-		<flow:flow name="eclipse/org.argeo.tp.rap.platform_2.1.0-M1" parent="template.importRapZip"> 
-		<flow:arg name="rapBranch" value="2.1" /> <flow:arg name="rapVersion" value="2.1.0-M1-20130318-2137" 
-		/> </flow:flow> <flow:flow id="template.importRapZip" spec="rapVersion.spec" 
-		abstract="true"> <bean class="org.argeo.slc.repo.osgi.ArchiveWrapper"> <property 
-		name="version" value="@{rapVersion}" /> <property name="mavenGroupIndexes" 
-		value="true" /> <property name="uri" value="http://www.eclipse.org/downloads/rt/rap/@{rapBranch}/rap-@{rapVersion}.zip" 
-		/> <property name="includes"> <map> <entry key="plugins/*.jar" value="org.argeo.tp.rap.platform" 
-		/> </map> </property> <property name="osgiFactory"> <bean class="org.argeo.slc.repo.osgi.OsgiFactoryImpl" 
-		init-method="init" destroy-method="destroy"> <property name="workspace" value="eclipse-rap-@{rapBranch}" 
-		/> <property name="mirrors"> <map> <entry key="http://www.eclipse.org/downloads"> 
-		<list> <value>http://mirror.netcologne.de/eclipse</value> <value>http://mirror.selfnet.de/eclipse</value> 
-		<value><![CDATA[http://www.eclipse.org/downloads/download.php?file=]]></value> 
-		</list> </entry> </map> </property> <property name="nodeIndexers"> <list> 
-		<bean class="org.argeo.slc.repo.ModularDistributionIndexer" /> <bean class="org.argeo.slc.repo.JarFileIndexer" 
-		/> <bean class="org.argeo.slc.repo.ArtifactIndexer" /> <bean class="org.argeo.slc.repo.PdeSourcesIndexer" 
-		/> </list> </property> <property name="javaRepository" ref="javaRepository" 
-		/> <property name="distRepository" ref="distRepository" /> </bean> </property> 
-		</bean> </flow:flow> -->
-
-
-
-
-	<!-- WORK IN PROGRESS add bundle from the incubator to the platform <flow:flow 
-		id="org.argeo.tp.rap.addons/org.argeo.tp.rap.dropdown_2.2" spec="rapVersion.spec" 
-		abstract="true"> <flow:arg name="rapBranch" value="2.2" /> <flow:arg name="rapVersion" 
-		value="0.2.0.20131212-1229" /> <bean class="org.argeo.slc.repo.osgi.ArchiveWrapper"> 
-		<property name="version" value="@{rapVersion}" /> <property name="mavenGroupIndexes" 
-		value="true" /> <property name="uri" value="file:///tmp/" /> <property name="includes"> 
-		<map> <entry key="plugins/*.jar" value="org.argeo.tp.rap.addons" /> </map> 
-		</property> <property name="osgiFactory"> <bean class="org.argeo.slc.repo.osgi.OsgiFactoryImpl" 
-		init-method="init" destroy-method="destroy"> <property name="workspace" value="eclipse-rap-@{rapBranch}" 
-		/> <property name="mirrors"> <map> <entry key="http://www.eclipse.org/downloads"> 
-		<list> <value>http://mirror.netcologne.de/eclipse</value> <value>http://mirror.selfnet.de/eclipse</value> 
-		<value><![CDATA[http://www.eclipse.org/downloads/download.php?file=]]></value> 
-		</list> </entry> </map> </property> <property name="nodeIndexers"> <list> 
-		<bean class="org.argeo.slc.repo.ArtifactIndexer" /> <bean class="org.argeo.slc.repo.JarFileIndexer" 
-		/> <bean class="org.argeo.slc.repo.ModularDistributionIndexer" /> <bean class="org.argeo.slc.repo.PdeSourcesIndexer" 
-		/> </list> </property> <property name="javaRepository" ref="javaRepository" 
-		/> <property name="distRepository" ref="distRepository" /> </bean> </property> 
-		</bean> </flow:flow> -->
-
-	<!-- Import bundles zip -->
-	<!-- <flow:spec id="importZip.spec"> -->
-	<!-- <flow:primitive name="groupId" /> -->
-	<!-- <flow:primitive name="workspace" /> -->
-	<!-- <flow:primitive name="zipFile" value="file:///tmp/" /> -->
-	<!-- </flow:spec> -->
-
-	<!-- <flow:flow id="importZip.template" spec="importZip.spec" -->
-	<!-- abstract="true"> -->
-	<!-- <bean class="org.argeo.slc.repo.osgi.ImportBundlesZip"> -->
-	<!-- <property name="workspace" value="@{workspace}" /> -->
-	<!-- <property name="groupId" value="@{groupId}" /> -->
-	<!-- <property name="zipFile" value="@{zipFile}" /> -->
-	<!-- <property name="repository" ref="javaRepository" /> -->
-	<!-- </bean> -->
-	<!-- </flow:flow> -->
+	<!-- <flow:flow name="eclipse/org.argeo.tp.rap.addons.fileupload" parent="template.importRapFileUpload"> 
+		<flow:arg name="rapRelease" value="0.6" /> <flow:arg name="rapTimestamp" 
+		value="0.6.0-20140611-1558" /> </flow:flow> <flow:flow id="template.importRapFileUpload" 
+		spec="rapVersion.spec" abstract="true"> <bean class="org.argeo.slc.repo.osgi.ArchiveWrapper"> 
+		<property name="uri" value="http://www.eclipse.org/downloads/rt/rap/addons/fileupload/@{rapRelease}/fileupload-@{rapTimestamp}.zip" 
+		/> <property name="includes"> <map> <entry key="plugins/org.eclipse.rap.addons.*.jar" 
+		value="org.argeo.tp.rap" /> </map> </property> <property name="osgiFactory" 
+		ref="osgiFactory" /> </bean> </flow:flow> -->
 </beans>
