@@ -55,17 +55,7 @@
 					<entry key="plugins/org.eclipse.help*.jar" value="org.argeo.tp.rap.platform" />
 
 					<!-- Minimal Equinox dependencies, to be refined -->
-					<entry key="plugins/org.eclipse.equinox.common*.jar" value="org.argeo.tp.rap" />
-					<entry key="plugins/org.eclipse.equinox.registry*.jar" value="org.argeo.tp.rap" />
-					<entry key="plugins/org.eclipse.equinox.preferences*.jar"
-						value="org.argeo.tp.rap" />
-					<entry key="plugins/org.eclipse.equinox.app*.jar" value="org.argeo.tp.rap" />
-					<entry key="plugins/org.eclipse.equinox.http.registry*.jar"
-						value="org.argeo.tp.rap" />
-					<!-- <entry key="plugins/org.eclipse.equinox.cm*.jar" value="org.argeo.tp.rap.platform" 
-						/> <entry key="plugins/org.eclipse.equinox.ds*.jar" value="org.argeo.tp.rap.platform" 
-						/> <entry key="plugins/org.eclipse.equinox.event*.jar" value="org.argeo.tp.rap.platform" 
-						/> -->
+					<entry key="plugins/org.eclipse.equinox.*.jar" value="org.argeo.tp.rap" />
 				</map>
 			</property>
 			<property name="osgiFactory" ref="osgiFactory" />
@@ -84,7 +74,7 @@
 		<flow:arg name="rapTimestamp" value="0.5.0.argeo.20150109" />
 	</flow:flow>
 
-  <flow:flow id="template.importRapAddons" spec="rapVersion.spec"
+	<flow:flow id="template.importRapAddons" spec="rapVersion.spec"
 		abstract="true">
 		<bean class="org.argeo.slc.repo.osgi.ArchiveWrapper">
 			<property name="uri"
