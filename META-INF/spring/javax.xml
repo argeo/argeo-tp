@@ -7,15 +7,29 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
-	<bean id="javax.inject" p:version="1.0.0" p:groupId="org.argeo.tp.javax"
-		p:sourceCoords="javax.inject:javax.inject:1" parent="template.mavenWrapper" />
+	<bean id="javax.inject" p:version="1.0.0" p:sourceCoords="javax.inject:javax.inject:1"
+		parent="template.mavenJavax">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+	</bean>
 
-	<bean id="javax.el" p:version="2.2.5" p:groupId="org.argeo.tp.javax"
-		p:sourceCoords="javax.el:javax.el-api:2.2.5" parent="template.mavenWrapper" />
+	<bean id="javax.jcr" p:version="2.0.0" p:sourceCoords="javax.jcr:jcr:2.0"
+		parent="template.mavenJavax">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+	</bean>
 
-	<bean id="javax.jcr" p:version="2.0.0" p:groupId="org.argeo.tp.javax"
-		p:sourceCoords="javax.jcr:jcr:2.0" parent="template.mavenWrapper" />
+	<bean id="javax.mail" p:sourceCoords="com.sun.mail:javax.mail:1.5.2"
+		parent="template.mavenJavax">
+		<property name="license">
+			<!-- GPL with classpath exception -->
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.GPL" />
+		</property>
+	</bean>
 
-	<bean id="javax.mail" p:groupId="org.argeo.tp.javax"
-		p:sourceCoords="com.sun.mail:javax.mail:1.5.2" parent="template.mavenWrapper" />
+	<!-- Templates -->
+	<bean name="template.mavenJavax" p:groupId="org.argeo.tp.javax"
+		abstract="true" parent="template.mavenWrapper" />
 </beans>

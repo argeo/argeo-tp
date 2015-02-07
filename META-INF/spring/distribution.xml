@@ -13,6 +13,12 @@
 		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.6" />
 		<property name="modules">
 			<list>
+				<!-- Javax -->
+				<ref bean="javax.inject" />
+				<ref bean="javax.jcr" />
+				<ref bean="javax.mail" />
+
+				<!-- Standalone projects -->
 				<ref bean="apache/org.apache.log4j" />
 				<ref bean="misc/org.slf4j" />
 				<ref bean="org.aopalliance" />
@@ -21,16 +27,12 @@
 				<ref bean="org.joda.time" />
 				<ref bean="com.jcraft.jsch" />
 				<ref bean="EDU.oswego.cs.dl.util.concurrent" />
-				<ref bean="javax.el" />
-				<ref bean="javax.inject" />
-				<ref bean="javax.jcr" />
-				<ref bean="javax.mail" />
-				<ref bean="misc/org.aspectj" />
+				<ref bean="org.objectweb.asm" />
+				<ref bean="org.aspectj.weaver" />
 				<ref bean="misc/org.bouncycastle" />
-				<ref bean="spring/org.springframework" />
-				<ref bean="org.springframework.ldap" />
-				<ref bean="spring/org.springframework.security" />
 				<ref bean="apache/org.apache.ant" />
+
+				<!-- Apache Commons -->
 				<ref bean="apache/org.apache.commons.io" />
 				<ref bean="apache/org.apache.commons.fileupload" />
 				<ref bean="apache/org.apache.commons.collections" />
@@ -41,30 +43,25 @@
 				<ref bean="apache/org.apache.commons.vfs" />
 				<ref bean="apache/org.apache.commons.net" />
 				<ref bean="apache/org.apache.commons.exec" />
-				<!-- Felix -->
-				<!-- <ref bean="org.apache.felix.framework" /> -->
-				<!-- <ref bean="org.apache.felix.bundlerepository" /> -->
-				<!-- <ref bean="org.apache.felix.gogo.command" /> -->
-				<!-- <ref bean="org.apache.felix.gogo.runtime" /> -->
-				<!-- <ref bean="org.apache.felix.gogo.shell" /> -->
+
 				<!-- Eclipse -->
 				<ref bean="eclipse/org.argeo.tp.jetty" />
 				<ref bean="eclipse/org.argeo.tp.equinox" />
 				<ref bean="eclipse/org.argeo.tp.gemini" />
 
-				<!-- Rap -->
+				<!-- Eclipse RAP -->
 				<ref bean="eclipse/org.argeo.tp.rap.platform" />
 				<ref bean="eclipse/org.argeo.tp.rap.addons" />
-				<!-- <ref bean="eclipse/org.argeo.tp.rap.addons.fileupload" /> -->
 
-				<!-- <ref bean="org.argeo.tp.gemini/org.gemini.web" /> -->
-				<!-- <ref bean="org.eclipse.gemini.web.core" /> -->
-				<!-- <ref bean="org.eclipse.gemini.web.extender" /> -->
-				<!-- <ref bean="org.eclipse.gemini.web.tomcat" /> -->
 				<!-- Jackrabbit -->
 				<ref bean="apache/org.apache.tika" />
 				<ref bean="apache/org.apache.lucene" />
 				<ref bean="apache/org.apache.jackrabbit" />
+				
+				<!-- Spring -->
+				<ref bean="spring/org.springframework" />
+				<ref bean="org.springframework.ldap" />
+				<ref bean="spring/org.springframework.security" />
 			</list>
 		</property>
 	</bean>

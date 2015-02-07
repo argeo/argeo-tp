@@ -47,21 +47,6 @@
 						value="org.argeo.tp.jetty" />
 					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-client-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<!-- Javax -->
-					<entry key="jetty-distribution-@{jettyVersion}/lib/servlet-api-*.jar"
-						value="org.argeo.tp.javax" />
-					<entry
-						key="jetty-distribution-@{jettyVersion}/lib/annotations/javax.annotation-*.jar"
-						value="org.argeo.tp.javax" />
-					<entry
-						key="jetty-distribution-@{jettyVersion}/lib/annotations/org.objectweb.asm-*.jar"
-						value="org.argeo.tp" />
-					<entry
-						key="jetty-distribution-@{jettyVersion}/lib/jndi/javax.activation-*.jar"
-						value="org.argeo.tp.javax" />
-					<entry
-						key="jetty-distribution-@{jettyVersion}/lib/jta/javax.transaction-*.jar"
-						value="org.argeo.tp.javax" />
 				</map>
 			</property>
 			<property name="excludes">

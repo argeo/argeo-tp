@@ -20,7 +20,7 @@
 
 	<bean id="template.bndWrapper" class="org.argeo.slc.repo.osgi.BndWrapper"
 		abstract="true">
-		<property name="groupId" value="org.argeo.tp" />
+		<property name="groupId" value="org.argeo.tp.misc" />
 		<property name="bndProperties">
 			<props>
 				<prop key="Export-Package">*</prop>
@@ -29,7 +29,7 @@
 	</bean>
 	<bean id="template.mavenWrapper" class="org.argeo.slc.repo.osgi.MavenWrapper"
 		abstract="true">
-		<property name="groupId" value="org.argeo.tp" />
+		<property name="groupId" value="org.argeo.tp.misc" />
 		<property name="bndProperties">
 			<props>
 				<prop key="Export-Package">*</prop>

@@ -71,6 +71,7 @@
 				<prop key="Import-Package">
 					joptsimple;resolution:=optional,
 					org.springframework.asm.tree;resolution:=optional,
+					org.apache.tools.ant.*;resolution:=optional,
 					*
 				</prop>
 			</props>

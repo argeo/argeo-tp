@@ -41,10 +41,6 @@
 						<bean id="org.springframework.security.core" parent="template.spring.security" />
 					</entry>
 					<entry
-						key="spring-security-@{version}/dist/spring-security-crypto-@{version}.jar">
-						<bean id="org.springframework.security.crypto" parent="template.spring.security" />
-					</entry>
-					<entry
 						key="spring-security-@{version}/dist/spring-security-ldap-@{version}.jar">
 						<bean id="org.springframework.security.ldap" parent="template.spring.security" />
 					</entry>

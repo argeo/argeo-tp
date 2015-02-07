@@ -7,16 +7,13 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
-	<!-- Equinox Kepler SR2 (3.9.1) -->
 	<flow:flow name="eclipse/org.argeo.tp.equinox" parent="template.importEquinox">
-		<!-- <flow:arg name="version" value="3.9.1" /> -->
-		<flow:arg name="equinoxRelease" value="KeplerSR2" />
-		<flow:arg name="equinoxTimestamp" value="201402211700" />
+		<flow:arg name="equinoxRelease" value="LunaSR1" />
+		<flow:arg name="equinoxTimestamp" value="201409250400" />
 	</flow:flow>
 
 	<!-- Equinox specs and templates -->
 	<flow:spec id="equinoxVersion.spec">
-		<!-- <flow:primitive name="version" isParameter="true" /> -->
 		<flow:primitive name="equinoxRelease" isParameter="true" />
 		<flow:primitive name="equinoxTimestamp" isParameter="true" />
 	</flow:spec>
@@ -28,15 +25,43 @@
 				value="http://www.eclipse.org/downloads/equinox/drops/R-@{equinoxRelease}-@{equinoxTimestamp}/equinox-SDK-@{equinoxRelease}.zip" />
 			<property name="includes">
 				<map>
+					<!-- Core OSGi framework -->
 					<entry key="plugins/org.eclipse.osgi_*.jar" value="org.argeo.tp.equinox" />
-					<entry key="plugins/org.eclipse.osgi.*.jar" value="org.argeo.tp.equinox" />
-					<!-- FIXME move it to RAP or Addons, only used for build -->
-					<entry key="plugins/org.eclipse.equinox.security_*.jar"
+					<entry key="plugins/org.eclipse.osgi.source_*.jar" value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.osgi.util*.jar" value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.osgi.services*.jar" value="org.argeo.tp.equinox" />
+
+					<!-- Javax -->
+					<entry key="plugins/javax.servlet_*.jar" value="org.argeo.tp.javax" />
+					<entry key="plugins/javax.servlet.source_*.jar" value="org.argeo.tp.javax" />
+					<entry key="plugins/javax.el*.jar" value="org.argeo.tp.javax" />
+
+					<!-- Felix console -->
+					<entry key="plugins/org.apache.felix.gogo.*.jar" value="org.argeo.tp.apache.felix" />
+
+					<!-- Required by RAP -->
+					<entry key="plugins/org.eclipse.equinox.app*.jar" value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.equinox.cm*.jar" value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.equinox.common*.jar" value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.equinox.console_*.jar" value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.equinox.console.source_*.jar"
 						value="org.argeo.tp.equinox" />
-					<entry key="plugins/org.eclipse.equinox.security.source_*.jar"
+					<entry key="plugins/org.eclipse.equinox.ds*.jar" value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.equinox.event*.jar" value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.equinox.http.jetty*.jar"
 						value="org.argeo.tp.equinox" />
-					<!-- <entry key="plugins/org.eclipse.core.*.jar" -->
-					<!-- value="org.argeo.tp.equinox" /> -->
+					<entry key="plugins/org.eclipse.equinox.http.registry*.jar"
+						value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.equinox.http.servlet*.jar"
+						value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.equinox.http.servletbridge*.jar"
+						value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.equinox.preferences*.jar"
+						value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.equinox.registry*.jar" value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.equinox.servletbridge*.jar"
+						value="org.argeo.tp.equinox" />
+					<entry key="plugins/org.eclipse.equinox.util*.jar" value="org.argeo.tp.equinox" />
 				</map>
 			</property>
 			<property name="osgiFactory" ref="osgiFactory" />
