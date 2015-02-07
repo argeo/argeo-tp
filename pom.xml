@@ -8,7 +8,7 @@
 	</parent>
 	<groupId>org.argeo.tp.factory</groupId>
 	<artifactId>org.argeo.tp.factory.core</artifactId>
-	<name>Argeo Factory For Base Third Parties</name>
+	<name>Third Party Factory</name>
 	<properties>
 		<additionalImports.slc-lib>
 			javax.security.auth.callback;resolution:="optional"
