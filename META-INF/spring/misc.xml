@@ -55,9 +55,8 @@
 
 	<!-- TODO: Rather use the binary provided here: https://github.com/JodaOrg/joda-time/releases 
 		once the archiveMapper can manage tar.gz archives -->
-	<bean id="org.joda.time" p:sourceCoords="joda-time:joda-time:2.6"
+	<bean id="org.joda.time" p:version="2.6.0" p:sourceCoords="joda-time:joda-time:2.6"
 		parent="template.mavenWrapper">
-		<!-- <property name="doNotModify" value="true" /> -->
 		<property name="license">
 			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
@@ -106,6 +105,51 @@
 		parent="template.mavenWrapper">
 		<property name="license">
 			<util:constant static-field="org.argeo.slc.repo.FreeLicense.BSD" />
+		</property>
+	</bean>
+
+	<bean id="org.quartz-scheduler.quartz" p:sourceCoords="org.quartz-scheduler:quartz:jar:2.2.1"
+		parent="template.mavenWrapper">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					*;resolution:=optional,
+				</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="org.quartz-scheduler.quartz.jobs" p:sourceCoords="org.quartz-scheduler:quartz-jobs:jar:2.2.1"
+		parent="template.mavenWrapper">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					*;resolution:=optional,
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="biz.aQute.bnd" p:sourceCoords="biz.aQute:bnd:1.50.0"
+		parent="template.mavenWrapper">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					org.eclipse.*;resolution:=optional,
+					org.apache.tools.ant.*;resolution:=optional,
+					junit.*;resolution:=optional,
+					*
+				</prop>
+			</props>
 		</property>
 	</bean>
 

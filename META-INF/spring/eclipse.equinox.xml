@@ -67,4 +67,30 @@
 			<property name="osgiFactory" ref="osgiFactory" />
 		</bean>
 	</flow:flow>
+
+	<flow:flow name="eclipse/org.eclipse.jdt.core.compiler.batch"
+		spec="equinoxVersion.spec">
+		<flow:arg name="equinoxRelease" value="4.4.1" />
+		<flow:arg name="equinoxTimestamp" value="201409250400" />
+		<bean id="org.eclipse.jdt.core.compiler.batch" class="org.argeo.slc.repo.osgi.UriWrapper">
+			<!-- TODO URI wrapper should be able to read OSGi metadata -->
+			<property name="version" value="3.10.0.v20140902-0626" />
+			<property name="uri"
+				value="http://www.eclipse.org/downloads/eclipse/downloads/drops4/R-@{equinoxRelease}-@{equinoxTimestamp}/ecj-@{equinoxRelease}.jar" />
+			<property name="groupId" value="org.argeo.tp.equinox" />
+			<property name="doNotModify" value="true" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
+			</property>
+			<property name="osgiFactory" ref="osgiFactory" />
+			<property name="sourcesProvider">
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="uri"
+						value="http://www.eclipse.org/downloads/eclipse/downloads/drops4/R-@{equinoxRelease}-@{equinoxTimestamp}/ecjsrc-@{equinoxRelease}.jar" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
+			</property>
+		</bean>
+	</flow:flow>
+
 </beans>

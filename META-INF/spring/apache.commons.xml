@@ -67,6 +67,39 @@
 		<bean p:version="3.3.0" parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
+	<flow:flow name="apache/org.apache.commons.compress" spec="spec.commons">
+		<flow:arg name="project" value="compress" />
+		<flow:arg name="version" value="1.9" />
+		<bean p:version="1.9.0" parent="template.commonsArchiveWrapper">
+			<property name="wrappers">
+				<map>
+					<entry
+						key="commons-@{project}-@{version}/commons-@{project}-@{version}.jar">
+						<bean p:name="org.apache.commons.@{project}" parent="template.org.apache.commons">
+							<property name="bndProperties">
+								<props merge="true">
+									<prop key="Import-Package">
+										org.tukaani.*;resolution:=optional,
+										*
+									</prop>
+								</props>
+							</property>
+						</bean>
+					</entry>
+				</map>
+			</property>
+			<property name="sourcesProvider">
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="uri"
+						value="http://archive.apache.org/dist/commons/@{project}/source/commons-@{project}-@{version}-src.zip" />
+					<property name="base"
+						value="commons-@{project}-@{version}-src/src/main/java/" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
+			</property>
+		</bean>
+	</flow:flow>
+
 	<flow:flow name="apache/org.apache.commons.vfs" spec="spec.commons">
 		<flow:arg name="project" value="vfs" />
 		<flow:arg name="version" value="2.0" />
@@ -128,6 +161,53 @@
 		</bean>
 	</flow:flow>
 
+	<flow:flow name="apache/org.apache.commons.jci" spec="spec.commons">
+		<flow:arg name="project" value="jci" />
+		<flow:arg name="version" value="1.1" />
+		<bean parent="template.commonsArchiveWrapper">
+			<property name="uri"
+				value="http://archive.apache.org/dist/commons/@{project}/binaries/commons-@{project}-@{version}-bin.zip" />
+			<!-- JCI provides OSGi metadata, but they are broken (org.apache.commons.jci.monitor 
+				package) -->
+			<property name="wrappers">
+				<map>
+					<entry
+						key="commons-@{project}-@{version}/lib/commons-@{project}-core-@{version}.jar">
+						<bean p:name="org.apache.commons.@{project}-core" parent="template.org.apache.commons">
+							<property name="bndProperties">
+								<props merge="true">
+									<prop key="Import-Package">
+										org.apache.commons.jci.monitor;resolution:=optional,
+										*
+									</prop>
+								</props>
+							</property>
+						</bean>
+					</entry>
+					<entry
+						key="commons-@{project}-@{version}/lib/commons-@{project}-eclipse-@{version}.jar">
+						<bean p:name="org.apache.commons.@{project}-eclipse" parent="template.org.apache.commons" />
+					</entry>
+					<!-- <entry -->
+					<!-- key="commons-@{project}-@{version}/lib/commons-@{project}-rhino-@{version}.jar"> -->
+					<!-- <bean p:name="org.apache.commons.@{project}-rhino" parent="template.org.apache.commons" 
+						/> -->
+					<!-- </entry> -->
+				</map>
+			</property>
+			<!-- TODO : include other sources than core -->
+			<property name="sourcesProvider">
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="uri"
+						value="http://archive.apache.org/dist/commons/@{project}/source/commons-@{project}-@{version}-src.zip" />
+					<property name="base"
+						value="commons-@{project}-@{version}-src/core/src/main/java/" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
+			</property>
+		</bean>
+	</flow:flow>
+
 	<flow:flow name="apache/org.apache.commons.httpclient" spec="spec.version">
 		<flow:arg name="version" value="3.1" />
 		<bean parent="template.commonsArchiveWrapper">
@@ -147,6 +227,35 @@
 					<property name="uri"
 						value="http://archive.apache.org/dist/httpcomponents/commons-httpclient/source/commons-httpclient-@{version}-src.zip" />
 					<property name="base" value="commons-httpclient-@{version}/src/java/" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
+			</property>
+		</bean>
+	</flow:flow>
+
+	<flow:flow name="apache/org.apache.httpcomponents.httpclient"
+		spec="spec.version">
+		<flow:arg name="version" value="4.4" />
+		<bean parent="template.archiveWrapper">
+			<property name="version" value="@{version}.0" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			</property>
+			<property name="uri"
+				value="http://archive.apache.org/dist/httpcomponents/httpclient/binary/httpcomponents-client-@{version}-osgi-bin.zip" />
+			<property name="includes">
+				<map>
+					<entry
+						key="httpcomponents-client-@{version}/org.apache.httpcomponents.httpclient_@{version}.jar"
+						value="org.argeo.tp.apache" />
+				</map>
+			</property>
+			<property name="sourcesProvider">
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="uri"
+						value="http://archive.apache.org/dist/httpcomponents/httpclient/source/httpcomponents-client-@{version}-src.zip" />
+					<property name="base"
+						value="httpcomponents-client-@{version}/httpclient/src/main/java/" />
 					<property name="osgiFactory" ref="osgiFactory" />
 				</bean>
 			</property>
