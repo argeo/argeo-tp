@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.argeo.slc</groupId>
 		<artifactId>lib</artifactId>
-		<version>1.2.0</version>
+		<version>2.1.1-SNAPSHOT</version>
 	</parent>
 	<groupId>org.argeo.tp.factory</groupId>
 	<artifactId>org.argeo.tp.factory.core</artifactId>
@@ -47,7 +47,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.argeo.slc</groupId>
-			<artifactId>org.argeo.slc.dep.rcp</artifactId>
+			<artifactId>org.argeo.slc.dep.rap</artifactId>
 			<version>${version.slc}</version>
 			<scope>test</scope>
 		</dependency>
@@ -55,7 +55,7 @@
 	<repositories>
 		<repository>
 			<id>argeo-slc</id>
-			<url>http://repo.argeo.org/data/public/java/argeo-slc-1.2</url>
+			<url>http://repo.argeo.org/data/public/java/argeo-slc-2.1</url>
 			<releases>
 				<enabled>true</enabled>
 				<updatePolicy>daily</updatePolicy>
