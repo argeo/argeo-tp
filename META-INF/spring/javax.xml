@@ -21,6 +21,13 @@
 		</property>
 	</bean>
 
+	<bean id="javax.transaction" p:version="1.1.0" p:sourceCoords="javax.transaction:jta:1.1"
+		parent="template.mavenJavax">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.CDDL" />
+		</property>
+	</bean>
+
 	<bean id="javax.mail" p:sourceCoords="com.sun.mail:javax.mail:1.5.2"
 		parent="template.mavenJavax">
 		<property name="license">

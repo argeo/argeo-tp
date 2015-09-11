@@ -10,13 +10,14 @@
 	<!-- REGISTER -->
 	<bean id="argeo-tp" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.8" />
+		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.9" />
 		<property name="modules">
 			<list>
 				<!-- Javax -->
 				<ref bean="javax.inject" />
 				<ref bean="javax.jcr" />
 				<ref bean="javax.mail" />
+				<ref bean="javax.transaction" />
 				
 				<!-- Builder -->
 				<ref bean="biz.aQute.bnd" />
