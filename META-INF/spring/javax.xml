@@ -26,6 +26,11 @@
 		<property name="license">
 			<util:constant static-field="org.argeo.slc.repo.FreeLicense.CDDL" />
 		</property>
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Fragment-Host">system.bundle; extension:=framework</prop>
+			</props>
+		</property>
 	</bean>
 
 	<bean id="javax.mail" p:sourceCoords="com.sun.mail:javax.mail:1.5.2"
