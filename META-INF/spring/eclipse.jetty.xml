@@ -8,7 +8,7 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
 	<flow:flow name="eclipse/org.argeo.tp.jetty" parent="template.importJettyZip">
-		<flow:arg name="jettyVersion" value="8.1.16.v20140903" />
+		<flow:arg name="jettyVersion" value="8.1.17.v20150415" />
 	</flow:flow>
 
 	<!-- Jetty specs and templates -->
