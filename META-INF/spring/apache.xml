@@ -14,7 +14,7 @@
 	</flow:flow>
 
 	<flow:flow name="apache/org.apache.tika" spec="spec.version">
-		<flow:arg name="version" value="1.6" />
+		<flow:arg name="version" value="1.10" />
 		<bean id="org.apache.tika.core" parent="template.tikaMaven"
 			p:sourceCoords="org.apache.tika:tika-core:@{version}" />
 		<bean id="org.apache.tika.parser" parent="template.tikaMaven"
