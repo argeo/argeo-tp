@@ -11,9 +11,9 @@
 
 	<!-- REGISTER -->
 	<flow:flow name="misc/org.bouncycastle" spec="spec.version">
-		<flow:arg name="version" value="1.51" />
+		<flow:arg name="version" value="1.52" />
 		<bean id="bcprov"
-			p:uri="http://www.bouncycastle.org/download/bcprov-jdk15on-151.jar"
+			p:uri="http://www.bouncycastle.org/download/bcprov-jdk15on-152.jar"
 			parent="template.bouncycastle">
 			<property name="sourcesProvider">
 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
@@ -24,7 +24,7 @@
 			</property>
 		</bean>
 		<bean id="bcpkix"
-			p:uri="http://www.bouncycastle.org/download/bcpkix-jdk15on-151.jar"
+			p:uri="http://www.bouncycastle.org/download/bcpkix-jdk15on-152.jar"
 			parent="template.bouncycastle">
 			<property name="sourcesProvider">
 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
@@ -35,7 +35,7 @@
 			</property>
 		</bean>
 		<bean id="bcmail"
-			p:uri="http://www.bouncycastle.org/download/bcmail-jdk15on-151.jar"
+			p:uri="http://www.bouncycastle.org/download/bcmail-jdk15on-152.jar"
 			parent="template.bouncycastle">
 			<property name="sourcesProvider">
 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
@@ -46,7 +46,7 @@
 			</property>
 		</bean>
 		<bean id="bcpg"
-			p:uri="http://www.bouncycastle.org/download/bcpg-jdk15on-151.jar"
+			p:uri="http://www.bouncycastle.org/download/bcpg-jdk15on-152.jar"
 			parent="template.bouncycastle">
 			<property name="sourcesProvider">
 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
@@ -61,9 +61,6 @@
 	<!-- FACTORY -->
 	<bean id="template.bouncycastle" class="org.argeo.slc.repo.osgi.UriWrapper"
 		abstract="true">
-		<!-- <property name="baseUri" -->
-		<!-- value="https://www.bouncycastle.org/download/bcprov-jdk15on-151.jar" 
-			/> -->
 		<property name="version" value="@{version}" />
 		<property name="groupId" value="org.argeo.tp.bouncycastle" />
 		<property name="doNotModify" value="true" />
