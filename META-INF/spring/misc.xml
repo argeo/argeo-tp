@@ -44,7 +44,7 @@
 		</property>
 	</bean>
 
-	<bean id="org.h2" p:sourceCoords="com.h2database:h2:1.4.185"
+	<bean id="org.h2" p:sourceCoords="com.h2database:h2:1.4.188"
 		parent="template.mavenWrapper">
 		<property name="doNotModify" value="true" />
 		<!-- <property name="doNotModifySources" value="true" /> -->
