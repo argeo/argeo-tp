@@ -152,6 +152,22 @@
 			</props>
 		</property>
 	</bean>
+	
+	<bean id="bitronix.tm" p:sourceCoords="org.codehaus.btm:btm:2.1.4"
+		parent="template.mavenWrapper">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					javax.jms;resolution:=optional,
+					javax.swing.*;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
 
 	<flow:flow name="misc/org.slf4j" spec="spec.version">
 		<flow:arg name="version" value="1.7.5" />

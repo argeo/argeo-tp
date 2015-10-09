@@ -38,6 +38,7 @@
 				<ref bean="apache/org.apache.ant" />
 				<ref bean="org.quartz-scheduler.quartz" />
 				<ref bean="org.quartz-scheduler.quartz.jobs" />
+				<ref bean="bitronix.tm" />
 
 				<!-- Apache Commons -->
 				<ref bean="apache/org.apache.commons.io" />
@@ -69,8 +70,8 @@
 				
 				<!-- Spring -->
 				<ref bean="spring/org.springframework" />
-				<ref bean="org.springframework.ldap" />
-				<ref bean="spring/org.springframework.security" />
+<!-- 				<ref bean="org.springframework.ldap" /> -->
+<!-- 				<ref bean="spring/org.springframework.security" /> -->
 			</list>
 		</property>
 	</bean>
