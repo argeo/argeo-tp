@@ -10,7 +10,7 @@
 	<!-- REGISTER -->
 	<bean id="argeo-tp" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.12" />
+		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.13" />
 		<property name="modules">
 			<list>
 				<!-- Javax -->
