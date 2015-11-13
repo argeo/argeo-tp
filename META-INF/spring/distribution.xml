@@ -39,6 +39,8 @@
 				<ref bean="org.quartz-scheduler.quartz" />
 				<ref bean="org.quartz-scheduler.quartz.jobs" />
 				<ref bean="bitronix.tm" />
+				<ref bean="misc/org.w3c.css.sac"/>
+				<ref bean="com.steadystate.css"/>
 
 				<!-- Apache Commons -->
 				<ref bean="apache/org.apache.commons.io" />
@@ -53,6 +55,10 @@
 				<ref bean="apache/org.apache.commons.exec" />
 				<ref bean="apache/org.apache.commons.jci" />
 				<ref bean="apache/org.apache.commons.compress" />
+				
+				<!-- Google -->
+				<ref bean="com.google.guava" />
+				<ref bean="com.google.gson" />
 
 				<!-- Eclipse -->
 				<ref bean="eclipse/org.argeo.tp.jetty" />
@@ -70,8 +76,6 @@
 				
 				<!-- Spring -->
 				<ref bean="spring/org.springframework" />
-<!-- 				<ref bean="org.springframework.ldap" /> -->
-<!-- 				<ref bean="spring/org.springframework.security" /> -->
 			</list>
 		</property>
 	</bean>
