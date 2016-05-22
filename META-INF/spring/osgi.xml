@@ -15,8 +15,6 @@
 	<service ref="argeo-tp" interface="org.argeo.slc.repo.ArgeoOsgiDistribution" />
 
 	<!-- REFERENCES -->
-	<reference id="authenticationManager"
-		interface="org.springframework.security.authentication.AuthenticationManager" />
 	<reference id="javaRepository" interface="javax.jcr.Repository"
 		filter="(argeo.jcr.repository.alias=java)" />
 	<reference id="distRepository" interface="javax.jcr.Repository"

@@ -10,13 +10,14 @@
 	<!-- REGISTER -->
 	<bean id="argeo-tp" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.7" />
+		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.13" />
 		<property name="modules">
 			<list>
 				<!-- Javax -->
 				<ref bean="javax.inject" />
 				<ref bean="javax.jcr" />
 				<ref bean="javax.mail" />
+				<ref bean="javax.transaction" />
 				
 				<!-- Builder -->
 				<ref bean="biz.aQute.bnd" />
@@ -37,6 +38,9 @@
 				<ref bean="apache/org.apache.ant" />
 				<ref bean="org.quartz-scheduler.quartz" />
 				<ref bean="org.quartz-scheduler.quartz.jobs" />
+				<ref bean="bitronix.tm" />
+				<ref bean="misc/org.w3c.css.sac"/>
+				<ref bean="com.steadystate.css"/>
 
 				<!-- Apache Commons -->
 				<ref bean="apache/org.apache.commons.io" />
@@ -51,6 +55,10 @@
 				<ref bean="apache/org.apache.commons.exec" />
 				<ref bean="apache/org.apache.commons.jci" />
 				<ref bean="apache/org.apache.commons.compress" />
+				
+				<!-- Google -->
+				<ref bean="com.google.guava" />
+				<ref bean="com.google.gson" />
 
 				<!-- Eclipse -->
 				<ref bean="eclipse/org.argeo.tp.jetty" />
@@ -68,8 +76,6 @@
 				
 				<!-- Spring -->
 				<ref bean="spring/org.springframework" />
-				<ref bean="org.springframework.ldap" />
-				<ref bean="spring/org.springframework.security" />
 			</list>
 		</property>
 	</bean>
@@ -123,7 +129,6 @@
 	<!-- Security -->
 	<bean
 		class="org.argeo.security.core.AuthenticatedApplicationContextInitialization">
-		<property name="authenticationManager" ref="authenticationManager" />
 		<property name="beanNames">
 			<list>
 				<value>osgiFactory</value>
