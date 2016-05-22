@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+	<bean id="org.junit" p:version="4.11.0" p:sourceCoords="junit:junit:4.11"
+		parent="template.mavenSdk">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
+		</property>
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					org.hamcrest;resolution:=optional,
+					org.hamcrest.core;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="biz.aQute.bnd" p:sourceCoords="biz.aQute:bnd:1.50.0"
+		parent="template.mavenSdk">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					org.eclipse.*;resolution:=optional,
+					org.apache.tools.ant.*;resolution:=optional,
+					junit.*;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- JGit -->
+	<bean id="org.eclipse.jgit" p:sourceCoords="org.eclipse.jgit:org.eclipse.jgit:3.6.2.201501210735-r"
+		parent="template.mavenSdk">
+		<property name="doNotModify" value="true" />
+		<property name="license">
+			<!-- Eclipse Distribution License (EDL) -->
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.BSD" />
+		</property>
+	</bean>
+
+	<bean id="org.dbunit" p:sourceCoords="org.dbunit:dbunit:2.5.0"
+		parent="template.mavenSdk">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.LGPL_v2" />
+		</property>
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					*;resolution:=optional,
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="org.redline-rpm" p:sourceCoords="org.redline-rpm:redline:1.2.1"
+		parent="template.mavenSdk">
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.MIT" />
+		</property>
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					sun.security.*;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+
+	<!-- SVN Kit -->
+	<flow:flow name="misc/org.tmatesoft.svnkit" spec="spec.version">
+		<flow:arg name="version" value="1.8.8" />
+		<bean parent="template.archiveWrapper">
+			<property name="uri"
+				value="http://www.svnkit.com/org.tmatesoft.svn_@{version}.standalone.nojna.zip" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
+			</property>
+			<property name="wrappers">
+				<map>
+					<entry key="svnkit-@{version}/lib/svnkit-@{version}.jar">
+						<bean id="org.tmatesoft.svnkit" parent="template.bndWrapper">
+							<property name="groupId" value="org.argeo.tp.sdk" />
+							<property name="bndProperties">
+								<props merge="true">
+									<prop key="Import-Package">
+										com.sun.jna.*;resolution:=optional,
+										com.trilead.ssh2.*;resolution:=optional,
+										de.regnis.q.sequence.*;resolution:=optional,
+										org.ietf.jgss.*;resolution:=optional,
+										org.tmatesoft.sqljet.*;resolution:=optional,
+										*
+									</prop>
+								</props>
+							</property>
+						</bean>
+					</entry>
+				</map>
+			</property>
+			<property name="sourcesProvider">
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="base" value="/svnkit-@{version}/svnkit/src/main/java/" />
+					<property name="uri"
+						value="http://www.svnkit.com/org.tmatesoft.svn_@{version}.src.zip" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
+			</property>
+		</bean>
+	</flow:flow>
+
+
+	<!-- Templates -->
+	<bean name="template.mavenSdk" p:groupId="org.argeo.tp.sdk"
+		abstract="true" parent="template.mavenWrapper" />
+
+</beans>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+	<!-- Aether -->
+	<flow:flow name="eclipse/org.eclipse.aether" spec="spec.version">
+		<flow:arg name="version" value="1.0.1" />
+		<bean parent="template.archiveWrapper">
+			<property name="uri"
+				value="http://www.eclipse.org/downloads/aether/aether-core/@{version}/dist/aether-@{version}-bin.zip" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
+			</property>
+			<property name="includes">
+				<map>
+					<entry key="aether-*/aether-*.jar" value="org.argeo.tp.aether" />
+				</map>
+			</property>
+			<property name="excludes">
+				<list>
+					<!-- Needs Apache Http Components -->
+					<value>aether-*/aether-transport-http-*.jar</value>
+					<!-- Needs Maven -->
+					<value>aether-*/aether-transport-wagon-*.jar</value>
+				</list>
+			</property>
+			<property name="sourcesProvider">
+				<!-- TODO make it more generic and include other sources -->
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="base"
+						value="/aether-1.0.1.v20141111/aether-api/src/main/java" />
+					<property name="uri"
+						value="http://www.eclipse.org/downloads/aether/aether-core/@{version}/dist/aether-@{version}-src.zip" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
+			</property>
+		</bean>
+	</flow:flow>
+</beans>
