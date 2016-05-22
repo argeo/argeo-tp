@@ -10,7 +10,7 @@
 	<!-- REGISTER -->
 	<bean id="argeo-tp" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.13" />
+		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.14" />
 		<property name="modules">
 			<list>
 				<!-- Javax -->
@@ -76,6 +76,19 @@
 				
 				<!-- Spring -->
 				<ref bean="spring/org.springframework" />
+
+				<!-- Document generation and management -->
+				<ref bean="net.sf.jxl" />
+				<ref bean="apache/org.apache.pdfbox" />
+				<!-- Databases -->
+				<ref bean="org.postgresql.postgresql" />
+				<ref bean="org.dbunit" />
+				<!-- ALM -->
+				<ref bean="eclipse/org.eclipse.aether" />
+				<ref bean="org.redline-rpm" />
+				<!-- Needs https://code.google.com/p/javaewah/ -->
+				<!-- <ref bean="org.eclipse.jgit" /> -->
+				<ref bean="misc/org.tmatesoft.svnkit" />
 			</list>
 		</property>
 	</bean>
@@ -83,7 +96,7 @@
 	<!-- Factory -->
 	<bean id="osgiFactory" class="org.argeo.slc.repo.osgi.OsgiFactoryImpl"
 		init-method="init" destroy-method="destroy">
-		<property name="workspace" value="argeo-tp-2.1" />
+		<property name="workspace" value="argeo-2.1" />
 		<property name="nodeIndexers">
 			<list>
 				<bean class="org.argeo.slc.repo.ModularDistributionIndexer" />
@@ -129,10 +142,11 @@
 	<!-- Security -->
 	<bean
 		class="org.argeo.security.core.AuthenticatedApplicationContextInitialization">
-		<property name="beanNames">
-			<list>
-				<value>osgiFactory</value>
-			</list>
-		</property>
+<!-- 		<property name="beanNames"> -->
+<!-- 			<list> -->
+<!-- 				<value>osgiFactory</value> -->
+<!-- 				<value>argeo-tp</value> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
 	</bean>
 </beans>

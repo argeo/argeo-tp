@@ -6,7 +6,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Third Party Factory
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-SymbolicName: org.argeo.tp.factory.core
-Bundle-Version: 2.1.13.r201605220946
+Bundle-Version: 2.1.14.SNAPSHOT-r201605220948
 Import-Package: javax.jcr;version="[2.0,3)",
  javax.security.auth.callback;resolution:=optional,
  org.aopalliance.aop;version="[1.0,2)",

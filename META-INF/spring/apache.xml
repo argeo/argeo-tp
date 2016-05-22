@@ -64,6 +64,15 @@
 		</bean>
 	</flow:flow>
 
+	<flow:flow name="apache/org.apache.pdfbox" spec="spec.version">
+		<flow:arg name="version" value="1.8.8" />
+		<bean id="org.apache.pdfbox" parent="template.apacheMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.pdfbox:pdfbox:@{version}" />
+		<bean id="org.apache.pdfbox.fontbox" parent="template.apacheMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.pdfbox:fontbox:@{version}" />
+		<bean id="org.apache.pdfbox.jempbox" parent="template.apacheMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.pdfbox:jempbox:@{version}" />
+	</flow:flow>
 
 	<!-- Templates -->
 	<bean id="template.apacheMaven" parent="template.mavenWrapper"
