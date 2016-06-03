@@ -10,7 +10,7 @@
 	<artifactId>org.argeo.tp.factory.core</artifactId>
 	<version>2.1.15-SNAPSHOT</version>
 	<name>Argeo Third Party Factory</name>
-	<description>OSGi packaging of FOSS third party libraries</description>
+	<description>OSGi packaging of free / open source third party libraries</description>
 	<properties>
 		<additionalImports.slc-lib>
 			javax.security.auth.callback;resolution:="optional"
