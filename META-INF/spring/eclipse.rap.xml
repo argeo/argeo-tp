@@ -9,8 +9,8 @@
 
 	<!-- Eclipse rap platform -->
 	<flow:flow name="eclipse/org.argeo.tp.rap.platform" parent="template.importRap">
-		<flow:arg name="rapRelease" value="2.3" />
-		<flow:arg name="rapTimestamp" value="2.3.2-SR2-20150128-1013" />
+		<flow:arg name="rapRelease" value="3.0" />
+		<flow:arg name="rapTimestamp" value="3.0.2-SR2-20160201-1220" />
 	</flow:flow>
 
 	<!-- Rap specs and templates -->
@@ -33,7 +33,10 @@
 					<entry key="plugins/org.eclipse.rap.rwt_*.jar" value="org.argeo.tp.rap.platform" />
 					<entry key="plugins/org.eclipse.rap.rwt.source_*.jar" value="org.argeo.tp.rap.platform" />
 					<entry key="plugins/org.eclipse.rap.rwt.osgi_*.jar" value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.rap.rwt.osgi.source_*.jar" value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/org.eclipse.rap.rwt.osgi.source_*.jar"
+						value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/org.eclipse.rap.fileupload_*.jar" value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/org.eclipse.rap.filedialog_*.jar" value="org.argeo.tp.rap.platform" />
 
 					<!-- RAP UI with the workbench -->
 					<entry key="plugins/org.eclipse.rap.ui.workbench*.jar" value="org.argeo.tp.rap.platform" />
@@ -57,22 +60,24 @@
 	<!-- The corresponding zip must be manually imported in the dist repo at 
 		path org/eclipse/www/downloads/rt/rap/addons/@{rapRelease}/ -->
 
-	<flow:flow name="eclipse/org.argeo.tp.rap.addons" parent="template.importRapAddons">
-		<flow:arg name="rapRelease" value="0.6" />
-		<flow:arg name="rapTimestamp" value="0.6.0.v20150207" />
-	</flow:flow>
+	<!-- <flow:flow name="eclipse/org.argeo.tp.rap.addons" parent="template.importRapAddons"> -->
+	<!-- <flow:arg name="rapRelease" value="0.6" /> -->
+	<!-- <flow:arg name="rapTimestamp" value="0.6.0.v20150207" /> -->
+	<!-- </flow:flow> -->
 
-	<flow:flow id="template.importRapAddons" spec="rapVersion.spec"
-		abstract="true">
-		<bean class="org.argeo.slc.repo.osgi.ArchiveWrapper">
-			<property name="uri"
-				value="http://www.eclipse.org/downloads/rt/rap/addons/@{rapRelease}/addons-@{rapTimestamp}.zip" />
-			<property name="includes">
-				<map>
-					<entry key="plugins/org.eclipse.rap.addons.*.jar" value="org.argeo.tp.rap" />
-				</map>
-			</property>
-			<property name="osgiFactory" ref="osgiFactory" />
-		</bean>
-	</flow:flow>
+	<!-- <flow:flow id="template.importRapAddons" spec="rapVersion.spec" -->
+	<!-- abstract="true"> -->
+	<!-- <bean class="org.argeo.slc.repo.osgi.ArchiveWrapper"> -->
+	<!-- <property name="uri" -->
+	<!-- value="http://www.eclipse.org/downloads/rt/rap/addons/@{rapRelease}/addons-@{rapTimestamp}.zip" 
+		/> -->
+	<!-- <property name="includes"> -->
+	<!-- <map> -->
+	<!-- <entry key="plugins/org.eclipse.rap.addons.*.jar" value="org.argeo.tp.rap" 
+		/> -->
+	<!-- </map> -->
+	<!-- </property> -->
+	<!-- <property name="osgiFactory" ref="osgiFactory" /> -->
+	<!-- </bean> -->
+	<!-- </flow:flow> -->
 </beans>

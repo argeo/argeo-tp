@@ -18,7 +18,7 @@
 				<ref bean="javax.jcr" />
 				<ref bean="javax.mail" />
 				<ref bean="javax.transaction" />
-				
+
 				<!-- Builder -->
 				<ref bean="biz.aQute.bnd" />
 				<ref bean="eclipse/org.eclipse.jdt.core.compiler.batch" />
@@ -39,8 +39,8 @@
 				<ref bean="org.quartz-scheduler.quartz" />
 				<ref bean="org.quartz-scheduler.quartz.jobs" />
 				<ref bean="bitronix.tm" />
-				<ref bean="misc/org.w3c.css.sac"/>
-				<ref bean="com.steadystate.css"/>
+				<ref bean="misc/org.w3c.css.sac" />
+				<ref bean="com.steadystate.css" />
 
 				<!-- Apache Commons -->
 				<ref bean="apache/org.apache.commons.io" />
@@ -55,7 +55,7 @@
 				<ref bean="apache/org.apache.commons.exec" />
 				<ref bean="apache/org.apache.commons.jci" />
 				<ref bean="apache/org.apache.commons.compress" />
-				
+
 				<!-- Google -->
 				<ref bean="com.google.guava" />
 				<ref bean="com.google.gson" />
@@ -67,13 +67,13 @@
 
 				<!-- Eclipse RAP -->
 				<ref bean="eclipse/org.argeo.tp.rap.platform" />
-				<ref bean="eclipse/org.argeo.tp.rap.addons" />
+				<!-- <ref bean="eclipse/org.argeo.tp.rap.addons" /> -->
 
 				<!-- Jackrabbit -->
 				<ref bean="apache/org.apache.tika" />
 				<ref bean="apache/org.apache.lucene" />
 				<ref bean="apache/org.apache.jackrabbit" />
-				
+
 				<!-- Spring -->
 				<ref bean="spring/org.springframework" />
 
@@ -142,11 +142,11 @@
 	<!-- Security -->
 	<bean
 		class="org.argeo.security.core.AuthenticatedApplicationContextInitialization">
-<!-- 		<property name="beanNames"> -->
-<!-- 			<list> -->
-<!-- 				<value>osgiFactory</value> -->
-<!-- 				<value>argeo-tp</value> -->
-<!-- 			</list> -->
-<!-- 		</property> -->
+		<!-- <property name="beanNames"> -->
+		<!-- <list> -->
+		<!-- <value>osgiFactory</value> -->
+		<!-- <value>argeo-tp</value> -->
+		<!-- </list> -->
+		<!-- </property> -->
 	</bean>
 </beans>

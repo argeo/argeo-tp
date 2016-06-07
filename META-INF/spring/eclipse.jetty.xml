@@ -8,7 +8,7 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
 	<flow:flow name="eclipse/org.argeo.tp.jetty" parent="template.importJettyZip">
-		<flow:arg name="jettyVersion" value="8.1.17.v20150415" />
+		<flow:arg name="jettyVersion" value="9.3.9.v20160517" />
 	</flow:flow>
 
 	<!-- Jetty specs and templates -->
@@ -29,23 +29,32 @@
 					<entry
 						key="jetty-distribution-@{jettyVersion}/lib/jetty-continuation-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-http-@{jettyVersion}.jar"
+					<entry
+						key="jetty-distribution-@{jettyVersion}/lib/jetty-http-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-io-@{jettyVersion}.jar"
+					<entry
+						key="jetty-distribution-@{jettyVersion}/lib/jetty-io-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-jmx-@{jettyVersion}.jar"
+					<entry
+						key="jetty-distribution-@{jettyVersion}/lib/jetty-jmx-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-security-@{jettyVersion}.jar"
+					<entry
+						key="jetty-distribution-@{jettyVersion}/lib/jetty-security-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-server-@{jettyVersion}.jar"
+					<entry
+						key="jetty-distribution-@{jettyVersion}/lib/jetty-server-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-servlet-@{jettyVersion}.jar"
+					<entry
+						key="jetty-distribution-@{jettyVersion}/lib/jetty-servlet-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-servlets-@{jettyVersion}.jar"
+					<entry
+						key="jetty-distribution-@{jettyVersion}/lib/jetty-servlets-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-util-@{jettyVersion}.jar"
+					<entry
+						key="jetty-distribution-@{jettyVersion}/lib/jetty-util-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
-					<entry key="jetty-distribution-@{jettyVersion}/lib/jetty-client-@{jettyVersion}.jar"
+					<entry
+						key="jetty-distribution-@{jettyVersion}/lib/jetty-client-@{jettyVersion}.jar"
 						value="org.argeo.tp.jetty" />
 				</map>
 			</property>
@@ -54,13 +63,15 @@
 					<value><![CDATA[jetty-distribution-@{jettyVersion}/lib/jetty-overlay-deployer-*.jar]]></value>
 				</list>
 			</property>
-			<property name="sourcesProvider">
-				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
-					<property name="uri"
-						value="http://repo1.maven.org/maven2/org/eclipse/jetty/aggregate/jetty-all/@{jettyVersion}/jetty-all-@{jettyVersion}-sources.jar" />
-					<property name="osgiFactory" ref="osgiFactory" />
-				</bean>
-			</property>
+			<!-- FIXME sources missing (use git as in http://stackoverflow.com/a/13681834 ?) -->
+			<!-- <property name="sourcesProvider"> -->
+			<!-- <bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider"> -->
+			<!-- <property name="uri" -->
+			<!-- value="http://repo1.maven.org/maven2/org/eclipse/jetty/aggregate/jetty-all/@{jettyVersion}/jetty-all-@{jettyVersion}-sources.jar" 
+				/> -->
+			<!-- <property name="osgiFactory" ref="osgiFactory" /> -->
+			<!-- </bean> -->
+			<!-- </property> -->
 			<property name="osgiFactory" ref="osgiFactory" />
 		</bean>
 	</flow:flow>
