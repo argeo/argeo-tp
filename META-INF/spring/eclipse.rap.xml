@@ -9,8 +9,8 @@
 
 	<!-- Eclipse rap platform -->
 	<flow:flow name="eclipse/org.argeo.tp.rap.platform" parent="template.importRap">
-		<flow:arg name="rapRelease" value="3.0" />
-		<flow:arg name="rapTimestamp" value="3.0.2-SR2-20160201-1220" />
+		<flow:arg name="rapRelease" value="3.1" />
+		<flow:arg name="rapTimestamp" value="3.1.1-SR1-20160913-0447" />
 	</flow:flow>
 
 	<!-- Rap specs and templates -->

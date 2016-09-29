@@ -8,7 +8,7 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
 	<flow:flow name="eclipse/org.argeo.tp.jetty" parent="template.importJettyZip">
-		<flow:arg name="jettyVersion" value="9.3.9.v20160517" />
+		<flow:arg name="jettyVersion" value="9.3.12.v20160915" />
 	</flow:flow>
 
 	<!-- Jetty specs and templates -->
@@ -20,7 +20,7 @@
 		abstract="true">
 		<bean class="org.argeo.slc.repo.osgi.ArchiveWrapper">
 			<property name="uri"
-				value="http://www.eclipse.org/downloads/jetty/@{jettyVersion}/dist/jetty-distribution-@{jettyVersion}.zip" />
+				value="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/@{jettyVersion}/jetty-distribution-@{jettyVersion}.zip" />
 			<property name="license">
 				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 			</property>

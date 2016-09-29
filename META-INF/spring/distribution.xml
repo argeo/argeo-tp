@@ -115,6 +115,7 @@
 				</entry>
 				<entry key="http://www.eclipse.org/downloads">
 					<list>
+						<value>http://eclipse.mirror.garr.it/mirrors/eclipse</value>
 						<value>http://mirror.netcologne.de/eclipse</value>
 						<value>http://mirror.selfnet.de/eclipse</value>
 						<value><![CDATA[http://www.eclipse.org/downloads/download.php?file=]]></value>
@@ -141,12 +142,5 @@
 
 	<!-- Security -->
 	<bean
-		class="org.argeo.security.core.AuthenticatedApplicationContextInitialization">
-		<!-- <property name="beanNames"> -->
-		<!-- <list> -->
-		<!-- <value>osgiFactory</value> -->
-		<!-- <value>argeo-tp</value> -->
-		<!-- </list> -->
-		<!-- </property> -->
-	</bean>
+		class="org.argeo.cms.spring.AuthenticatedApplicationContextInitialization" />
 </beans>

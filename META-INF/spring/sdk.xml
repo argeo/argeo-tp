@@ -82,10 +82,10 @@
 
 	<!-- SVN Kit -->
 	<flow:flow name="misc/org.tmatesoft.svnkit" spec="spec.version">
-		<flow:arg name="version" value="1.8.8" />
+		<flow:arg name="version" value="1.8.12" />
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
-				value="http://www.svnkit.com/org.tmatesoft.svn_@{version}.standalone.nojna.zip" />
+				value="https://svnkit.com/org.tmatesoft.svn_@{version}.standalone.nojna.zip" />
 			<property name="license">
 				<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
 			</property>
@@ -114,7 +114,7 @@
 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
 					<property name="base" value="/svnkit-@{version}/svnkit/src/main/java/" />
 					<property name="uri"
-						value="http://www.svnkit.com/org.tmatesoft.svn_@{version}.src.zip" />
+						value="https://svnkit.com/org.tmatesoft.svn_@{version}.src.zip" />
 					<property name="osgiFactory" ref="osgiFactory" />
 				</bean>
 			</property>
