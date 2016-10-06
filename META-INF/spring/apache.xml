@@ -14,7 +14,7 @@
 	</flow:flow>
 
 	<flow:flow name="apache/org.apache.tika" spec="spec.version">
-		<flow:arg name="version" value="1.10" />
+		<flow:arg name="version" value="1.13" />
 		<bean id="org.apache.tika.core" parent="template.tikaMaven"
 			p:sourceCoords="org.apache.tika:tika-core:@{version}" />
 		<bean id="org.apache.tika.parser" parent="template.tikaMaven"
@@ -65,13 +65,11 @@
 	</flow:flow>
 
 	<flow:flow name="apache/org.apache.pdfbox" spec="spec.version">
-		<flow:arg name="version" value="1.8.8" />
+		<flow:arg name="version" value="2.0.3" />
 		<bean id="org.apache.pdfbox" parent="template.apacheMaven"
 			p:version="@{version}" p:sourceCoords="org.apache.pdfbox:pdfbox:@{version}" />
 		<bean id="org.apache.pdfbox.fontbox" parent="template.apacheMaven"
 			p:version="@{version}" p:sourceCoords="org.apache.pdfbox:fontbox:@{version}" />
-		<bean id="org.apache.pdfbox.jempbox" parent="template.apacheMaven"
-			p:version="@{version}" p:sourceCoords="org.apache.pdfbox:jempbox:@{version}" />
 	</flow:flow>
 
 	<!-- Templates -->

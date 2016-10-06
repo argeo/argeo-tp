@@ -233,6 +233,33 @@
 		</bean>
 	</flow:flow>
 
+	<flow:flow name="apache/org.apache.commons.lang3" spec="spec.commons">
+		<flow:arg name="project" value="lang3" />
+		<flow:arg name="version" value="3.4" />
+		<bean parent="template.commonsArchiveWrapper">
+			<property name="version" value="@{version}.0" />
+			<property name="uri"
+				value="http://archive.apache.org/dist/commons/lang/binaries/commons-@{project}-@{version}-bin.zip" />
+			<property name="wrappers">
+				<map>
+					<entry
+						key="commons-@{project}-@{version}/commons-@{project}-@{version}.jar">
+						<bean id="org.apache.commons.lang3" parent="template.org.apache.commons" />
+					</entry>
+				</map>
+			</property>
+			<property name="sourcesProvider">
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="uri"
+						value="http://archive.apache.org/dist/commons/lang/source/commons-@{project}-@{version}-src.zip" />
+					<property name="base"
+						value="commons-@{project}-@{version}-src/src/main/java/" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
+			</property>
+		</bean>
+	</flow:flow>
+
 	<flow:flow name="apache/org.apache.httpcomponents.httpclient"
 		spec="spec.version">
 		<flow:arg name="version" value="4.4" />

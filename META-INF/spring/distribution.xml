@@ -10,7 +10,7 @@
 	<!-- REGISTER -->
 	<bean id="argeo-tp" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.16" />
+		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.17" />
 		<property name="modules">
 			<list>
 				<!-- Javax -->
@@ -39,7 +39,6 @@
 				<ref bean="org.quartz-scheduler.quartz" />
 				<ref bean="org.quartz-scheduler.quartz.jobs" />
 				<ref bean="bitronix.tm" />
-				<ref bean="misc/org.w3c.css.sac" />
 				<ref bean="com.steadystate.css" />
 
 				<!-- Apache Commons -->
@@ -55,6 +54,7 @@
 				<ref bean="apache/org.apache.commons.exec" />
 				<ref bean="apache/org.apache.commons.jci" />
 				<ref bean="apache/org.apache.commons.compress" />
+				<ref bean="apache/org.apache.commons.lang3" />
 
 				<!-- Google -->
 				<ref bean="com.google.guava" />
@@ -67,7 +67,6 @@
 
 				<!-- Eclipse RAP -->
 				<ref bean="eclipse/org.argeo.tp.rap.platform" />
-				<!-- <ref bean="eclipse/org.argeo.tp.rap.addons" /> -->
 
 				<!-- Jackrabbit -->
 				<ref bean="apache/org.apache.tika" />

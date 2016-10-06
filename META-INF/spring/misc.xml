@@ -183,32 +183,30 @@
 		</bean>
 	</flow:flow>
 
-	<flow:flow name="misc/org.w3c.css.sac" spec="spec.version">
-		<flow:arg name="version" value="1.3" />
-		<bean parent="template.archiveWrapper">
-			<property name="uri"
-				value="http://www.w3.org/2002/06/sacjava-@{version}.zip" />
-			<property name="license">
-				<!-- <util:constant static-field="org.argeo.slc.repo.FreeLicense.W3C" 
-					/> -->
-				<util:constant static-field="org.argeo.slc.repo.FreeLicense.MIT" />
-			</property>
-			<property name="wrappers">
-				<map>
-					<entry key="sac-@{version}/sac.jar">
-						<bean id="org.w3c.css.sac" parent="template.bndWrapper" />
-					</entry>
-				</map>
-			</property>
-			<property name="sourcesProvider">
-				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
-					<property name="uri"
-						value="http://www.w3.org/2002/06/sacjava-@{version}.zip" />
-					<property name="osgiFactory" ref="osgiFactory" />
-				</bean>
-			</property>
-		</bean>
-	</flow:flow>
+<!-- 	<flow:flow name="misc/org.w3c.css.sac" spec="spec.version"> -->
+<!-- 		<flow:arg name="version" value="1.3" /> -->
+<!-- 		<bean parent="template.archiveWrapper"> -->
+<!-- 			<property name="uri" -->
+<!-- 				value="http://www.w3.org/2002/06/sacjava-@{version}.zip" /> -->
+<!-- 			<property name="license"> -->
+<!-- 				<util:constant static-field="org.argeo.slc.repo.FreeLicense.MIT" /> -->
+<!-- 			</property> -->
+<!-- 			<property name="wrappers"> -->
+<!-- 				<map> -->
+<!-- 					<entry key="sac-@{version}/sac.jar"> -->
+<!-- 						<bean id="org.w3c.css.sac" parent="template.bndWrapper" /> -->
+<!-- 					</entry> -->
+<!-- 				</map> -->
+<!-- 			</property> -->
+<!-- 			<property name="sourcesProvider"> -->
+<!-- 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider"> -->
+<!-- 					<property name="uri" -->
+<!-- 						value="http://www.w3.org/2002/06/sacjava-@{version}.zip" /> -->
+<!-- 					<property name="osgiFactory" ref="osgiFactory" /> -->
+<!-- 				</bean> -->
+<!-- 			</property> -->
+<!-- 		</bean> -->
+<!-- 	</flow:flow> -->
 
 	<bean id="net.sf.jxl" p:sourceCoords="net.sourceforge.jexcelapi:jxl:2.6.12"
 		parent="template.mavenWrapper">
