@@ -39,6 +39,7 @@
 				<ref bean="org.quartz-scheduler.quartz" />
 				<ref bean="org.quartz-scheduler.quartz.jobs" />
 				<ref bean="bitronix.tm" />
+				<ref bean="misc/org.w3c.css.sac" />
 				<ref bean="com.steadystate.css" />
 
 				<!-- Apache Commons -->
