@@ -10,7 +10,7 @@
 	<!-- REGISTER -->
 	<bean id="argeo-tp" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.18.SNAPSHOT" />
+		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.18" />
 		<property name="modules">
 			<list>
 				<!-- Javax -->
@@ -21,26 +21,33 @@
 
 				<!-- Builder -->
 				<ref bean="biz.aQute.bnd" />
-				<ref bean="eclipse/org.eclipse.jdt.core.compiler.batch" />
+<!-- 				<ref bean="eclipse/org.eclipse.jdt.core.compiler.batch" /> -->
 
 				<!-- Standalone projects -->
-				<ref bean="apache/org.apache.log4j" />
 				<ref bean="misc/org.slf4j" />
 				<ref bean="org.aopalliance" />
 				<ref bean="org.junit" />
-				<ref bean="org.h2" />
-				<ref bean="org.joda.time" />
+<!-- 				<ref bean="org.joda.time" /> -->
 				<ref bean="com.jcraft.jsch" />
 				<ref bean="EDU.oswego.cs.dl.util.concurrent" />
 				<ref bean="org.objectweb.asm" />
 				<ref bean="org.aspectj.weaver" />
 				<ref bean="misc/org.bouncycastle" />
-				<ref bean="apache/org.apache.ant" />
-				<ref bean="org.quartz-scheduler.quartz" />
-				<ref bean="org.quartz-scheduler.quartz.jobs" />
+<!-- 				<ref bean="org.quartz-scheduler.quartz" /> -->
+<!-- 				<ref bean="org.quartz-scheduler.quartz.jobs" /> -->
 				<ref bean="bitronix.tm" />
-				<ref bean="misc/org.w3c.css.sac" />
-				<ref bean="com.steadystate.css" />
+<!-- 				<ref bean="misc/org.w3c.css.sac" /> -->
+<!-- 				<ref bean="com.steadystate.css" /> -->
+				<ref bean="com.googlecode.javaewah.JavaEWAH" />
+				<ref bean="org.w3c.dom.svg" />
+				
+				<!-- Apache -->
+				<ref bean="apache/org.apache.log4j" />
+				<ref bean="apache/org.apache.ant" />
+				<ref bean="apache/org.apache.xmlgraphics" />
+				<ref bean="apache/org.apache.batik" />
+				<ref bean="apache/org.apache.httpcomponents.httpcore" />
+				<ref bean="apache/org.apache.httpcomponents.httpclient" />
 
 				<!-- Apache Commons -->
 				<ref bean="apache/org.apache.commons.io" />
@@ -53,7 +60,7 @@
 				<ref bean="apache/org.apache.commons.vfs" />
 				<ref bean="apache/org.apache.commons.net" />
 				<ref bean="apache/org.apache.commons.exec" />
-				<ref bean="apache/org.apache.commons.jci" />
+<!-- 				<ref bean="apache/org.apache.commons.jci" /> -->
 				<ref bean="apache/org.apache.commons.compress" />
 				<ref bean="apache/org.apache.commons.lang3" />
 
@@ -81,14 +88,14 @@
 				<ref bean="net.sf.jxl" />
 				<ref bean="apache/org.apache.pdfbox" />
 				<!-- Databases -->
-				<ref bean="org.postgresql.postgresql" />
+				<ref bean="org.postgresql.jdbc42" />
+				<ref bean="org.h2" />
 				<ref bean="org.dbunit" />
 				<!-- ALM -->
 				<ref bean="eclipse/org.eclipse.aether" />
 				<ref bean="org.redline-rpm" />
-				<!-- Needs https://code.google.com/p/javaewah/ -->
-				<!-- <ref bean="org.eclipse.jgit" /> -->
-				<ref bean="misc/org.tmatesoft.svnkit" />
+				<ref bean="org.eclipse.jgit" />
+<!-- 				<ref bean="misc/org.tmatesoft.svnkit" /> -->
 			</list>
 		</property>
 	</bean>

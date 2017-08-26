@@ -8,8 +8,8 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
 	<flow:flow name="eclipse/org.argeo.tp.equinox" parent="template.importEquinox">
-		<flow:arg name="equinoxRelease" value="Neon.1" />
-		<flow:arg name="equinoxTimestamp" value="201609071200" />
+		<flow:arg name="equinoxRelease" value="Oxygen" />
+		<flow:arg name="equinoxTimestamp" value="201706120950" />
 	</flow:flow>
 
 	<!-- Equinox specs and templates -->
@@ -36,8 +36,9 @@
 					<entry key="plugins/javax.servlet.source_*.jar" value="org.argeo.tp.javax" />
 					<entry key="plugins/javax.el*.jar" value="org.argeo.tp.javax" />
 
-					<!-- Felix console -->
+					<!-- Felix -->
 					<entry key="plugins/org.apache.felix.gogo.*.jar" value="org.argeo.tp.apache.felix" />
+					<entry key="plugins/org.apache.felix.scr_*.jar" value="org.argeo.tp.apache.felix" />
 
 					<!-- Required by RAP -->
 					<entry key="plugins/org.eclipse.equinox.app*.jar" value="org.argeo.tp.equinox" />
@@ -69,29 +70,28 @@
 		</bean>
 	</flow:flow>
 
-	<flow:flow name="eclipse/org.eclipse.jdt.core.compiler.batch"
-		spec="equinoxVersion.spec">
-		<flow:arg name="equinoxRelease" value="4.4.1" />
-		<flow:arg name="equinoxTimestamp" value="201409250400" />
-		<bean id="org.eclipse.jdt.core.compiler.batch" class="org.argeo.slc.repo.osgi.UriWrapper">
-			<!-- TODO URI wrapper should be able to read OSGi metadata -->
-			<property name="version" value="3.10.0.v20140902-0626" />
-			<property name="uri"
-				value="http://www.eclipse.org/downloads/eclipse/downloads/drops4/R-@{equinoxRelease}-@{equinoxTimestamp}/ecj-@{equinoxRelease}.jar" />
-			<property name="groupId" value="org.argeo.tp.equinox" />
-			<property name="doNotModify" value="true" />
-			<property name="license">
-				<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
-			</property>
-			<property name="osgiFactory" ref="osgiFactory" />
-			<property name="sourcesProvider">
-				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
-					<property name="uri"
-						value="http://www.eclipse.org/downloads/eclipse/downloads/drops4/R-@{equinoxRelease}-@{equinoxTimestamp}/ecjsrc-@{equinoxRelease}.jar" />
-					<property name="osgiFactory" ref="osgiFactory" />
-				</bean>
-			</property>
-		</bean>
-	</flow:flow>
+<!-- 	<flow:flow name="eclipse/org.eclipse.jdt.core.compiler.batch" -->
+<!-- 		spec="equinoxVersion.spec"> -->
+<!-- 		<flow:arg name="equinoxRelease" value="4.4.1" /> -->
+<!-- 		<flow:arg name="equinoxTimestamp" value="201409250400" /> -->
+<!-- 		<bean id="org.eclipse.jdt.core.compiler.batch" class="org.argeo.slc.repo.osgi.UriWrapper"> -->
+<!-- 			<property name="version" value="3.10.0.v20140902-0626" /> -->
+<!-- 			<property name="uri" -->
+<!-- 				value="http://www.eclipse.org/downloads/eclipse/downloads/drops4/R-@{equinoxRelease}-@{equinoxTimestamp}/ecj-@{equinoxRelease}.jar" /> -->
+<!-- 			<property name="groupId" value="org.argeo.tp.equinox" /> -->
+<!-- 			<property name="doNotModify" value="true" /> -->
+<!-- 			<property name="license"> -->
+<!-- 				<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" /> -->
+<!-- 			</property> -->
+<!-- 			<property name="osgiFactory" ref="osgiFactory" /> -->
+<!-- 			<property name="sourcesProvider"> -->
+<!-- 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider"> -->
+<!-- 					<property name="uri" -->
+<!-- 						value="http://www.eclipse.org/downloads/eclipse/downloads/drops4/R-@{equinoxRelease}-@{equinoxTimestamp}/ecjsrc-@{equinoxRelease}.jar" /> -->
+<!-- 					<property name="osgiFactory" ref="osgiFactory" /> -->
+<!-- 				</bean> -->
+<!-- 			</property> -->
+<!-- 		</bean> -->
+<!-- 	</flow:flow> -->
 
 </beans>

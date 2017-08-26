@@ -260,35 +260,6 @@
 		</bean>
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.httpcomponents.httpclient"
-		spec="spec.version">
-		<flow:arg name="version" value="4.4" />
-		<bean parent="template.archiveWrapper">
-			<property name="version" value="@{version}.0" />
-			<property name="license">
-				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
-			</property>
-			<property name="uri"
-				value="http://archive.apache.org/dist/httpcomponents/httpclient/binary/httpcomponents-client-@{version}-osgi-bin.zip" />
-			<property name="includes">
-				<map>
-					<entry
-						key="httpcomponents-client-@{version}/org.apache.httpcomponents.httpclient_@{version}.jar"
-						value="org.argeo.tp.apache" />
-				</map>
-			</property>
-			<property name="sourcesProvider">
-				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
-					<property name="uri"
-						value="http://archive.apache.org/dist/httpcomponents/httpclient/source/httpcomponents-client-@{version}-src.zip" />
-					<property name="base"
-						value="httpcomponents-client-@{version}/httpclient/src/main/java/" />
-					<property name="osgiFactory" ref="osgiFactory" />
-				</bean>
-			</property>
-		</bean>
-	</flow:flow>
-
 	<!-- Specs and templates -->
 	<flow:spec id="spec.commons">
 		<flow:primitive name="version" isParameter="true" />

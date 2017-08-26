@@ -14,7 +14,7 @@
 	</flow:flow>
 
 	<flow:flow name="apache/org.apache.tika" spec="spec.version">
-		<flow:arg name="version" value="1.13" />
+		<flow:arg name="version" value="1.16" />
 		<bean id="org.apache.tika.core" parent="template.tikaMaven"
 			p:sourceCoords="org.apache.tika:tika-core:@{version}" />
 		<bean id="org.apache.tika.parser" parent="template.tikaMaven"
@@ -72,6 +72,83 @@
 			p:version="@{version}" p:sourceCoords="org.apache.pdfbox:fontbox:@{version}" />
 	</flow:flow>
 
+	<flow:flow name="apache/org.apache.batik" spec="spec.version">
+		<flow:arg name="version" value="1.9.1" />
+<!-- 		<bean id="org.apache.batik.ext" parent="template.apacheMaven" -->
+<!-- 			p:version="@{version}" p:sourceCoords="org.apache.xmlgraphics:batik-ext:jar:@{version}" /> -->
+		<bean id="org.apache.batik.i18n" parent="template.apacheMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.xmlgraphics:batik-i18n:jar:@{version}" />
+		<bean id="org.apache.batik.util" parent="template.apacheMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.xmlgraphics:batik-util:jar:@{version}" />
+		<bean id="org.apache.batik.css" parent="template.apacheMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.xmlgraphics:batik-css:jar:@{version}" />
+	</flow:flow>
+
+	<flow:flow name="apache/org.apache.xmlgraphics" spec="spec.version">
+		<flow:arg name="version" value="2.2.0" />
+		<bean id="org.apache.xmlgraphics.commons" parent="template.apacheMaven"
+			p:version="@{version}" p:sourceCoords="org.apache.xmlgraphics:xmlgraphics-commons:jar:2.2" />
+	</flow:flow>
+
+	<flow:flow name="apache/org.apache.httpcomponents.httpclient"
+		spec="spec.version">
+		<flow:arg name="version" value="4.5.3" />
+		<bean parent="template.archiveWrapper">
+			<property name="version" value="@{version}" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			</property>
+			<property name="uri"
+				value="http://archive.apache.org/dist/httpcomponents/httpclient/binary/httpcomponents-client-@{version}-osgi-bin.zip" />
+			<property name="includes">
+				<map>
+					<entry
+						key="httpcomponents-client-@{version}/org.apache.httpcomponents.httpclient_@{version}.jar"
+						value="org.argeo.tp.apache" />
+				</map>
+			</property>
+			<property name="sourcesProvider">
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="uri"
+						value="http://archive.apache.org/dist/httpcomponents/httpclient/source/httpcomponents-client-@{version}-src.zip" />
+					<property name="base"
+						value="httpcomponents-client-@{version}/httpclient/src/main/java/" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
+			</property>
+		</bean>
+	</flow:flow>
+
+	<flow:flow name="apache/org.apache.httpcomponents.httpcore"
+		spec="spec.version">
+		<flow:arg name="version" value="4.4.6" />
+		<bean parent="template.archiveWrapper">
+			<property name="version" value="@{version}" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			</property>
+			<property name="uri"
+				value="http://archive.apache.org/dist/httpcomponents/httpcore/binary/httpcomponents-core-@{version}-osgi-bin.zip" />
+			<property name="includes">
+				<map>
+					<entry
+						key="httpcomponents-core-@{version}/org.apache.httpcomponents.httpcore_@{version}.jar"
+						value="org.argeo.tp.apache" />
+				</map>
+			</property>
+			<property name="sourcesProvider">
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="uri"
+						value="http://archive.apache.org/dist/httpcomponents/httpcore/source/httpcomponents-core-@{version}-src.zip" />
+					<property name="base"
+						value="httpcomponents-core-@{version}/httpcore/src/main/java/" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
+			</property>
+		</bean>
+	</flow:flow>
+
+
 	<!-- Templates -->
 	<bean id="template.apacheMaven" parent="template.mavenWrapper"
 		abstract="true">
@@ -85,5 +162,8 @@
 		abstract="true">
 		<property name="version" value="@{version}.0" />
 		<property name="doNotModify" value="true" />
+		<property name="license">
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
 	</bean>
 </beans>

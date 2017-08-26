@@ -8,7 +8,7 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
 	<flow:flow name="eclipse/org.argeo.tp.jetty" parent="template.importJettyZip">
-		<flow:arg name="jettyVersion" value="9.3.12.v20160915" />
+		<flow:arg name="jettyVersion" value="9.4.6.v20170531" />
 	</flow:flow>
 
 	<!-- Jetty specs and templates -->
@@ -63,15 +63,13 @@
 					<value><![CDATA[jetty-distribution-@{jettyVersion}/lib/jetty-overlay-deployer-*.jar]]></value>
 				</list>
 			</property>
-			<!-- FIXME sources missing (use git as in http://stackoverflow.com/a/13681834 ?) -->
-			<!-- <property name="sourcesProvider"> -->
-			<!-- <bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider"> -->
-			<!-- <property name="uri" -->
-			<!-- value="http://repo1.maven.org/maven2/org/eclipse/jetty/aggregate/jetty-all/@{jettyVersion}/jetty-all-@{jettyVersion}-sources.jar" 
-				/> -->
-			<!-- <property name="osgiFactory" ref="osgiFactory" /> -->
-			<!-- </bean> -->
-			<!-- </property> -->
+<!-- 			<property name="sourcesProvider"> -->
+<!-- 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider"> -->
+<!-- 					<property name="uri" -->
+<!-- 						value="https://github.com/eclipse/jetty.project/archive/jetty-@{jettyVersion}.zip" /> -->
+<!-- 					<property name="osgiFactory" ref="osgiFactory" /> -->
+<!-- 				</bean> -->
+<!-- 			</property> -->
 			<property name="osgiFactory" ref="osgiFactory" />
 		</bean>
 	</flow:flow>

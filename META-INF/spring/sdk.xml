@@ -40,16 +40,6 @@
 		</property>
 	</bean>
 
-	<!-- JGit -->
-	<bean id="org.eclipse.jgit" p:sourceCoords="org.eclipse.jgit:org.eclipse.jgit:3.6.2.201501210735-r"
-		parent="template.mavenSdk">
-		<property name="doNotModify" value="true" />
-		<property name="license">
-			<!-- Eclipse Distribution License (EDL) -->
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.BSD" />
-		</property>
-	</bean>
-
 	<bean id="org.dbunit" p:sourceCoords="org.dbunit:dbunit:2.5.0"
 		parent="template.mavenSdk">
 		<property name="license">
