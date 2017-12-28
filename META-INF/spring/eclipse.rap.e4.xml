@@ -8,7 +8,7 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
 	<!-- Eclipse rap platform -->
-	<flow:flow name="eclipse/org.argeo.tp.rap.platform" parent="template.importRap">
+	<flow:flow name="eclipse/org.argeo.tp.rap.e4" parent="template.importRap">
 		<flow:arg name="rapRelease" value="3.4" />
 		<flow:arg name="rapTimestamp" value="3.4.0-R-20171204-1637" />
 	</flow:flow>
@@ -23,32 +23,38 @@
 		abstract="true">
 		<bean class="org.argeo.slc.repo.osgi.ArchiveWrapper">
 			<property name="uri"
-				value="http://www.eclipse.org/downloads/rt/rap/@{rapRelease}/rap-@{rapTimestamp}.zip" />
+				value="http://www.eclipse.org/downloads/rt/rap/@{rapRelease}/e4/rap-e4-@{rapTimestamp}.zip" />
 			<property name="includes">
 				<map>
 					<!-- Eclipse core -->
-					<entry key="plugins/org.eclipse.core.*.jar" value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/org.eclipse.core.*.jar" value="org.argeo.tp.rap.e4" />
 
 					<!-- RWT -->
-					<entry key="plugins/org.eclipse.rap.rwt_*.jar" value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.rap.rwt.source_*.jar" value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.rap.rwt.osgi_*.jar" value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/org.eclipse.rap.rwt_*.jar" value="org.argeo.tp.rap.e4" />
+					<entry key="plugins/org.eclipse.rap.rwt.source_*.jar" value="org.argeo.tp.rap.e4" />
+					<entry key="plugins/org.eclipse.rap.rwt.osgi_*.jar" value="org.argeo.tp.rap.e4" />
 					<entry key="plugins/org.eclipse.rap.rwt.osgi.source_*.jar"
-						value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.rap.fileupload_*.jar" value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.rap.filedialog_*.jar" value="org.argeo.tp.rap.platform" />
+						value="org.argeo.tp.rap.e4" />
+					<entry key="plugins/org.eclipse.rap.fileupload*.jar" value="org.argeo.tp.rap.e4" />
+					<entry key="plugins/org.eclipse.rap.filedialog*.jar" value="org.argeo.tp.rap.e4" />
+
+					<!-- Eclipse 4 -->
+					<entry key="plugins/org.eclipse.e4*.jar" value="org.argeo.tp.rap.e4" />
+					<entry key="plugins/org.eclipse.emf*.jar" value="org.argeo.tp.rap.e4" />
+					<entry key="plugins/org.eclipse.rap.e4_*.jar" value="org.argeo.tp.rap.e4" />
+					<entry key="plugins/org.eclipse.rap.e4.source_*.jar" value="org.argeo.tp.rap.e4" />
 
 					<!-- RAP UI with the workbench -->
-					<entry key="plugins/org.eclipse.rap.ui.workbench*.jar" value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.rap.ui_*.jar" value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.rap.ui.source_*.jar" value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.rap.ui.views*.jar" value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.rap.jface*.jar" value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.rap.ui.forms*.jar" value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.help*.jar" value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/org.eclipse.rap.ui.workbench*.jar" value="org.argeo.tp.rap.e4" />
+					<entry key="plugins/org.eclipse.rap.ui_*.jar" value="org.argeo.tp.rap.e4" />
+					<entry key="plugins/org.eclipse.rap.ui.source_*.jar" value="org.argeo.tp.rap.e4" />
+					<entry key="plugins/org.eclipse.rap.ui.views*.jar" value="org.argeo.tp.rap.e4" />
+					<entry key="plugins/org.eclipse.rap.jface*.jar" value="org.argeo.tp.rap.e4" />
+					<entry key="plugins/org.eclipse.rap.ui.forms*.jar" value="org.argeo.tp.rap.e4" />
+					<entry key="plugins/org.eclipse.help*.jar" value="org.argeo.tp.rap.e4" />
 
 					<!-- Misc -->
-					<entry key="plugins/com.ibm.icu.base*.jar" value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/com.ibm.icu.base*.jar" value="org.argeo.tp.rap.e4" />
 				</map>
 			</property>
 			<property name="osgiFactory" ref="osgiFactory" />
