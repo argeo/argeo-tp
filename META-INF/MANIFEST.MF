@@ -6,7 +6,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Argeo Third Party Factory
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-SymbolicName: org.argeo.tp.factory.core
-Bundle-Version: 2.1.18.r201708261305
+Bundle-Version: 2.1.19.r201712291324
 Import-Package: javax.jcr;version="[2.0,3)",org.argeo.cms.spring;version
  ="[2.1,3)",org.argeo.slc.repo;version="[2.1,3)",org.argeo.slc.repo.osgi
  ;version="[2.1,3)",org.springframework.cglib.proxy;version="[3.2,4)",or
@@ -20,24 +20,25 @@ Import-Package: javax.jcr;version="[2.0,3)",org.argeo.cms.spring;version
  g.springframework.beans.factory.config;version="[3.2,4)",org.springfram
  ework.core.io;version="[3.2,4)",javax.security.auth.callback;resolution
  :=optional
-Include-Resource: META-INF/spring/spring.xml=META-INF/spring/spring.xml,
- META-INF/spring/sdk.xml=META-INF/spring/sdk.xml,META-INF/spring/spring.
- security.xml=META-INF/spring/spring.security.xml,META-INF/spring/apache
- .jackrabbit.xml=META-INF/spring/apache.jackrabbit.xml,META-INF/spring/m
- isc.xml=META-INF/spring/misc.xml,META-INF/spring/apache.tomcat.xml=META
- -INF/spring/apache.tomcat.xml,META-INF/spring/eclipse.jetty.xml=META-IN
- F/spring/eclipse.jetty.xml,META-INF/spring/apache.commons.xml=META-INF/
- spring/apache.commons.xml,META-INF/spring/osgi.xml=META-INF/spring/osgi
- .xml,META-INF/spring/templates.xml=META-INF/spring/templates.xml,META-I
- NF/spring/distribution.xml=META-INF/spring/distribution.xml,META-INF/sp
- ring/aether.xml=META-INF/spring/aether.xml,META-INF/spring/apache.felix
- .xml=META-INF/spring/apache.felix.xml,META-INF/spring/eclipse.equinox.x
- ml=META-INF/spring/eclipse.equinox.xml,META-INF/spring/bouncycastle.xml
- =META-INF/spring/bouncycastle.xml,META-INF/spring/eclipse.rap.xml=META-
- INF/spring/eclipse.rap.xml,META-INF/spring/apache.ant.xml=META-INF/spri
- ng/apache.ant.xml,META-INF/spring/apache.xml=META-INF/spring/apache.xml
+Include-Resource: META-INF/spring/eclipse.rap.e4.xml=META-INF/spring/ecl
+ ipse.rap.e4.xml,META-INF/spring/apache.commons.xml=META-INF/spring/apac
+ he.commons.xml,META-INF/spring/apache.tomcat.xml=META-INF/spring/apache
+ .tomcat.xml,META-INF/spring/templates.xml=META-INF/spring/templates.xml
  ,META-INF/spring/eclipse.gemini.xml=META-INF/spring/eclipse.gemini.xml,
- META-INF/spring/javax.xml=META-INF/spring/javax.xml
+ META-INF/spring/apache.ant.xml=META-INF/spring/apache.ant.xml,META-INF/
+ spring/misc.xml=META-INF/spring/misc.xml,META-INF/spring/bouncycastle.x
+ ml=META-INF/spring/bouncycastle.xml,META-INF/spring/spring.security.xml
+ =META-INF/spring/spring.security.xml,META-INF/spring/javax.xml=META-INF
+ /spring/javax.xml,META-INF/spring/osgi.xml=META-INF/spring/osgi.xml,MET
+ A-INF/spring/apache.felix.xml=META-INF/spring/apache.felix.xml,META-INF
+ /spring/eclipse.equinox.xml=META-INF/spring/eclipse.equinox.xml,META-IN
+ F/spring/sdk.xml=META-INF/spring/sdk.xml,META-INF/spring/aether.xml=MET
+ A-INF/spring/aether.xml,META-INF/spring/eclipse.jetty.xml=META-INF/spri
+ ng/eclipse.jetty.xml,META-INF/spring/distribution.xml=META-INF/spring/d
+ istribution.xml,META-INF/spring/eclipse.rap.xml=META-INF/spring/eclipse
+ .rap.xml,META-INF/spring/spring.xml=META-INF/spring/spring.xml,META-INF
+ /spring/apache.jackrabbit.xml=META-INF/spring/apache.jackrabbit.xml,MET
+ A-INF/spring/apache.xml=META-INF/spring/apache.xml
 Private-Package: !*
 SLC-Category: org.argeo.tp.factory
 SLC-ExecutionModule: default

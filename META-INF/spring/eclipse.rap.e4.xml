@@ -8,18 +8,18 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
 	<!-- Eclipse rap platform -->
-	<flow:flow name="eclipse/org.argeo.tp.rap.e4" parent="template.importRap">
+	<flow:flow name="eclipse/org.argeo.tp.rap.e4" parent="template.importRapE4">
 		<flow:arg name="rapRelease" value="3.4" />
 		<flow:arg name="rapTimestamp" value="3.4.0-R-20171204-1637" />
 	</flow:flow>
 
 	<!-- Rap specs and templates -->
-	<flow:spec id="rapVersion.spec">
-		<flow:primitive name="rapRelease" isParameter="true" />
-		<flow:primitive name="rapTimestamp" isParameter="true" />
-	</flow:spec>
+<!-- 	<flow:spec id="rapVersion.spec"> -->
+<!-- 		<flow:primitive name="rapRelease" isParameter="true" /> -->
+<!-- 		<flow:primitive name="rapTimestamp" isParameter="true" /> -->
+<!-- 	</flow:spec> -->
 
-	<flow:flow id="template.importRap" spec="rapVersion.spec"
+	<flow:flow id="template.importRapE4" spec="rapVersion.spec"
 		abstract="true">
 		<bean class="org.argeo.slc.repo.osgi.ArchiveWrapper">
 			<property name="uri"

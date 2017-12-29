@@ -16,8 +16,9 @@
 				<!-- Javax -->
 				<ref bean="javax.inject" />
 				<ref bean="javax.jcr" />
-				<ref bean="javax.mail" />
 				<ref bean="javax.transaction" />
+				<ref bean="javax.mail" />
+				<ref bean="javax.annotation" />
 
 				<!-- Builder -->
 				<ref bean="biz.aQute.bnd" />
@@ -100,6 +101,16 @@
 		</property>
 	</bean>
 
+	<bean id="argeo-tp-rap-e4" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
+		init-method="init" destroy-method="destroy">
+		<constructor-arg value="org.argeo.tp:argeo-tp-rap-e4:2.1.19" />
+		<property name="modules">
+			<list>
+				<ref bean="eclipse/org.argeo.tp.rap.e4" />
+			</list>
+		</property>
+	</bean>
+
 	<!-- Factory -->
 	<bean id="osgiFactory" class="org.argeo.slc.repo.osgi.OsgiFactoryImpl"
 		init-method="init" destroy-method="destroy">
@@ -127,7 +138,7 @@
 						<!-- <value>http://eclipse.mirror.garr.it/mirrors/eclipse</value> -->
 						<!-- <value>http://mirror.netcologne.de/eclipse</value> -->
 						<!-- <value>http://mirror.selfnet.de/eclipse</value> -->
-<!-- 						<value><![CDATA[http://www.eclipse.org/downloads/download.php?file=]]></value> -->
+						<!-- <value><![CDATA[http://www.eclipse.org/downloads/download.php?file=]]></value> -->
 					</list>
 				</entry>
 			</map>
@@ -145,6 +156,10 @@
 	<flow:flow name="processDistribution">
 		<bean class="org.argeo.slc.repo.osgi.ProcessDistribution">
 			<property name="osgiDistribution" ref="argeo-tp" />
+			<property name="osgiFactory" ref="osgiFactory" />
+		</bean>
+		<bean class="org.argeo.slc.repo.osgi.ProcessDistribution">
+			<property name="osgiDistribution" ref="argeo-tp-rap-e4" />
 			<property name="osgiFactory" ref="osgiFactory" />
 		</bean>
 	</flow:flow>

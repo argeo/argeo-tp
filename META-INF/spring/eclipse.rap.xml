@@ -35,8 +35,8 @@
 					<entry key="plugins/org.eclipse.rap.rwt.osgi_*.jar" value="org.argeo.tp.rap.platform" />
 					<entry key="plugins/org.eclipse.rap.rwt.osgi.source_*.jar"
 						value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.rap.fileupload_*.jar" value="org.argeo.tp.rap.platform" />
-					<entry key="plugins/org.eclipse.rap.filedialog_*.jar" value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/org.eclipse.rap.fileupload*.jar" value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/org.eclipse.rap.filedialog*.jar" value="org.argeo.tp.rap.platform" />
 
 					<!-- RAP UI with the workbench -->
 					<entry key="plugins/org.eclipse.rap.ui.workbench*.jar" value="org.argeo.tp.rap.platform" />

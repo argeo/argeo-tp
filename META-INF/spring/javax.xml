@@ -41,6 +41,14 @@
 		</property>
 	</bean>
 
+	<bean id="javax.annotation" p:version="1.2.0" p:sourceCoords="javax.annotation:javax.annotation-api:1.2"
+		parent="template.mavenJavax">
+		<property name="license">
+			<!-- GPL with classpath exception -->
+			<util:constant static-field="org.argeo.slc.repo.FreeLicense.GPL" />
+		</property>
+	</bean>
+
 	<!-- Templates -->
 	<bean name="template.mavenJavax" p:groupId="org.argeo.tp.javax"
 		abstract="true" parent="template.mavenWrapper" />

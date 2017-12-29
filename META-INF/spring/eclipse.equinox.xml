@@ -8,8 +8,8 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
 	<flow:flow name="eclipse/org.argeo.tp.equinox" parent="template.importEquinox">
-		<flow:arg name="equinoxRelease" value="Oxygen" />
-		<flow:arg name="equinoxTimestamp" value="201706120950" />
+		<flow:arg name="equinoxRelease" value="Oxygen.2" />
+		<flow:arg name="equinoxTimestamp" value="201711300510" />
 	</flow:flow>
 
 	<!-- Equinox specs and templates -->
@@ -32,8 +32,7 @@
 					<entry key="plugins/org.eclipse.osgi.services*.jar" value="org.argeo.tp.equinox" />
 
 					<!-- Javax -->
-					<entry key="plugins/javax.servlet_*.jar" value="org.argeo.tp.javax" />
-					<entry key="plugins/javax.servlet.source_*.jar" value="org.argeo.tp.javax" />
+					<entry key="plugins/javax.servlet*.jar" value="org.argeo.tp.javax" />
 					<entry key="plugins/javax.el*.jar" value="org.argeo.tp.javax" />
 
 					<!-- Felix -->
