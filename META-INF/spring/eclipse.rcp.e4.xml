@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
+
+	<!-- RCP 3.8 -->
+	<flow:flow name="eclipse/org.argeo.tp.rcp.e4" parent="template.eclipseRcp">
+		<flow:arg name="version" value="4.7.2" />
+		<flow:arg name="release" value="R-4.7.2-201711300510" />
+	</flow:flow>
+
+	<!-- RAP specs and templates -->
+	<flow:spec id="spec.eclipseRcp">
+		<flow:primitive name="version" isParameter="true" />
+		<flow:primitive name="release" isParameter="true" />
+	</flow:spec>
+
+	<flow:flow id="template.eclipseRcp" spec="spec.eclipseRcp"
+		abstract="true">
+		<!-- RCP (platform + OS specific binaries) -->
+		<bean class="org.argeo.slc.repo.osgi.ArchiveWrapper">
+			<property name="version" value="@{version}" />
+			<property name="uri"
+				value="http://www.eclipse.org/downloads/eclipse/downloads/drops4/@{release}/org.eclipse.rcp.source-@{version}.zip" />
+			<property name="includes">
+				<map>
+					<entry key="plugins/*.jar" value="org.argeo.tp.rcp.e4" />
+				</map>
+			</property>
+			<property name="osgiFactory" ref="osgiFactory" />
+		</bean>
+	</flow:flow>
+</beans>

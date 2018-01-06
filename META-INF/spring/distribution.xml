@@ -14,11 +14,11 @@
 		<property name="modules">
 			<list>
 				<!-- Javax -->
-<!-- 				<ref bean="javax.inject" /> -->
+				<!-- <ref bean="javax.inject" /> -->
 				<ref bean="javax.jcr" />
 				<ref bean="javax.transaction" />
 				<ref bean="javax.mail" />
-<!-- 				<ref bean="javax.annotation" /> -->
+				<!-- <ref bean="javax.annotation" /> -->
 
 				<!-- Builder -->
 				<ref bean="biz.aQute.bnd" />
@@ -61,7 +61,7 @@
 				<ref bean="apache/org.apache.commons.vfs" />
 				<ref bean="apache/org.apache.commons.net" />
 				<ref bean="apache/org.apache.commons.exec" />
-<!-- 				<ref bean="apache/org.apache.commons.jxpath" /> -->
+				<!-- <ref bean="apache/org.apache.commons.jxpath" /> -->
 				<!-- <ref bean="apache/org.apache.commons.jci" /> -->
 				<ref bean="apache/org.apache.commons.compress" />
 				<ref bean="apache/org.apache.commons.lang3" />
@@ -71,12 +71,12 @@
 				<ref bean="com.google.gson" />
 
 				<!-- Eclipse -->
-<!-- 				<ref bean="eclipse/org.argeo.tp.jetty" /> -->
+				<!-- <ref bean="eclipse/org.argeo.tp.jetty" /> -->
 				<ref bean="eclipse/org.argeo.tp.equinox" />
 				<ref bean="eclipse/org.argeo.tp.gemini" />
 
 				<!-- Eclipse RAP -->
-				<ref bean="eclipse/org.argeo.tp.rap.platform" />
+				<!-- <ref bean="eclipse/org.argeo.tp.rap.platform" /> -->
 
 				<!-- Jackrabbit -->
 				<ref bean="apache/org.apache.tika" />
@@ -107,6 +107,26 @@
 		<property name="modules">
 			<list>
 				<ref bean="eclipse/org.argeo.tp.rap.e4" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="argeo-tp-rcp-e4" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
+		init-method="init" destroy-method="destroy">
+		<constructor-arg value="org.argeo.tp:argeo-tp-rcp-e4:2.1.20-SNAPSHOT" />
+		<property name="modules">
+			<list>
+				<ref bean="eclipse/org.argeo.tp.rcp.e4" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="argeo-tp-rap-e3" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
+		init-method="init" destroy-method="destroy">
+		<constructor-arg value="org.argeo.tp:argeo-tp-rap-e3:2.1.20-SNAPSHOT" />
+		<property name="modules">
+			<list>
+				<ref bean="eclipse/org.argeo.tp.rap.platform" />
 			</list>
 		</property>
 	</bean>
@@ -160,6 +180,14 @@
 		</bean>
 		<bean class="org.argeo.slc.repo.osgi.ProcessDistribution">
 			<property name="osgiDistribution" ref="argeo-tp-rap-e4" />
+			<property name="osgiFactory" ref="osgiFactory" />
+		</bean>
+		<bean class="org.argeo.slc.repo.osgi.ProcessDistribution">
+			<property name="osgiDistribution" ref="argeo-tp-rcp-e4" />
+			<property name="osgiFactory" ref="osgiFactory" />
+		</bean>
+		<bean class="org.argeo.slc.repo.osgi.ProcessDistribution">
+			<property name="osgiDistribution" ref="argeo-tp-rap-e3" />
 			<property name="osgiFactory" ref="osgiFactory" />
 		</bean>
 	</flow:flow>
