@@ -26,6 +26,13 @@
 				value="http://www.eclipse.org/downloads/rt/rap/@{rapRelease}/e4/rap-e4-@{rapTimestamp}.zip" />
 			<property name="includes">
 				<map>
+					<!-- Javax -->
+					<entry key="plugins/javax.inject*.jar" value="org.argeo.tp.javax" />
+					<entry key="plugins/javax.annotation*.jar" value="org.argeo.tp.javax" />
+
+					<!-- Apache Commons -->
+					<entry key="plugins/org.apache.commons.jxpath*.jar" value="org.argeo.tp.rap.e4" />
+
 					<!-- Eclipse core -->
 					<entry key="plugins/org.eclipse.core.*.jar" value="org.argeo.tp.rap.e4" />
 

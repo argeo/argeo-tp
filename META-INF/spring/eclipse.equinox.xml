@@ -35,9 +35,12 @@
 					<entry key="plugins/javax.servlet*.jar" value="org.argeo.tp.javax" />
 					<entry key="plugins/javax.el*.jar" value="org.argeo.tp.javax" />
 
+					<!-- Jetty -->
+					<entry key="plugins/org.eclipse.jetty*.jar" value="org.argeo.tp.jetty" />
+
 					<!-- Felix -->
 					<entry key="plugins/org.apache.felix.gogo.*.jar" value="org.argeo.tp.apache.felix" />
-					<entry key="plugins/org.apache.felix.scr_*.jar" value="org.argeo.tp.apache.felix" />
+					<entry key="plugins/org.apache.felix.scr*.jar" value="org.argeo.tp.apache.felix" />
 
 					<!-- Required by RAP -->
 					<entry key="plugins/org.eclipse.equinox.app*.jar" value="org.argeo.tp.equinox" />
