@@ -10,7 +10,7 @@
 	<!-- REGISTER -->
 	<bean id="argeo-tp" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.20-SNAPSHOT" />
+		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.20" />
 		<property name="modules">
 			<list>
 				<!-- Javax -->
@@ -41,6 +41,7 @@
 				<!-- <ref bean="com.steadystate.css" /> -->
 				<ref bean="com.googlecode.javaewah.JavaEWAH" />
 				<ref bean="org.w3c.dom.svg" />
+				<ref bean="org.tukaani.xz" />
 
 				<!-- Apache -->
 				<ref bean="apache/org.apache.log4j" />
@@ -49,6 +50,8 @@
 				<ref bean="apache/org.apache.batik" />
 				<ref bean="apache/org.apache.httpcomponents.httpcore" />
 				<ref bean="apache/org.apache.httpcomponents.httpclient" />
+				<ref bean="org.apache.mina.core" />
+				<ref bean="org.apache.sshd.core" />
 
 				<!-- Apache Commons -->
 				<ref bean="apache/org.apache.commons.io" />
@@ -103,7 +106,7 @@
 
 	<bean id="argeo-tp-rap-e4" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp-rap-e4:2.1.20-SNAPSHOT" />
+		<constructor-arg value="org.argeo.tp:argeo-tp-rap-e4:2.1.20" />
 		<property name="modules">
 			<list>
 				<ref bean="eclipse/org.argeo.tp.rap.e4" />
@@ -113,7 +116,7 @@
 
 	<bean id="argeo-tp-rcp-e4" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp-rcp-e4:2.1.20-SNAPSHOT" />
+		<constructor-arg value="org.argeo.tp:argeo-tp-rcp-e4:2.1.20" />
 		<property name="modules">
 			<list>
 				<ref bean="eclipse/org.argeo.tp.rcp.e4" />
@@ -123,7 +126,7 @@
 
 	<bean id="argeo-tp-rap-e3" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp-rap-e3:2.1.20-SNAPSHOT" />
+		<constructor-arg value="org.argeo.tp:argeo-tp-rap-e3:2.1.20" />
 		<property name="modules">
 			<list>
 				<ref bean="eclipse/org.argeo.tp.rap.platform" />

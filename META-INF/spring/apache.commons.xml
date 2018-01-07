@@ -10,13 +10,13 @@
 	<flow:flow name="apache/org.apache.commons.codec" spec="spec.commons">
 		<flow:arg name="project" value="codec" />
 		<flow:arg name="version" value="1.9" />
-		<bean p:version="1.9.0" parent="template.commonsArchiveWrapper" />
+		<bean p:version="@{version}.0" parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
 	<flow:flow name="apache/org.apache.commons.dbcp" spec="spec.commons">
 		<flow:arg name="project" value="dbcp" />
 		<flow:arg name="version" value="1.4" />
-		<bean p:version="1.4.0" parent="template.commonsArchiveWrapper" />
+		<bean p:version="@{version}.0" parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
 	<flow:flow name="apache/org.apache.commons.pool" spec="spec.commons">
@@ -33,7 +33,7 @@
 
 	<flow:flow name="apache/org.apache.commons.io" spec="spec.commons">
 		<flow:arg name="project" value="io" />
-		<flow:arg name="version" value="2.4" />
+		<flow:arg name="version" value="2.6" />
 		<bean parent="template.commonsArchiveWrapper">
 			<property name="version" value="@{version}.0" />
 			<property name="wrappers">
@@ -44,7 +44,7 @@
 							<property name="bndProperties">
 								<props merge="true">
 									<prop key="Export-Package">
-										org.apache.commons.io.*;version="2.4"
+										org.apache.commons.io.*;version="2.6"
 									</prop>
 								</props>
 							</property>
@@ -89,14 +89,14 @@
 
 	<flow:flow name="apache/org.apache.commons.net" spec="spec.commons">
 		<flow:arg name="project" value="net" />
-		<flow:arg name="version" value="3.3" />
-		<bean p:version="3.3.0" parent="template.commonsArchiveWrapper" />
+		<flow:arg name="version" value="3.6" />
+		<bean p:version="@{version}.0" parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
 	<flow:flow name="apache/org.apache.commons.compress" spec="spec.commons">
 		<flow:arg name="project" value="compress" />
-		<flow:arg name="version" value="1.9" />
-		<bean p:version="1.9.0" parent="template.commonsArchiveWrapper">
+		<flow:arg name="version" value="1.15" />
+		<bean p:version="@{version}.0" parent="template.commonsArchiveWrapper">
 			<property name="wrappers">
 				<map>
 					<entry
@@ -105,6 +105,7 @@
 							<property name="bndProperties">
 								<props merge="true">
 									<prop key="Import-Package">
+										org.brotli.*;resolution:=optional,
 										org.tukaani.*;resolution:=optional,
 										*
 									</prop>
@@ -151,6 +152,44 @@
 			</property>
 		</bean>
 	</flow:flow>
+
+	<!-- VFS 2.2 Requires Collections v4 -->
+	<!-- <flow:flow name="apache/org.apache.commons.vfs" spec="spec.commons"> -->
+	<!-- <flow:arg name="project" value="vfs" /> -->
+	<!-- <flow:arg name="version" value="2.2" /> -->
+	<!-- <bean parent="template.commonsArchiveWrapper"> -->
+	<!-- <property name="version" value="@{version}.0" /> -->
+	<!-- <property name="uri" -->
+	<!-- value="http://archive.apache.org/dist/commons/vfs/binaries/commons-vfs2-distribution-@{version}-bin.zip" 
+		/> -->
+	<!-- <property name="wrappers"> -->
+	<!-- <map> -->
+	<!-- <entry key="commons-@{project}-@{version}/commons-vfs2-@{version}.jar"> -->
+	<!-- <bean id="org.apache.commons.vfs" parent="template.org.apache.commons"> -->
+	<!-- <property name="bndProperties"> -->
+	<!-- <props merge="true"> -->
+	<!-- <prop key="Import-Package"> -->
+	<!-- org.apache.tools.ant.*;resolution:=optional, -->
+	<!-- * -->
+	<!-- </prop> -->
+	<!-- </props> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+	<!-- </entry> -->
+	<!-- </map> -->
+	<!-- </property> -->
+	<!-- <property name="sourcesProvider"> -->
+	<!-- <bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider"> -->
+	<!-- <property name="uri" -->
+	<!-- value="http://archive.apache.org/dist/commons/@{project}/source/commons-vfs2-distribution-@{version}-src.zip" 
+		/> -->
+	<!-- <property name="base" -->
+	<!-- value="commons-@{project}-@{version}-src/src/main/java/" /> -->
+	<!-- <property name="osgiFactory" ref="osgiFactory" /> -->
+	<!-- </bean> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+	<!-- </flow:flow> -->
 
 	<flow:flow name="apache/org.apache.commons.fileupload" spec="spec.commons">
 		<flow:arg name="project" value="fileupload" />
