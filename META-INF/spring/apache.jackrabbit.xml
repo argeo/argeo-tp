@@ -8,7 +8,7 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
 	<flow:flow name="apache/org.apache.jackrabbit" spec="spec.version">
-		<flow:arg name="version" value="2.16.0" />
+		<flow:arg name="version" value="2.16.3" />
 		<bean id="org.apache.jackrabbit.api" parent="template.jackrabbitMaven"
 			p:version="@{version}" p:sourceCoords="org.apache.jackrabbit:jackrabbit-api:@{version}" />
 		<bean id="org.apache.jackrabbit.jcr.commons" parent="template.jackrabbitMaven"

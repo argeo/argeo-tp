@@ -9,8 +9,8 @@
 
 	<!-- Eclipse rap platform -->
 	<flow:flow name="eclipse/org.argeo.tp.rap.platform" parent="template.importRap">
-		<flow:arg name="rapRelease" value="3.4" />
-		<flow:arg name="rapTimestamp" value="3.4.0-R-20171204-1637" />
+		<flow:arg name="rapRelease" value="3.6" />
+		<flow:arg name="rapTimestamp" value="3.6.0-R-20180912-1017" />
 	</flow:flow>
 
 	<!-- Rap specs and templates -->
@@ -48,7 +48,7 @@
 					<entry key="plugins/org.eclipse.help*.jar" value="org.argeo.tp.rap.platform" />
 
 					<!-- Misc -->
-					<entry key="plugins/com.ibm.icu.base*.jar" value="org.argeo.tp.rap.platform" />
+					<entry key="plugins/com.ibm.icu*.jar" value="org.argeo.tp.rap.platform" />
 				</map>
 			</property>
 			<property name="osgiFactory" ref="osgiFactory" />

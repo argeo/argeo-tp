@@ -28,7 +28,7 @@
 		</property>
 	</bean>
 
-	<bean id="org.h2" p:sourceCoords="com.h2database:h2:1.4.195"
+	<bean id="org.h2" p:sourceCoords="com.h2database:h2:1.4.197"
 		parent="template.mavenWrapper">
 		<property name="doNotModify" value="true" />
 		<!-- <property name="doNotModifySources" value="true" /> -->
@@ -136,15 +136,16 @@
 		</property>
 	</bean>
 
-	<bean id="com.google.guava" p:sourceCoords="com.google.guava:guava:jar:23.0"
+	<bean id="com.google.guava" p:sourceCoords="com.google.guava:guava:jar:26.0-jre"
 		parent="template.mavenWrapper">
+		<property name="version" value="26.0.0" />
 		<property name="license">
 			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
 		<property name="doNotModify" value="true" />
 	</bean>
 
-	<bean id="com.google.gson" p:sourceCoords="com.google.code.gson:gson:jar:2.8.1"
+	<bean id="com.google.gson" p:sourceCoords="com.google.code.gson:gson:jar:2.8.5"
 		parent="template.mavenWrapper">
 		<property name="license">
 			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
@@ -216,7 +217,7 @@
 			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
 	</bean>
-	<bean id="org.eclipse.jgit" p:sourceCoords="org.eclipse.jgit:org.eclipse.jgit:4.8.0.201706111038-r"
+	<bean id="org.eclipse.jgit" p:sourceCoords="org.eclipse.jgit:org.eclipse.jgit:5.1.1.201809181055-r"
 		parent="template.mavenWrapper">
 		<property name="doNotModify" value="true" />
 		<property name="license">
@@ -253,7 +254,7 @@
 		</property>
 	</bean>
 
-	<bean id="org.postgresql.jdbc42" p:sourceCoords="org.postgresql:postgresql:42.1.4"
+	<bean id="org.postgresql.jdbc42" p:sourceCoords="org.postgresql:postgresql:42.2.5"
 		parent="template.mavenWrapper">
 		<property name="license">
 			<util:constant static-field="org.argeo.slc.repo.FreeLicense.BSD" />

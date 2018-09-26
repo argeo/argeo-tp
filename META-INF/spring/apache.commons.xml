@@ -1,37 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:flow="http://www.argeo.org/schema/slc-flow"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
-	<flow:flow name="apache/org.apache.commons.codec" spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.codec"
+		spec="spec.commons">
 		<flow:arg name="project" value="codec" />
 		<flow:arg name="version" value="1.9" />
-		<bean p:version="@{version}.0" parent="template.commonsArchiveWrapper" />
+		<bean p:version="@{version}.0"
+			parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.dbcp" spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.dbcp"
+		spec="spec.commons">
 		<flow:arg name="project" value="dbcp" />
 		<flow:arg name="version" value="1.4" />
-		<bean p:version="@{version}.0" parent="template.commonsArchiveWrapper" />
+		<bean p:version="@{version}.0"
+			parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.pool" spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.pool"
+		spec="spec.commons">
 		<flow:arg name="project" value="pool" />
 		<flow:arg name="version" value="1.5.7" />
 		<bean parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.collections" spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.collections"
+		spec="spec.commons">
 		<flow:arg name="project" value="collections" />
-		<flow:arg name="version" value="3.2.1" />
+		<flow:arg name="version" value="3.2.2" />
 		<bean parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.io" spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.collections4"
+		spec="spec.commons">
+		<flow:arg name="project" value="collections4" />
+		<flow:arg name="version" value="4.2" />
+		<bean parent="template.commonsArchiveWrapper">
+			<property name="uri"
+				value="http://archive.apache.org/dist/commons/collections/binaries/commons-@{project}-@{version}-bin.zip" />
+		</bean>
+	</flow:flow>
+
+
+	<flow:flow name="apache/org.apache.commons.io"
+		spec="spec.commons">
 		<flow:arg name="project" value="io" />
 		<flow:arg name="version" value="2.6" />
 		<bean parent="template.commonsArchiveWrapper">
@@ -40,7 +60,8 @@
 				<map>
 					<entry
 						key="commons-@{project}-@{version}/commons-@{project}-@{version}.jar">
-						<bean id="org.apache.commons.io" parent="template.org.apache.commons">
+						<bean id="org.apache.commons.io"
+							parent="template.org.apache.commons">
 							<property name="bndProperties">
 								<props merge="true">
 									<prop key="Export-Package">
@@ -55,13 +76,15 @@
 		</bean>
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.exec" spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.exec"
+		spec="spec.commons">
 		<flow:arg name="project" value="exec" />
 		<flow:arg name="version" value="1.3" />
 		<bean p:version="1.3.0" parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.jxpath" spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.jxpath"
+		spec="spec.commons">
 		<flow:arg name="project" value="jxpath" />
 		<flow:arg name="version" value="1.3" />
 		<bean p:version="1.3.0" parent="template.commonsArchiveWrapper">
@@ -69,7 +92,8 @@
 				<map>
 					<entry
 						key="commons-@{project}-@{version}/commons-@{project}-@{version}.jar">
-						<bean id="org.apache.commons.jxpath" parent="template.org.apache.commons">
+						<bean id="org.apache.commons.jxpath"
+							parent="template.org.apache.commons">
 							<property name="bndProperties">
 								<props merge="true">
 									<prop key="Import-Package">
@@ -87,26 +111,32 @@
 		</bean>
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.net" spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.net"
+		spec="spec.commons">
 		<flow:arg name="project" value="net" />
 		<flow:arg name="version" value="3.6" />
-		<bean p:version="@{version}.0" parent="template.commonsArchiveWrapper" />
+		<bean p:version="@{version}.0"
+			parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.compress" spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.compress"
+		spec="spec.commons">
 		<flow:arg name="project" value="compress" />
-		<flow:arg name="version" value="1.15" />
-		<bean p:version="@{version}.0" parent="template.commonsArchiveWrapper">
+		<flow:arg name="version" value="1.18" />
+		<bean p:version="@{version}.0"
+			parent="template.commonsArchiveWrapper">
 			<property name="wrappers">
 				<map>
 					<entry
 						key="commons-@{project}-@{version}/commons-@{project}-@{version}.jar">
-						<bean p:name="org.apache.commons.@{project}" parent="template.org.apache.commons">
+						<bean p:name="org.apache.commons.@{project}"
+							parent="template.org.apache.commons">
 							<property name="bndProperties">
 								<props merge="true">
 									<prop key="Import-Package">
 										org.brotli.*;resolution:=optional,
 										org.tukaani.*;resolution:=optional,
+										com.github.luben.zstd;resolution:=optional,
 										*
 									</prop>
 								</props>
@@ -127,7 +157,8 @@
 		</bean>
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.vfs" spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.vfs"
+		spec="spec.commons">
 		<flow:arg name="project" value="vfs" />
 		<flow:arg name="version" value="2.0" />
 		<bean parent="template.commonsArchiveWrapper">
@@ -136,8 +167,10 @@
 				value="http://archive.apache.org/dist/commons/vfs/binaries/commons-vfs-@{version}.zip" />
 			<property name="wrappers">
 				<map>
-					<entry key="commons-@{project}-@{version}/commons-vfs2-@{version}.jar">
-						<bean id="org.apache.commons.vfs" parent="template.org.apache.commons">
+					<entry
+						key="commons-@{project}-@{version}/commons-vfs2-@{version}.jar">
+						<bean id="org.apache.commons.vfs"
+							parent="template.org.apache.commons">
 							<property name="bndProperties">
 								<props merge="true">
 									<prop key="Import-Package">
@@ -154,7 +187,8 @@
 	</flow:flow>
 
 	<!-- VFS 2.2 Requires Collections v4 -->
-	<!-- <flow:flow name="apache/org.apache.commons.vfs" spec="spec.commons"> -->
+	<!-- <flow:flow name="apache/org.apache.commons.vfs" -->
+	<!-- spec="spec.commons"> -->
 	<!-- <flow:arg name="project" value="vfs" /> -->
 	<!-- <flow:arg name="version" value="2.2" /> -->
 	<!-- <bean parent="template.commonsArchiveWrapper"> -->
@@ -164,12 +198,15 @@
 		/> -->
 	<!-- <property name="wrappers"> -->
 	<!-- <map> -->
-	<!-- <entry key="commons-@{project}-@{version}/commons-vfs2-@{version}.jar"> -->
-	<!-- <bean id="org.apache.commons.vfs" parent="template.org.apache.commons"> -->
+	<!-- <entry -->
+	<!-- key="commons-@{project}-@{version}/commons-vfs2-@{version}.jar"> -->
+	<!-- <bean id="org.apache.commons.vfs" -->
+	<!-- parent="template.org.apache.commons"> -->
 	<!-- <property name="bndProperties"> -->
 	<!-- <props merge="true"> -->
 	<!-- <prop key="Import-Package"> -->
 	<!-- org.apache.tools.ant.*;resolution:=optional, -->
+	<!-- org.apache.commons.collections4.*;resolution:=optional, -->
 	<!-- * -->
 	<!-- </prop> -->
 	<!-- </props> -->
@@ -178,30 +215,42 @@
 	<!-- </entry> -->
 	<!-- </map> -->
 	<!-- </property> -->
-	<!-- <property name="sourcesProvider"> -->
-	<!-- <bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider"> -->
-	<!-- <property name="uri" -->
-	<!-- value="http://archive.apache.org/dist/commons/@{project}/source/commons-vfs2-distribution-@{version}-src.zip" 
-		/> -->
-	<!-- <property name="base" -->
-	<!-- value="commons-@{project}-@{version}-src/src/main/java/" /> -->
-	<!-- <property name="osgiFactory" ref="osgiFactory" /> -->
-	<!-- </bean> -->
-	<!-- </property> -->
 	<!-- </bean> -->
 	<!-- </flow:flow> -->
 
-	<flow:flow name="apache/org.apache.commons.fileupload" spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.math3"
+		spec="spec.commons">
+		<flow:arg name="project" value="math3" />
+		<flow:arg name="version" value="3.6.1" />
+		<bean parent="template.commonsArchiveWrapper">
+			<property name="version" value="@{version}" />
+			<property name="uri"
+				value="http://archive.apache.org/dist/commons/math/binaries/commons-@{project}-@{version}-bin.zip" />
+			<property name="wrappers">
+				<map>
+					<entry
+						key="commons-@{project}-@{version}/commons-@{project}-@{version}.jar">
+						<bean id="org.apache.commons.math3"
+							parent="template.org.apache.commons" />
+					</entry>
+				</map>
+			</property>
+		</bean>
+	</flow:flow>
+
+	<flow:flow name="apache/org.apache.commons.fileupload"
+		spec="spec.commons">
 		<flow:arg name="project" value="fileupload" />
-		<flow:arg name="version" value="1.3.1" />
+		<flow:arg name="version" value="1.3.3" />
 		<bean parent="template.commonsArchiveWrapper">
 			<property name="uri"
 				value="http://archive.apache.org/dist/commons/@{project}/binaries/commons-@{project}-@{version}-bin.zip" />
 			<property name="wrappers">
 				<map>
 					<entry
-						key="commons-@{project}-@{version}-bin/lib/commons-@{project}-@{version}.jar">
-						<bean id="org.apache.commons.fileupload" parent="template.org.apache.commons">
+						key="commons-@{project}-@{version}-bin/commons-@{project}-@{version}.jar">
+						<bean id="org.apache.commons.fileupload"
+							parent="template.org.apache.commons">
 							<property name="bndProperties">
 								<props merge="true">
 									<prop key="Import-Package">
@@ -226,7 +275,8 @@
 		</bean>
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.jci" spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.jci"
+		spec="spec.commons">
 		<flow:arg name="project" value="jci" />
 		<flow:arg name="version" value="1.1" />
 		<bean parent="template.commonsArchiveWrapper">
@@ -238,7 +288,8 @@
 				<map>
 					<entry
 						key="commons-@{project}-@{version}/lib/commons-@{project}-core-@{version}.jar">
-						<bean p:name="org.apache.commons.@{project}-core" parent="template.org.apache.commons">
+						<bean p:name="org.apache.commons.@{project}-core"
+							parent="template.org.apache.commons">
 							<property name="bndProperties">
 								<props merge="true">
 									<prop key="Import-Package">
@@ -251,7 +302,8 @@
 					</entry>
 					<entry
 						key="commons-@{project}-@{version}/lib/commons-@{project}-eclipse-@{version}.jar">
-						<bean p:name="org.apache.commons.@{project}-eclipse" parent="template.org.apache.commons" />
+						<bean p:name="org.apache.commons.@{project}-eclipse"
+							parent="template.org.apache.commons" />
 					</entry>
 					<!-- <entry -->
 					<!-- key="commons-@{project}-@{version}/lib/commons-@{project}-rhino-@{version}.jar"> -->
@@ -273,7 +325,8 @@
 		</bean>
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.httpclient" spec="spec.version">
+	<flow:flow name="apache/org.apache.commons.httpclient"
+		spec="spec.version">
 		<flow:arg name="version" value="3.1" />
 		<bean parent="template.commonsArchiveWrapper">
 			<property name="version" value="@{version}.0" />
@@ -283,7 +336,8 @@
 				<map>
 					<entry
 						key="commons-httpclient-@{version}/commons-httpclient-@{version}.jar">
-						<bean id="org.apache.commons.httpclient" parent="template.org.apache.commons" />
+						<bean id="org.apache.commons.httpclient"
+							parent="template.org.apache.commons" />
 					</entry>
 				</map>
 			</property>
@@ -291,25 +345,28 @@
 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
 					<property name="uri"
 						value="http://archive.apache.org/dist/httpcomponents/commons-httpclient/source/commons-httpclient-@{version}-src.zip" />
-					<property name="base" value="commons-httpclient-@{version}/src/java/" />
+					<property name="base"
+						value="commons-httpclient-@{version}/src/java/" />
 					<property name="osgiFactory" ref="osgiFactory" />
 				</bean>
 			</property>
 		</bean>
 	</flow:flow>
 
-	<flow:flow name="apache/org.apache.commons.lang3" spec="spec.commons">
+	<flow:flow name="apache/org.apache.commons.lang3"
+		spec="spec.commons">
 		<flow:arg name="project" value="lang3" />
-		<flow:arg name="version" value="3.4" />
+		<flow:arg name="version" value="3.8.1" />
 		<bean parent="template.commonsArchiveWrapper">
-			<property name="version" value="@{version}.0" />
+			<property name="version" value="@{version}" />
 			<property name="uri"
 				value="http://archive.apache.org/dist/commons/lang/binaries/commons-@{project}-@{version}-bin.zip" />
 			<property name="wrappers">
 				<map>
 					<entry
 						key="commons-@{project}-@{version}/commons-@{project}-@{version}.jar">
-						<bean id="org.apache.commons.lang3" parent="template.org.apache.commons" />
+						<bean id="org.apache.commons.lang3"
+							parent="template.org.apache.commons" />
 					</entry>
 				</map>
 			</property>
@@ -331,11 +388,12 @@
 		<flow:primitive name="project" isParameter="true" />
 	</flow:spec>
 
-	<bean id="template.commonsArchiveWrapper" parent="template.archiveWrapper"
-		abstract="true">
+	<bean id="template.commonsArchiveWrapper"
+		parent="template.archiveWrapper" abstract="true">
 		<property name="version" value="@{version}" />
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
 		<property name="uri"
 			value="http://archive.apache.org/dist/commons/@{project}/binaries/commons-@{project}-@{version}-bin.zip" />
@@ -343,14 +401,15 @@
 			<map>
 				<entry
 					key="commons-@{project}-@{version}/commons-@{project}-@{version}.jar">
-					<bean p:name="org.apache.commons.@{project}" parent="template.org.apache.commons" />
+					<bean p:name="org.apache.commons.@{project}"
+						parent="template.org.apache.commons" />
 				</entry>
 			</map>
 		</property>
 	</bean>
 
-	<bean id="template.org.apache.commons" parent="template.bndWrapper"
-		abstract="true">
+	<bean id="template.org.apache.commons"
+		parent="template.bndWrapper" abstract="true">
 		<property name="groupId" value="org.argeo.tp.apache.commons" />
 	</bean>
 </beans>

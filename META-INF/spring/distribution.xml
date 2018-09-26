@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:flow="http://www.argeo.org/schema/slc-flow"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
 	<!-- REGISTER -->
-	<bean id="argeo-tp" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
+	<bean id="argeo-tp"
+		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.20" />
+		<constructor-arg
+			value="org.argeo.tp:argeo-tp:2.1.21-SNAPSHOT" />
 		<property name="modules">
 			<list>
 				<!-- Javax -->
@@ -57,6 +61,7 @@
 				<ref bean="apache/org.apache.commons.io" />
 				<ref bean="apache/org.apache.commons.fileupload" />
 				<ref bean="apache/org.apache.commons.collections" />
+				<ref bean="apache/org.apache.commons.collections4" />
 				<ref bean="apache/org.apache.commons.dbcp" />
 				<ref bean="apache/org.apache.commons.pool" />
 				<ref bean="apache/org.apache.commons.codec" />
@@ -64,6 +69,7 @@
 				<ref bean="apache/org.apache.commons.vfs" />
 				<ref bean="apache/org.apache.commons.net" />
 				<ref bean="apache/org.apache.commons.exec" />
+				<ref bean="apache/org.apache.commons.math3" />
 				<!-- <ref bean="apache/org.apache.commons.jxpath" /> -->
 				<!-- <ref bean="apache/org.apache.commons.jci" /> -->
 				<ref bean="apache/org.apache.commons.compress" />
@@ -92,6 +98,13 @@
 				<!-- Document generation and management -->
 				<ref bean="net.sf.jxl" />
 				<ref bean="apache/org.apache.pdfbox" />
+				<ref bean="org.apache.xml.security" />
+				<ref bean="org.apache.xmlbeans" />
+				<ref bean="org.apache.xalan" />
+				<ref bean="org.apache.xalan.serializer" />
+				<ref bean="org.apache.xml.resolver" />
+				<ref bean="org.apache.xerces" />
+				<ref bean="apache/org.apache.poi" />
 				<!-- Databases -->
 				<ref bean="org.postgresql.jdbc42" />
 				<ref bean="org.h2" />
@@ -104,9 +117,11 @@
 		</property>
 	</bean>
 
-	<bean id="argeo-tp-rap-e4" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
+	<bean id="argeo-tp-rap-e4"
+		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp-rap-e4:2.1.20" />
+		<constructor-arg
+			value="org.argeo.tp:argeo-tp-rap-e4:2.1.21-SNAPSHOT" />
 		<property name="modules">
 			<list>
 				<ref bean="eclipse/org.argeo.tp.rap.e4" />
@@ -114,9 +129,11 @@
 		</property>
 	</bean>
 
-	<bean id="argeo-tp-rcp-e4" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
+	<bean id="argeo-tp-rcp-e4"
+		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp-rcp-e4:2.1.20" />
+		<constructor-arg
+			value="org.argeo.tp:argeo-tp-rcp-e4:2.1.21-SNAPSHOT" />
 		<property name="modules">
 			<list>
 				<ref bean="eclipse/org.argeo.tp.rcp.e4" />
@@ -124,9 +141,11 @@
 		</property>
 	</bean>
 
-	<bean id="argeo-tp-rap-e3" class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
+	<bean id="argeo-tp-rap-e3"
+		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp-rap-e3:2.1.20" />
+		<constructor-arg
+			value="org.argeo.tp:argeo-tp-rap-e3:2.1.21-SNAPSHOT" />
 		<property name="modules">
 			<list>
 				<ref bean="eclipse/org.argeo.tp.rap.platform" />
@@ -135,8 +154,9 @@
 	</bean>
 
 	<!-- Factory -->
-	<bean id="osgiFactory" class="org.argeo.slc.repo.osgi.OsgiFactoryImpl"
-		init-method="init" destroy-method="destroy">
+	<bean id="osgiFactory"
+		class="org.argeo.slc.repo.osgi.OsgiFactoryImpl" init-method="init"
+		destroy-method="destroy">
 		<property name="workspace" value="argeo-2.1" />
 		<property name="nodeIndexers">
 			<list>
