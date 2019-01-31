@@ -17,6 +17,14 @@
 			parent="template.commonsArchiveWrapper" />
 	</flow:flow>
 
+	<flow:flow name="apache/org.apache.commons.cli"
+		spec="spec.commons">
+		<flow:arg name="project" value="cli" />
+		<flow:arg name="version" value="1.4" />
+		<bean p:version="@{version}.0"
+			parent="template.commonsArchiveWrapper" />
+	</flow:flow>
+
 	<flow:flow name="apache/org.apache.commons.dbcp"
 		spec="spec.commons">
 		<flow:arg name="project" value="dbcp" />

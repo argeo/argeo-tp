@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:flow="http://www.argeo.org/schema/slc-flow"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
@@ -12,14 +14,15 @@
 		<flow:primitive name="version" isParameter="true" />
 	</flow:spec>
 
-	<bean id="template.archiveWrapper" class="org.argeo.slc.repo.osgi.ArchiveWrapper"
-		init-method="init" destroy-method="destroy" abstract="true">
+	<bean id="template.archiveWrapper"
+		class="org.argeo.slc.repo.osgi.ArchiveWrapper" init-method="init"
+		destroy-method="destroy" abstract="true">
 		<property name="version" value="@{version}" />
 		<property name="osgiFactory" ref="osgiFactory" />
 	</bean>
 
-	<bean id="template.bndWrapper" class="org.argeo.slc.repo.osgi.BndWrapper"
-		abstract="true">
+	<bean id="template.bndWrapper"
+		class="org.argeo.slc.repo.osgi.BndWrapper" abstract="true">
 		<property name="groupId" value="org.argeo.tp.misc" />
 		<property name="bndProperties">
 			<props>
@@ -27,8 +30,8 @@
 			</props>
 		</property>
 	</bean>
-	<bean id="template.mavenWrapper" class="org.argeo.slc.repo.osgi.MavenWrapper"
-		abstract="true">
+	<bean id="template.mavenWrapper"
+		class="org.argeo.slc.repo.osgi.MavenWrapper" abstract="true">
 		<property name="groupId" value="org.argeo.tp.misc" />
 		<property name="bndProperties">
 			<props>
@@ -36,6 +39,14 @@
 			</props>
 		</property>
 		<property name="osgiFactory" ref="osgiFactory" />
+	</bean>
+
+	<bean id="template.mavenWrapperBSD" parent="template.mavenWrapper"
+		abstract="true">
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.BSD" />
+		</property>
 	</bean>
 
 </beans>

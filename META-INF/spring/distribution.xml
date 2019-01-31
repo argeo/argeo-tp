@@ -14,7 +14,7 @@
 		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
 		<constructor-arg
-			value="org.argeo.tp:argeo-tp:2.1.21" />
+			value="org.argeo.tp:argeo-tp:2.1.22-SNAPSHOT" />
 		<property name="modules">
 			<list>
 				<!-- Javax -->
@@ -46,6 +46,7 @@
 				<ref bean="com.googlecode.javaewah.JavaEWAH" />
 				<ref bean="org.w3c.dom.svg" />
 				<ref bean="org.tukaani.xz" />
+				<ref bean="net.i2p.crypto.eddsa" />
 
 				<!-- Apache -->
 				<ref bean="apache/org.apache.log4j" />
@@ -55,7 +56,7 @@
 				<ref bean="apache/org.apache.httpcomponents.httpcore" />
 				<ref bean="apache/org.apache.httpcomponents.httpclient" />
 				<ref bean="org.apache.mina.core" />
-				<ref bean="org.apache.sshd.core" />
+				<ref bean="apache/org.apache.sshd" />
 
 				<!-- Apache Commons -->
 				<ref bean="apache/org.apache.commons.io" />
@@ -70,6 +71,7 @@
 				<ref bean="apache/org.apache.commons.net" />
 				<ref bean="apache/org.apache.commons.exec" />
 				<ref bean="apache/org.apache.commons.math3" />
+				<ref bean="apache/org.apache.commons.cli" />
 				<!-- <ref bean="apache/org.apache.commons.jxpath" /> -->
 				<!-- <ref bean="apache/org.apache.commons.jci" /> -->
 				<ref bean="apache/org.apache.commons.compress" />
@@ -105,6 +107,9 @@
 				<ref bean="org.apache.xml.resolver" />
 				<ref bean="org.apache.xerces" />
 				<ref bean="apache/org.apache.poi" />
+				<ref bean="org.jsoup" />
+				<ref bean="misc/com.vladsch.flexmark" />
+				
 				<!-- Databases -->
 				<ref bean="org.postgresql.jdbc42" />
 				<ref bean="org.h2" />
@@ -121,7 +126,7 @@
 		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
 		<constructor-arg
-			value="org.argeo.tp:argeo-tp-rap-e4:2.1.21" />
+			value="org.argeo.tp:argeo-tp-rap-e4:2.1.22-SNAPSHOT" />
 		<property name="modules">
 			<list>
 				<ref bean="eclipse/org.argeo.tp.rap.e4" />
@@ -133,7 +138,7 @@
 		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
 		<constructor-arg
-			value="org.argeo.tp:argeo-tp-rcp-e4:2.1.21" />
+			value="org.argeo.tp:argeo-tp-rcp-e4:2.1.22-SNAPSHOT" />
 		<property name="modules">
 			<list>
 				<ref bean="eclipse/org.argeo.tp.rcp.e4" />
@@ -145,7 +150,7 @@
 		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
 		<constructor-arg
-			value="org.argeo.tp:argeo-tp-rap-e3:2.1.21" />
+			value="org.argeo.tp:argeo-tp-rap-e3:2.1.22-SNAPSHOT" />
 		<property name="modules">
 			<list>
 				<ref bean="eclipse/org.argeo.tp.rap.platform" />

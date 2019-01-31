@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:flow="http://www.argeo.org/schema/slc-flow"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
-	<bean id="org.aopalliance" p:version="1.0.0" p:sourceCoords="aopalliance:aopalliance:1.0"
+	<bean id="org.aopalliance" p:version="1.0.0"
+		p:sourceCoords="aopalliance:aopalliance:1.0"
 		parent="template.mavenWrapper">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.PUBLIC_DOMAIN" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.PUBLIC_DOMAIN" />
 		</property>
 	</bean>
 
-	<bean id="EDU.oswego.cs.dl.util.concurrent" p:sourceCoords="concurrent:concurrent:1.3.4"
+	<bean id="EDU.oswego.cs.dl.util.concurrent"
+		p:sourceCoords="concurrent:concurrent:1.3.4"
 		parent="template.mavenWrapper">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.PUBLIC_DOMAIN" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.PUBLIC_DOMAIN" />
 		</property>
 	</bean>
 
-	<bean id="org.openid4java" p:sourceCoords="org.openid4java:openid4java:0.9.8"
+	<bean id="org.openid4java"
+		p:sourceCoords="org.openid4java:openid4java:0.9.8"
 		parent="template.mavenWrapper">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
 	</bean>
 
@@ -33,16 +41,19 @@
 		<property name="doNotModify" value="true" />
 		<!-- <property name="doNotModifySources" value="true" /> -->
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.EPL" />
 		</property>
 	</bean>
 
 	<!-- TODO: Rather use the binary provided here: https://github.com/JodaOrg/joda-time/releases 
 		once the archiveMapper can manage tar.gz archives -->
-	<bean id="org.joda.time" p:version="2.6.0" p:sourceCoords="joda-time:joda-time:2.6"
+	<bean id="org.joda.time" p:version="2.6.0"
+		p:sourceCoords="joda-time:joda-time:2.6"
 		parent="template.mavenWrapper">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
 		<property name="bndProperties">
 			<props merge="true">
@@ -57,7 +68,8 @@
 	<bean id="com.jcraft.jsch" p:sourceCoords="com.jcraft:jsch:0.1.54"
 		parent="template.mavenWrapper">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.BSD" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.BSD" />
 		</property>
 		<property name="bndProperties">
 			<props merge="true">
@@ -69,10 +81,12 @@
 		</property>
 	</bean>
 
-	<bean id="org.aspectj.weaver" p:sourceCoords="org.aspectj:aspectjweaver:jar:1.7.4"
+	<bean id="org.aspectj.weaver"
+		p:sourceCoords="org.aspectj:aspectjweaver:jar:1.7.4"
 		parent="template.mavenWrapper">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.EPL" />
 		</property>
 		<property name="bndProperties">
 			<props merge="true">
@@ -88,14 +102,17 @@
 		p:sourceCoords="org.eclipse.jetty.orbit:org.objectweb.asm:3.1.0.v200803061910"
 		parent="template.mavenWrapper">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.BSD" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.BSD" />
 		</property>
 	</bean>
 
-	<bean id="org.quartz-scheduler.quartz" p:sourceCoords="org.quartz-scheduler:quartz:jar:2.2.1"
+	<bean id="org.quartz-scheduler.quartz"
+		p:sourceCoords="org.quartz-scheduler:quartz:jar:2.2.1"
 		parent="template.mavenWrapper">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
 		<property name="bndProperties">
 			<props merge="true">
@@ -106,10 +123,12 @@
 		</property>
 	</bean>
 
-	<bean id="org.quartz-scheduler.quartz.jobs" p:sourceCoords="org.quartz-scheduler:quartz-jobs:jar:2.2.1"
+	<bean id="org.quartz-scheduler.quartz.jobs"
+		p:sourceCoords="org.quartz-scheduler:quartz-jobs:jar:2.2.1"
 		parent="template.mavenWrapper">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
 		<property name="bndProperties">
 			<props merge="true">
@@ -123,7 +142,8 @@
 	<bean id="bitronix.tm" p:sourceCoords="org.codehaus.btm:btm:2.1.4"
 		parent="template.mavenWrapper">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
 		<property name="bndProperties">
 			<props merge="true">
@@ -136,19 +156,23 @@
 		</property>
 	</bean>
 
-	<bean id="com.google.guava" p:sourceCoords="com.google.guava:guava:jar:26.0-jre"
+	<bean id="com.google.guava"
+		p:sourceCoords="com.google.guava:guava:jar:26.0-jre"
 		parent="template.mavenWrapper">
 		<property name="version" value="26.0.0" />
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
 		<property name="doNotModify" value="true" />
 	</bean>
 
-	<bean id="com.google.gson" p:sourceCoords="com.google.code.gson:gson:jar:2.8.5"
+	<bean id="com.google.gson"
+		p:sourceCoords="com.google.code.gson:gson:jar:2.8.5"
 		parent="template.mavenWrapper">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
 		<property name="doNotModify" value="true" />
 	</bean>
@@ -166,7 +190,8 @@
 			<property name="uri"
 				value="http://www.slf4j.org/dist/slf4j-@{version}.zip" />
 			<property name="license">
-				<util:constant static-field="org.argeo.slc.repo.FreeLicense.MIT" />
+				<util:constant
+					static-field="org.argeo.slc.repo.FreeLicense.MIT" />
 			</property>
 			<property name="wrappers">
 				<map>
@@ -177,7 +202,8 @@
 						<bean id="org.slf4j.api" parent="template.bndWrapper" />
 					</entry>
 					<entry key="slf4j-@{version}/jcl-over-slf4j-@{version}.jar">
-						<bean id="org.slf4j.commons.logging" parent="template.bndWrapper" />
+						<bean id="org.slf4j.commons.logging"
+							parent="template.bndWrapper" />
 					</entry>
 				</map>
 			</property>
@@ -210,26 +236,31 @@
 	<!-- </flow:flow> -->
 
 	<!-- JGit -->
-	<bean id="com.googlecode.javaewah.JavaEWAH" p:sourceCoords="com.googlecode.javaewah:JavaEWAH:1.1.6"
+	<bean id="com.googlecode.javaewah.JavaEWAH"
+		p:sourceCoords="com.googlecode.javaewah:JavaEWAH:1.1.6"
 		parent="template.mavenWrapper">
 		<property name="doNotModify" value="true" />
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
 	</bean>
-	<bean id="org.eclipse.jgit" p:sourceCoords="org.eclipse.jgit:org.eclipse.jgit:5.1.1.201809181055-r"
+	<bean id="org.eclipse.jgit"
+		p:sourceCoords="org.eclipse.jgit:org.eclipse.jgit:5.1.1.201809181055-r"
 		parent="template.mavenWrapper">
 		<property name="doNotModify" value="true" />
 		<property name="license">
 			<!-- Eclipse Distribution License (EDL) -->
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.BSD" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.BSD" />
 		</property>
 	</bean>
 
 	<bean id="org.w3c.dom.svg" parent="template.mavenWrapper"
 		p:version="1.3.4" p:sourceCoords="xml-apis:xml-apis-ext:1.3.04">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
 		<property name="bndProperties">
 			<props merge="true">
@@ -240,35 +271,96 @@
 		</property>
 	</bean>
 
-	<bean id="net.sf.jxl" p:sourceCoords="net.sourceforge.jexcelapi:jxl:2.6.12"
+	<bean id="net.sf.jxl"
+		p:sourceCoords="net.sourceforge.jexcelapi:jxl:2.6.12"
 		parent="template.mavenWrapper">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.LGPL_v2" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.LGPL_v2" />
 		</property>
 	</bean>
 
 	<bean id="org.tukaani.xz" p:sourceCoords="org.tukaani:xz:1.8"
 		parent="template.mavenWrapper">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.PUBLIC_DOMAIN" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.PUBLIC_DOMAIN" />
 		</property>
 	</bean>
 
-	<bean id="org.postgresql.jdbc42" p:sourceCoords="org.postgresql:postgresql:42.2.5"
+	<!-- Required by Apache SSHD PuTTY -->
+	<bean id="net.i2p.crypto.eddsa"
+		p:sourceCoords="net.i2p.crypto:eddsa:0.3.0"
 		parent="template.mavenWrapper">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.BSD" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.PUBLIC_DOMAIN" />
+		</property>
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Import-Package">
+					sun.security.x509;resolution:=optional,
+					*
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<flow:flow name="misc/com.vladsch.flexmark"
+		spec="spec.version">
+		<flow:arg name="version" value="0.40.16" />
+		<bean id="com.vladsch.flexmark"
+			p:sourceCoords="com.vladsch.flexmark:flexmark:@{version}"
+			parent="template.mavenWrapperBSD">
+			<property name="bndProperties">
+				<props merge="true">
+					<prop key="Import-Package">
+						sun.misc;resolution:=optional,
+						*
+					</prop>
+				</props>
+			</property>
+		</bean>
+		<bean id="com.vladsch.flexmark.util"
+			p:sourceCoords="com.vladsch.flexmark:flexmark-util:@{version}"
+			parent="template.mavenWrapperBSD">
+			<property name="bndProperties">
+				<props merge="true">
+					<prop key="Import-Package">
+						sun.misc;resolution:=optional,
+						*
+					</prop>
+				</props>
+			</property>
+		</bean>
+		<bean id="com.vladsch.flexmark.formatter"
+			p:sourceCoords="com.vladsch.flexmark:flexmark-formatter:@{version}"
+			parent="template.mavenWrapperBSD" />
+		<bean id="com.vladsch.flexmark.ext.tables"
+			p:sourceCoords="com.vladsch.flexmark:flexmark-ext-tables:@{version}"
+			parent="template.mavenWrapperBSD" />
+		<bean id="com.vladsch.flexmark.ext.escaped_character"
+			p:sourceCoords="com.vladsch.flexmark:flexmark-ext-escaped-character:@{version}"
+			parent="template.mavenWrapperBSD" />
+	</flow:flow>
+
+	<bean id="org.jsoup" p:sourceCoords="org.jsoup:jsoup:1.11.3"
+		parent="template.mavenWrapper">
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.MIT" />
 		</property>
 		<property name="doNotModify" value="true" />
-		<!-- <property name="bndProperties"> -->
-		<!-- <props merge="true"> -->
-		<!-- <prop key="Import-Package"> -->
-		<!-- com.sun.jna.*;resolution:=optional, -->
-		<!-- waffle.*;resolution:=optional, -->
-		<!-- * -->
-		<!-- </prop> -->
-		<!-- </props> -->
-		<!-- </property> -->
+	</bean>
+
+	<bean id="org.postgresql.jdbc42"
+		p:sourceCoords="org.postgresql:postgresql:42.2.5"
+		parent="template.mavenWrapper">
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.BSD" />
+		</property>
+		<property name="doNotModify" value="true" />
 	</bean>
 
 </beans>

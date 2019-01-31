@@ -59,11 +59,36 @@
 		<property name="doNotModify" value="true" />
 	</bean>
 
-	<bean id="org.apache.sshd.core"
-		p:sourceCoords="org.apache.sshd:sshd-core:2.0.0"
-		parent="template.apacheMaven">
-		<property name="doNotModify" value="true" />
-	</bean>
+	<flow:flow name="apache/org.apache.sshd" spec="spec.version">
+		<flow:arg name="version" value="2.1.0" />
+		<bean id="org.apache.sshd.core"
+			p:sourceCoords="org.apache.sshd:sshd-core:@{version}"
+			p:doNotModify="true" parent="template.apacheMaven" />
+		<bean id="org.apache.sshd.common"
+			p:sourceCoords="org.apache.sshd:sshd-common:@{version}"
+			parent="template.apacheMaven">
+			<property name="bndProperties">
+				<props merge="true">
+					<prop key="Fragment-Host">org.apache.sshd.core</prop>
+				</props>
+			</property>
+		</bean>
+		<bean id="org.apache.sshd.sftp"
+			p:sourceCoords="org.apache.sshd:sshd-sftp:@{version}"
+			p:doNotModify="true" parent="template.apacheMaven" />
+		<bean id="org.apache.sshd.cli"
+			p:sourceCoords="org.apache.sshd:sshd-cli:@{version}"
+			p:doNotModify="true" parent="template.apacheMaven" />
+		<bean id="org.apache.sshd.scp"
+			p:sourceCoords="org.apache.sshd:sshd-scp:@{version}"
+			p:doNotModify="true" parent="template.apacheMaven" />
+		<bean id="org.apache.sshd.putty"
+			p:sourceCoords="org.apache.sshd:sshd-putty:@{version}"
+			p:doNotModify="true" parent="template.apacheMaven" />
+		<bean id="org.apache.sshd.git"
+			p:sourceCoords="org.apache.sshd:sshd-git:@{version}"
+			p:doNotModify="true" parent="template.apacheMaven" />
+	</flow:flow>
 
 	<!-- Log4j12 Factory -->
 	<flow:flow name="apache/org.apache.log4j" spec="spec.version">
