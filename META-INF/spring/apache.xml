@@ -54,13 +54,19 @@
 	</bean>
 
 	<bean id="org.apache.mina.core"
-		p:sourceCoords="org.apache.mina:mina-core:2.0.19"
+		p:sourceCoords="org.apache.mina:mina-core:2.0.20"
 		parent="template.apacheMaven">
 		<property name="doNotModify" value="true" />
 	</bean>
 
+	<!-- Needed by Apache SSHD in order to integrate with Unix agent -->
+	<bean id="org.apache.tomcat.jni"
+		p:sourceCoords="org.apache.tomcat:tomcat-jni:9.0.17"
+		parent="template.apacheMaven">
+	</bean>
+
 	<flow:flow name="apache/org.apache.sshd" spec="spec.version">
-		<flow:arg name="version" value="2.1.0" />
+		<flow:arg name="version" value="2.2.0" />
 		<bean id="org.apache.sshd.core"
 			p:sourceCoords="org.apache.sshd:sshd-core:@{version}"
 			p:doNotModify="true" parent="template.apacheMaven" />
@@ -70,6 +76,11 @@
 			<property name="bndProperties">
 				<props merge="true">
 					<prop key="Fragment-Host">org.apache.sshd.core</prop>
+					<prop key="Import-Package">
+						org.bouncycastle.jce.provider;resolution:=optional,
+						net.i2p.crypto.eddsa;resolution:=optional,
+						*
+					</prop>
 				</props>
 			</property>
 		</bean>

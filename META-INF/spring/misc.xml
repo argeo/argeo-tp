@@ -353,6 +353,15 @@
 		<property name="doNotModify" value="true" />
 	</bean>
 
+	<bean id="org.freemarker" p:sourceCoords="org.freemarker:freemarker:2.3.28"
+		parent="template.mavenWrapper">
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<property name="doNotModify" value="true" />
+	</bean>
+
 	<bean id="org.postgresql.jdbc42"
 		p:sourceCoords="org.postgresql:postgresql:42.2.5"
 		parent="template.mavenWrapper">
