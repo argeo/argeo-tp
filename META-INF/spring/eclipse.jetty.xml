@@ -1,77 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:flow="http://www.argeo.org/schema/slc-flow"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
-	<flow:flow name="eclipse/org.argeo.tp.jetty" parent="template.importJettyZip">
-		<flow:arg name="jettyVersion" value="9.4.12.v20180830" />
+
+	<flow:flow name="eclipse/org.argeo.tp.jetty"
+		spec="spec.version">
+		<flow:arg name="version" value="9.4.17.v20190418" />
+		<bean id="org.eclipse.jetty.client" parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty:jetty-client:@{version}" />
+		<bean id="org.eclipse.jetty.continuation"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty:jetty-continuation:@{version}" />
+		<bean id="org.eclipse.jetty.http" parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty:jetty-http:@{version}" />
+		<bean id="org.eclipse.jetty.io" parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty:jetty-io:@{version}" />
+		<bean id="org.eclipse.jetty.security"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty:jetty-security:@{version}" />
+		<bean id="org.eclipse.jetty.jmx" parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty:jetty-jmx:@{version}" />
+		<bean id="org.eclipse.jetty.server" parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty:jetty-server:@{version}" />
+		<bean id="org.eclipse.jetty.servlet" parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty:jetty-servlet:@{version}" />
+		<bean id="org.eclipse.jetty.util" parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty:jetty-util:@{version}" />
+		<bean id="org.eclipse.jetty.servlets"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty:jetty-servlets:@{version}" />
+		<bean id="org.eclipse.jetty.xml" parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty:jetty-xml:@{version}" />
+
+		<!-- WebSocket -->
+		<bean id="org.eclipse.jetty.websocket.api"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty.websocket:websocket-api:@{version}" />
+		<bean id="org.eclipse.jetty.websocket.common"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty.websocket:websocket-common:@{version}" />
+		<bean id="org.eclipse.jetty.websocket.client"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty.websocket:websocket-client:@{version}" />
+		<bean id="org.eclipse.jetty.websocket.server"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty.websocket:websocket-server:@{version}" />
+		<bean id="org.eclipse.jetty.websocket.servlet"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty.websocket:websocket-servlet:@{version}" />
+		<bean id="org.eclipse.jetty.websocket.javax.websocket"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty.websocket:javax-websocket-client-impl:@{version}" />
+		<bean id="org.eclipse.jetty.websocket.javax.websocket.server"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty.websocket:javax-websocket-server-impl:@{version}" />
+
+		<!-- ALPN -->
+		<bean id="org.eclipse.jetty.alpn.api"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty.alpn:alpn-api:1.1.3.v20160715" />
+		<bean id="org.eclipse.jetty.alpn.client"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty:jetty-alpn-client:@{version}" />
+		<bean id="org.eclipse.jetty.alpn.server"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty:jetty-alpn-server:@{version}" />
+
+		<!-- HTTP/2 -->
+		<bean id="org.eclipse.jetty.http2.common"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty.http2:http2-common:@{version}" />
+		<bean id="org.eclipse.jetty.http2.client"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty.http2:http2-client:@{version}" />
+		<bean id="org.eclipse.jetty.http2.client.http"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty.http2:http2-http-client-transport:@{version}" />
+		<bean id="org.eclipse.jetty.http2.server"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty.http2:http2-server:@{version}" />
+		<bean id="org.eclipse.jetty.http2.hpack"
+			parent="template.jettyMaven"
+			p:sourceCoords="org.eclipse.jetty.http2:http2-hpack:@{version}" />
+
 	</flow:flow>
 
-	<!-- Jetty specs and templates -->
-	<flow:spec id="jettyVersion.spec">
-		<flow:primitive name="jettyVersion" isParameter="true" />
-	</flow:spec>
 
-	<flow:flow id="template.importJettyZip" spec="jettyVersion.spec"
+	<bean id="template.jettyMaven" parent="template.mavenWrapper"
 		abstract="true">
-		<bean class="org.argeo.slc.repo.osgi.ArchiveWrapper">
-			<property name="uri"
-				value="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/@{jettyVersion}/jetty-distribution-@{jettyVersion}.zip" />
-			<property name="license">
-				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
-			</property>
-			<property name="includes">
-				<map>
-					<entry
-						key="jetty-distribution-@{jettyVersion}/lib/jetty-continuation-@{jettyVersion}.jar"
-						value="org.argeo.tp.jetty" />
-					<entry
-						key="jetty-distribution-@{jettyVersion}/lib/jetty-http-@{jettyVersion}.jar"
-						value="org.argeo.tp.jetty" />
-					<entry
-						key="jetty-distribution-@{jettyVersion}/lib/jetty-io-@{jettyVersion}.jar"
-						value="org.argeo.tp.jetty" />
-					<entry
-						key="jetty-distribution-@{jettyVersion}/lib/jetty-jmx-@{jettyVersion}.jar"
-						value="org.argeo.tp.jetty" />
-					<entry
-						key="jetty-distribution-@{jettyVersion}/lib/jetty-security-@{jettyVersion}.jar"
-						value="org.argeo.tp.jetty" />
-					<entry
-						key="jetty-distribution-@{jettyVersion}/lib/jetty-server-@{jettyVersion}.jar"
-						value="org.argeo.tp.jetty" />
-					<entry
-						key="jetty-distribution-@{jettyVersion}/lib/jetty-servlet-@{jettyVersion}.jar"
-						value="org.argeo.tp.jetty" />
-					<entry
-						key="jetty-distribution-@{jettyVersion}/lib/jetty-servlets-@{jettyVersion}.jar"
-						value="org.argeo.tp.jetty" />
-					<entry
-						key="jetty-distribution-@{jettyVersion}/lib/jetty-util-@{jettyVersion}.jar"
-						value="org.argeo.tp.jetty" />
-					<entry
-						key="jetty-distribution-@{jettyVersion}/lib/jetty-client-@{jettyVersion}.jar"
-						value="org.argeo.tp.jetty" />
-				</map>
-			</property>
-			<property name="excludes">
-				<list>
-					<value><![CDATA[jetty-distribution-@{jettyVersion}/lib/jetty-overlay-deployer-*.jar]]></value>
-				</list>
-			</property>
-<!-- 			<property name="sourcesProvider"> -->
-<!-- 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider"> -->
-<!-- 					<property name="uri" -->
-<!-- 						value="https://github.com/eclipse/jetty.project/archive/jetty-@{jettyVersion}.zip" /> -->
-<!-- 					<property name="osgiFactory" ref="osgiFactory" /> -->
-<!-- 				</bean> -->
-<!-- 			</property> -->
-			<property name="osgiFactory" ref="osgiFactory" />
-		</bean>
-	</flow:flow>
+		<property name="groupId" value="org.argeo.tp.jetty" />
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<property name="doNotModify" value="true" />
+	</bean>
+
+
+	<!-- <flow:flow name="eclipse/org.argeo.tp.jetty" -->
+	<!-- parent="template.importJettyZip"> -->
+	<!-- <flow:arg name="jettyVersion" value="9.4.12.v20180830" /> -->
+	<!-- </flow:flow> -->
+
+	<!-- <flow:spec id="jettyVersion.spec"> -->
+	<!-- <flow:primitive name="jettyVersion" isParameter="true" /> -->
+	<!-- </flow:spec> -->
+
+	<!-- <flow:flow id="template.importJettyZip" -->
+	<!-- spec="jettyVersion.spec" abstract="true"> -->
+	<!-- <bean class="org.argeo.slc.repo.osgi.ArchiveWrapper"> -->
+	<!-- <property name="uri" -->
+	<!-- value="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/@{jettyVersion}/jetty-distribution-@{jettyVersion}.zip" 
+		/> -->
+	<!-- <property name="license"> -->
+	<!-- <util:constant -->
+	<!-- static-field="org.argeo.slc.repo.FreeLicense.APACHE" /> -->
+	<!-- </property> -->
+	<!-- <property name="includes"> -->
+	<!-- <map> -->
+	<!-- <entry -->
+	<!-- key="jetty-distribution-@{jettyVersion}/lib/jetty-continuation-@{jettyVersion}.jar" -->
+	<!-- value="org.argeo.tp.jetty" /> -->
+	<!-- <entry -->
+	<!-- key="jetty-distribution-@{jettyVersion}/lib/jetty-http-@{jettyVersion}.jar" -->
+	<!-- value="org.argeo.tp.jetty" /> -->
+	<!-- <entry -->
+	<!-- key="jetty-distribution-@{jettyVersion}/lib/jetty-io-@{jettyVersion}.jar" -->
+	<!-- value="org.argeo.tp.jetty" /> -->
+	<!-- <entry -->
+	<!-- key="jetty-distribution-@{jettyVersion}/lib/jetty-jmx-@{jettyVersion}.jar" -->
+	<!-- value="org.argeo.tp.jetty" /> -->
+	<!-- <entry -->
+	<!-- key="jetty-distribution-@{jettyVersion}/lib/jetty-security-@{jettyVersion}.jar" -->
+	<!-- value="org.argeo.tp.jetty" /> -->
+	<!-- <entry -->
+	<!-- key="jetty-distribution-@{jettyVersion}/lib/jetty-server-@{jettyVersion}.jar" -->
+	<!-- value="org.argeo.tp.jetty" /> -->
+	<!-- <entry -->
+	<!-- key="jetty-distribution-@{jettyVersion}/lib/jetty-servlet-@{jettyVersion}.jar" -->
+	<!-- value="org.argeo.tp.jetty" /> -->
+	<!-- <entry -->
+	<!-- key="jetty-distribution-@{jettyVersion}/lib/jetty-servlets-@{jettyVersion}.jar" -->
+	<!-- value="org.argeo.tp.jetty" /> -->
+	<!-- <entry -->
+	<!-- key="jetty-distribution-@{jettyVersion}/lib/jetty-util-@{jettyVersion}.jar" -->
+	<!-- value="org.argeo.tp.jetty" /> -->
+	<!-- <entry -->
+	<!-- key="jetty-distribution-@{jettyVersion}/lib/jetty-client-@{jettyVersion}.jar" -->
+	<!-- value="org.argeo.tp.jetty" /> -->
+	<!-- </map> -->
+	<!-- </property> -->
+	<!-- <property name="excludes"> -->
+	<!-- <list> -->
+	<!-- <value><![CDATA[jetty-distribution-@{jettyVersion}/lib/jetty-overlay-deployer-*.jar]]></value> -->
+	<!-- </list> -->
+	<!-- </property> -->
+	<!-- <property name="osgiFactory" ref="osgiFactory" /> -->
+	<!-- </bean> -->
+	<!-- </flow:flow> -->
 
 </beans>

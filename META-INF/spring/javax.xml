@@ -70,6 +70,12 @@
 		</property>
 	</bean>
 
+	<bean id="javax.websocket"
+		p:sourceCoords="javax.websocket:javax.websocket-api:1.1"
+		parent="template.mavenJavax">
+		<property name="doNotModify" value="true" />
+	</bean>
+
 	<!-- Templates -->
 	<bean name="template.mavenJavax" p:groupId="org.argeo.tp.javax"
 		abstract="true" parent="template.mavenWrapper" />
