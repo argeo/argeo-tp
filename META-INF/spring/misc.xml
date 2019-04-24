@@ -382,7 +382,17 @@
 	</bean>
 
 	<bean id="org.atmosphere.runtime"
-		p:sourceCoords="org.atmosphere:atmosphere-runtime:2.5.2"
+		p:sourceCoords="org.atmosphere:atmosphere-runtime:2.4.32"
+		parent="template.mavenWrapper">
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<property name="doNotModify" value="true" />
+	</bean>
+
+	<bean id="org.atmosphere.socketio"
+		p:sourceCoords="org.atmosphere:atmosphere-socketio:2.4.21"
 		parent="template.mavenWrapper">
 		<property name="license">
 			<util:constant

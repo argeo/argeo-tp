@@ -88,9 +88,6 @@
 				<ref bean="eclipse/org.argeo.tp.equinox" />
 				<ref bean="eclipse/org.argeo.tp.gemini" />
 
-				<!-- Web -->
-				<ref bean="org.atmosphere.runtime" />
-
 				<!-- Jackrabbit -->
 				<ref bean="apache/org.apache.tika" />
 				<ref bean="apache/org.apache.lucene" />
