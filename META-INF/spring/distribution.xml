@@ -13,8 +13,7 @@
 	<bean id="argeo-tp"
 		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg
-			value="org.argeo.tp:argeo-tp:2.1.24" />
+		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.24" />
 		<property name="modules">
 			<list>
 				<!-- Javax -->
@@ -57,8 +56,8 @@
 				<ref bean="org.apache.mina.core" />
 				<ref bean="apache/org.apache.sshd" />
 				<ref bean="org.apache.tomcat.jni" />
-				<ref bean="org.apache.aries.util" />
-				<ref bean="org.apache.aries.spifly.dynamic.bundle" />
+				<!-- <ref bean="org.apache.aries.util" /> -->
+				<!-- <ref bean="org.apache.aries.spifly.dynamic.bundle" /> -->
 
 				<!-- Apache Commons -->
 				<ref bean="apache/org.apache.commons.io" />

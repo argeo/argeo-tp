@@ -98,22 +98,22 @@
 		</property>
 	</bean>
 
-	<!-- <bean id="org.objectweb.asm" p:version="3.1.0" -->
-	<!-- p:sourceCoords="org.eclipse.jetty.orbit:org.objectweb.asm:3.1.0.v200803061910" -->
-	<!-- parent="template.mavenWrapper"> -->
-	<!-- <property name="license"> -->
-	<!-- <util:constant -->
-	<!-- static-field="org.argeo.slc.repo.FreeLicense.BSD" /> -->
-	<!-- </property> -->
-	<!-- </bean> -->
-	<bean id="org.objectweb.asm" p:doNotModify="true"
-		p:sourceCoords="org.ow2.asm:asm-all:5.0.4"
+	<bean id="org.objectweb.asm" p:version="3.1.0"
+		p:sourceCoords="org.eclipse.jetty.orbit:org.objectweb.asm:3.1.0.v200803061910"
 		parent="template.mavenWrapper">
 		<property name="license">
 			<util:constant
 				static-field="org.argeo.slc.repo.FreeLicense.BSD" />
 		</property>
 	</bean>
+	<!-- <bean id="org.objectweb.asm" p:doNotModify="true" -->
+	<!-- p:sourceCoords="org.ow2.asm:asm-all:5.0.4" -->
+	<!-- parent="template.mavenWrapper"> -->
+	<!-- <property name="license"> -->
+	<!-- <util:constant -->
+	<!-- static-field="org.argeo.slc.repo.FreeLicense.BSD" /> -->
+	<!-- </property> -->
+	<!-- </bean> -->
 
 	<bean id="org.quartz-scheduler.quartz"
 		p:sourceCoords="org.quartz-scheduler:quartz:jar:2.2.1"
