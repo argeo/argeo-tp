@@ -60,7 +60,6 @@
 			<groupId>org.argeo.slc</groupId>
 			<artifactId>org.argeo.slc.dep.backend</artifactId>
 			<version>${version.slc}</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.argeo.tp.equinox</groupId>
