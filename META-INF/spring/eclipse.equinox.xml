@@ -8,8 +8,8 @@
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-0.12.xsd">
 
 	<flow:flow name="eclipse/org.argeo.tp.equinox" parent="template.importEquinox">
-		<flow:arg name="equinoxRelease" value="4.9" />
-		<flow:arg name="equinoxTimestamp" value="201809060745" />
+		<flow:arg name="equinoxRelease" value="4.13" />
+		<flow:arg name="equinoxTimestamp" value="201909161045" />
 	</flow:flow>
 
 	<!-- Equinox specs and templates -->

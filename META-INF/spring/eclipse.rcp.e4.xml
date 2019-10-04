@@ -11,8 +11,8 @@
 
 	<flow:flow name="eclipse/org.argeo.tp.rcp.e4"
 		parent="template.eclipseRcp">
-		<flow:arg name="version" value="4.9" />
-		<flow:arg name="release" value="R-4.9-201809060745" />
+		<flow:arg name="version" value="4.13"/>
+		<flow:arg name="release" value="R-4.13-201909161045" />
 	</flow:flow>
 
 	<!-- RAP specs and templates -->
