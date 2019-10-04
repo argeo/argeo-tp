@@ -54,7 +54,7 @@
 	</bean>
 
 	<bean id="org.apache.mina.core"
-		p:sourceCoords="org.apache.mina:mina-core:2.0.20"
+		p:sourceCoords="org.apache.mina:mina-core:2.0.21"
 		parent="template.apacheMaven">
 		<property name="doNotModify" value="true" />
 	</bean>
@@ -66,7 +66,7 @@
 	</bean>
 
 	<flow:flow name="apache/org.apache.sshd" spec="spec.version">
-		<flow:arg name="version" value="2.2.0" />
+		<flow:arg name="version" value="2.3.0" />
 		<bean id="org.apache.sshd.core"
 			p:sourceCoords="org.apache.sshd:sshd-core:@{version}"
 			p:doNotModify="true" parent="template.apacheMaven" />
@@ -267,7 +267,7 @@
 
 	<flow:flow name="apache/org.apache.httpcomponents.httpclient"
 		spec="spec.version">
-		<flow:arg name="version" value="4.5.6" />
+		<flow:arg name="version" value="4.5.9" />
 		<bean parent="template.archiveWrapper">
 			<property name="version" value="@{version}" />
 			<property name="license">
@@ -275,11 +275,11 @@
 					static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 			</property>
 			<property name="uri"
-				value="http://archive.apache.org/dist/httpcomponents/httpclient/binary/httpcomponents-client-@{version}-osgi-bin.zip" />
+				value="http://archive.apache.org/dist/httpcomponents/httpclient/binary/httpcomponents-client-@{version}-bin.zip" />
 			<property name="includes">
 				<map>
 					<entry
-						key="httpcomponents-client-@{version}/org.apache.httpcomponents.httpclient_@{version}.jar"
+						key="httpcomponents-client-@{version}/lib/httpclient-osgi-@{version}.jar"
 						value="org.argeo.tp.apache" />
 				</map>
 			</property>
