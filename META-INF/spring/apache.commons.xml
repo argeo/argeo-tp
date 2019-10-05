@@ -12,7 +12,7 @@
 	<flow:flow name="apache/org.apache.commons.codec"
 		spec="spec.commons">
 		<flow:arg name="project" value="codec" />
-		<flow:arg name="version" value="1.11" />
+		<flow:arg name="version" value="1.13" />
 		<bean p:version="@{version}.0"
 			parent="template.commonsArchiveWrapper" />
 	</flow:flow>
@@ -50,7 +50,7 @@
 	<flow:flow name="apache/org.apache.commons.collections4"
 		spec="spec.commons">
 		<flow:arg name="project" value="collections4" />
-		<flow:arg name="version" value="4.2" />
+		<flow:arg name="version" value="4.4" />
 		<bean parent="template.commonsArchiveWrapper">
 			<property name="uri"
 				value="http://archive.apache.org/dist/commons/collections/binaries/commons-@{project}-@{version}-bin.zip" />
@@ -130,7 +130,7 @@
 	<flow:flow name="apache/org.apache.commons.compress"
 		spec="spec.commons">
 		<flow:arg name="project" value="compress" />
-		<flow:arg name="version" value="1.18" />
+		<flow:arg name="version" value="1.19" />
 		<bean p:version="@{version}.0"
 			parent="template.commonsArchiveWrapper">
 			<property name="wrappers">
@@ -249,8 +249,9 @@
 	<flow:flow name="apache/org.apache.commons.fileupload"
 		spec="spec.commons">
 		<flow:arg name="project" value="fileupload" />
-		<flow:arg name="version" value="1.3.3" />
+		<flow:arg name="version" value="1.4" />
 		<bean parent="template.commonsArchiveWrapper">
+			<property name="version" value="@{version}.0" />
 			<property name="uri"
 				value="http://archive.apache.org/dist/commons/@{project}/binaries/commons-@{project}-@{version}-bin.zip" />
 			<property name="wrappers">
@@ -364,9 +365,9 @@
 	<flow:flow name="apache/org.apache.commons.lang3"
 		spec="spec.commons">
 		<flow:arg name="project" value="lang3" />
-		<flow:arg name="version" value="3.8.1" />
+		<flow:arg name="version" value="3.9" />
 		<bean parent="template.commonsArchiveWrapper">
-			<property name="version" value="@{version}" />
+			<property name="version" value="@{version}.0" />
 			<property name="uri"
 				value="http://archive.apache.org/dist/commons/lang/binaries/commons-@{project}-@{version}-bin.zip" />
 			<property name="wrappers">
