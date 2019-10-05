@@ -36,7 +36,7 @@
 		</property>
 	</bean>
 
-	<bean id="org.h2" p:sourceCoords="com.h2database:h2:1.4.197"
+	<bean id="org.h2" p:sourceCoords="com.h2database:h2:1.4.199"
 		parent="template.mavenWrapper">
 		<property name="doNotModify" value="true" />
 		<!-- <property name="doNotModifySources" value="true" /> -->
@@ -175,6 +175,7 @@
 		<property name="doNotModify" value="true" />
 	</bean>
 
+	<!-- Gson v2.8.6 requires Java 9 -->
 	<bean id="com.google.gson"
 		p:sourceCoords="com.google.code.gson:gson:jar:2.8.5"
 		parent="template.mavenWrapper">
@@ -254,7 +255,7 @@
 		</property>
 	</bean>
 	<bean id="org.eclipse.jgit"
-		p:sourceCoords="org.eclipse.jgit:org.eclipse.jgit:5.1.1.201809181055-r"
+		p:sourceCoords="org.eclipse.jgit:org.eclipse.jgit:5.5.0.201909110433-r"
 		parent="template.mavenWrapper">
 		<property name="doNotModify" value="true" />
 		<property name="license">
@@ -372,7 +373,7 @@
 	</bean>
 
 	<bean id="org.postgresql.jdbc42"
-		p:sourceCoords="org.postgresql:postgresql:42.2.5"
+		p:sourceCoords="org.postgresql:postgresql:42.2.8"
 		parent="template.mavenWrapper">
 		<property name="license">
 			<util:constant

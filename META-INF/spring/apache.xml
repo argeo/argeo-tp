@@ -18,7 +18,7 @@
 	</flow:flow>
 
 	<flow:flow name="apache/org.apache.tika" spec="spec.version">
-		<flow:arg name="version" value="1.19" />
+		<flow:arg name="version" value="1.22" />
 		<bean id="org.apache.tika.core" parent="template.tikaMaven"
 			p:sourceCoords="org.apache.tika:tika-core:@{version}">
 			<property name="doNotModify" value="true" />
@@ -61,7 +61,7 @@
 
 	<!-- Needed by Apache SSHD in order to integrate with Unix agent -->
 	<bean id="org.apache.tomcat.jni"
-		p:sourceCoords="org.apache.tomcat:tomcat-jni:9.0.17"
+		p:sourceCoords="org.apache.tomcat:tomcat-jni:9.0.26"
 		parent="template.apacheMaven">
 	</bean>
 
@@ -131,7 +131,7 @@
 
 	<flow:flow name="apache/org.apache.pdfbox"
 		spec="spec.version">
-		<flow:arg name="version" value="2.0.2" />
+		<flow:arg name="version" value="2.0.17" />
 		<bean id="org.apache.pdfbox" parent="template.apacheMaven"
 			p:version="@{version}"
 			p:sourceCoords="org.apache.pdfbox:pdfbox:@{version}" />
@@ -148,7 +148,7 @@
 	</flow:flow>
 
 	<flow:flow name="apache/org.apache.poi" spec="spec.version">
-		<flow:arg name="version" value="4.0.0" />
+		<flow:arg name="version" value="4.1.0" />
 		<!-- <bean id="org.apache.poi" parent="template.apacheMaven" -->
 		<!-- p:version="@{version}" -->
 		<!-- p:sourceCoords="org.apache.servicemix.bundles:org.apache.servicemix.bundles.poi:@{version}_1"> -->

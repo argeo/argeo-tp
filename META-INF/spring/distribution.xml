@@ -90,6 +90,7 @@
 				<ref bean="apache/org.apache.tika" />
 				<ref bean="apache/org.apache.lucene" />
 				<ref bean="apache/org.apache.jackrabbit" />
+				<ref bean="apache/org.apache.jackrabbit.vault" />
 
 				<!-- Document generation and management -->
 				<ref bean="net.sf.jxl" />
