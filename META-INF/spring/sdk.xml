@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:flow="http://www.argeo.org/schema/slc-flow"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
-	<bean id="org.junit" p:version="4.11.0" p:sourceCoords="junit:junit:4.11"
-		parent="template.mavenSdk">
+	<bean id="org.junit" p:version="4.11.0"
+		p:sourceCoords="junit:junit:4.11" parent="template.mavenSdk">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.EPL" />
 		</property>
 		<property name="bndProperties">
 			<props merge="true">
@@ -23,30 +26,48 @@
 		</property>
 	</bean>
 
-	<bean id="biz.aQute.bnd" p:sourceCoords="biz.aQute.bnd:biz.aQute.bnd:4.2.0"
+	<bean id="biz.aQute.bndlib"
+		p:sourceCoords="biz.aQute.bnd:biz.aQute.bndlib:4.2.0"
 		parent="template.mavenSdk">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
-		<property name="bndProperties">
-			<props merge="true">
-				<prop key="Import-Package">
-					com.cloudius.*;resolution:=optional,
-					com.google.*;resolution:=optional,
- 					org.eclipse.*;resolution:=optional,
-					org.apache.tools.ant.*;resolution:=optional,
-					junit.*;resolution:=optional,
-					slf4j.*;resolution:=optional,
-					*
-				</prop>
-			</props>
+		<property name="doNotModify" value="true" />
+<!-- 		<property name="bndProperties"> -->
+<!-- 			<props merge="true"> -->
+<!-- 				<prop key="Import-Package"> -->
+<!-- 					com.cloudius.*;resolution:=optional, -->
+<!-- 					com.google.*;resolution:=optional, -->
+<!-- 					org.eclipse.*;resolution:=optional, -->
+<!-- 					org.apache.tools.ant.*;resolution:=optional, -->
+<!-- 					junit.*;resolution:=optional, -->
+<!-- 					slf4j.*;resolution:=optional, -->
+<!-- 					!org.osgi.annotation.*, -->
+<!-- 					org.osgi.namespace.*;resolution:=optional, -->
+<!-- 					org.osgi.service.*;resolution:=optional, -->
+<!-- 					sun.misc;resolution:=optional, -->
+<!-- 					* -->
+<!-- 				</prop> -->
+<!-- 			</props> -->
+<!-- 		</property> -->
+	</bean>
+
+	<bean id="org.osgi.annotation.bundle"
+		p:sourceCoords="org.osgi:org.osgi.annotation.bundle:1.0.0"
+		parent="template.mavenSdk">
+		<property name="doNotModify" value="true" />
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
 	</bean>
 
 	<bean id="org.dbunit" p:sourceCoords="org.dbunit:dbunit:2.5.0"
 		parent="template.mavenSdk">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.LGPL_v2" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.LGPL_v2" />
 		</property>
 		<property name="bndProperties">
 			<props merge="true">
@@ -57,15 +78,19 @@
 		</property>
 	</bean>
 
-	<bean id="org.redline-rpm" p:sourceCoords="org.redline-rpm:redline:1.2.8"
+	<bean id="org.redline-rpm"
+		p:sourceCoords="org.redline-rpm:redline:1.2.8"
 		parent="template.mavenSdk">
 		<property name="license">
-			<util:constant static-field="org.argeo.slc.repo.FreeLicense.MIT" />
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.MIT" />
 		</property>
 		<property name="bndProperties">
 			<props merge="true">
 				<prop key="Import-Package">
 					sun.security.*;resolution:=optional,
+					org.apache.tools.ant.*;resolution:=optional,
+					org.apache.tools.zip;resolution:=optional,
 					*
 				</prop>
 			</props>
@@ -74,13 +99,15 @@
 
 
 	<!-- SVN Kit -->
-	<flow:flow name="misc/org.tmatesoft.svnkit" spec="spec.version">
+	<flow:flow name="misc/org.tmatesoft.svnkit"
+		spec="spec.version">
 		<flow:arg name="version" value="1.8.12" />
 		<bean parent="template.archiveWrapper">
 			<property name="uri"
 				value="https://svnkit.com/org.tmatesoft.svn_@{version}.standalone.nojna.zip" />
 			<property name="license">
-				<util:constant static-field="org.argeo.slc.repo.FreeLicense.EPL" />
+				<util:constant
+					static-field="org.argeo.slc.repo.FreeLicense.EPL" />
 			</property>
 			<property name="wrappers">
 				<map>
@@ -105,7 +132,8 @@
 			</property>
 			<property name="sourcesProvider">
 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
-					<property name="base" value="/svnkit-@{version}/svnkit/src/main/java/" />
+					<property name="base"
+						value="/svnkit-@{version}/svnkit/src/main/java/" />
 					<property name="uri"
 						value="https://svnkit.com/org.tmatesoft.svn_@{version}.src.zip" />
 					<property name="osgiFactory" ref="osgiFactory" />

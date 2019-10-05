@@ -23,25 +23,17 @@
 				<ref bean="javax.mail" />
 				<ref bean="javax.websocket" />
 
-				<!-- Builder -->
-				<ref bean="biz.aQute.bnd" />
-				<!-- <ref bean="eclipse/org.eclipse.jdt.core.compiler.batch" /> -->
-
 				<!-- Standalone projects -->
 				<ref bean="misc/org.slf4j" />
+				<ref bean="slf4j.osgi" />
 				<ref bean="org.aopalliance" />
 				<ref bean="org.junit" />
-				<!-- <ref bean="org.joda.time" /> -->
 				<ref bean="com.jcraft.jsch" />
 				<ref bean="EDU.oswego.cs.dl.util.concurrent" />
 				<ref bean="org.objectweb.asm" />
 				<ref bean="org.aspectj.weaver" />
 				<ref bean="misc/org.bouncycastle" />
-				<!-- <ref bean="org.quartz-scheduler.quartz" /> -->
-				<!-- <ref bean="org.quartz-scheduler.quartz.jobs" /> -->
 				<ref bean="bitronix.tm" />
-				<!-- <ref bean="misc/org.w3c.css.sac" /> -->
-				<!-- <ref bean="com.steadystate.css" /> -->
 				<ref bean="com.googlecode.javaewah.JavaEWAH" />
 				<ref bean="org.w3c.dom.svg" />
 				<ref bean="org.tukaani.xz" />
@@ -56,8 +48,6 @@
 				<ref bean="org.apache.mina.core" />
 				<ref bean="apache/org.apache.sshd" />
 				<ref bean="org.apache.tomcat.jni" />
-				<!-- <ref bean="org.apache.aries.util" /> -->
-				<!-- <ref bean="org.apache.aries.spifly.dynamic.bundle" /> -->
 
 				<!-- Apache Commons -->
 				<ref bean="apache/org.apache.commons.io" />
@@ -73,8 +63,6 @@
 				<ref bean="apache/org.apache.commons.exec" />
 				<ref bean="apache/org.apache.commons.math3" />
 				<ref bean="apache/org.apache.commons.cli" />
-				<!-- <ref bean="apache/org.apache.commons.jxpath" /> -->
-				<!-- <ref bean="apache/org.apache.commons.jci" /> -->
 				<ref bean="apache/org.apache.commons.compress" />
 				<ref bean="apache/org.apache.commons.lang3" />
 
@@ -109,11 +97,12 @@
 				<!-- Databases -->
 				<ref bean="org.postgresql.jdbc42" />
 				<ref bean="org.h2" />
-				<!-- <ref bean="org.dbunit" /> -->
+
 				<!-- ALM -->
+				<ref bean="org.osgi.annotation.bundle" />
+				<ref bean="biz.aQute.bndlib" />
 				<ref bean="org.redline-rpm" />
 				<ref bean="org.eclipse.jgit" />
-				<!-- <ref bean="misc/org.tmatesoft.svnkit" /> -->
 			</list>
 		</property>
 	</bean>

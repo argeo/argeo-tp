@@ -219,6 +219,15 @@
 		</bean>
 	</flow:flow>
 
+	<bean id="slf4j.osgi" p:sourceCoords="org.osgi:slf4j.osgi:1.7.0"
+		parent="template.mavenWrapper">
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<property name="doNotModify" value="true" />
+	</bean>
+
 	<!-- <flow:flow name="misc/org.w3c.css.sac" spec="spec.version"> -->
 	<!-- <flow:arg name="version" value="1.3" /> -->
 	<!-- <bean parent="template.archiveWrapper"> -->
@@ -317,7 +326,7 @@
 
 	<flow:flow name="misc/com.vladsch.flexmark"
 		spec="spec.version">
-		<flow:arg name="version" value="0.40.16" />
+		<flow:arg name="version" value="0.50.40" />
 		<bean id="com.vladsch.flexmark"
 			p:sourceCoords="com.vladsch.flexmark:flexmark:@{version}"
 			parent="template.mavenWrapperBSD">
@@ -353,17 +362,17 @@
 			parent="template.mavenWrapperBSD" />
 	</flow:flow>
 
-	<bean id="org.jsoup" p:sourceCoords="org.jsoup:jsoup:1.11.3"
+	<bean id="org.jsoup" p:sourceCoords="org.jsoup:jsoup:1.2.1"
 		parent="template.mavenWrapper">
 		<property name="license">
 			<util:constant
 				static-field="org.argeo.slc.repo.FreeLicense.MIT" />
 		</property>
-		<property name="doNotModify" value="true" />
+		<!-- <property name="doNotModify" value="true" /> -->
 	</bean>
 
 	<bean id="org.freemarker"
-		p:sourceCoords="org.freemarker:freemarker:2.3.28"
+		p:sourceCoords="org.freemarker:freemarker:2.3.29"
 		parent="template.mavenWrapper">
 		<property name="license">
 			<util:constant
@@ -382,25 +391,25 @@
 		<property name="doNotModify" value="true" />
 	</bean>
 
-	<bean id="org.atmosphere.runtime"
-		p:sourceCoords="org.atmosphere:atmosphere-runtime:2.4.32"
-		parent="template.mavenWrapper">
-		<property name="license">
-			<util:constant
-				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
-		</property>
-		<property name="doNotModify" value="true" />
-	</bean>
+	<!-- <bean id="org.atmosphere.runtime" -->
+	<!-- p:sourceCoords="org.atmosphere:atmosphere-runtime:2.4.32" -->
+	<!-- parent="template.mavenWrapper"> -->
+	<!-- <property name="license"> -->
+	<!-- <util:constant -->
+	<!-- static-field="org.argeo.slc.repo.FreeLicense.APACHE" /> -->
+	<!-- </property> -->
+	<!-- <property name="doNotModify" value="true" /> -->
+	<!-- </bean> -->
 
-	<bean id="org.atmosphere.socketio"
-		p:sourceCoords="org.atmosphere:atmosphere-socketio:2.4.21"
-		parent="template.mavenWrapper">
-		<property name="license">
-			<util:constant
-				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
-		</property>
-		<property name="doNotModify" value="true" />
-	</bean>
+	<!-- <bean id="org.atmosphere.socketio" -->
+	<!-- p:sourceCoords="org.atmosphere:atmosphere-socketio:2.4.21" -->
+	<!-- parent="template.mavenWrapper"> -->
+	<!-- <property name="license"> -->
+	<!-- <util:constant -->
+	<!-- static-field="org.argeo.slc.repo.FreeLicense.APACHE" /> -->
+	<!-- </property> -->
+	<!-- <property name="doNotModify" value="true" /> -->
+	<!-- </bean> -->
 
 
 </beans>
