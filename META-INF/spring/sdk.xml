@@ -23,7 +23,7 @@
 		</property>
 	</bean>
 
-	<bean id="biz.aQute.bnd" p:sourceCoords="biz.aQute:bnd:1.50.0"
+	<bean id="biz.aQute.bnd" p:sourceCoords="biz.aQute.bnd:biz.aQute.bnd:4.2.0"
 		parent="template.mavenSdk">
 		<property name="license">
 			<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
@@ -31,9 +31,12 @@
 		<property name="bndProperties">
 			<props merge="true">
 				<prop key="Import-Package">
-					org.eclipse.*;resolution:=optional,
+					com.cloudius.*;resolution:=optional,
+					com.google.*;resolution:=optional,
+ 					org.eclipse.*;resolution:=optional,
 					org.apache.tools.ant.*;resolution:=optional,
 					junit.*;resolution:=optional,
+					slf4j.*;resolution:=optional,
 					*
 				</prop>
 			</props>
@@ -54,7 +57,7 @@
 		</property>
 	</bean>
 
-	<bean id="org.redline-rpm" p:sourceCoords="org.redline-rpm:redline:1.2.1"
+	<bean id="org.redline-rpm" p:sourceCoords="org.redline-rpm:redline:1.2.8"
 		parent="template.mavenSdk">
 		<property name="license">
 			<util:constant static-field="org.argeo.slc.repo.FreeLicense.MIT" />

@@ -13,7 +13,8 @@
 	<bean id="argeo-tp"
 		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.25-SNAPSHOT" />
+		<constructor-arg
+			value="org.argeo.tp:argeo-tp:2.1.25-SNAPSHOT" />
 		<property name="modules">
 			<list>
 				<!-- Javax -->
@@ -107,7 +108,7 @@
 				<!-- Databases -->
 				<ref bean="org.postgresql.jdbc42" />
 				<ref bean="org.h2" />
-				<ref bean="org.dbunit" />
+				<!-- <ref bean="org.dbunit" /> -->
 				<!-- ALM -->
 				<ref bean="org.redline-rpm" />
 				<ref bean="org.eclipse.jgit" />
