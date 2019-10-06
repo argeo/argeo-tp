@@ -9,8 +9,8 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
-	<bean id="org.junit" p:version="4.11.0"
-		p:sourceCoords="junit:junit:4.11" parent="template.mavenSdk">
+	<bean id="org.junit" p:version="4.12.0"
+		p:sourceCoords="junit:junit:4.12" parent="template.mavenSdk">
 		<property name="license">
 			<util:constant
 				static-field="org.argeo.slc.repo.FreeLicense.EPL" />
@@ -34,23 +34,23 @@
 				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 		</property>
 		<property name="doNotModify" value="true" />
-<!-- 		<property name="bndProperties"> -->
-<!-- 			<props merge="true"> -->
-<!-- 				<prop key="Import-Package"> -->
-<!-- 					com.cloudius.*;resolution:=optional, -->
-<!-- 					com.google.*;resolution:=optional, -->
-<!-- 					org.eclipse.*;resolution:=optional, -->
-<!-- 					org.apache.tools.ant.*;resolution:=optional, -->
-<!-- 					junit.*;resolution:=optional, -->
-<!-- 					slf4j.*;resolution:=optional, -->
-<!-- 					!org.osgi.annotation.*, -->
-<!-- 					org.osgi.namespace.*;resolution:=optional, -->
-<!-- 					org.osgi.service.*;resolution:=optional, -->
-<!-- 					sun.misc;resolution:=optional, -->
-<!-- 					* -->
-<!-- 				</prop> -->
-<!-- 			</props> -->
-<!-- 		</property> -->
+		<!-- <property name="bndProperties"> -->
+		<!-- <props merge="true"> -->
+		<!-- <prop key="Import-Package"> -->
+		<!-- com.cloudius.*;resolution:=optional, -->
+		<!-- com.google.*;resolution:=optional, -->
+		<!-- org.eclipse.*;resolution:=optional, -->
+		<!-- org.apache.tools.ant.*;resolution:=optional, -->
+		<!-- junit.*;resolution:=optional, -->
+		<!-- slf4j.*;resolution:=optional, -->
+		<!-- !org.osgi.annotation.*, -->
+		<!-- org.osgi.namespace.*;resolution:=optional, -->
+		<!-- org.osgi.service.*;resolution:=optional, -->
+		<!-- sun.misc;resolution:=optional, -->
+		<!-- * -->
+		<!-- </prop> -->
+		<!-- </props> -->
+		<!-- </property> -->
 	</bean>
 
 	<bean id="org.osgi.annotation.bundle"
