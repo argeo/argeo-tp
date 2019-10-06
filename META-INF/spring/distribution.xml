@@ -127,6 +127,8 @@
 		<property name="modules">
 			<list>
 				<ref bean="eclipse/org.argeo.tp.rcp.e4" />
+				<ref bean="org.eclipse.text" />
+				<ref bean="org.eclipse.jface.text" />
 			</list>
 		</property>
 	</bean>

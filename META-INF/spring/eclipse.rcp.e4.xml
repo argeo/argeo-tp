@@ -11,11 +11,16 @@
 
 	<flow:flow name="eclipse/org.argeo.tp.rcp.e4"
 		parent="template.eclipseRcp">
-		<flow:arg name="version" value="4.13"/>
+		<flow:arg name="version" value="4.13" />
 		<flow:arg name="release" value="R-4.13-201909161045" />
 	</flow:flow>
 
-	<!-- RAP specs and templates -->
+	<bean id="org.eclipse.jface.text" parent="template.eclipseMaven"
+		p:sourceCoords="org.eclipse.platform:org.eclipse.jface.text:3.15.300" />
+	<bean id="org.eclipse.text" parent="template.eclipseMaven"
+		p:sourceCoords="org.eclipse.platform:org.eclipse.text:3.9.0" />
+
+	<!-- RCP specs and templates -->
 	<flow:spec id="spec.eclipseRcp">
 		<flow:primitive name="version" isParameter="true" />
 		<flow:primitive name="release" isParameter="true" />
@@ -36,4 +41,15 @@
 			<property name="osgiFactory" ref="osgiFactory" />
 		</bean>
 	</flow:flow>
+
+	<bean id="template.eclipseMaven" parent="template.mavenWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.rcp.e4" />
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.EPL" />
+		</property>
+		<property name="doNotModify" value="true" />
+	</bean>
+
 </beans>
