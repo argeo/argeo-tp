@@ -193,28 +193,72 @@
 	<!-- </property> -->
 	<!-- </bean> -->
 
+	<!-- <flow:flow name="misc/org.slf4j" spec="spec.version"> -->
+	<!-- <flow:arg name="version" value="1.7.5" /> -->
+	<!-- <bean parent="template.archiveWrapper"> -->
+	<!-- <property name="uri" -->
+	<!-- value="http://www.slf4j.org/dist/slf4j-@{version}.zip" /> -->
+	<!-- <property name="license"> -->
+	<!-- <util:constant -->
+	<!-- static-field="org.argeo.slc.repo.FreeLicense.MIT" /> -->
+	<!-- </property> -->
+	<!-- <property name="wrappers"> -->
+	<!-- <map> -->
+	<!-- <entry key="slf4j-@{version}/slf4j-log4j12-@{version}.jar"> -->
+	<!-- <bean id="org.slf4j.log4j12" parent="template.bndWrapper" /> -->
+	<!-- </entry> -->
+	<!-- <entry key="slf4j-@{version}/slf4j-api-@{version}.jar"> -->
+	<!-- <bean id="org.slf4j.api" parent="template.bndWrapper" /> -->
+	<!-- </entry> -->
+	<!-- <entry key="slf4j-@{version}/jcl-over-slf4j-@{version}.jar"> -->
+	<!-- <bean id="org.slf4j.commons.logging" -->
+	<!-- parent="template.bndWrapper" /> -->
+	<!-- </entry> -->
+	<!-- </map> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+	<!-- </flow:flow> -->
+
 	<flow:flow name="misc/org.slf4j" spec="spec.version">
-		<flow:arg name="version" value="1.7.5" />
-		<bean parent="template.archiveWrapper">
-			<property name="uri"
-				value="http://www.slf4j.org/dist/slf4j-@{version}.zip" />
+		<flow:arg name="version" value="1.7.28" />
+		<bean id="org.slf4j.api" parent="template.mavenWrapper"
+			p:sourceCoords="org.slf4j:slf4j-api:@{version}">
 			<property name="license">
 				<util:constant
-					static-field="org.argeo.slc.repo.FreeLicense.MIT" />
+					static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 			</property>
-			<property name="wrappers">
-				<map>
-					<entry key="slf4j-@{version}/slf4j-log4j12-@{version}.jar">
-						<bean id="org.slf4j.log4j12" parent="template.bndWrapper" />
-					</entry>
-					<entry key="slf4j-@{version}/slf4j-api-@{version}.jar">
-						<bean id="org.slf4j.api" parent="template.bndWrapper" />
-					</entry>
-					<entry key="slf4j-@{version}/jcl-over-slf4j-@{version}.jar">
-						<bean id="org.slf4j.commons.logging"
-							parent="template.bndWrapper" />
-					</entry>
-				</map>
+		</bean>
+		<bean id="org.slf4j.log4j12" parent="template.mavenWrapper"
+			p:sourceCoords="org.slf4j:slf4j-log4j12:@{version}">
+			<property name="bndProperties">
+				<props merge="true">
+					<prop key="Export-Package">org.slf4j.impl</prop>
+				</props>
+			</property>
+			<property name="license">
+				<util:constant
+					static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			</property>
+		</bean>
+		<bean id="org.slf4j.commons.logging"
+			parent="template.mavenWrapper"
+			p:sourceCoords="org.slf4j:jcl-over-slf4j:@{version}">
+			<property name="license">
+				<util:constant
+					static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			</property>
+		</bean>
+		<bean id="org.slf4j.osgi.service.log"
+			parent="template.mavenWrapper"
+			p:sourceCoords="org.slf4j:osgi-over-slf4j:@{version}">
+			<property name="bndProperties">
+				<props merge="true">
+					<prop key="Bundle-Activator">org.slf4j.osgi.logservice.impl.Activator</prop>
+				</props>
+			</property>
+			<property name="license">
+				<util:constant
+					static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
 			</property>
 		</bean>
 	</flow:flow>
