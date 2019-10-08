@@ -26,6 +26,15 @@
 		</property>
 	</bean>
 
+	<bean id="org.hamcrest" p:version="2.1.0"
+		p:sourceCoords="org.hamcrest:hamcrest:2.1" parent="template.mavenSdk">
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.BSD" />
+		</property>
+		<property name="doNotModify" value="true" />
+	</bean>
+
 	<bean id="biz.aQute.bndlib"
 		p:sourceCoords="biz.aQute.bnd:biz.aQute.bndlib:4.2.0"
 		parent="template.mavenSdk">

@@ -27,7 +27,6 @@
 				<ref bean="misc/org.slf4j" />
 				<ref bean="slf4j.osgi" />
 				<ref bean="org.aopalliance" />
-				<ref bean="org.junit" />
 				<ref bean="com.jcraft.jsch" />
 				<ref bean="EDU.oswego.cs.dl.util.concurrent" />
 				<ref bean="org.objectweb.asm" />
@@ -66,6 +65,10 @@
 				<ref bean="apache/org.apache.commons.compress" />
 				<ref bean="apache/org.apache.commons.lang3" />
 
+				<!-- Web services -->
+				<ref bean="jackson" />
+				<ref bean="jersey" />
+				
 				<!-- Google -->
 				<ref bean="com.google.guava" />
 				<ref bean="com.google.gson" />
@@ -99,6 +102,8 @@
 				<ref bean="org.h2" />
 
 				<!-- ALM -->
+				<ref bean="org.junit" />
+				<ref bean="org.hamcrest" />
 				<ref bean="org.osgi.annotation.bundle" />
 				<ref bean="biz.aQute.bndlib" />
 				<ref bean="org.redline-rpm" />

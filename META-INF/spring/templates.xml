@@ -41,6 +41,14 @@
 		<property name="osgiFactory" ref="osgiFactory" />
 	</bean>
 
+	<bean id="template.mavenWrapperApacheLicense"
+		parent="template.mavenWrapper" abstract="true">
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+	</bean>
+
 	<bean id="template.mavenWrapperBSD" parent="template.mavenWrapper"
 		abstract="true">
 		<property name="license">

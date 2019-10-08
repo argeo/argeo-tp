@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+
+	<flow:flow name="jersey" spec="spec.version">
+		<flow:arg name="version" value="2.29.1" />
+		<bean id="org.glassfish.jersey.core.jersey-common"
+			p:sourceCoords="org.glassfish.jersey.core:jersey-common:@{version}"
+			parent="template.jerseyMaven">
+		</bean>
+		<bean id="org.glassfish.jersey.core.jersey-client"
+			p:sourceCoords="org.glassfish.jersey.core:jersey-client:@{version}"
+			parent="template.jerseyMaven">
+		</bean>
+		<bean id="org.glassfish.jersey.core.jersey-server"
+			p:sourceCoords="org.glassfish.jersey.core:jersey-server:@{version}"
+			parent="template.jerseyMaven">
+		</bean>
+		<!-- Containers -->
+		<bean
+			id="org.glassfish.jersey.containers.jersey-container-servlet"
+			p:sourceCoords="org.glassfish.jersey.containers:jersey-container-servlet:@{version}"
+			parent="template.jerseyMaven">
+		</bean>
+		<bean
+			id="org.glassfish.jersey.containers.jersey-container-servlet-core"
+			p:sourceCoords="org.glassfish.jersey.containers:jersey-container-servlet-core:@{version}"
+			parent="template.jerseyMaven">
+		</bean>
+		<bean
+			id="org.glassfish.jersey.containers.jersey-container-jetty-http"
+			p:sourceCoords="org.glassfish.jersey.containers:jersey-container-jetty-http:@{version}"
+			parent="template.jerseyMaven">
+		</bean>
+		<bean
+			id="org.glassfish.jersey.containers.jersey-container-jetty-servlet"
+			p:sourceCoords="org.glassfish.jersey.containers:jersey-container-jetty-servlet:@{version}"
+			parent="template.jerseyMaven">
+		</bean>
+		<!-- Media -->
+		<bean id="org.glassfish.jersey.media.jersey-media-json-jackson"
+			p:sourceCoords="org.glassfish.jersey.media:jersey-media-json-jackson:@{version}"
+			parent="template.jerseyMaven">
+		</bean>
+	</flow:flow>
+
+	<bean id="template.jerseyMaven" parent="template.mavenWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.jersey" />
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<property name="doNotModify" value="true" />
+	</bean>
+</beans>
