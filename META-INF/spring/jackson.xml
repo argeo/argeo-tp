@@ -9,7 +9,7 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
 	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
 
-	<flow:flow name="jackson" spec="spec.version">
+	<flow:flow name="ws/jackson" spec="spec.version">
 		<flow:arg name="version" value="2.10.0" />
 		<!-- Jackson Core -->
 		<bean id="com.fasterxml.jackson.core.jackson-core"
@@ -51,6 +51,11 @@
 		<bean id="com.fasterxml.jackson.jaxrs.jackson-jaxrs-xml-provider"
 			parent="template.jacksonMaven"
 			p:sourceCoords="com.fasterxml.jackson.jaxrs:jackson-jaxrs-xml-provider:@{version}" />
+		<!-- Jackson modules -->
+		<bean
+			id="com.fasterxml.jackson.module.jackson-module-jaxb-annotations"
+			parent="template.jacksonMaven"
+			p:sourceCoords="com.fasterxml.jackson.module:jackson-module-jaxb-annotations:@{version}" />
 	</flow:flow>
 
 	<bean id="template.jacksonMaven" parent="template.mavenWrapper"

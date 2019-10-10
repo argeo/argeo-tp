@@ -21,7 +21,12 @@
 				<ref bean="javax.jcr" />
 				<ref bean="javax.transaction" />
 				<ref bean="javax.mail" />
+				<!-- Javax4hipsters -->
 				<ref bean="javax.websocket" />
+				<ref bean="javax.persistence" />
+				<ref bean="javax.xml.bind" />
+				<ref bean="javax.ws.rs" />
+				<!-- <ref bean="javax.annotation" /> -->
 
 				<!-- Standalone projects -->
 				<ref bean="misc/org.slf4j" />
@@ -37,6 +42,7 @@
 				<ref bean="org.w3c.dom.svg" />
 				<ref bean="org.tukaani.xz" />
 				<ref bean="net.i2p.crypto.eddsa" />
+				<ref bean="javassist" />
 
 				<!-- Apache -->
 				<ref bean="apache/org.apache.log4j" />
@@ -66,9 +72,10 @@
 				<ref bean="apache/org.apache.commons.lang3" />
 
 				<!-- Web services -->
-				<ref bean="jackson" />
-				<ref bean="jersey" />
-				
+				<ref bean="ws/jackson" />
+				<ref bean="ws/hk2" />
+				<ref bean="ws/jersey" />
+
 				<!-- Google -->
 				<ref bean="com.google.guava" />
 				<ref bean="com.google.gson" />

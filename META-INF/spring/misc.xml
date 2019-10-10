@@ -36,6 +36,16 @@
 		</property>
 	</bean>
 
+	<bean id="javassist" p:version="3.26.0"
+		p:sourceCoords="org.javassist:javassist:3.26.0-GA"
+		parent="template.mavenWrapper">
+		<property name="doNotModify" value="true" />
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+	</bean>
+
 	<bean id="org.h2" p:sourceCoords="com.h2database:h2:1.4.199"
 		parent="template.mavenWrapper">
 		<property name="doNotModify" value="true" />
