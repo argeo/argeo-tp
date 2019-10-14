@@ -40,17 +40,13 @@
 			id="com.fasterxml.jackson.dataformat.jackson-dataformat-yaml"
 			parent="template.jacksonMaven"
 			p:sourceCoords="com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:@{version}" />
-		<!-- Jackson JAXRS -->
-		<bean id="com.fasterxml.jackson.jaxrs.jackson-jaxrs-base"
-			parent="template.jacksonMaven"
-			p:sourceCoords="com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:@{version}" />
-		<bean
-			id="com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider"
-			parent="template.jacksonMaven"
-			p:sourceCoords="com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:@{version}" />
-		<bean id="com.fasterxml.jackson.jaxrs.jackson-jaxrs-xml-provider"
-			parent="template.jacksonMaven"
-			p:sourceCoords="com.fasterxml.jackson.jaxrs:jackson-jaxrs-xml-provider:@{version}" />
+		<!-- Jackson JAXRS <bean id="com.fasterxml.jackson.jaxrs.jackson-jaxrs-base" 
+			parent="template.jacksonMaven" p:sourceCoords="com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:@{version}" 
+			/> <bean id="com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider" parent="template.jacksonMaven" 
+			p:sourceCoords="com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:@{version}" 
+			/> <bean id="com.fasterxml.jackson.jaxrs.jackson-jaxrs-xml-provider" parent="template.jacksonMaven" 
+			p:sourceCoords="com.fasterxml.jackson.jaxrs:jackson-jaxrs-xml-provider:@{version}" 
+			/> -->
 		<!-- Jackson modules -->
 		<bean
 			id="com.fasterxml.jackson.module.jackson-module-jaxb-annotations"

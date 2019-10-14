@@ -36,16 +36,6 @@
 		</property>
 	</bean>
 
-	<bean id="javassist" p:version="3.26.0"
-		p:sourceCoords="org.javassist:javassist:3.26.0-GA"
-		parent="template.mavenWrapper">
-		<property name="doNotModify" value="true" />
-		<property name="license">
-			<util:constant
-				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
-		</property>
-	</bean>
-
 	<bean id="org.h2" p:sourceCoords="com.h2database:h2:1.4.199"
 		parent="template.mavenWrapper">
 		<property name="doNotModify" value="true" />
@@ -175,9 +165,18 @@
 	</bean>
 
 	<bean id="com.google.guava"
-		p:sourceCoords="com.google.guava:guava:jar:26.0-jre"
+		p:sourceCoords="com.google.guava:guava:jar:27.1-jre"
 		parent="template.mavenWrapper">
-		<property name="version" value="26.0.0" />
+		<property name="version" value="27.1.0.jre" />
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<property name="doNotModify" value="true" />
+	</bean>
+	<bean id="com.google.guava.failureaccess"
+		p:sourceCoords="com.google.guava:failureaccess:1.0.1"
+		parent="template.mavenWrapper">
 		<property name="license">
 			<util:constant
 				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
@@ -427,6 +426,12 @@
 
 	<bean id="org.freemarker"
 		p:sourceCoords="org.freemarker:freemarker:2.3.29"
+		parent="template.mavenWrapperApacheLicense">
+		<property name="doNotModify" value="true" />
+	</bean>
+
+	<bean id="org.yaml.snakeyaml"
+		p:sourceCoords="org.yaml:snakeyaml:1.25"
 		parent="template.mavenWrapperApacheLicense">
 		<property name="doNotModify" value="true" />
 	</bean>
