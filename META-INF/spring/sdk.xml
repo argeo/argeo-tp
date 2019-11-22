@@ -62,8 +62,28 @@
 		<!-- </property> -->
 	</bean>
 
-	<bean id="org.osgi.annotation.bundle"
-		p:sourceCoords="org.osgi:org.osgi.annotation.bundle:1.0.0"
+	<bean id="osgi.annotation"
+		p:sourceCoords="org.osgi:osgi.annotation:7.0.0"
+		parent="template.mavenSdk">
+		<property name="doNotModify" value="true" />
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+	</bean>
+
+	<bean id="org.osgi.service.metatype.annotations"
+		p:sourceCoords="org.osgi:org.osgi.service.metatype.annotations:1.4.0"
+		parent="template.mavenSdk">
+		<property name="doNotModify" value="true" />
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+	</bean>
+
+	<bean id="org.osgi.service.component.annotations"
+		p:sourceCoords="org.osgi:org.osgi.service.component.annotations:1.4.0"
 		parent="template.mavenSdk">
 		<property name="doNotModify" value="true" />
 		<property name="license">

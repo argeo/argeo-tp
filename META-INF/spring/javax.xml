@@ -26,18 +26,53 @@
 		</property>
 	</bean>
 
-	<bean id="javax.transaction" p:version="1.1.0"
-		p:sourceCoords="javax.transaction:jta:1.1"
+	<bean id="javax.transaction-api"
+		p:sourceCoords="javax.transaction:javax.transaction-api:1.3"
 		parent="template.mavenJavax">
 		<property name="license">
+			<!-- GPL with classpath exception -->
 			<util:constant
-				static-field="org.argeo.slc.repo.FreeLicense.CDDL" />
+				static-field="org.argeo.slc.repo.FreeLicense.GPL" />
 		</property>
-		<property name="bndProperties">
-			<props merge="true">
-				<prop key="Fragment-Host">system.bundle; extension:=framework</prop>
-			</props>
+		<property name="doNotModify" value="true" />
+		<!-- <property name="bndProperties"> -->
+		<!-- <props merge="true"> -->
+		<!-- <prop key="Fragment-Host">system.bundle; extension:=framework</prop> -->
+		<!-- </props> -->
+		<!-- </property> -->
+	</bean>
+
+	<bean id="javax.interceptor-api"
+		p:sourceCoords="javax.interceptor:javax.interceptor-api:1.2.2"
+		parent="template.mavenJavax">
+		<property name="license">
+			<!-- GPL with classpath exception -->
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.GPL" />
 		</property>
+		<property name="doNotModify" value="true" />
+	</bean>
+
+	<bean id="javax.el-api"
+		p:sourceCoords="javax.el:javax.el-api:2.2.5"
+		parent="template.mavenJavax">
+		<property name="license">
+			<!-- GPL with classpath exception -->
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.GPL" />
+		</property>
+		<property name="doNotModify" value="true" />
+	</bean>
+
+	<bean id="javax.enterprise.cdi-api" p:version="2.0.0.SP1"
+		p:sourceCoords="javax.enterprise:cdi-api:2.0.SP1"
+		parent="template.mavenJavax">
+		<property name="license">
+			<!-- GPL with classpath exception -->
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<property name="doNotModify" value="true" />
 	</bean>
 
 	<!-- Javax transaction 1.3 has dependencies -->

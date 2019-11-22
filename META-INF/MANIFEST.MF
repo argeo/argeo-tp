@@ -7,7 +7,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Argeo Third Party Factory
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-SymbolicName: org.argeo.tp.factory.core
-Bundle-Version: 2.1.25.r201910171408
+Bundle-Version: 2.1.26.SNAPSHOT-r201911221251
 Import-Package: javax.jcr;version="[2.0,3)",org.argeo.cms.spring;version
  ="[2.1,3)",org.argeo.slc.repo;version="[2.1,3)",org.argeo.slc.repo.osgi
  ;version="[2.1,3)",org.springframework.cglib.proxy;version="[3.2,4)",or

@@ -14,12 +14,15 @@
 		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
 		<constructor-arg
-			value="org.argeo.tp:argeo-tp:2.1.25" />
+			value="org.argeo.tp:argeo-tp:2.1.26-SNAPSHOT" />
 		<property name="modules">
 			<list>
 				<!-- Javax -->
 				<ref bean="javax.jcr" />
-				<ref bean="javax.transaction" />
+				<ref bean="javax.el-api" />
+				<ref bean="javax.interceptor-api" />
+				<ref bean="javax.enterprise.cdi-api" />
+				<ref bean="javax.transaction-api" />
 				<ref bean="javax.mail" />
 				<!-- Javax4hipsters -->
 				<ref bean="javax.websocket" />
@@ -112,7 +115,9 @@
 				<!-- ALM -->
 				<ref bean="org.junit" />
 				<ref bean="org.hamcrest" />
-				<ref bean="org.osgi.annotation.bundle" />
+				<ref bean="osgi.annotation" />
+				<ref bean="org.osgi.service.metatype.annotations" />
+				<ref bean="org.osgi.service.component.annotations" />
 				<ref bean="biz.aQute.bndlib" />
 				<ref bean="org.redline-rpm" />
 				<ref bean="org.eclipse.jgit" />
@@ -124,7 +129,7 @@
 		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
 		<constructor-arg
-			value="org.argeo.tp:argeo-tp-rap-e4:2.1.25" />
+			value="org.argeo.tp:argeo-tp-rap-e4:2.1.26-SNAPSHOT" />
 		<property name="modules">
 			<list>
 				<ref bean="eclipse/org.argeo.tp.rap.e4" />
@@ -136,7 +141,7 @@
 		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
 		<constructor-arg
-			value="org.argeo.tp:argeo-tp-rcp-e4:2.1.25" />
+			value="org.argeo.tp:argeo-tp-rcp-e4:2.1.26-SNAPSHOT" />
 		<property name="modules">
 			<list>
 				<ref bean="eclipse/org.argeo.tp.rcp.e4" />
@@ -150,7 +155,7 @@
 		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
 		<constructor-arg
-	value="org.argeo.tp:argeo-tp-rap-e3:2.1.25" />
+	value="org.argeo.tp:argeo-tp-rap-e3:2.1.26-SNAPSHOT" />
 		<property name="modules">
 			<list>
 				<ref bean="eclipse/org.argeo.tp.rap.platform" />
