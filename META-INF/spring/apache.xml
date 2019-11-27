@@ -148,7 +148,7 @@
 	</flow:flow>
 
 	<flow:flow name="apache/org.apache.poi" spec="spec.version">
-		<flow:arg name="version" value="4.1.0" />
+		<flow:arg name="version" value="4.1.1" />
 		<!-- <bean id="org.apache.poi" parent="template.apacheMaven" -->
 		<!-- p:version="@{version}" -->
 		<!-- p:sourceCoords="org.apache.servicemix.bundles:org.apache.servicemix.bundles.poi:@{version}_1"> -->
@@ -164,7 +164,9 @@
 					<!-- <prop key="Fragment-Host">org.apache.poi</prop> -->
 					<prop key="Import-Package">
 						com.graphbuilder.*;resolution:=optional,
+						com.graphbuilder.*;resolution:=optional,
 						org.etsi.uri.*;resolution:=optional,
+						org.apache.batik.*;resolution:=optional,
 						*
 					</prop>
 				</props>
@@ -201,12 +203,14 @@
 	</flow:flow>
 
 	<bean id="org.apache.xmlbeans"
-		p:sourceCoords="org.apache.xmlbeans:xmlbeans:3.0.1"
+		p:sourceCoords="org.apache.xmlbeans:xmlbeans:3.1.0"
 		parent="template.apacheMaven">
 		<property name="bndProperties">
 			<props merge="true">
 				<prop key="DynamicImport-Package">*</prop>
 				<prop key="Import-Package">
+					org.apache.tools.ant.*;resolution:=optional,
+					net.sf.saxon.*;resolution:=optional,
 					com.sun.*;resolution:=optional,
 					*
 				</prop>
@@ -241,10 +245,13 @@
 		parent="template.apacheMaven" />
 
 	<flow:flow name="apache/org.apache.batik" spec="spec.version">
-		<flow:arg name="version" value="1.10" />
+		<flow:arg name="version" value="1.12" />
 		<!-- <bean id="org.apache.batik.ext" parent="template.apacheMaven" -->
 		<!-- p:version="@{version}" p:sourceCoords="org.apache.xmlgraphics:batik-ext:jar:@{version}" 
 			/> -->
+		<bean id="org.apache.batik.constants" parent="template.apacheMaven"
+			p:version="@{version}.0"
+			p:sourceCoords="org.apache.xmlgraphics:batik-constants:jar:@{version}" />
 		<bean id="org.apache.batik.i18n" parent="template.apacheMaven"
 			p:version="@{version}.0"
 			p:sourceCoords="org.apache.xmlgraphics:batik-i18n:jar:@{version}" />
@@ -254,11 +261,14 @@
 		<bean id="org.apache.batik.css" parent="template.apacheMaven"
 			p:version="@{version}.0"
 			p:sourceCoords="org.apache.xmlgraphics:batik-css:jar:@{version}" />
+		<bean id="org.apache.batik.anim" parent="template.apacheMaven"
+			p:version="@{version}.0"
+			p:sourceCoords="org.apache.xmlgraphics:batik-anim:jar:@{version}" />
 	</flow:flow>
 
 	<flow:flow name="apache/org.apache.xmlgraphics"
 		spec="spec.version">
-		<flow:arg name="version" value="2.3" />
+		<flow:arg name="version" value="2.4" />
 		<bean id="org.apache.xmlgraphics.commons"
 			parent="template.apacheMaven" p:version="@{version}.0"
 			p:sourceCoords="org.apache.xmlgraphics:xmlgraphics-commons:jar:@{version}" />

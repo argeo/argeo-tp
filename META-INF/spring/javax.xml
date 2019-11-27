@@ -35,11 +35,16 @@
 				static-field="org.argeo.slc.repo.FreeLicense.GPL" />
 		</property>
 		<property name="doNotModify" value="true" />
-		<!-- <property name="bndProperties"> -->
-		<!-- <props merge="true"> -->
-		<!-- <prop key="Fragment-Host">system.bundle; extension:=framework</prop> -->
-		<!-- </props> -->
-		<!-- </property> -->
+	</bean>
+
+	<bean id="javax.activation"
+		p:sourceCoords="com.sun.activation:javax.activation:1.2.0"
+		parent="template.mavenJavax">
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.CDDL" />
+		</property>
+		<property name="doNotModify" value="true" />
 	</bean>
 
 	<bean id="javax.interceptor-api"
@@ -75,24 +80,14 @@
 		<property name="doNotModify" value="true" />
 	</bean>
 
-	<!-- Javax transaction 1.3 has dependencies -->
-	<!-- <bean id="javax.transaction-api" p:version="1.3" -->
-	<!-- p:sourceCoords="javax.transaction:javax.transaction-api:1.3" -->
-	<!-- parent="template.mavenJavax"> -->
-	<!-- <property name="license"> -->
-	<!-- <util:constant -->
-	<!-- static-field="org.argeo.slc.repo.FreeLicense.CDDL" /> -->
-	<!-- </property> -->
-	<!-- <property name="doNotModify" value="true" /> -->
-	<!-- </bean> -->
-
 	<bean id="javax.mail"
-		p:sourceCoords="com.sun.mail:javax.mail:1.6.2"
+		p:sourceCoords="javax.mail:javax.mail-api:1.6.2"
 		parent="template.mavenJavax">
 		<property name="license">
 			<util:constant
 				static-field="org.argeo.slc.repo.FreeLicense.CDDL" />
 		</property>
+		<property name="doNotModify" value="true" />
 	</bean>
 
 	<bean id="javax.annotation"

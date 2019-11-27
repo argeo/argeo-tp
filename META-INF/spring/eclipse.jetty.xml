@@ -12,7 +12,7 @@
 
 	<flow:flow name="eclipse/org.argeo.tp.jetty"
 		spec="spec.version">
-		<flow:arg name="version" value="9.4.21.v20190926" />
+		<flow:arg name="version" value="9.4.24.v20191120" />
 		<bean id="org.eclipse.jetty.client" parent="template.jettyMaven"
 			p:sourceCoords="org.eclipse.jetty:jetty-client:@{version}" />
 		<bean id="org.eclipse.jetty.continuation"
