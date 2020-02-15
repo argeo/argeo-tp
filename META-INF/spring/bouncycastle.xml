@@ -18,7 +18,7 @@
 			<property name="sourcesProvider">
 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
 					<property name="uri"
-						value="http://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk15on/@{version}/bcprov-jdk15on-@{version}-sources.jar" />
+						value="https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk15on/@{version}/bcprov-jdk15on-@{version}-sources.jar" />
 					<property name="osgiFactory" ref="osgiFactory" />
 				</bean>
 			</property>
@@ -29,7 +29,7 @@
 			<property name="sourcesProvider">
 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
 					<property name="uri"
-						value="http://repo1.maven.org/maven2/org/bouncycastle/bcpkix-jdk15on/@{version}/bcpkix-jdk15on-@{version}-sources.jar" />
+						value="https://repo1.maven.org/maven2/org/bouncycastle/bcpkix-jdk15on/@{version}/bcpkix-jdk15on-@{version}-sources.jar" />
 					<property name="osgiFactory" ref="osgiFactory" />
 				</bean>
 			</property>
@@ -40,7 +40,7 @@
 			<property name="sourcesProvider">
 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
 					<property name="uri"
-						value="http://repo1.maven.org/maven2/org/bouncycastle/bcmail-jdk15on/@{version}/bcmail-jdk15on-@{version}-sources.jar" />
+						value="https://repo1.maven.org/maven2/org/bouncycastle/bcmail-jdk15on/@{version}/bcmail-jdk15on-@{version}-sources.jar" />
 					<property name="osgiFactory" ref="osgiFactory" />
 				</bean>
 			</property>
@@ -51,7 +51,7 @@
 			<property name="sourcesProvider">
 				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
 					<property name="uri"
-						value="http://repo1.maven.org/maven2/org/bouncycastle/bcpg-jdk15on/@{version}/bcpg-jdk15on-@{version}-sources.jar" />
+						value="https://repo1.maven.org/maven2/org/bouncycastle/bcpg-jdk15on/@{version}/bcpg-jdk15on-@{version}-sources.jar" />
 					<property name="osgiFactory" ref="osgiFactory" />
 				</bean>
 			</property>

@@ -198,7 +198,7 @@
 		</property>
 		<property name="mavenRepositories">
 			<list>
-				<value>http://repo1.maven.org/maven2/</value>
+				<value>https://repo1.maven.org/maven2/</value>
 				<value>http://download.eclipse.org/gemini/mvn/</value>
 			</list>
 		</property>
