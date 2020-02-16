@@ -2,80 +2,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.argeo.slc</groupId>
-		<artifactId>lib</artifactId>
-		<version>2.1.17-SNAPSHOT</version>
-	</parent>
 	<groupId>org.argeo.tp.factory</groupId>
-	<artifactId>org.argeo.tp.factory.core</artifactId>
+	<artifactId>argeo-distribution</artifactId>
 	<version>2.1.28-SNAPSHOT</version>
-	<name>Argeo Third Party Factory</name>
+	<name>Argeo Java OSGi Distribution</name>
 	<description>OSGi packaging of free / open source third party libraries</description>
-	<properties>
-		<additionalImports.slc-lib>
-			javax.security.auth.callback;resolution:="optional"
-		</additionalImports.slc-lib>
-	</properties>
-	<build>
-		<resources>
-			<resource>
-				<directory>.</directory>
-				<includes>
-					<include>META-INF/**</include>
-				</includes>
-			</resource>
-			<resource>
-				<directory>.</directory>
-				<filtering>true</filtering>
-				<includes>
-					<include>META-INF/distribution.xml</include>
-				</includes>
-			</resource>
-		</resources>
-		<plugins>
-			<plugin>
-				<groupId>org.argeo.maven.plugins</groupId>
-				<artifactId>argeo-osgi-plugin</artifactId>
-				<version>2.1.1</version>
-				<executions>
-					<execution>
-						<id>generate-descriptors</id>
-						<goals>
-							<goal>descriptors</goal>
-						</goals>
-						<phase>generate-resources</phase>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
-	<dependencies>
-		<dependency>
-			<groupId>org.argeo.slc</groupId>
-			<artifactId>org.argeo.slc.repo</artifactId>
-			<version>${version.slc}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.argeo.slc</groupId>
-			<artifactId>org.argeo.slc.dep.backend</artifactId>
-			<version>${version.slc}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.argeo.tp.equinox</groupId>
-			<artifactId>org.eclipse.osgi</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-	<repositories>
-		<repository>
-			<id>argeo</id>
-			<url>http://forge.argeo.org/data/java/argeo-2.1</url>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>daily</updatePolicy>
-				<checksumPolicy>fail</checksumPolicy>
-			</releases>
-		</repository>
-	</repositories>
+	<modules>
+		<module>org.argeo.tp.factory.core</module>
+	</modules>
 </project>
