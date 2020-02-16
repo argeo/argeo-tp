@@ -22,7 +22,7 @@
 			<resource>
 				<directory>.</directory>
 				<includes>
-					<include>META-INF/**</include>
+					<include>META-INF/spring/**</include>
 				</includes>
 			</resource>
 			<resource>

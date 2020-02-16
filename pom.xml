@@ -7,6 +7,7 @@
 	<version>2.1.28-SNAPSHOT</version>
 	<name>Argeo Java OSGi Distribution</name>
 	<description>OSGi packaging of free / open source third party libraries</description>
+	<packaging>pom</packaging>
 	<modules>
 		<module>org.argeo.tp.factory.core</module>
 	</modules>
