@@ -80,7 +80,7 @@
 	<!-- spec="equinoxVersion.spec"> -->
 	<!-- <flow:arg name="equinoxRelease" value="4.4.1" /> -->
 	<!-- <flow:arg name="equinoxTimestamp" value="201409250400" /> -->
-	<!-- <bean id="org.eclipse.jdt.core.compiler.batch" class="org.argeo.slc.repo.osgi.UriWrapper"> -->
+	<!-- <bean id="org.eclipse.jdt.core.compiler.batch" class="org.argeo.slc.spring.repo.osgi.UriWrapper"> -->
 	<!-- <property name="version" value="3.10.0.v20140902-0626" /> -->
 	<!-- <property name="uri" -->
 	<!-- value="http://www.eclipse.org/downloads/eclipse/downloads/drops4/R-@{equinoxRelease}-@{equinoxTimestamp}/ecj-@{equinoxRelease}.jar" 

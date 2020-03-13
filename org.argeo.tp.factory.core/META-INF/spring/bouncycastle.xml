@@ -59,7 +59,7 @@
 	</flow:flow>
 
 	<!-- FACTORY -->
-	<bean id="template.bouncycastle" class="org.argeo.slc.repo.osgi.UriWrapper"
+	<bean id="template.bouncycastle" class="org.argeo.slc.spring.repo.osgi.UriWrapper"
 		abstract="true">
 		<property name="version" value="@{version}" />
 		<property name="groupId" value="org.argeo.tp.bouncycastle" />

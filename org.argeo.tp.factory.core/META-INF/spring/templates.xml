@@ -22,7 +22,7 @@
 	</bean>
 
 	<bean id="template.bndWrapper"
-		class="org.argeo.slc.repo.osgi.BndWrapper" abstract="true">
+		class="org.argeo.slc.spring.repo.osgi.BndWrapper" abstract="true">
 		<property name="groupId" value="org.argeo.tp.misc" />
 		<property name="bndProperties">
 			<props>
@@ -31,7 +31,7 @@
 		</property>
 	</bean>
 	<bean id="template.mavenWrapper"
-		class="org.argeo.slc.repo.osgi.MavenWrapper" abstract="true">
+		class="org.argeo.slc.spring.repo.osgi.MavenWrapper" abstract="true">
 		<property name="groupId" value="org.argeo.tp.misc" />
 		<property name="bndProperties">
 			<props>
