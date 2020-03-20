@@ -7,12 +7,12 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Core Third Party Factory
 Bundle-RequiredExecutionEnvironment: JavaSE-11,JavaSE-1.8
 Bundle-SymbolicName: org.argeo.tp.factory.core
-Bundle-Version: 2.1.28.SNAPSHOT-r20200320072510
+Bundle-Version: 2.1.28.SNAPSHOT-r20200320074906
 Import-Package: 
  javax.jcr;version="[2.0,3)",
- org.argeo.cms.spring;version="[2.1,3)",
  org.argeo.slc.repo;version="[2.1,3)",
  org.argeo.slc.repo.osgi;version="[2.1,3)",
+ org.argeo.slc.spring.auth;version="[2.1,3)",
  org.argeo.slc.spring.repo.osgi;version="[2.1,3)",
  org.springframework.cglib.proxy;resolution:=optional;version="[3.2,4)",
  org.springframework.cglib.core;resolution:=optional;version="[3.2,4)",
@@ -50,6 +50,6 @@ Include-Resource: META-INF/spring/eclipse.jetty.xml=META-INF/spring/ecli
  spring/eclipse.rap.e4.xml,META-INF/spring/bouncycastle.xml=META-INF/spr
  ing/bouncycastle.xml
 Private-Package: !*
-SLC-Build-Timestamp: 20200320072510
+SLC-Build-Timestamp: 20200320074906
 SLC-Category: org.argeo.tp.factory
 SLC-ExecutionModule: default

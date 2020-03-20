@@ -98,7 +98,7 @@
 
 	<!-- Security -->
 	<bean
-		class="org.argeo.cms.spring.AuthenticatedApplicationContextInitialization">
+		class="org.argeo.slc.spring.auth.AuthenticatedApplicationContextInitialization">
 		<property name="beanNames">
 			<list>
 				<value>osgiFactory</value>
