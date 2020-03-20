@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+	<!-- FACTORY -->
+	<bean id="template.spring.security" parent="template.bndWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.spring.security" />
+		<property name="doNotModify" value="true" />
+	</bean>
+
+	<flow:flow name="spring/org.springframework.security" spec="spec.version">
+		<flow:arg name="version" value="3.2.5.RELEASE" />
+		<bean parent="template.archiveWrapper">
+			<property name="uri"
+				value="https://repo.spring.io/libs-release-local/org/springframework/security/spring-security/@{version}/spring-security-@{version}-dist.zip" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			</property>
+			<property name="wrappers">
+				<map>
+					<entry
+						key="spring-security-@{version}/dist/spring-security-acl-@{version}.jar">
+						<bean id="org.springframework.security.acls" parent="template.spring.security" />
+					</entry>
+					<entry
+						key="spring-security-@{version}/dist/spring-security-aspects-@{version}.jar">
+						<bean id="org.springframework.security.aspects" parent="template.spring.security" />
+					</entry>
+					<entry
+						key="spring-security-@{version}/dist/spring-security-config-@{version}.jar">
+						<bean id="org.springframework.security.config" parent="template.spring.security" />
+					</entry>
+					<entry
+						key="spring-security-@{version}/dist/spring-security-core-@{version}.jar">
+						<bean id="org.springframework.security.core" parent="template.spring.security" />
+					</entry>
+					<entry
+						key="spring-security-@{version}/dist/spring-security-ldap-@{version}.jar">
+						<bean id="org.springframework.security.ldap" parent="template.spring.security" />
+					</entry>
+					<!-- <entry key="spring-security-@{version}/dist/spring-security-openid-@{version}.jar"> -->
+					<!-- <bean id="org.springframework.security.openid" parent="template.spring.security" 
+						/> -->
+					<!-- </entry> -->
+					<entry
+						key="spring-security-@{version}/dist/spring-security-web-@{version}.jar">
+						<bean id="org.springframework.security.web" parent="template.spring.security" />
+					</entry>
+				</map>
+			</property>
+		</bean>
+	</flow:flow>
+
+</beans>

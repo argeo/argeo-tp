@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+	<!-- Specs and templates -->
+	<flow:spec id="spec.version">
+		<flow:primitive name="version" isParameter="true" />
+	</flow:spec>
+
+	<bean id="template.archiveWrapper" class="org.argeo.slc.repo.osgi.ArchiveWrapper"
+		init-method="init" destroy-method="destroy" abstract="true">
+		<property name="version" value="@{version}" />
+		<property name="osgiFactory" ref="osgiFactory" />
+	</bean>
+	<bean id="template.bndWrapper" class="org.argeo.slc.spring.repo.osgi.BndWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.extras" />
+		<property name="bndProperties">
+			<props>
+				<prop key="Export-Package">*</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="template.mavenWrapper" class="org.argeo.slc.spring.repo.osgi.MavenWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.extras" />
+		<property name="bndProperties">
+			<props>
+				<prop key="Export-Package">*</prop>
+			</props>
+		</property>
+		<property name="osgiFactory" ref="osgiFactory" />
+	</bean>
+</beans>

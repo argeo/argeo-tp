@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+	<!-- REGISTER -->
+	<bean id="argeo-tp-extras"
+		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
+		init-method="init" destroy-method="destroy">
+		<constructor-arg
+			value="org.argeo.tp.extras:argeo-tp-extras:2.1.14-SNAPSHOT" />
+		<property name="modules">
+			<list>
+				<!-- Standalone -->
+				<ref bean="javassist" />
+				<ref bean="org.reflections" />
+
+				<!-- Apache -->
+				<ref bean="apache/org.apache.ant" />
+
+				<!-- Spring -->
+				<ref bean="spring/org.springframework" />
+				<ref bean="org.springframework.ldap" />
+				<ref bean="spring/org.springframework.security" />
+				<ref bean="eclipse/org.argeo.tp.gemini" />
+
+				<!-- Web services -->
+				<!-- <ref bean="org.atmosphere.runtime" /> -->
+				<!-- <ref bean="org.atmosphere.socketio" /> -->
+				<ref bean="ws/swagger" />
+
+				<!-- Payment providers -->
+				<ref bean="com.stripe" />
+
+				<!-- Scripting -->
+				<ref bean="black.ninia.jep" />
+				<ref bean="org.jython" />
+				<ref bean="org.graalvm.sdk" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Factory -->
+	<bean id="osgiFactory"
+		class="org.argeo.slc.repo.osgi.OsgiFactoryImpl" init-method="init"
+		destroy-method="destroy">
+		<property name="workspace" value="argeo-extras-2.1" />
+		<property name="nodeIndexers">
+			<list>
+				<bean class="org.argeo.slc.repo.ModularDistributionIndexer" />
+				<bean class="org.argeo.slc.repo.JarFileIndexer" />
+				<bean class="org.argeo.slc.repo.ArtifactIndexer" />
+				<bean class="org.argeo.slc.repo.PdeSourcesIndexer" />
+			</list>
+		</property>
+		<property name="mirrors">
+			<map>
+				<entry key="http://archive.apache.org/dist">
+					<list>
+						<value>http://mirror.netcologne.de/apache.org</value>
+						<value>http://archive.apache.org/dist</value>
+					</list>
+				</entry>
+				<entry key="http://www.eclipse.org/downloads">
+					<list>
+						<value>http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/</value>
+						<value>http://ftp.fau.de/eclipse/</value>
+						<!-- <value>http://eclipse.mirror.garr.it/mirrors/eclipse</value> -->
+						<!-- <value>http://mirror.netcologne.de/eclipse</value> -->
+						<!-- <value>http://mirror.selfnet.de/eclipse</value> -->
+						<!-- <value><![CDATA[http://www.eclipse.org/downloads/download.php?file=]]></value> -->
+					</list>
+				</entry>
+			</map>
+		</property>
+		<property name="mavenRepositories">
+			<list>
+				<value>https://repo1.maven.org/maven2/</value>
+				<value>http://download.eclipse.org/gemini/mvn/</value>
+			</list>
+		</property>
+		<property name="javaRepository" ref="javaRepository" />
+		<property name="distRepository" ref="distRepository" />
+	</bean>
+
+	<flow:flow name="processDistribution">
+		<bean class="org.argeo.slc.repo.osgi.ProcessDistribution">
+			<property name="osgiDistribution" ref="argeo-tp-extras" />
+			<property name="osgiFactory" ref="osgiFactory" />
+		</bean>
+	</flow:flow>
+
+	<!-- Security -->
+	<bean
+		class="org.argeo.cms.spring.AuthenticatedApplicationContextInitialization">
+		<property name="beanNames">
+			<list>
+				<value>osgiFactory</value>
+			</list>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+	<bean id="black.ninia.jep" p:sourceCoords="black.ninia:jep:3.9.0"
+		parent="template.mavenWrapper">
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<property name="groupId" value="org.argeo.tp.scripting" />
+	</bean>
+
+	<bean id="org.jython"
+		p:sourceCoords="org.python:jython-standalone:2.7.1"
+		parent="template.mavenWrapper">
+		<!-- <property name="license"> -->
+		<!-- <util:constant -->
+		<!-- static-field="org.argeo.slc.repo.FreeLicense.PYTHON" /> -->
+		<!-- </property> -->
+		<property name="groupId" value="org.argeo.tp.scripting" />
+		<property name="bndProperties">
+			<props merge="true">
+				<prop key="Export-Package">
+					org.python.core.*,
+					org.python.modules.*,
+					org.python.util,
+					org.python,
+					com.xhaus.modjy,
+					com.ziclix.python.sql,
+					Lib.*
+				</prop>
+				<prop key="Import-Package">
+					*;resolution:=optional
+				</prop>
+				<prop key="Private-Package">*</prop>
+				<prop key="Main-Class">org.python.util.jython</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

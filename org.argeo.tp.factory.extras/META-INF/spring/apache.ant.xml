@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+	<flow:flow name="apache/org.apache.ant" spec="spec.version">
+		<flow:arg name="version" value="1.9.2" />
+		<bean parent="template.archiveWrapper">
+			<property name="uri"
+				value="http://archive.apache.org/dist/ant/binaries/apache-ant-@{version}-bin.zip" />
+			<property name="license">
+				<util:constant static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+			</property>
+			<property name="wrappers">
+				<map>
+					<entry key="apache-ant-@{version}/lib/ant.jar">
+						<bean id="org.apache.ant" parent="template.org.apache.ant" />
+					</entry>
+					<entry key="apache-ant-@{version}/lib/ant-launcher.jar">
+						<bean id="org.apache.ant.launch" parent="template.org.apache.ant" />
+					</entry>
+				</map>
+			</property>
+			<property name="sourcesProvider">
+				<bean class="org.argeo.slc.repo.osgi.ArchiveSourcesProvider">
+					<property name="uri"
+						value="http://archive.apache.org/dist/ant/source/apache-ant-@{version}-src.zip" />
+					<property name="base" value="apache-ant-@{version}/src/main/" />
+					<property name="osgiFactory" ref="osgiFactory" />
+				</bean>
+			</property>
+		</bean>
+	</flow:flow>
+
+	<!-- Specs and templates -->
+	<bean id="template.org.apache.ant" parent="template.bndWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.apache.ant" />
+	</bean>
+</beans>

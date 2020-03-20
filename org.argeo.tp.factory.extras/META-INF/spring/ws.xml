@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:flow="http://www.argeo.org/schema/slc-flow"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.argeo.org/schema/slc-flow http://www.argeo.org/schema/slc-flow-1.2.xsd">
+
+
+	<bean id="org.atmosphere.runtime"
+		p:sourceCoords="org.atmosphere:atmosphere-runtime:2.4.32"
+		parent="template.wsMaven">
+	</bean>
+
+	<bean id="org.atmosphere.socketio"
+		p:sourceCoords="org.atmosphere:atmosphere-socketio:2.4.21"
+		parent="template.wsMaven">
+		<property name="doNotModify" value="false" />
+	</bean>
+
+	<bean id="template.wsMaven" parent="template.mavenWrapper"
+		abstract="true">
+		<property name="groupId" value="org.argeo.tp.ws" />
+		<property name="license">
+			<util:constant
+				static-field="org.argeo.slc.repo.FreeLicense.APACHE" />
+		</property>
+		<property name="doNotModify" value="true" />
+	</bean>
+
+
+</beans>
