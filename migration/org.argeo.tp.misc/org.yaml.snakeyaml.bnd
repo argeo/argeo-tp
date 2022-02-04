@@ -1,0 +1,4 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: org.yaml.snakeyaml
+SLC-Origin-M2: org.yaml:snakeyaml:1.25
+SLC-Origin-ManifestNotModified: true

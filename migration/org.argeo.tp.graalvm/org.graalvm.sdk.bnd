@@ -1,0 +1,2 @@
+Bundle-SymbolicName: org.graalvm.sdk
+SLC-Origin-M2: org.graalvm.sdk:graal-sdk:19.2.0.1

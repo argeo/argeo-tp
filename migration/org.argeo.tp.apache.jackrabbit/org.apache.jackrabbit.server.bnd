@@ -1,0 +1,3 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: org.apache.jackrabbit.server
+SLC-Origin-M2: org.apache.jackrabbit:jackrabbit-jcr-server:2.18.3

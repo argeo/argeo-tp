@@ -1,0 +1,4 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: org.apache.sshd.cli
+SLC-Origin-M2: org.apache.sshd:sshd-cli:2.3.0
+SLC-Origin-ManifestNotModified: true

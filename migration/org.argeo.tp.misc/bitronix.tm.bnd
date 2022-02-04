@@ -1,0 +1,6 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: bitronix.tm
+Import-Package: javax.jms;resolution:=optional,
+					javax.swing.*;resolution:=optional,
+					*
+SLC-Origin-M2: org.codehaus.btm:btm:2.1.4

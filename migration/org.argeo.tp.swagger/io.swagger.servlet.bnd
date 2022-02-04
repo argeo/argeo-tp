@@ -1,0 +1,3 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: io.swagger.servlet
+SLC-Origin-M2: io.swagger:swagger-servlet:1.5.24

@@ -1,0 +1,5 @@
+Bundle-License: MIT
+Bundle-SymbolicName: bcmail
+Bundle-Version: 1.64
+SLC-Origin-ManifestNotModified: true
+SLC-Origin-URI: https://downloads.bouncycastle.org/java/bcmail-jdk15on-164.jar

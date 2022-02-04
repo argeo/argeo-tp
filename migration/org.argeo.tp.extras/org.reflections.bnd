@@ -1,0 +1,7 @@
+Bundle-License: BSD-3-Clause
+Bundle-SymbolicName: org.reflections
+Import-Package: com.google.common.*;version="0.0.0",
+					com.google.gson.*;resolution:=optional,
+					org.dom4j.*;resolution:=optional,
+					*
+SLC-Origin-M2: org.reflections:reflections:0.9.11

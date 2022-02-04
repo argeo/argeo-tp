@@ -1,0 +1,3 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: org.springframework.instrument
+Bundle-Version: 3.2.13.RELEASE

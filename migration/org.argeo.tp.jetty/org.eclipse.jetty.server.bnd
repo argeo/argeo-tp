@@ -1,0 +1,4 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: org.eclipse.jetty.server
+SLC-Origin-M2: org.eclipse.jetty:jetty-server:9.4.24.v20191120
+SLC-Origin-ManifestNotModified: true

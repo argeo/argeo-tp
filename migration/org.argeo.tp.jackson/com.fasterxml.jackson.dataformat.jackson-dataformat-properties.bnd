@@ -1,0 +1,4 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: com.fasterxml.jackson.dataformat.jackson-dataformat-properties
+SLC-Origin-M2: com.fasterxml.jackson.dataformat:jackson-dataformat-properties:2.10.0
+SLC-Origin-ManifestNotModified: true

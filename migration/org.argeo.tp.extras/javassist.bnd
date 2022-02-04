@@ -1,0 +1,4 @@
+Bundle-License: Apache-2.0
+Bundle-Version: 3.26.0
+SLC-Origin-M2: org.javassist:javassist:3.26.0-GA
+SLC-Origin-ManifestNotModified: true

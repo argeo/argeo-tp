@@ -1,0 +1,7 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: org.apache.sshd.common
+Fragment-Host: org.apache.sshd.core
+Import-Package: org.bouncycastle.jce.provider;resolution:=optional,
+						net.i2p.crypto.eddsa;resolution:=optional,
+						*
+SLC-Origin-M2: org.apache.sshd:sshd-common:2.3.0

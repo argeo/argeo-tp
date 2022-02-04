@@ -1,0 +1,5 @@
+Bundle-License: org.argeo.slc.repo.FreeLicense$12@139b1936
+Bundle-SymbolicName: net.i2p.crypto.eddsa
+Import-Package: sun.security.x509;resolution:=optional,
+					*
+SLC-Origin-M2: net.i2p.crypto:eddsa:0.3.0

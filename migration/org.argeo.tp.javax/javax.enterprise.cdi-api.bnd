@@ -1,0 +1,5 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: javax.enterprise.cdi-api
+Bundle-Version: 2.0.0.SP1
+SLC-Origin-M2: javax.enterprise:cdi-api:2.0.SP1
+SLC-Origin-ManifestNotModified: true

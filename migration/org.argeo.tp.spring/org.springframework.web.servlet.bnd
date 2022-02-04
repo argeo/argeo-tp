@@ -1,0 +1,16 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: org.springframework.web.servlet
+Bundle-Version: 3.2.13.RELEASE
+Import-Package: com.fasterxml.jackson.*;resolution:=optional,
+					com.lowagie.text.*;resolution:=optional,
+					com.sun.syndication.*;resolution:=optional,
+					freemarker.*;resolution:=optional,
+					javax.servlet.jsp.*;resolution:=optional,
+					jxl.*;resolution:=optional,
+					net.sf.jasperreports.engine.*;resolution:=optional,
+					org.apache.poi.*;resolution:=optional,
+					org.apache.tiles.*;resolution:=optional,
+					org.apache.velocity.*;resolution:=optional,
+					org.codehaus.jackson.*;resolution:=optional,
+					org.springframework.oxm;resolution:=optional,
+					*

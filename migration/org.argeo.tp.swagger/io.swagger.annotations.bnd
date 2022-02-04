@@ -1,0 +1,4 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: io.swagger.annotations
+SLC-Origin-M2: io.swagger:swagger-annotations:1.5.24
+SLC-Origin-ManifestNotModified: true

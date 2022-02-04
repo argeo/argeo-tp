@@ -1,0 +1,5 @@
+Bundle-License: BSD-3-Clause
+Bundle-SymbolicName: com.jcraft.jsch
+Import-Package: com.jcraft.jzlib;resolution:=optional,
+					*
+SLC-Origin-M2: com.jcraft:jsch:0.1.54

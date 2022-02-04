@@ -1,0 +1,17 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: org.springframework.context
+Bundle-Version: 3.2.13.RELEASE
+Import-Package: javax.ejb;resolution:=optional,
+					bsh;resolution:=optional,
+					com.sun.net.httpserver;resolution:=optional,
+					edu.emory.mathcs.backport.java.util.concurrent;resolution:=optional,
+					groovy.lang;resolution:=optional,
+					javax.interceptor;resolution:=optional,
+					javax.jms;resolution:=optional,
+					javax.persistence.spi;resolution:=optional,
+					javax.validation.*;resolution:=optional,
+					org.codehaus.groovy.control;resolution:=optional,
+					org.hibernate.validator.*;resolution:=optional,
+					org.joda.time.*;resolution:=optional,
+					org.jruby.*;resolution:=optional,
+					*

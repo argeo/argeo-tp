@@ -42,7 +42,7 @@
 		<!-- <property name="doNotModifySources" value="true" /> -->
 		<property name="license">
 			<util:constant
-				static-field="org.argeo.slc.repo.FreeLicense.EPL" />
+				static-field="org.argeo.slc.repo.FreeLicense.MOZILLA" />
 		</property>
 	</bean>
 

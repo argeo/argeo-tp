@@ -1,0 +1,3 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: org.apache.commons.cli
+Bundle-Version: 1.4.0

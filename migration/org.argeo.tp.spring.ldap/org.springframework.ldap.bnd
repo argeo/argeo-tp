@@ -1,0 +1,8 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: org.springframework.ldap
+Import-Package: org.apache.commons.lang.*;resolution:=optional,
+					com.sun.jndi.ldap.*;resolution:=optional,
+					org.springframework.data.*;resolution:=optional,
+					org.springframework.orm.hibernate3;resolution:=optional,
+					*
+SLC-Origin-M2: org.springframework.ldap:spring-ldap-core:1.3.2.RELEASE

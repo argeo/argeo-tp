@@ -13,7 +13,8 @@
 	<bean id="argeo-tp"
 		class="org.argeo.slc.repo.osgi.ArgeoOsgiDistributionImpl"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="org.argeo.tp:argeo-tp:2.1.28-SNAPSHOT" />
+		<constructor-arg
+			value="org.argeo.tp:argeo-tp:2.1.28-SNAPSHOT" />
 		<property name="modules">
 			<list>
 				<!-- Javax -->
@@ -186,6 +187,7 @@
 				</entry>
 				<entry key="http://www.eclipse.org/downloads">
 					<list>
+						<value>https://archive.eclipse.org/</value>
 						<value>http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/</value>
 						<value>http://ftp.fau.de/eclipse/</value>
 						<!-- <value>http://eclipse.mirror.garr.it/mirrors/eclipse</value> -->

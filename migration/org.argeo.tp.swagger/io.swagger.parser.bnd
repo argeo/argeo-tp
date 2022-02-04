@@ -1,0 +1,3 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: io.swagger.parser
+SLC-Origin-M2: io.swagger:swagger-parser:1.0.47

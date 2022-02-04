@@ -1,0 +1,4 @@
+Bundle-License: Apache-2.0
+Bundle-SymbolicName: org.apache.pdfbox.jempbox
+Bundle-Version: 2.0.17
+SLC-Origin-M2: org.apache.pdfbox:jempbox:1.8.2

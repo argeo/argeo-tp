@@ -1,0 +1,5 @@
+Bundle-License: BSD-3-Clause
+Bundle-SymbolicName: com.vladsch.flexmark.util
+Import-Package: sun.misc;resolution:=optional,
+						*
+SLC-Origin-M2: com.vladsch.flexmark:flexmark-util:0.50.40
