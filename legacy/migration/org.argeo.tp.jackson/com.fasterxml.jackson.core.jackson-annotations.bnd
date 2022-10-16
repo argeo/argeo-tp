@@ -1,4 +1,0 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: com.fasterxml.jackson.core.jackson-annotations
-SLC-Origin-M2: com.fasterxml.jackson.core:jackson-annotations:2.10.0
-SLC-Origin-ManifestNotModified: true

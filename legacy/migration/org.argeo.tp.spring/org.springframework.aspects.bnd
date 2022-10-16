@@ -1,5 +1,0 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: org.springframework.aspects
-Bundle-Version: 3.2.13.RELEASE
-Import-Package: org.springframework.orm.jpa;resolution:=optional,
-					*

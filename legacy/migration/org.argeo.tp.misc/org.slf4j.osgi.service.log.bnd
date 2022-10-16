@@ -1,4 +1,0 @@
-Bundle-Activator: org.slf4j.osgi.logservice.impl.Activator
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: org.slf4j.osgi.service.log
-SLC-Origin-M2: org.slf4j:osgi-over-slf4j:1.7.28

@@ -1,4 +1,0 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: org.slf4j.log4j12
-Export-Package: org.slf4j.impl
-SLC-Origin-M2: org.slf4j:slf4j-log4j12:1.7.28

@@ -1,3 +1,0 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: org.apache.tomcat.jni
-SLC-Origin-M2: org.apache.tomcat:tomcat-jni:9.0.26

@@ -1,7 +1,0 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: org.springframework.jdbc
-Bundle-Version: 3.2.13.RELEASE
-Import-Package: com.mchange.v2.c3p0;resolution:=optional,
-					com.sun.rowset;resolution:=optional,
-					org.apache.derby.*;resolution:=optional,
-					*

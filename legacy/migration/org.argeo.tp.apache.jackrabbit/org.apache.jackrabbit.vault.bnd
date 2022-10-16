@@ -1,4 +1,0 @@
-Bundle-License: Apache-2.0
-Import-Package: org.apache.sling.jcr.api;resolution:="optional",
-						*
-SLC-Origin-M2: org.apache.jackrabbit.vault:org.apache.jackrabbit.vault:3.4.0

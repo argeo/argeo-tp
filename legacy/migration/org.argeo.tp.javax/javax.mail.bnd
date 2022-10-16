@@ -1,4 +1,0 @@
-Bundle-License: CDDL-1.0
-Bundle-SymbolicName: javax.mail
-SLC-Origin-M2: javax.mail:javax.mail-api:1.6.2
-SLC-Origin-ManifestNotModified: true

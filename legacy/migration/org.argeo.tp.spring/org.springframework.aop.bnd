@@ -1,6 +1,0 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: org.springframework.aop
-Bundle-Version: 3.2.13.RELEASE
-Import-Package: com.jamonapi;resolution:=optional,
-					org.apache.commons.pool.*;resolution:=optional,
-					*

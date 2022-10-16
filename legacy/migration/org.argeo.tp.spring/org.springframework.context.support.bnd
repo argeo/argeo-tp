@@ -1,4 +1,0 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: org.springframework.context.support
-Bundle-Version: 3.2.13.RELEASE
-Import-Package: *;resolution:=optional

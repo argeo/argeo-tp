@@ -1,5 +1,0 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: javax.validation.api
-Bundle-Version: 1.1.0
-SLC-Origin-M2: javax.validation:validation-api:1.1.0.Final
-SLC-Origin-ManifestNotModified: true

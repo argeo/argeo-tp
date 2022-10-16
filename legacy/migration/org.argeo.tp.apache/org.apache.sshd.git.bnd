@@ -1,4 +1,0 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: org.apache.sshd.git
-SLC-Origin-M2: org.apache.sshd:sshd-git:2.3.0
-SLC-Origin-ManifestNotModified: true

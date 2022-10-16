@@ -1,7 +1,0 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: org.springframework.tx
-Bundle-Version: 3.2.13.RELEASE
-Import-Package: com.ibm.wsspi.uow;resolution:=optional,
-					javax.ejb;resolution:=optional,
-					javax.resource.*;resolution:=optional,
-					*

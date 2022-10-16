@@ -1,4 +1,0 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: org.apache.poi.scratchpad
-Import-Package: *
-SLC-Origin-M2: org.apache.poi:poi-scratchpad:4.1.1

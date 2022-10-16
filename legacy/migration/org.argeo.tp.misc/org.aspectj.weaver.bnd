@@ -1,5 +1,0 @@
-Bundle-License: EPL-1.0
-Bundle-SymbolicName: org.aspectj.weaver
-Import-Package: com.bea.jvm;resolution:=optional,
-					*
-SLC-Origin-M2: org.aspectj:aspectjweaver:jar:1.7.4

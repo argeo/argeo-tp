@@ -1,4 +1,0 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: com.google.gson
-SLC-Origin-M2: com.google.code.gson:gson:jar:2.8.5
-SLC-Origin-ManifestNotModified: true

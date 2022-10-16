@@ -1,4 +1,0 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: org.apache.sshd.scp
-SLC-Origin-M2: org.apache.sshd:sshd-scp:2.3.0
-SLC-Origin-ManifestNotModified: true

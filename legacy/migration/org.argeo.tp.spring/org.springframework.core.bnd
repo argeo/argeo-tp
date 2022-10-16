@@ -1,7 +1,0 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: org.springframework.core
-Bundle-Version: 3.2.13.RELEASE
-Import-Package: joptsimple;resolution:=optional,
-					org.springframework.asm.tree;resolution:=optional,
-					org.apache.tools.ant.*;resolution:=optional,
-					*

@@ -1,4 +1,0 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: org.apache.mina.core
-SLC-Origin-M2: org.apache.mina:mina-core:2.0.21
-SLC-Origin-ManifestNotModified: true
