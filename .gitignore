@@ -2,6 +2,7 @@
 /build
 /cache
 
+**/bin
 **/target
 **/*.target
 **/feature.xml
