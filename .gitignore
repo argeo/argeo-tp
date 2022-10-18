@@ -7,3 +7,5 @@
 **/*.target
 **/feature.xml
 **/modularDistribution.csv
+
+sdk.mk
