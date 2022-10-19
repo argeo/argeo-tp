@@ -1,8 +1,1 @@
-/sources
-/build
-/cache
-
-**/target
-**/*.target
-**/feature.xml
-**/modularDistribution.csv
+sdk.mk
