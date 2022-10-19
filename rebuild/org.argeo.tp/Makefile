@@ -13,6 +13,7 @@ retrieve-ee4j-mbox:
 	#echo "mbox" >> $(SRC_DIR)/.git/info/sparse-checkout
 	#git -C $(SRC_DIR) pull origin 1.6.7
 	git clone --branch 1.6.7 https://github.com/eclipse-ee4j/mail.git $(SRC_DIR)
+	rm -rf $(SRC_DIR)/.git
 	rsync -a --delete --exclude module-info.java $(SRC_DIR)/mbox/src/main/java/ com.sun.mail.mbox/src
 
 A2_CATEGORY = org.argeo.tp
