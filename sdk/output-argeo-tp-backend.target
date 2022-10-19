@@ -7,7 +7,7 @@
 		<location path="${project_loc:argeo-tp-unstable}/../output/a2/org.argeo.tp.poi" type="Directory"/>
 		<location path="${project_loc:argeo-tp-unstable}/../output/a2/org.argeo.tp.gis" type="Directory"/>
 		<location path="${project_loc:argeo-tp-unstable}/../output/a2/osgi/equinox/org.argeo.tp.eclipse" type="Directory"/>
-		<location path="${project_loc}/../output/a2/org.argeo.tp.jcr" type="Directory"/>
+		<location path="${project_loc:argeo-tp-unstable}/../output/a2/org.argeo.tp.jcr" type="Directory"/>
 		<location type="Target" uri="file:${project_loc:argeo-tp-unstable}/sdk/output-argeo-tp-minimal.target"/>
 	</locations>
 </target>
