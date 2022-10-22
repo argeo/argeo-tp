@@ -1,6 +1,6 @@
 Bundle-License: LGPL-2.1-only
 Bundle-SymbolicName: org.geotools
-SLC-Origin-M2: :27.0
+SLC-Origin-M2: :27.1
 SLC-Origin-M2-Repo: https://repo.osgeo.org/repository/release/
 Export-Package: org.geotools.*, org.opengis.*, net.opengis.*, org.w3.xlink.*
 Import-Package: \
@@ -28,7 +28,8 @@ org.geotools:gt-process, \
 org.geotools:gt-epsg-extension, \
 org.geotools:gt-epsg-wkt, \
 org.geotools:gt-transform, \
-org.geotools:gt-geojson, \
+org.geotools:gt-geojson-core, \
+org.geotools:gt-geojson-store, \
 org.geotools:gt-shapefile, \
 org.geotools:gt-xml, \
 org.geotools:gt-svg, \
