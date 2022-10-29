@@ -17,6 +17,7 @@ lib/linux/x86_64/swt/rcp/org.argeo.tp.swt \
 lib/linux/aarch64/swt/rcp/org.argeo.tp.swt \
 lib/win32/x86_64/swt/rcp/org.argeo.tp.swt \
 lib/macosx/x86_64/swt/rcp/org.argeo.tp.swt \
+lib/macosx/x86_64/swt/rcp/org.argeo.tp.swt.workbench \
 swt/rcp/org.argeo.tp.swt \
 swt/rcp/org.argeo.tp.swt.workbench \
 org.argeo.tp \
