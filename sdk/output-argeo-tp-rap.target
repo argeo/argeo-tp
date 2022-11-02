@@ -4,5 +4,6 @@
 	<locations>
 		<location path="${project_loc:argeo-tp-unstable}/../output/a2/swt/rap/org.argeo.tp.swt.workbench" type="Directory"/>
 		<location type="Target" uri="file:${project_loc:argeo-tp-unstable}/sdk/output-argeo-tp-rwt.target"/>
+		<location type="Target" uri="file:${project_loc:argeo-tp-unstable}/sdk/output-argeo-tp-backend.target"/>
 	</locations>
 </target>
