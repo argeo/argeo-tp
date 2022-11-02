@@ -1,6 +1,6 @@
 Bundle-License: Apache-2.0
 Bundle-SymbolicName: org.apache.sshd
-SLC-Origin-M2: :2.8.0
+SLC-Origin-M2: :2.9.1
 Export-Package: org.apache.*
 Import-Package: \
 org.apache.tomcat.jni.*;resolution:=optional,\

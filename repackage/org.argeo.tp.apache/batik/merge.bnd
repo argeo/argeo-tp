@@ -1,6 +1,6 @@
 Bundle-License: Apache-2.0
 Bundle-SymbolicName: org.apache.batik
-SLC-Origin-M2: :1.14
+SLC-Origin-M2: :1.16
 Export-Package: org.apache.*
 Import-Package: \
 org.apache.batik.script.*;resolution:="optional",\
