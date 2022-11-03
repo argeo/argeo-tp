@@ -12,5 +12,3 @@ org.apache.tika:tika-parser-pdf-module,\
 org.apache.tika:tika-parser-image-module,\
 org.apache.tika:tika-parser-text-module,\
 org.apache.tika:tika-parser-xml-module,\
-org.apache.tika:tika-parser-microsoft-module,\
-org.apache.tika:tika-parser-miscoffice-module,\
