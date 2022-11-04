@@ -2,7 +2,7 @@
 <?pde version="3.8"?>
 <target name="argeo-tp-rwt">
 	<locations>
-		<location path="${project_loc:argeo-tp-unstable}/../output/a2/swt/rap/org.argeo.tp.swt" type="Directory"/>
-		<location type="Target" uri="file:${project_loc:argeo-tp-unstable}/sdk/output-argeo-tp-backend.target"/>
+		<location path="${project_loc:argeo-tp}/../output/a2/swt/rap/org.argeo.tp.swt" type="Directory"/>
+		<location type="Target" uri="file:${project_loc:argeo-tp}/sdk/output-argeo-tp-backend.target"/>
 	</locations>
 </target>
