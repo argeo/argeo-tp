@@ -1,0 +1,8 @@
+Bundle-License: BSD-2-Clause
+SLC-Origin-M2: org.postgresql:postgresql:42.5.0
+Import-Package:\
+org.osgi.service.jdbc;resolution:="optional",\
+com.sun.jna.*;resolution:="optional",\
+org.checkerframework.*;resolution:="optional",\
+waffle.*;resolution:="optional",\
+*

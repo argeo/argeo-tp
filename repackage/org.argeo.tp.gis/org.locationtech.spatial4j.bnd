@@ -1,0 +1,5 @@
+Bundle-License: Apache-2.0
+SLC-Origin-M2: org.locationtech.spatial4j:spatial4j:0.8
+Import-Package:\
+org.noggit;resolution:="optional",\
+*
