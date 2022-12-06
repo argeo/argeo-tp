@@ -17,13 +17,15 @@ lib/linux/x86_64/swt/rcp/org.argeo.tp.swt \
 lib/linux/aarch64/swt/rcp/org.argeo.tp.swt \
 lib/win32/x86_64/swt/rcp/org.argeo.tp.swt \
 lib/macosx/x86_64/swt/rcp/org.argeo.tp.swt \
+lib/macosx/x86_64/swt/rcp/org.argeo.tp.swt.workbench \
 swt/rcp/org.argeo.tp.swt \
 swt/rcp/org.argeo.tp.swt.workbench \
 org.argeo.tp \
-org.argeo.tp.apache \
+org.argeo.tp.crypto \
 org.argeo.tp.jetty \
+org.argeo.tp.utils \
+org.argeo.tp.sql \
 org.argeo.tp.jcr \
-org.argeo.tp.formats \
 org.argeo.tp.poi \
 org.argeo.tp.gis \
 

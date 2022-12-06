@@ -1,0 +1,14 @@
+Bundle-SymbolicName: org.apache.tika
+Bundle-License: Apache-2.0
+SLC-Origin-M2: :2.5.0
+Export-Package: org.apache.*
+Import-Package: *;resolution:=optional
+SLC-Origin-M2-Merge: \
+org.apache.tika:tika-core,\
+org.apache.tika:tika-parser-zip-commons,\
+org.apache.tika:tika-parser-xmp-commons,\
+org.apache.tika:tika-parser-digest-commons,\
+org.apache.tika:tika-parser-pdf-module,\
+org.apache.tika:tika-parser-image-module,\
+org.apache.tika:tika-parser-text-module,\
+org.apache.tika:tika-parser-xml-module,\

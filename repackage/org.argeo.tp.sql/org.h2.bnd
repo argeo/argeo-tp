@@ -1,0 +1,10 @@
+Bundle-License: MPL-2.0
+Bundle-SymbolicName: org.h2
+SLC-Origin-M2: com.h2database:h2:2.1.214
+Import-Package:\
+jakarta.*;resolution:=optional,\
+org.apache.lucene.*;resolution:=optional,\
+org.codehaus.groovy.*;resolution:=optional,\
+org.osgi.*;resolution:=optional,\
+com.ibm.icu.*;resolution:=optional,\
+*

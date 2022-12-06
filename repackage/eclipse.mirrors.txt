@@ -1,0 +1,4 @@
+https://mirror.ibcp.fr/pub/eclipse
+http://ftp-stud.hs-esslingen.de/Mirrors/eclipse
+http://ftp.fau.de/eclipse
+https://mirror.dogado.de/eclipse
