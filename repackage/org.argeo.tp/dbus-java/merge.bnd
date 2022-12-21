@@ -8,3 +8,4 @@ SLC-Origin-M2-Merge: \
 com.github.hypfvieh:dbus-java-core,\
 com.github.hypfvieh:dbus-java-utils,\
 com.github.hypfvieh:dbus-java-transport-native-unixsocket,\
+com.github.hypfvieh:dbus-java-transport-tcp,\
