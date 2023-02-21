@@ -1,0 +1,38 @@
+Argeo Third Parties provides a consistent distribution of third party Java/OSGi bundles inspired by the approach of the various GNU/Linux distributions (especially Debian and Red Hat Enterpise Linux).
+
+OSGi metadata are systematically regenerated, even when available in the upstream binaries, in order to work around some issues and to provide consistent SPDX license identifiers in the Bundle-License MANIFEST headers (cf. http://spdx.org/licenses)
+
+## Build
+In order to download and repackage the bundles:
+
+git clone http://git.argeo.org/gpl/argeo-tp.git --recursive
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
+./argeo-tp/configure
+
+cd argeo-tp
+make clean all
+
+Downloaded binaries are cached in:
+~/.cache/argeo/build/origin
+which can be purged at any time (binaries will be downloaded again).
+
+Packaged bundles are available under:
+../output/a2
+
+The *.target files under ./sdk can then be used within the Eclipse IDE (with the PDE OSGi development extensions).
+
+## Descriptors
+The descriptors for the repackaging in (extended) BND format are available under:
+./repackage
+
+## Acknowledgements
+Most third-party libraries are provided by:
+- the Eclipse Foundation http://eclipse.org
+- the Apache Foundation http://apache.org
+
+Maven artifacts are primarily downloaded from Maven Central http://search.maven.org, provided by Sonatype, Inc.
+
+Many thanks as well to the many projects and individual software developers, especially:
+- the Legion of the Bouncy Castle http://bouncycastle.org
+- the H2 database engine project http://h2database.com
+- the GeoTools project http://geotools.org
