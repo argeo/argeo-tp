@@ -3,4 +3,4 @@ Import-Package:\
 javax.portlet;resolution:=optional,\
 javax.servlet.*;resolution:=optional,\
 *
-SLC-Origin-M2: commons-fileupload:commons-fileupload:1.4
+SLC-Origin-M2: commons-fileupload:commons-fileupload:1.5

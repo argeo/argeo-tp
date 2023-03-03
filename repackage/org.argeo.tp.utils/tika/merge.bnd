@@ -1,6 +1,6 @@
 Bundle-SymbolicName: org.apache.tika
 Bundle-License: Apache-2.0
-SLC-Origin-M2: :2.5.0
+SLC-Origin-M2: :2.7.0
 Export-Package: org.apache.*
 Import-Package: *;resolution:=optional
 SLC-Origin-M2-Merge: \

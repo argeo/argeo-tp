@@ -1,6 +1,6 @@
 Bundle-SymbolicName: org.ejml
 Bundle-License: Apache-2.0
-SLC-Origin-M2: :0.41
+SLC-Origin-M2: :0.42
 Export-Package: org.ejml.*
 SLC-Origin-M2-Merge: \
 org.ejml:ejml-core, \

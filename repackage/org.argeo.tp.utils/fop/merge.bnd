@@ -1,6 +1,6 @@
 Bundle-License: Apache-2.0
 Bundle-SymbolicName: org.apache.fop
-SLC-Origin-M2: :2.7
+SLC-Origin-M2: :2.8
 SLC-Origin-M2-Merge: \
 org.apache.xmlgraphics:fop-core,\
 org.apache.xmlgraphics:fop-util,\
