@@ -14,7 +14,10 @@ all: osgi
 
 osgi:
 	cp -r $(BOOTSTRAP_BASE)/ecj/OSGI-OPT/src org.eclipse.jdt.core.compiler.batch
+	
 	cp -r $(BOOTSTRAP_BASE)/bndlib/OSGI-OPT/src biz.aQute.bndlib
+	cp -rv ../../rebuild/org.argeo.tp/org.argeo.ext.slf4j/src/* biz.aQute.bndlib/src
+
 	$(ARGEO_MAKE) all --category $(A2_CATEGORY) --bundles org.eclipse.jdt.core.compiler.batch biz.aQute.bndlib
 
 clean:

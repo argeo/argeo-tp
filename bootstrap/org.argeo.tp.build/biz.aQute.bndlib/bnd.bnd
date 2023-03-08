@@ -4,3 +4,4 @@ micro: 0
 qualifier:
 
 Bundle-License: Apache-2.0
+Export-Package: aQute.*

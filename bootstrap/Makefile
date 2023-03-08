@@ -2,7 +2,12 @@ include ../sdk.mk
 include ../common.mk
 
 ECJ_VERSION=4.26
+
 BND_VERSION=5.3.0
+OSGI_CORE_VERSION=7.0.0
+OSGI_CMPN_VERSION=7.0.0
+OSGI_ANNOTATION_VERSION=7.0.0
+SLF4J_VERSION=1.7.36
 
 ORIGIN_BASE=$(HOME)/.cache/argeo/build/origin
 BOOTSTRAP_BASE=$(SDK_BUILD_BASE)/bootstrap
@@ -13,8 +18,19 @@ ECJ_SRC=$(ECJ_BASE)/OSGI-OPT/src
 BNDLIB_BASE=$(BOOTSTRAP_BASE)/bndlib
 BNDLIB_SRC=$(BNDLIB_BASE)/OSGI-OPT/src
 
-bootstrap-download-sources: $(ORIGIN_BASE)/ecjsrc-$(ECJ_VERSION).jar $(ORIGIN_BASE)/bnd-$(BND_VERSION).tar.gz
+OSGI_BASE=$(BOOTSTRAP_BASE)/osgi
+
+SOURCE_ARCHIVES=\
+$(ORIGIN_BASE)/ecjsrc-$(ECJ_VERSION).jar \
+$(ORIGIN_BASE)/org.osgi/osgi.core-$(OSGI_CORE_VERSION)-sources.jar \
+$(ORIGIN_BASE)/org.osgi/osgi.cmpn-$(OSGI_CMPN_VERSION)-sources.jar \
+$(ORIGIN_BASE)/org.osgi/osgi.annotation-$(OSGI_ANNOTATION_VERSION)-sources.jar \
+$(ORIGIN_BASE)/org.slf4j/slf4j-api-$(SLF4J_VERSION)-sources.jar \
+$(ORIGIN_BASE)/bnd-$(BND_VERSION).tar.gz
 	
+
+bootstrap-download-sources: $(SOURCE_ARCHIVES)
+
 $(ORIGIN_BASE)/ecjsrc-$(ECJ_VERSION).jar:
 	mkdir -p $(ORIGIN_BASE)
 	wget -c -O $(ORIGIN_BASE)/ecjsrc-$(ECJ_VERSION).jar https://ftp-stud.hs-esslingen.de/Mirrors/eclipse/eclipse/downloads/drops4/R-4.26-202211231800/ecjsrc-$(ECJ_VERSION).jar
@@ -22,6 +38,22 @@ $(ORIGIN_BASE)/ecjsrc-$(ECJ_VERSION).jar:
 $(ORIGIN_BASE)/bnd-$(BND_VERSION).tar.gz:
 	mkdir -p $(ORIGIN_BASE)
 	wget -c -O $(ORIGIN_BASE)/bnd-$(BND_VERSION).tar.gz https://github.com/bndtools/bnd/archive/refs/tags/$(BND_VERSION).REL.tar.gz
+
+$(ORIGIN_BASE)/org.osgi/osgi.core-$(OSGI_CORE_VERSION)-sources.jar:
+	mkdir -p $(ORIGIN_BASE)/org.osgi
+	wget -c -O $(ORIGIN_BASE)/org.osgi/osgi.core-$(OSGI_CORE_VERSION)-sources.jar https://repo1.maven.org/maven2/org/osgi/osgi.core/$(OSGI_CORE_VERSION)/osgi.core-$(OSGI_CORE_VERSION)-sources.jar
+
+$(ORIGIN_BASE)/org.osgi/osgi.cmpn-$(OSGI_CMPN_VERSION)-sources.jar:
+	mkdir -p $(ORIGIN_BASE)/org.osgi
+	wget -c -O $(ORIGIN_BASE)/org.osgi/osgi.cmpn-$(OSGI_CMPN_VERSION)-sources.jar https://repo1.maven.org/maven2/org/osgi/osgi.cmpn/$(OSGI_CMPN_VERSION)/osgi.cmpn-$(OSGI_CMPN_VERSION)-sources.jar
+
+$(ORIGIN_BASE)/org.osgi/osgi.annotation-$(OSGI_ANNOTATION_VERSION)-sources.jar:
+	mkdir -p $(ORIGIN_BASE)/org.osgi
+	wget -c -O $(ORIGIN_BASE)/org.osgi/osgi.annotation-$(OSGI_ANNOTATION_VERSION)-sources.jar https://repo1.maven.org/maven2/org/osgi/osgi.annotation/$(OSGI_ANNOTATION_VERSION)/osgi.annotation-$(OSGI_ANNOTATION_VERSION)-sources.jar
+
+$(ORIGIN_BASE)/org.slf4j/slf4j-api-$(SLF4J_VERSION)-sources.jar:
+	mkdir -p $(ORIGIN_BASE)/org.slf4j
+	wget -c -O $(ORIGIN_BASE)/org.slf4j/slf4j-api-$(SLF4J_VERSION)-sources.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-api/$(SLF4J_VERSION)/slf4j-api-$(SLF4J_VERSION)-sources.jar
 
 all: ecj-build bndlib-build	
 	make -C org.argeo.tp.build all
@@ -50,25 +82,50 @@ ecj-build:
 	# remove sources
 	cd $(ECJ_BASE) && find . -name "*.java" -name "*.html" -type f -exec rm -f {} \;
 	
-bndlib-build: ecj-build
+bndlib-build:
 	# copy sources
 	cd $(BOOTSTRAP_BASE) && tar -xzf $(ORIGIN_BASE)/bnd-$(BND_VERSION).tar.gz
 	mkdir -p $(BNDLIB_SRC)
 	cp -r $(BOOTSTRAP_BASE)/bnd-$(BND_VERSION).REL/aQute.libg/src/* $(BNDLIB_SRC)
 	cp -r $(BOOTSTRAP_BASE)/bnd-$(BND_VERSION).REL/biz.aQute.bndlib/src/* $(BNDLIB_SRC)
 	cp -r $(BOOTSTRAP_BASE)/bnd-$(BND_VERSION).REL/biz.aQute.bnd.annotation/src/* $(BNDLIB_SRC)	
-	rm -rf $(BOOTSTRAP_BASE)/bnd-$(BND_VERSION).REL
+	$(RM) -rf $(BNDLIB_SRC)/aQute/bnd/annotation/spi
+	$(RM) -rf $(BOOTSTRAP_BASE)/bnd-$(BND_VERSION).REL
+	
+	# SLF4J
+	cd $(BNDLIB_SRC) && jar -xf $(ORIGIN_BASE)/org.slf4j/slf4j-api-$(SLF4J_VERSION)-sources.jar
+	$(RM) -rf $(BNDLIB_SRC)/META-INF
+	#rm -rf $(BNDLIB_SRC)/org/slf4j/impl
+	cp -rv ../rebuild/org.argeo.tp/org.argeo.ext.slf4j/src/* $(BNDLIB_SRC)
+	
+	# OSGi
+	mkdir -p $(OSGI_BASE)
+	cd $(OSGI_BASE) && jar -xf $(ORIGIN_BASE)/org.osgi/osgi.core-$(OSGI_CORE_VERSION)-sources.jar
+	cd $(OSGI_BASE) && jar -xf $(ORIGIN_BASE)/org.osgi/osgi.cmpn-$(OSGI_CMPN_VERSION)-sources.jar
+	cd $(OSGI_BASE) && jar -xf $(ORIGIN_BASE)/org.osgi/osgi.annotation-$(OSGI_ANNOTATION_VERSION)-sources.jar
+	
+	mkdir -p $(BNDLIB_SRC)/org/osgi/service
+	cp -r $(OSGI_BASE)/org/osgi/annotation $(BNDLIB_SRC)/org/osgi
+	cp -r $(OSGI_BASE)/org/osgi/resource $(BNDLIB_SRC)/org/osgi
+	cp -r $(OSGI_BASE)/org/osgi/framework $(BNDLIB_SRC)/org/osgi
+	cp -r $(OSGI_BASE)/org/osgi/namespace $(BNDLIB_SRC)/org/osgi
+	cp -r $(OSGI_BASE)/org/osgi/util $(BNDLIB_SRC)/org/osgi
+	cp -r $(OSGI_BASE)/org/osgi/dto $(BNDLIB_SRC)/org/osgi
+	cp -r $(OSGI_BASE)/org/osgi/service/repository $(BNDLIB_SRC)/org/osgi/service
+	cp -r $(OSGI_BASE)/org/osgi/service/log $(BNDLIB_SRC)/org/osgi/service
 	
 	# clean up
 	rm -rf $(BNDLIB_SRC)/aQute/bnd/junit
 	
 	# build
 	$(JAVA_HOME)/bin/java -cp $(ECJ_BASE) org.eclipse.jdt.internal.compiler.batch.Main -nowarn \
-		-cp $(BND_CLASSPATH) \
 		-source 17 -target 17 \
 		$(BNDLIB_SRC) \
 		-d $(BNDLIB_BASE)
-	
+
+	# remove classes	
+	#rm -rf $(BNDLIB_SRC)/org/slf4j/impl
+	#rm -rf $(BNDLIB_BASE)/org/slf4j/impl
 
 clean:
 	rm -rf $(BOOTSTRAP_BASE)

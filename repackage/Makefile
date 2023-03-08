@@ -43,7 +43,7 @@ $(BUILD_BASE)/repackaged : CATEGORIES_TO_REPACKAGE = $(subst $(abspath $(BUILD_B
 $(BUILD_BASE)/repackaged : $(TODOS_REPACKAGE)
 	#$(JVM) -cp \
 	# $(BOOTSTRAP_BASE)/bndlib.jar:$(BOOTSTRAP_BASE)/slf4j-api.jar 
-	$(JVM) -cp $(A2_OUTPUT)/org.argeo.tp.build/biz.aQute.bndlib.5.3.jar:$(BND_CLASSPATH) \
+	$(JVM) -cp $(A2_OUTPUT)/org.argeo.tp.build/biz.aQute.bndlib.5.3.jar \
 	 $(SDK_SRC_BASE)/sdk/argeo-build/src/org/argeo/build/Repackage.java $(A2_OUTPUT) $(CATEGORIES_TO_REPACKAGE)
 	touch $(BUILD_BASE)/repackaged
 
