@@ -8,6 +8,7 @@
 		<location path="${project_loc:argeo-tp}/../output/a2/osgi/equinox/org.argeo.tp.eclipse" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.jcr" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.sdk" type="Directory"/>
+		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.build" type="Directory"/>
 		<location type="Target" uri="file:${project_loc:argeo-tp}/sdk/output-argeo-tp-minimal.target"/>
 	</locations>
 </target>
