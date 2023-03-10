@@ -61,6 +61,7 @@ clean-sources:
 	
 deb-source: distclean clean-sources bootstrap-prepare-sources
 	debuild --no-sign -S
+	rm -f debian/files
 
 bootstrap-prepare-sources: bootstrap-download-sources
 	## ECJ
