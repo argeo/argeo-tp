@@ -9,6 +9,7 @@ OSGI_ANNOTATION_VERSION=7.0.0
 SLF4J_VERSION=1.7.36
 
 ORIGIN_BASE=$(HOME)/.cache/argeo/build/origin
+SDK_BUILD_BASE ?= ./output
 BOOTSTRAP_BASE=$(SDK_BUILD_BASE)/bootstrap
 
 ECJ_BASE=./ecj
@@ -48,6 +49,10 @@ clean:
 	find $(ECJ_BASE) -name "*.class" -type f -exec rm -f {} \;
 	find $(BNDLIB_BASE) -name "*.class" -type f -exec rm -f {} \;
 	make -C org.argeo.tp.build clean
+
+distclean:
+	rm -f sdk.mk
+	rm -rf ./output
 
 clean-sources:
 	$(RM) -rf $(ECJ_BASE)
@@ -112,6 +117,9 @@ bootstrap-prepare-sources: bootstrap-download-sources
 
 	mkdir -p org.argeo.tp.build/biz.aQute.bndlib/src
 	cp -r ../rebuild/org.argeo.tp/org.argeo.ext.slf4j/src/* org.argeo.tp.build/biz.aQute.bndlib/src
+	
+	# make sure directory is clean
+	$(RM) -rf ./output
 
 bootstrap-download-sources: $(SOURCE_ARCHIVES)
 
