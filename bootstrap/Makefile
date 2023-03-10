@@ -1,5 +1,4 @@
-include ../sdk.mk
-include ../common.mk
+-include sdk.mk
 
 ECJ_VERSION=4.26
 
@@ -31,18 +30,12 @@ $(ORIGIN_BASE)/bnd-$(BND_VERSION).tar.gz
 all: ecj-build bndlib-build	
 	make -C org.argeo.tp.build all
 
-ecj: ecj-build
-
 ecj-build:
+	mkdir -p $(BOOTSTRAP_BASE)
 	# list sources
-	find $(ECJ_BASE)/org | grep "\.java" > $(BOOTSTRAP_BASE)/ecj.todo
-	# copy sources
-	mkdir -p $(ECJ_SRC)
-	cp -r $(ECJ_BASE)/org $(ECJ_SRC)
+	find $(ECJ_BASE)/OSGI-OPT/src | grep "\.java" > $(BOOTSTRAP_BASE)/ecj.todo
 	# build
 	$(JAVA_HOME)/bin/javac -d $(ECJ_BASE) -source 17 -target 17 -Xlint:none @$(BOOTSTRAP_BASE)/ecj.todo
-	# remove sources
-	cd $(ECJ_BASE) && find . -name "*.java" -name "*.html" -type f -exec rm -f {} \;
 	
 bndlib-build:
 	$(JAVA_HOME)/bin/java -cp $(ECJ_BASE) org.eclipse.jdt.internal.compiler.batch.Main -nowarn \
@@ -52,11 +45,15 @@ bndlib-build:
 
 clean:
 	$(RM) -rf $(BOOTSTRAP_BASE)
-	$(RM) -rf $(ECJ_BASE)
-	$(RM) -rf $(BNDLIB_BASE)
+	cd $(ECJ_BASE) && find . -name "*.class" -type f -exec rm -f {} \;
+	cd $(BNDLIB_BASE) && find . -name "*.class" -type f -exec rm -f {} \;
 	make -C org.argeo.tp.build clean
 
-bootstrap-prepare-source-tarball: bootstrap-download-sources
+clean-sources:
+	$(RM) -rf $(ECJ_BASE)
+	$(RM) -rf $(BNDLIB_BASE)
+
+bootstrap-prepare-sources: bootstrap-download-sources
 	## ECJ
 	mkdir -p $(ECJ_BASE)
 	cd $(ECJ_BASE) && jar -xf $(ORIGIN_BASE)/ecjsrc-$(ECJ_VERSION).jar
@@ -69,6 +66,13 @@ bootstrap-prepare-source-tarball: bootstrap-download-sources
 	$(RM) -rf $(ECJ_BASE)/scripts
 	# TODO: keep the service files
 	$(RM) -rf  $(ECJ_BASE)/META-INF
+
+	# copy sources and resources
+	mkdir -p $(ECJ_SRC)
+	cp -r $(ECJ_BASE)/org $(ECJ_SRC)
+	# remove java sources
+	cd $(ECJ_BASE) && find org -name "*.java" -type f -exec rm -f {} \;
+	cd $(ECJ_BASE) && find org -name "*.html -type f -exec rm -f {} \;
 	
 	## BNDLIB
 	# copy sources
@@ -103,11 +107,7 @@ bootstrap-prepare-source-tarball: bootstrap-download-sources
 
 	# clean up BNDLIB
 	$(RM) -rf $(BNDLIB_SRC)/aQute/bnd/annotation/spi
-	$(RM) -rf $(BNDLIB_SRC)/aQute/bnd/junit
-		
-	tar -cf ../argeo-tp-build_$(ECJ_VERSION).orig.tar $(ECJ_BASE)
-	tar -rf ../argeo-tp-build_$(ECJ_VERSION).orig.tar $(BNDLIB_BASE)
-	xz -f ../argeo-tp-build_$(ECJ_VERSION).orig.tar
+	$(RM) -rf $(BNDLIB_SRC)/aQute/bnd/junit	
 
 bootstrap-download-sources: $(SOURCE_ARCHIVES)
 
