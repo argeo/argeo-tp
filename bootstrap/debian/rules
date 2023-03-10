@@ -3,7 +3,7 @@
 LC_ALL := C.UTF-8
 export LC_ALL
 
-JAVA_HOME := /usr/lib/jvm/java-17-openj9-amd64
+JAVA_HOME := /usr/lib/jvm/java-17-openjdk-amd64
 export JAVA_HOME
 
 %:
