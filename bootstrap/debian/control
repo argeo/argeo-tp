@@ -17,4 +17,3 @@ Architecture: all
 Depends: ${misc:Depends}
 Description: Argeo Build third party libraries source files
  Eclipse ECJ compiler and BND library.
- 
