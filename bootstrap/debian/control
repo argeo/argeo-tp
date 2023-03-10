@@ -1,0 +1,13 @@
+Source: argeo-tp-build
+Section: unknown
+Priority: optional
+Maintainer: Mathieu Baudier <mbaudier@argeo.org>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
+
+Package: argeo-tp-build
+Architecture: all
+Depends: ${misc:Depends}
+Description: Argeo Build third party libraries
+ Eclipse ECJ compiler and BND library.

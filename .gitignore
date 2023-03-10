@@ -1,1 +1,7 @@
 sdk.mk
+*.build
+*.dsc
+*.tar
+*.tar.*
+*.deb
+*.rpm
