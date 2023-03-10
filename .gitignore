@@ -1,5 +1,7 @@
 sdk.mk
 *.build
+*.buildinfo
+*.changes
 *.dsc
 *.tar
 *.tar.*

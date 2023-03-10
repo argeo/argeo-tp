@@ -37,7 +37,7 @@ ecj-build:
 	# build
 	$(JAVA_HOME)/bin/javac -d $(ECJ_BASE) -source 17 -target 17 -Xlint:none @$(BOOTSTRAP_BASE)/ecj.todo
 	
-bndlib-build:
+bndlib-build: ecj-build
 	$(JAVA_HOME)/bin/java -cp $(ECJ_BASE) org.eclipse.jdt.internal.compiler.batch.Main -nowarn \
 		-source 17 -target 17 \
 		$(BNDLIB_SRC) \
@@ -45,8 +45,8 @@ bndlib-build:
 
 clean:
 	$(RM) -rf $(BOOTSTRAP_BASE)
-	cd $(ECJ_BASE) && find . -name "*.class" -type f -exec rm -f {} \;
-	cd $(BNDLIB_BASE) && find . -name "*.class" -type f -exec rm -f {} \;
+	find $(ECJ_BASE) -name "*.class" -type f -exec rm -f {} \;
+	find $(BNDLIB_BASE) -name "*.class" -type f -exec rm -f {} \;
 	make -C org.argeo.tp.build clean
 
 clean-sources:
@@ -72,7 +72,7 @@ bootstrap-prepare-sources: bootstrap-download-sources
 	cp -r $(ECJ_BASE)/org $(ECJ_SRC)
 	# remove java sources
 	cd $(ECJ_BASE) && find org -name "*.java" -type f -exec rm -f {} \;
-	cd $(ECJ_BASE) && find org -name "*.html -type f -exec rm -f {} \;
+	cd $(ECJ_BASE) && find org -name "*.html" -type f -exec rm -f {} \;
 	
 	## BNDLIB
 	# copy sources
