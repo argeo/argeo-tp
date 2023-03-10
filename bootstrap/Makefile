@@ -58,6 +58,9 @@ clean-sources:
 	$(RM) -rf $(ECJ_BASE)
 	$(RM) -rf $(BNDLIB_BASE)
 	rm -rf org.argeo.tp.build/biz.aQute.bndlib/src
+	
+deb-source: distclean clean-sources bootstrap-prepare-sources
+	debuild --no-sign -S
 
 bootstrap-prepare-sources: bootstrap-download-sources
 	## ECJ
