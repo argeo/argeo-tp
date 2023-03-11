@@ -2,7 +2,3 @@
 	path = sdk/argeo-build
 	url = http://git.argeo.org/cc0/argeo-build.git
 	branch = unstable
-[submodule "bootstrap/sdk/argeo-build"]
-	path = bootstrap/sdk/argeo-build
-	url = http://git.argeo.org/cc0/argeo-build.git
-	branch = unstable
