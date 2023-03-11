@@ -58,6 +58,7 @@ clean-sources:
 	$(RM) -rf $(ECJ_BASE)
 	$(RM) -rf $(BNDLIB_BASE)
 	$(RM) -rf org.argeo.tp.build/biz.aQute.bndlib/src
+	$(RM) -rf org.argeo.tp.build/org.eclipse.jdt.core.compiler.batch/src
 	
 deb-source: distclean clean-sources bootstrap-prepare-sources
 	debuild --no-sign -S
