@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# Source are located where this script is
-SDK_SRC_BASE="$(cd "$(dirname "$0")"; pwd -P)"
-
-# Source the configure script
-. $SDK_SRC_BASE/sdk/argeo-build/configure
