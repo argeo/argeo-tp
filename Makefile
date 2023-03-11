@@ -1,9 +1,7 @@
 include sdk.mk
 .PHONY: clean all bootstrap
 
-all: bootstrap distribution
-
-BOOTSTRAP_BASE=$(SDK_BUILD_BASE)/bootstrap
+all: distribution
 
 A2_OUTPUT = $(SDK_BUILD_BASE)/a2
 
@@ -11,17 +9,7 @@ distribution:
 	make -C repackage all
 	make -C rebuild all
 	
-bootstrap:
-	make -C bootstrap bootstrap-download-sources all
-	
-bootstrap-old :
-	mkdir -p $(SDK_BUILD_BASE)/bootstrap
-	wget -c -O $(BOOTSTRAP_BASE)/ecj.jar https://repo1.maven.org/maven2/org/eclipse/jdt/ecj/3.32.0/ecj-3.32.0.jar
-	wget -c -O $(BOOTSTRAP_BASE)/slf4j-api.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar
-	wget -c -O $(BOOTSTRAP_BASE)/bndlib.jar https://repo1.maven.org/maven2/biz/aQute/bnd/biz.aQute.bndlib/5.3.0/biz.aQute.bndlib-5.3.0.jar
-
 clean:
-	make -C bootstrap clean
 	make -C repackage clean
 	make -C rebuild clean
 	
