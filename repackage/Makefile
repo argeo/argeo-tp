@@ -26,7 +26,6 @@ org.argeo.tp \
 org.argeo.tp.crypto \
 org.argeo.tp.jetty \
 org.argeo.tp.utils \
-org.argeo.tp.sql \
 org.argeo.tp.jcr \
 org.argeo.tp.poi \
 org.argeo.tp.gis \
@@ -42,7 +41,7 @@ all: $(BUILD_BASE)/repackaged
 $(BUILD_BASE)/repackaged : CATEGORIES_TO_REPACKAGE = $(subst $(abspath $(BUILD_BASE))/,, $(subst to-repackage,, $?))
 $(BUILD_BASE)/repackaged : $(TODOS_REPACKAGE)
 	# TODO make it more configurable / centralise in Argeo Build
-	$(JVM) -cp $(A2_OUTPUT)/org.argeo.tp.log/org.argeo.tp.syslogger.2.3.jar:$(A2_OUTPUT)/org.argeo.tp.build/biz.aQute.bndlib.5.3.jar \
+	$(JVM) -cp $(A2_OUTPUT)/org.argeo.tp/org.argeo.tp.syslogger.2.3.jar:$(A2_OUTPUT)/org.argeo.tp.sdk/biz.aQute.bndlib.5.3.jar \
 	 $(SDK_SRC_BASE)/sdk/argeo-build/src/org/argeo/build/Repackage.java $(A2_OUTPUT) $(CATEGORIES_TO_REPACKAGE)
 	touch $(BUILD_BASE)/repackaged
 
