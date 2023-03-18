@@ -1,4 +1,4 @@
-SPDX-License-Identifier: https://www.adobe.io/experience-manager/reference-materials/spec/jcr/2.0/license.html
-Bundle-Version: 2.0.0
+SPDX-License-Identifier: 
+Bundle-License: https://www.adobe.io/experience-manager/reference-materials/spec/jcr/2.0/license.html
 Argeo-Origin-M2: javax.jcr:jcr:2.0
 Argeo-Origin-ManifestNotModified: true
