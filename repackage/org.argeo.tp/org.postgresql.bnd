@@ -1,5 +1,5 @@
-Bundle-License: BSD-2-Clause
-SLC-Origin-M2: org.postgresql:postgresql:42.5.4
+SPDX-License-Identifier: BSD-2-Clause
+Argeo-Origin-M2: org.postgresql:postgresql:42.5.4
 Import-Package:\
 org.osgi.service.jdbc;resolution:="optional",\
 com.sun.jna.*;resolution:="optional",\

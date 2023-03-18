@@ -1,10 +1,10 @@
 Bundle-SymbolicName: org.freeedesktop.dbus
-Bundle-License: LGPL-2.0
+SPDX-License-Identifier: LGPL-2.0
 # TODO Check whether relicensing of this fork was allowed
-#Bundle-License: MIT
-SLC-Origin-M2: :4.2.1
+#SPDX-License-Identifier: MIT
+Argeo-Origin-M2: :4.2.1
 Export-Package: org.freedesktop.dbus.*
-SLC-Origin-M2-Merge: \
+Argeo-Origin-M2-Merge: \
 com.github.hypfvieh:dbus-java-core,\
 com.github.hypfvieh:dbus-java-utils,\
 com.github.hypfvieh:dbus-java-transport-native-unixsocket,\

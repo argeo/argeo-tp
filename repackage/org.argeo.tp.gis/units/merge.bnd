@@ -1,10 +1,10 @@
-Bundle-License: BSD-3-Clause
+SPDX-License-Identifier: BSD-3-Clause
 Bundle-SymbolicName: tech.units.indriya
-SLC-Origin-M2: :2.0.4
+Argeo-Origin-M2: :2.0.4
 Export-Package: javax.measure.*, tech.units.indriya.*, si.uom.*, systems.uom.*
 Import-Package: \
 *;resolution:="optional"
-SLC-Origin-M2-Merge: \
+Argeo-Origin-M2-Merge: \
 javax.measure:unit-api:2.0, \
 tech.units:indriya, \
 tech.uom.lib:uom-lib-common:2.0.1, \

@@ -1,4 +1,4 @@
-SLC-Origin-M2: org.apache.jackrabbit:jackrabbit-data
+Argeo-Origin-M2: org.apache.jackrabbit:jackrabbit-data
 Bundle-SymbolicName: org.apache.jackrabbit.data
 Fragment-Host: org.apache.jackrabbit.core
 Import-Package: org.apache.jackrabbit.test;resolution:=optional,\

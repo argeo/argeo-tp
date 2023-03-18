@@ -1,2 +1,2 @@
-SLC-Origin-M2: org.eclipse.jetty.http2:http2-server
-SLC-Origin-ManifestNotModified: true
+Argeo-Origin-M2: org.eclipse.jetty.http2:http2-server
+Argeo-Origin-ManifestNotModified: true

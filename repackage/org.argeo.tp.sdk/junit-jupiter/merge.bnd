@@ -1,7 +1,7 @@
-Bundle-License: EPL-2.0
+SPDX-License-Identifier: EPL-2.0
 Bundle-SymbolicName: org.junit.jupiter
-SLC-Origin-M2: :5.9.1
-SLC-Origin-M2-Merge: \
+Argeo-Origin-M2: :5.9.1
+Argeo-Origin-M2-Merge: \
 org.junit.jupiter:junit-jupiter-api, \
 org.junit.jupiter:junit-jupiter-engine, \
 org.junit.jupiter:junit-jupiter-params, \

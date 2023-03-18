@@ -1,4 +1,4 @@
-SLC-Origin-M2: org.apache.jackrabbit:jackrabbit-core
+Argeo-Origin-M2: org.apache.jackrabbit:jackrabbit-core
 Bundle-SymbolicName: org.apache.jackrabbit.core
 Import-Package: org.apache.jackrabbit.test;resolution:=optional,\
 org.apache.derby.*;resolution:=optional,\

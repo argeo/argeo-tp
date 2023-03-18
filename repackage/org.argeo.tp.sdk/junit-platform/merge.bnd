@@ -1,7 +1,7 @@
-Bundle-License: EPL-2.0
+SPDX-License-Identifier: EPL-2.0
 Bundle-SymbolicName: org.junit.platform
-SLC-Origin-M2: :1.9.1
-SLC-Origin-M2-Merge: \
+Argeo-Origin-M2: :1.9.1
+Argeo-Origin-M2-Merge: \
 org.junit.platform:junit-platform-commons, \
 org.junit.platform:junit-platform-console, \
 org.junit.platform:junit-platform-engine, \

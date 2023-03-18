@@ -1,3 +1,3 @@
-Bundle-License: Public Domain
+SPDX-License-Identifier: Public Domain
 Bundle-SymbolicName: EDU.oswego.cs.dl.util.concurrent
-SLC-Origin-M2: concurrent:concurrent:1.3.4
+Argeo-Origin-M2: concurrent:concurrent:1.3.4
