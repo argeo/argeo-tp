@@ -1,3 +1,2 @@
-Bundle-SymbolicName: bcutil
 Argeo-Origin-ManifestNotModified: true
 Argeo-Origin-M2: org.bouncycastle:bcutil-jdk18on

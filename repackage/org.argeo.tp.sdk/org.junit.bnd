@@ -1,5 +1,4 @@
 SPDX-License-Identifier: EPL-1.0
-Bundle-SymbolicName: org.junit
 Import-Package: org.hamcrest;resolution:=optional,\
 org.hamcrest.core;resolution:=optional,\
 *

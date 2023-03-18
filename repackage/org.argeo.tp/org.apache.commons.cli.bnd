@@ -1,3 +1,2 @@
 SPDX-License-Identifier: Apache-2.0
-Bundle-SymbolicName: org.apache.commons.cli
 Argeo-Origin-M2: commons-cli:commons-cli:1.5.0

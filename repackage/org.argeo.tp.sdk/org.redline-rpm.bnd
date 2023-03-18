@@ -1,5 +1,4 @@
 SPDX-License-Identifier: MIT
-Bundle-SymbolicName: org.redline-rpm
 Import-Package: sun.security.*;resolution:=optional,
 org.apache.tools.ant.*;resolution:=optional,
 org.apache.tools.zip;resolution:=optional,

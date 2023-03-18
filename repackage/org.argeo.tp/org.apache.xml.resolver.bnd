@@ -1,3 +1,2 @@
 SPDX-License-Identifier: Apache-2.0
-Bundle-SymbolicName: org.apache.xml.resolver
 Argeo-Origin-M2: xml-resolver:xml-resolver:1.2

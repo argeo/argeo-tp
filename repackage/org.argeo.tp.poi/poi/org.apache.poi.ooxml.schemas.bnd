@@ -1,4 +1,3 @@
-Bundle-SymbolicName: org.apache.poi.ooxml.schemas
 Import-Package: \
 com.microsoft.schemas.*;resolution:=optional, \
 org.openxmlformats.schemas.*;resolution:=optional, \

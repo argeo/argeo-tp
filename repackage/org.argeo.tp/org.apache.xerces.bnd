@@ -1,5 +1,4 @@
 SPDX-License-Identifier: Apache-2.0
-Bundle-SymbolicName: org.apache.xerces
 Import-Package:\
 sun.*;resolution:=optional,\
 *

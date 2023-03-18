@@ -1,5 +1,4 @@
 SPDX-License-Identifier: Apache-2.0
-Bundle-SymbolicName: org.apache.xmlbeans
 DynamicImport-Package: *
 Import-Package: org.apache.tools.ant.*;resolution:=optional,
 net.sf.saxon.*;resolution:=optional,

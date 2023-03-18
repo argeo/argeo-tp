@@ -1,3 +1,2 @@
 SPDX-License-Identifier: Apache-2.0
-Bundle-SymbolicName: org.apache.httpcomponents.httpclient
 Argeo-Origin-M2: org.apache.httpcomponents:httpclient:4.5.14

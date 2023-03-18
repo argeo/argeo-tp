@@ -1,3 +1,2 @@
-Bundle-SymbolicName: bcprov
 Argeo-Origin-ManifestNotModified: true
 Argeo-Origin-M2: org.bouncycastle:bcprov-jdk18on

@@ -1,3 +1,2 @@
 Argeo-Origin-M2: org.eclipse.jetty:jetty-server
 Argeo-Origin-ManifestNotModified: true
-Bundle-SymbolicName: org.eclipse.jetty.server
