@@ -1,4 +1,4 @@
-SPDX-License-Identifier: 
+SPDX-License-Identifier: LicenseRef-argeo-day-spec-with-addendum
 Bundle-License: https://www.adobe.io/experience-manager/reference-materials/spec/jcr/2.0/license.html
 Argeo-Origin-M2: javax.jcr:jcr:2.0
-Argeo-Origin-ManifestNotModified: true
+Argeo-Origin-Do-Not-Modify: true
