@@ -1,3 +1,3 @@
 Argeo-Origin-M2: org.osgi:osgi.cmpn:7.0.0
-Argeo-Origin-ManifestNotModified: true
+Argeo-Origin-NoMetadataGeneration: true
 SPDX-License-Identifier: Apache-2.0

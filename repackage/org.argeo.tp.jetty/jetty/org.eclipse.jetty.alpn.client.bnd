@@ -1,2 +1,2 @@
 Argeo-Origin-M2: org.eclipse.jetty:jetty-alpn-client
-Argeo-Origin-ManifestNotModified: true
+Argeo-Origin-NoMetadataGeneration: true
