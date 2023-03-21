@@ -1,6 +1,8 @@
 include ../../sdk.mk
 .PHONY: clean all osgi
 
+export NO_SDK_LEGAL := true
+
 all: retrieve-ee4j-mbox osgi
 
 retrieve-ee4j-mbox: SRC_DIR=src/ee4j-mail
