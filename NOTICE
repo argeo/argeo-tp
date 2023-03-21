@@ -1,0 +1,24 @@
+Argeo Third Parties - Build and repackaging harness for third party libraries
+
+Copyright 2013-2023 Mathieu Baudier
+Copyright 2013-2023 Argeo GmbH
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, see <https://www.gnu.org/licenses>.
+
+## Clarification
+Please note that this copyright and license only cover the scripts, programs,
+descriptors, or any other content originally produced in order to rebuild or
+repackage third-party software. They do NOT cover the rebuilt or repackaged
+components themselves when they are redistributed. These third-party components 
+are redistributed under they own applicable licenses.
