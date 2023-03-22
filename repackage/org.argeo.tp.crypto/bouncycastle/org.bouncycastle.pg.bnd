@@ -1,2 +1,2 @@
 Argeo-Origin-NoMetadataGeneration: true
-Argeo-Origin-M2: org.bouncycastle:bcpg-jdk18on
+Argeo-Origin-M2: org.bouncycastle:bcpg-jdk18on:1.72.2

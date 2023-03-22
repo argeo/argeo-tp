@@ -1,2 +1,2 @@
 Argeo-Origin-M2: org.orbisgis:h2gis
-Fragment-Host: com.h2database
+Fragment-Host: org.h2
