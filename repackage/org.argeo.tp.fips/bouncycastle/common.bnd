@@ -1,3 +1,4 @@
 SPDX-License-Identifier: MIT
-Argeo-Origin-M2: :1.72
 Argeo-Origin-NoMetadataGeneration: true
+Argeo-Origin-Do-Not-Modify: true
+Argeo-Origin-M2: :1.0.2.3

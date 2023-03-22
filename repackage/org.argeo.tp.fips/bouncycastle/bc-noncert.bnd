@@ -1,0 +1,5 @@
+# !! The current version is unsafe, see:
+# https://github.com/bcgit/bc-java/wiki/CVE-2022-45146
+Argeo-Origin-M2: org.bouncycastle:bc-noncert:1.0.2.4
+Argeo-Origin-URI: https://downloads.bouncycastle.org/fips-java/bc-noncert-1.0.2.4.jar
+Argeo-Origin-Sources-URI: https://downloads.bouncycastle.org/fips-java/bc-noncert-1.0.2.4-sources.jar
