@@ -4,8 +4,8 @@ Argeo-Origin-M2: :2.9.2
 Export-Package: org.apache.*
 Import-Package: \
 org.apache.tomcat.jni.*;resolution:=optional,\
-org.bouncycastle.crypto.prng,\
-org.bouncycastle.jce.provider.*;resolution:=optional,\
+org.bouncycastle.crypto.prng;resolution:=optional,\
+org.bouncycastle.*;resolution:=optional,\
 net.i2p.crypto.eddsa.*;resolution:=optional,\
 org.slf4j,\
 org.slf4j.event,\

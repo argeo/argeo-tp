@@ -1,4 +1,5 @@
 Argeo-Origin-M2: org.apache.pdfbox:pdfbox
 Import-Package: \
 sun.java2d.cmm.kcms;resolution:="optional",\
+org.bouncycastle.*;resolution:="optional",\
 *
