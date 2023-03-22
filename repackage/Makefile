@@ -16,13 +16,13 @@ lib/macosx/x86_64/swt/rcp/org.argeo.tp.swt.workbench \
 swt/rcp/org.argeo.tp.swt \
 swt/rcp/org.argeo.tp.swt.workbench \
 org.argeo.tp \
-org.argeo.tp.crypto \
 org.argeo.tp.jetty \
 org.argeo.tp.utils \
 org.argeo.tp.jcr \
 org.argeo.tp.poi \
 org.argeo.tp.gis \
-org.argeo.tp.fips \
+crypto/full/org.argeo.tp.crypto \
+crypto/fips/org.argeo.tp.crypto \
 
 # NOTE: FIPS support is experimental, in order to preapre for the 2.0.0 stream
 # see https://www.bouncycastle.org/fips_java_roadmap.html
