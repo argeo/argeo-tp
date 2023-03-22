@@ -1,5 +1,5 @@
 Argeo-Origin-M2: org.apache.sshd:sshd-git
 Import-Package: \
-org.eclipse.jgit.pgm.*;resolution:=optional,\
+org.eclipse.jgit.*;resolution:=optional,\
 org.kohsuke.*;resolution:=optional,\
 *

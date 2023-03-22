@@ -6,4 +6,5 @@ org.apache.lucene.*;resolution:=optional,\
 org.codehaus.groovy.*;resolution:=optional,\
 org.osgi.*;resolution:=optional,\
 com.ibm.icu.*;resolution:=optional,\
+org.locationtech.jts.*;resolution:=optional,\
 *
