@@ -3,7 +3,9 @@
 <target name="argeo-tp-backend">
 	<locations>
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.utils" type="Directory"/>
-		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.gis" type="Directory"/>
+		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.publish" type="Directory"/>
+		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.math" type="Directory"/>
+		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.earth" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/osgi/equinox/org.argeo.tp.eclipse" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.jcr" type="Directory"/>
 		<location type="Target" uri="file:${project_loc:argeo-tp}/sdk/output-argeo-tp-platform.target"/>

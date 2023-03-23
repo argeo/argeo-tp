@@ -38,8 +38,6 @@ org.jdom2.*;resolution:="optional",\
 org.junit.*;resolution:="optional",\
 org.parboiled.*;resolution:="optional",\
 org.picocontainer.*;resolution:="optional",\
-org.apache.commons.digester.*;resolution:="optional",\
-org.apache.commons.pool.*;resolution:="optional",\
 *
 
 Argeo-Origin-M2-Merge: \
