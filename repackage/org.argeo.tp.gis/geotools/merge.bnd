@@ -1,11 +1,13 @@
 SPDX-License-Identifier: LGPL-2.1-only
 Bundle-SymbolicName: org.geotools
-Argeo-Origin-M2: :27.4
+Argeo-Origin-M2: :28.2
 Argeo-Origin-M2-Repo: https://repo.osgeo.org/repository/release/
+
 Export-Package: org.geotools.*, org.opengis.*, net.opengis.*, org.w3.xlink.*
+
 Import-Package: \
-org.locationtech.jts.*,\
 org.geotools.gui.swing.*;resolution:="optional",\
+org.locationtech.jts.*,\
 org.geotools.*,\
 org.opengis.*,\
 net.opengis.*,\
@@ -14,7 +16,32 @@ tech.units.indriya.*, \
 si.uom.*, \
 systems.uom.*, \
 org.ejml.*,\
-*;resolution:="optional"
+au.com.objectix.*;resolution:="optional",\
+ch.qos.logback.*;resolution:="optional",\
+com.conversantmedia.*;resolution:="optional",\
+com.google.re2j.*;resolution:="optional",\
+com.sun.media.*;resolution:="optional",\
+com.sun.medialib.*;resolution:="optional",\
+geodb.*;resolution:="optional",\
+it.geosolutions.*;resolution:="optional",\
+javax.imageio.*;resolution:="optional",\
+javax.media.*;resolution:="optional",\
+javax.sql.*;resolution:="optional",\
+javax.swing.*;resolution:="optional",\
+net.miginfocom.*;resolution:="optional",\
+net.sf.geographiclib.*;resolution:="optional",\
+org.apache.log4j.*;resolution:="optional",\
+org.apache.logging.log4j.*;resolution:="optional",\
+org.eclipse.*;resolution:="optional",\
+org.jaitools.*;resolution:="optional",\
+org.jdom2.*;resolution:="optional",\
+org.junit.*;resolution:="optional",\
+org.parboiled.*;resolution:="optional",\
+org.picocontainer.*;resolution:="optional",\
+org.apache.commons.digester.*;resolution:="optional",\
+org.apache.commons.pool.*;resolution:="optional",\
+*
+
 Argeo-Origin-M2-Merge: \
 org.geotools:gt-metadata, \
 org.geotools:gt-property, \
