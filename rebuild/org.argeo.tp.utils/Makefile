@@ -3,8 +3,6 @@ include ../../sdk.mk
 
 export NO_SDK_LEGAL := true
 
-A2_NATIVE_CATEGORY=$(A2_OUTPUT)/lib/linux/$(uname -m)/$(A2_CATEGORY)
-
 MBOX_JNI_SRC=jni/com_sun_mail_mbox
 MBOX_TARGET_EXEC=libmbox.so
 
@@ -28,12 +26,6 @@ retrieve-ee4j-mbox:
 	javac -h jni/com_sun_mail_mbox/ -cp "$(A2_OUTPUT)/org.argeo.tp.utils/*" com.sun.mail.mbox/src/com/sun/mail/mbox/*.java
 	rm -rf com.sun.mail.mbox/bin
 
-jni-ee4j-mbox:
-	mkdir -p $(A2_NATIVE_CATEGORY)
-	$(CC) -o $(A2_A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) \
-	 -shared -fPIC -fpic -Wl,-soname,$(MBOX_TARGET_EXEC).1.6 \
-	 -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux $(MBOX_JNI_SRC)/*.c
-
 A2_CATEGORY = org.argeo.tp.utils
 
 BUNDLES = \
@@ -45,3 +37,12 @@ clean:
 DEP_CATEGORIES = org.argeo.tp.utils
 
 include  $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk
+
+A2_NATIVE_CATEGORY=$(A2_OUTPUT)/lib/linux/$(shell uname -m)/$(A2_CATEGORY)
+
+jni-ee4j-mbox:
+	mkdir -p $(A2_NATIVE_CATEGORY)
+	$(CC) -o $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) \
+	 -shared -fPIC -fpic -Wl,-soname,$(MBOX_TARGET_EXEC).1.6 \
+	 -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux $(MBOX_JNI_SRC)/*.c
+
