@@ -12,7 +12,9 @@ distribution:
 clean:
 	make -C repackage clean
 	make -C rebuild clean
-	
+
+native-deps-debian:
+	sudo apt install liblockfile-dev
 
 clean-origin-cache:
 	rm -rf $(HOME)/.cache/argeo/build
