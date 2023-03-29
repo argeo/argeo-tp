@@ -8,6 +8,10 @@ osgi/equinox/org.argeo.tp.eclipse \
 swt/rap/org.argeo.tp.swt \
 swt/rap/org.argeo.tp.swt.workbench \
 swt/rcp/org.argeo.tp.swt \
+lib/linux/x86_64/org.argeo.tp \
+lib/linux/aarch64/org.argeo.tp \
+lib/win32/x86_64/org.argeo.tp \
+lib/macosx/x86_64/org.argeo.tp \
 lib/linux/x86_64/swt/rcp/org.argeo.tp.swt \
 lib/linux/aarch64/swt/rcp/org.argeo.tp.swt \
 lib/win32/x86_64/swt/rcp/org.argeo.tp.swt \

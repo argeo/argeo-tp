@@ -3,6 +3,8 @@ include ../../sdk.mk
 
 export NO_SDK_LEGAL := true
 
+A2_NATIVE_CATEGORY=$(A2_OUTPUT)/lib/linux/$(uname -m)/$(A2_CATEGORY)
+
 MBOX_JNI_SRC=jni/com_sun_mail_mbox
 MBOX_TARGET_EXEC=libmbox.so
 
@@ -27,8 +29,8 @@ retrieve-ee4j-mbox:
 	rm -rf com.sun.mail.mbox/bin
 
 jni-ee4j-mbox:
-	mkdir -p $(A2_OUTPUT)/lib/linux/x86_64/$(A2_CATEGORY)
-	$(CC) -o $(A2_OUTPUT)/lib/linux/x86_64/$(A2_CATEGORY)/$(MBOX_TARGET_EXEC) \
+	mkdir -p $(A2_NATIVE_CATEGORY)
+	$(CC) -o $(A2_A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) \
 	 -shared -fPIC -fpic -Wl,-soname,$(MBOX_TARGET_EXEC).1.6 \
 	 -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux $(MBOX_JNI_SRC)/*.c
 
