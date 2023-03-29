@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
-<target name="argeo-tp-minimal">
+<target name="argeo-tp-platform">
 	<locations>
 		<location path="${project_loc:argeo-tp}/../output/a2/crypto/fips/org.argeo.tp.crypto" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/log/syslogger/org.argeo.tp" type="Directory"/>
