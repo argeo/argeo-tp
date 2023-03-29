@@ -3,6 +3,8 @@ include ../../sdk.mk
 
 export NO_SDK_LEGAL := true
 
+MBOX_JNI_SRC=jni/com_sun_mail_mbox
+
 all: retrieve-ee4j-mbox osgi
 
 retrieve-ee4j-mbox: SRC_DIR=src/ee4j-mail
@@ -17,6 +19,10 @@ retrieve-ee4j-mbox:
 	git clone --branch 1.6.7 https://github.com/eclipse-ee4j/mail.git $(SRC_DIR)
 	rm -rf $(SRC_DIR)/.git
 	rsync -a --delete --exclude module-info.java $(SRC_DIR)/mbox/src/main/java/ com.sun.mail.mbox/src
+	rsync -a --delete $(SRC_DIR)/mbox/src/main/cpp/com/sun/mail/mbox/ $(MBOX_JNI_SRC)
+	mkdir -p com.sun.mail.mbox/bin
+	javac -h jni/com_sun_mail_mbox/ -cp "$(A2_OUTPUT)/org.argeo.tp.utils/*" com.sun.mail.mbox/src/com/sun/mail/mbox/*.java
+	rm -rf com.sun.mail.mbox/bin
 
 A2_CATEGORY = org.argeo.tp.utils
 
