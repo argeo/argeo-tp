@@ -5,3 +5,9 @@ Export-Package: org.apache.*
 Argeo-Origin-M2-Merge: \
 xalan:xalan,\
 xalan:serializer,\
+
+Import-Package: \
+javax.xml.*;resolution:="optional", \
+org.w3c.*;resolution:="optional", \
+org.xml.*;resolution:="optional", \
+*

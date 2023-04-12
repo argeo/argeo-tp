@@ -1,2 +1,7 @@
 SPDX-License-Identifier: Apache-2.0
 Argeo-Origin-M2: org.apache.lucene:lucene-core:3.6.2
+
+Import-Package: \
+sun.*;resolution:=optional, \
+com.sun.*;resolution:=optional, \
+*

@@ -1,2 +1,6 @@
 SPDX-License-Identifier: W3C
 Argeo-Origin-M2: org.axsl.org.w3c.dom.svg:svg-dom-java:1.1
+
+Import-Package: \
+org.w3c.*;resolution:="optional", \
+*
