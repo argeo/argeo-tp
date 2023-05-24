@@ -1,6 +1,6 @@
 SPDX-License-Identifier: EPL-2.0
 Bundle-SymbolicName: org.junit.platform
-Argeo-Origin-M2: :1.9.1
+Argeo-Origin-M2: :1.9.3
 Argeo-Origin-M2-Merge: \
 org.junit.platform:junit-platform-commons, \
 org.junit.platform:junit-platform-console, \
