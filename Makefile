@@ -3,6 +3,15 @@ include sdk.mk
 
 all: distribution
 
+install:
+	make -C repackage install
+	make -C rebuild install
+	
+uninstall:
+	make -C repackage uninstall
+	make -C rebuild uninstall
+	
+
 A2_OUTPUT = $(SDK_BUILD_BASE)/a2
 
 distribution:

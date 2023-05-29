@@ -8,6 +8,10 @@ MBOX_TARGET_EXEC=libmbox.so
 
 all: retrieve-ee4j-mbox osgi jni-ee4j-mbox
 
+install: osgi-install
+	
+uninstall: osgi-uninstall
+
 retrieve-ee4j-mbox: SRC_DIR=src/ee4j-mail
 retrieve-ee4j-mbox:
 	rm -rf $(SRC_DIR)
