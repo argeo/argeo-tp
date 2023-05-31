@@ -1,5 +1,6 @@
 SPDX-License-Identifier: Apache-2.0
 Argeo-Origin-M2: xerces:xercesImpl:2.12.2
+Export-Package: org.apache.*, !org.w3c.*
 Import-Package:\
 sun.*;resolution:=optional,\
 *

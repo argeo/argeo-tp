@@ -4,4 +4,6 @@ Import-Package:\
 sun.misc.*;resolution:="optional",\
 com.sun.jna.*;resolution:="optional",\
 org.fusesource.jansi.*;resolution:="optional",\
+org.apache.sshd.*;resolution:="optional",\
+javax.annotation.*;resolution:="optional",\
 *
