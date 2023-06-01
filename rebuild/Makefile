@@ -1,10 +1,14 @@
 .PHONY: clean all
 
 all:
-	make -C org.argeo.tp all
-	make -C org.argeo.tp.formats all
+	make -C org.argeo.tp.utils all
+
+install:
+	make -C org.argeo.tp.utils install
+	
+uninstall:
+	make -C org.argeo.tp.utils uninstall
 	
 clean:
-	make -C org.argeo.tp clean
-	make -C org.argeo.tp.formats clean
+	make -C org.argeo.tp.utils clean
 	

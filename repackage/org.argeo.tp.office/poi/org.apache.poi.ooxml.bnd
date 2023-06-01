@@ -1,0 +1,7 @@
+Import-Package: \
+com.graphbuilder.*;resolution:=optional,\
+com.graphbuilder.*;resolution:=optional,\
+org.etsi.uri.*;resolution:=optional,\
+org.apache.logging.log4j.*;resolution:=optional,\
+*
+Argeo-Origin-M2: org.apache.poi:poi-ooxml

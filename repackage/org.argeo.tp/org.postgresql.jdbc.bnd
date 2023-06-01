@@ -1,0 +1,8 @@
+SPDX-License-Identifier: BSD-2-Clause
+Argeo-Origin-M2: org.postgresql:postgresql:42.6.0
+Import-Package:\
+org.osgi.service.jdbc;resolution:="optional",\
+com.sun.jna.*;resolution:="optional",\
+org.checkerframework.*;resolution:="optional",\
+waffle.*;resolution:="optional",\
+*

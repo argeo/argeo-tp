@@ -1,6 +1,6 @@
-Bundle-License: Apache-2.0
+SPDX-License-Identifier: Apache-2.0
 Import-Package:\
 javax.portlet;resolution:=optional,\
 javax.servlet.*;resolution:=optional,\
 *
-SLC-Origin-M2: commons-fileupload:commons-fileupload:1.4
+Argeo-Origin-M2: commons-fileupload:commons-fileupload:1.5

@@ -1,6 +1,0 @@
-Bundle-License: BSD-3-Clause
-SLC-Origin-M2: org.eclipse.jgit:org.eclipse.jgit:6.3.0.202209071007-r
-Import-Package: \
-sun.*;resolution:=optional, \
-com.jcraft.jsch;resolution:=optional, \
-*

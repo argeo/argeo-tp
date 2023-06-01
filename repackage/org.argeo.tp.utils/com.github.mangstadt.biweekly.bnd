@@ -1,3 +1,2 @@
-Bundle-License: BSD-2-Clause
-Bundle-SymbolicName: com.github.mangstadt.beweekly
-SLC-Origin-M2: net.sf.biweekly:biweekly:0.6.6
+SPDX-License-Identifier: BSD-2-Clause
+Argeo-Origin-M2: net.sf.biweekly:biweekly:0.6.7

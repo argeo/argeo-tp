@@ -1,3 +1,2 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: org.apache.commons.collections4
-SLC-Origin-M2: org.apache.commons:commons-collections4:4.4
+SPDX-License-Identifier: Apache-2.0
+Argeo-Origin-M2: org.apache.commons:commons-collections4:4.4

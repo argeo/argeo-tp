@@ -1,3 +1,2 @@
-Bundle-License: Apache-2.0
-Bundle-SymbolicName: org.apache.commons.text
-SLC-Origin-M2: org.apache.commons:commons-text:1.10.0
+SPDX-License-Identifier: Apache-2.0
+Argeo-Origin-M2: org.apache.commons:commons-text:1.10.0

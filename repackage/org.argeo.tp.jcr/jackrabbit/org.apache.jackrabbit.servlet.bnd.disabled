@@ -1,0 +1,3 @@
+Argeo-Origin-M2: org.apache.jackrabbit:jackrabbit-jcr-servlet
+Fragment-Host: org.apache.jackrabbit.core
+Import-Package: org.apache.jackrabbit.rmi.*;resolution:=optional,*

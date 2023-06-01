@@ -1,0 +1,7 @@
+SPDX-License-Identifier: Apache-2.0
+Argeo-Origin-M2: cglib:cglib:3.3.0
+
+Import-Package: \
+org.apache.tools.ant.*;resolution:=optional, \
+sun.*;resolution:=optional, \
+*

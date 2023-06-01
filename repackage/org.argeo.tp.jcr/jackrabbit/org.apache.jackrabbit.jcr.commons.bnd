@@ -1,2 +1,1 @@
-SLC-Origin-M2: org.apache.jackrabbit:jackrabbit-jcr-commons
-Bundle-SymbolicName: org.apache.jackrabbit.jcr.commons
+Argeo-Origin-M2: org.apache.jackrabbit:jackrabbit-jcr-commons

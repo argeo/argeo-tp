@@ -1,0 +1,3 @@
+Argeo-Origin-M2: org.apache.logging.log4j:log4j-core
+Import-Package:\
+*;resolution:="optional"

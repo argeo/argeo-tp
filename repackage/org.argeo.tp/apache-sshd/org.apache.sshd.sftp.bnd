@@ -1,0 +1,5 @@
+Argeo-Origin-M2: org.apache.sshd:sshd-sftp
+
+Import-Package: \
+org.bouncycastle.*;resolution:=optional,\
+*

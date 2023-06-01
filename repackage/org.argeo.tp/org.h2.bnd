@@ -1,0 +1,11 @@
+SPDX-License-Identifier: MPL-2.0
+Argeo-Origin-M2: com.h2database:h2:2.1.214
+
+Import-Package:\
+jakarta.*;resolution:=optional,\
+org.apache.lucene.*;resolution:=optional,\
+org.codehaus.groovy.*;resolution:=optional,\
+org.osgi.*;resolution:=optional,\
+com.ibm.icu.*;resolution:=optional,\
+org.locationtech.jts.*;resolution:=optional,\
+*

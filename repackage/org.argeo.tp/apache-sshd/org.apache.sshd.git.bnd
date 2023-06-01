@@ -1,0 +1,7 @@
+Argeo-Origin-M2: org.apache.sshd:sshd-git
+
+Import-Package: \
+org.bouncycastle.*;resolution:=optional,\
+org.eclipse.jgit.*;resolution:=optional,\
+org.kohsuke.*;resolution:=optional,\
+*

@@ -1,2 +1,1 @@
-SLC-Origin-M2: org.apache.jackrabbit:jackrabbit-webdav
-Bundle-SymbolicName: org.apache.jackrabbit.webdav
+Argeo-Origin-M2: org.apache.jackrabbit:jackrabbit-webdav

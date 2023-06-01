@@ -1,7 +1,7 @@
-Bundle-License: Apache-2.0
+SPDX-License-Identifier: Apache-2.0
 Bundle-SymbolicName: org.apache.xmlgraphics
-SLC-Origin-M2: :2.7
-SLC-Origin-M2-Merge: \
+Argeo-Origin-M2: :2.8
+Argeo-Origin-M2-Merge: \
 org.apache.xmlgraphics:xmlgraphics-commons
 Export-Package: org.apache.xmlgraphics.*
 Import-Package: \

@@ -1,0 +1,4 @@
+Argeo-Origin-M2: org.apache.poi:poi-scratchpad
+Import-Package: \
+org.apache.logging.log4j.*;resolution:=optional,\
+*

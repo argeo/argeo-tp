@@ -1,0 +1,2 @@
+Argeo-Origin-M2: org.eclipse.jetty:jetty-alpn-server
+Argeo-Origin-NoMetadataGeneration: true

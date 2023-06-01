@@ -4,6 +4,6 @@
 	<locations>
 		<location path="${project_loc:argeo-tp}/../output/a2/swt/rcp/org.argeo.tp.swt" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/lib/win32/x86_64/swt/rcp/org.argeo.tp.swt" type="Directory"/>
-		<location type="Target" uri="file:${project_loc:argeo-tp}/sdk/output-argeo-tp-backend.target"/>
+		<location type="Target" uri="file:${project_loc:argeo-tp}/sdk/output-argeo-tp-platform.target"/>
 	</locations>
 </target>

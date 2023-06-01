@@ -1,0 +1,2 @@
+Argeo-Origin-M2: com.fasterxml.jackson.core:jackson-databind
+Argeo-Origin-NoMetadataGeneration: true

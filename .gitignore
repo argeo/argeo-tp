@@ -1,1 +1,10 @@
 sdk.mk
+/output/
+*.build
+*.buildinfo
+*.changes
+*.dsc
+*.tar
+*.tar.*
+*.deb
+*.rpm

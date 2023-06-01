@@ -1,0 +1,6 @@
+Argeo-Origin-M2: org.apache.sshd:sshd-putty
+
+Import-Package: \
+org.bouncycastle.*;resolution:=optional,\
+net.i2p.*;resolution:=optional,\
+*
