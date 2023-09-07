@@ -1,0 +1,4 @@
+SPDX-License-Identifier: EPL-2.0
+# Required by GeoTools
+Argeo-Origin-M2: org.eclipse.emf:org.eclipse.xsd:2.19.0
+Argeo-Origin-NoMetadataGeneration: true

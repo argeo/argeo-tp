@@ -100,3 +100,6 @@ org.geotools.ogc:net.opengis.wfs, \
 org.geotools.ogc:net.opengis.wmts, \
 org.geotools.ogc:net.opengis.fes, \
 org.geotools.ogc:org.w3.xlink, \
+org.picocontainer:picocontainer:1.2, \
+
+# Note: PicoContainer (v1.2) is needed for dependency injection by GeooTools XSD (GML, etc.)
