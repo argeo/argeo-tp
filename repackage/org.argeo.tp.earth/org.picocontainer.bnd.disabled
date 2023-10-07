@@ -1,3 +1,0 @@
-SPDX-License-Identifier: BSD-2-Clause 
-Argeo-Origin-M2: org.picocontainer:picocontainer:1.2
-DynamicImport-Package: *

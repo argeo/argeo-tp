@@ -1,5 +1,5 @@
 SPDX-License-Identifier: Apache-2.0
-Argeo-Origin-M2: org.apache.commons:commons-compress:1.23.0
+Argeo-Origin-M2: org.apache.commons:commons-compress:1.24.0
 Import-Package: \
 org.brotli.*;resolution:=optional,
 org.tukaani.*;resolution:=optional,

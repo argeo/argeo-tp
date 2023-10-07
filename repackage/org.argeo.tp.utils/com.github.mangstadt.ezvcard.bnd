@@ -1,5 +1,5 @@
 SPDX-License-Identifier: BSD-2-Clause
-Argeo-Origin-M2: com.googlecode.ez-vcard:ez-vcard:0.12.0
+Argeo-Origin-M2: com.googlecode.ez-vcard:ez-vcard:0.12.1
 Import-Package: \
 freemarker.*;resolution:="optional", \
 com.fasterxml.jackson.*;resolution:="optional", \

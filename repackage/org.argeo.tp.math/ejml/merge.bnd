@@ -1,6 +1,6 @@
 Bundle-SymbolicName: org.ejml
 SPDX-License-Identifier: Apache-2.0
-Argeo-Origin-M2: :0.43
+Argeo-Origin-M2: :0.43.1
 Export-Package: org.ejml.*
 Argeo-Origin-M2-Merge: \
 org.ejml:ejml-core, \

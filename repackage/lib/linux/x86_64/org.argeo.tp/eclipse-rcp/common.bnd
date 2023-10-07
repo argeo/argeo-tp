@@ -1,2 +1,3 @@
-SPDX-License-Identifier: Apache-2.0 OR LGPL-2.1
+# JNA license
+SPDX-License-Identifier: LGPL-2.1-or-later OR Apache-2.0
 Argeo-Origin-NoMetadataGeneration: true
