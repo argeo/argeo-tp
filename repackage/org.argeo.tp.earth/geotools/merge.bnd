@@ -1,6 +1,6 @@
 SPDX-License-Identifier: LGPL-2.1-only
 Bundle-SymbolicName: org.geotools
-Argeo-Origin-M2: :29.1
+Argeo-Origin-M2: :29.2
 Argeo-Origin-M2-Repo: https://repo.osgeo.org/repository/release/
 
 Export-Package: org.geotools.*, org.opengis.*, net.opengis.*, org.w3.xlink.*
@@ -36,8 +36,19 @@ org.eclipse.*;resolution:="optional",\
 org.jaitools.*;resolution:="optional",\
 org.jdom2.*;resolution:="optional",\
 org.junit.*;resolution:="optional",\
-org.parboiled.*;resolution:="optional",\
 org.picocontainer.*;resolution:="optional",\
+org.parboiled.annotations;resolution:="optional",\
+org.parboiled.buffers;resolution:="optional",\
+org.parboiled.common;resolution:="optional",\
+org.parboiled.errors;resolution:="optional",\
+org.parboiled.matchers;resolution:="optional",\
+org.parboiled.matchervisitors;resolution:="optional",\
+org.parboiled.parserunners;resolution:="optional",\
+org.parboiled.support;resolution:="optional",\
+org.parboiled.test;resolution:="optional",\
+org.parboiled.transform;resolution:="optional",\
+org.parboiled.trees;resolution:="optional",\
+org.parboiled.*;resolution:="optional",\
 *
 
 Argeo-Origin-M2-Merge: \
@@ -89,3 +100,6 @@ org.geotools.ogc:net.opengis.wfs, \
 org.geotools.ogc:net.opengis.wmts, \
 org.geotools.ogc:net.opengis.fes, \
 org.geotools.ogc:org.w3.xlink, \
+org.picocontainer:picocontainer:1.2, \
+
+# Note: PicoContainer (v1.2) is needed for dependency injection by GeooTools XSD (GML, etc.)

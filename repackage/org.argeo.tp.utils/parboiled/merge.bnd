@@ -1,0 +1,10 @@
+Bundle-SymbolicName: org.parboiled
+SPDX-License-Identifier: Apache-2.0
+Argeo-Origin-M2: :1.4.1
+
+Export-Package: *
+DynamicImport-Package: *
+
+Argeo-Origin-M2-Merge: \
+org.parboiled:parboiled-core,\
+org.parboiled:parboiled-java,\

@@ -1,0 +1,15 @@
+Bundle-SymbolicName: org.apache.xalan
+SPDX-License-Identifier: Apache-2.0
+Argeo-Origin-M2: :2.7.2
+# v2.7.3 does not provides sources in Maven Central
+#Argeo-Origin-M2: :2.7.3
+Export-Package: org.apache.*
+Argeo-Origin-M2-Merge: \
+xalan:xalan,\
+xalan:serializer,\
+
+Import-Package: \
+javax.xml.*;resolution:="optional", \
+org.w3c.*;resolution:="optional", \
+org.xml.*;resolution:="optional", \
+*

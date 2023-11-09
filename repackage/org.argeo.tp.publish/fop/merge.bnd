@@ -1,6 +1,6 @@
 SPDX-License-Identifier: Apache-2.0
 Bundle-SymbolicName: org.apache.fop
-Argeo-Origin-M2: :2.8
+Argeo-Origin-M2: :2.9
 Argeo-Origin-M2-Merge: \
 org.apache.xmlgraphics:fop-core,\
 org.apache.xmlgraphics:fop-util,\

@@ -1,5 +1,5 @@
 SPDX-License-Identifier: Apache-2.0
-Argeo-Origin-M2: de.rototor.pdfbox:graphics2d:0.43
+Argeo-Origin-M2: de.rototor.pdfbox:graphics2d:3.0.0
 
 Import-Package: \
 sun.*;resolution:=optional, \
