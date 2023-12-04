@@ -3,6 +3,7 @@
 <target name="argeo-tp-apps">
 	<locations>
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.utils" type="Directory"/>
+		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.img" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.publish" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.math" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.earth" type="Directory"/>

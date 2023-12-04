@@ -27,10 +27,10 @@ retrieve-ee4j-mbox:
 	# jni
 	rsync -a $(SRC_DIR)/mbox/src/main/cpp/com/sun/mail/mbox/ $(MBOX_JNI_SRC)
 	mkdir -p com.sun.mail.mbox/bin
-	javac -h jni/com_sun_mail_mbox/ -cp "$(A2_OUTPUT)/org.argeo.tp.utils/*" com.sun.mail.mbox/src/com/sun/mail/mbox/*.java
+	javac -h jni/com_sun_mail_mbox/ -cp "$(A2_OUTPUT)/org.argeo.tp.sys/*" com.sun.mail.mbox/src/com/sun/mail/mbox/*.java
 	rm -rf com.sun.mail.mbox/bin
 
-A2_CATEGORY = org.argeo.tp.utils
+A2_CATEGORY = org.argeo.tp.sys
 
 BUNDLES = \
 com.sun.mail.mbox \
@@ -38,7 +38,7 @@ com.sun.mail.mbox \
 clean:
 	rm -rf $(BUILD_BASE)
 
-DEP_CATEGORIES = org.argeo.tp.utils
+DEP_CATEGORIES = org.argeo.tp.sys
 
 include  $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk
 

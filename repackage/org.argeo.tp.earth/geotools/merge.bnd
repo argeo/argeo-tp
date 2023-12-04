@@ -49,6 +49,7 @@ org.parboiled.test;resolution:="optional",\
 org.parboiled.transform;resolution:="optional",\
 org.parboiled.trees;resolution:="optional",\
 org.parboiled.*;resolution:="optional",\
+org.apache.commons.text.*;resolution:="optional",\
 *
 
 Argeo-Origin-M2-Merge: \
