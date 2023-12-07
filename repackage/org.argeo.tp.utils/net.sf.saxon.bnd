@@ -1,5 +1,5 @@
 SPDX-License-Identifier: MPL-2.0
-Argeo-Origin-M2: net.sf.saxon:Saxon-HE:12.3
+Argeo-Origin-M2: net.sf.saxon:Saxon-HE:12.4
 Import-Package:\
 com.sun.org.apache.xerces.internal.jaxp;resolution:="optional",\
 jline.*;resolution:="optional",\

@@ -1,5 +1,5 @@
 SPDX-License-Identifier: Apache-2.0
-Argeo-Origin-M2: org.apache.commons:commons-dbcp2:2.10.0
+Argeo-Origin-M2: org.apache.commons:commons-dbcp2:2.11.0
 
 Import-Package: javax.transaction.*; resolution:="optional",\
 *
