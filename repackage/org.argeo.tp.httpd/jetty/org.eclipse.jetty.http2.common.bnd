@@ -1,2 +1,2 @@
-Argeo-Origin-M2: org.eclipse.jetty.http2:http2-common
+Argeo-Origin-M2: org.eclipse.jetty.http2:jetty-http2-common
 Argeo-Origin-NoMetadataGeneration: true
