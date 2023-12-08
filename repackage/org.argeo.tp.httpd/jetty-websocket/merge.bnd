@@ -1,6 +1,7 @@
 Bundle-SymbolicName: org.eclipse.jetty.websocket
 SPDX-License-Identifier: Apache-2.0 OR EPL-2.0
 Argeo-Origin-M2: :12.0.4
+# TODO split ee8 and ee10 ?
 Argeo-Origin-M2-Merge: \
 org.eclipse.jetty.websocket:jetty-websocket-core-client, \
 org.eclipse.jetty.websocket:jetty-websocket-core-common, \
@@ -9,10 +10,16 @@ org.eclipse.jetty.websocket:jetty-websocket-jetty-api, \
 org.eclipse.jetty.websocket:jetty-websocket-jetty-client, \
 org.eclipse.jetty.websocket:jetty-websocket-jetty-common, \
 org.eclipse.jetty.websocket:jetty-websocket-jetty-server,\
+org.eclipse.jetty.ee8.websocket:jetty-ee8-websocket-servlet, \
 org.eclipse.jetty.ee8.websocket:jetty-ee8-websocket-javax-client, \
 org.eclipse.jetty.ee8.websocket:jetty-ee8-websocket-javax-common, \
 org.eclipse.jetty.ee8.websocket:jetty-ee8-websocket-javax-server,\
-org.eclipse.jetty.ee8.websocket:jetty-ee8-websocket-servlet, \
+org.eclipse.jetty.ee8.websocket:jetty-ee8-websocket-jetty-server, \
+org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-servlet, \
+org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-jakarta-client, \
+org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-jakarta-common, \
+org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-jakarta-server,\
+org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-jetty-server, \
 
 Export-Package: org.eclipse.jetty.*
 

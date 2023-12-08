@@ -2,12 +2,12 @@ include ../sdk.mk
 
 # Minimal third-parties for running headless Argeo CMS
 CATEGORIES_CMS=\
-osgi/equinox/org.argeo.tp.osgi \
 org.argeo.tp \
 org.argeo.tp.httpd \
 crypto/fips/org.argeo.tp.crypto \
+org.argeo.tp.sshd \
+osgi/equinox/org.argeo.tp.osgi \
 osgi/equinox/org.argeo.tp.eclipse \
-
 
 CATEGORIES=\
 $(CATEGORIES_CMS) \
