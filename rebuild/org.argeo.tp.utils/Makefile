@@ -19,11 +19,11 @@ retrieve-angus-mbox: SRC_DIR=src/angus-mail
 retrieve-angus-mbox:
 	rm -rf $(SRC_DIR)
 	mkdir -p $(SRC_DIR)
-	#git -C $(SRC_DIR) init
-	#git -C $(SRC_DIR) remote add -f origin https://github.com/eclipse-ee4j/mail.git
-	#git -C $(SRC_DIR) config core.sparseCheckout true
-	#echo "mbox" >> $(SRC_DIR)/.git/info/sparse-checkout
-	#git -C $(SRC_DIR) pull origin 1.6.7
+#git -C $(SRC_DIR) init
+#git -C $(SRC_DIR) remote add -f origin https://github.com/eclipse-ee4j/mail.git
+#git -C $(SRC_DIR) config core.sparseCheckout true
+#echo "mbox" >> $(SRC_DIR)/.git/info/sparse-checkout
+#git -C $(SRC_DIR) pull origin 1.6.7
 	git clone --branch $(ANGUS_VERSION) https://github.com/eclipse-ee4j/angus-mail.git $(SRC_DIR)
 	rm -rf $(SRC_DIR)/.git
 	rsync -a --delete --exclude module-info.java $(SRC_DIR)/providers/mbox/src/main/java/ org.eclipse.angus.mail.mbox/src
