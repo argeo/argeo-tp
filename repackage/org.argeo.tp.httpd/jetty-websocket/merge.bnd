@@ -11,19 +11,23 @@ org.eclipse.jetty.websocket:jetty-websocket-jetty-client, \
 org.eclipse.jetty.websocket:jetty-websocket-jetty-common, \
 org.eclipse.jetty.websocket:jetty-websocket-jetty-server,\
 org.eclipse.jetty.ee8.websocket:jetty-ee8-websocket-servlet, \
+org.eclipse.jetty.ee8.websocket:jetty-ee8-websocket-jetty-common, \
+org.eclipse.jetty.ee8.websocket:jetty-ee8-websocket-jetty-api, \
 org.eclipse.jetty.ee8.websocket:jetty-ee8-websocket-javax-client, \
 org.eclipse.jetty.ee8.websocket:jetty-ee8-websocket-javax-common, \
 org.eclipse.jetty.ee8.websocket:jetty-ee8-websocket-javax-server,\
 org.eclipse.jetty.ee8.websocket:jetty-ee8-websocket-jetty-server, \
-org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-servlet, \
-org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-jakarta-client, \
-org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-jakarta-common, \
-org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-jakarta-server,\
-org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-jetty-server, \
+
+#org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-servlet, \
+#org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-jakarta-client, \
+#org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-jakarta-common, \
+#org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-jakarta-server,\
+#org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-jetty-server, \
 
 Export-Package: org.eclipse.jetty.*
 
 Import-Package: \
 !java.*, \
 org.eclipse.jetty.ee8.webapp;resolution:="optional", \
+org.eclipse.jetty.ee10.webapp;resolution:="optional", \
 *
