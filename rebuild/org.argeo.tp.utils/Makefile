@@ -3,15 +3,28 @@ include ../../sdk.mk
 
 export NO_SDK_LEGAL := true
 
+A2_CATEGORY = org.argeo.tp.sys
+
+# GNU
+prefix ?= /usr/local
+exec_prefix ?= $(prefix)
+libdir ?= $(exec_prefix)/lib
+A2_NATIVE_INSTALL_TARGET ?= $(DESTDIR)$(libdir)/a2
+
 MBOX_JNI_SRC=jni/org_eclipse_angus_mail_mbox
 MBOX_TARGET_EXEC=libmbox.so
 
 ## FIXME - DON'T FORGET TO UPDATE THE VERSION IN THE RELATED bnd.bnd FILE!
-ANGUS_VERSION=2.0.2
+ANGUS_BRANCH=2.0
+ANGUS_VERSION=$(ANGUS_BRANCH).2
 
 all: retrieve-angus-mbox osgi jni-angus-mbox
 
-install: osgi-install
+install:
+	mkdir -p $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY)
+	# Angus mbox
+	cp -Rv $(SDK_BUILD_BASE)/a2/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.$(ANGUS_BRANCH).jar $(A2_INSTALL_TARGET)/$(A2_CATEGORY)
+	cp -v $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY)
 	
 uninstall: osgi-uninstall
 
@@ -33,7 +46,6 @@ retrieve-angus-mbox:
 	javac -h $(MBOX_JNI_SRC) -cp "$(A2_OUTPUT)/org.argeo.tp.sys/*" org.eclipse.angus.mail.mbox/src/org/eclipse/angus/mail/mbox/*.java
 	rm -rf org.eclipse.angus.mail.mbox/bin
 
-A2_CATEGORY = org.argeo.tp.sys
 
 BUNDLES = \
 org.eclipse.angus.mail.mbox \
