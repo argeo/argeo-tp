@@ -62,6 +62,6 @@ A2_NATIVE_CATEGORY=$(A2_OUTPUT)/lib/linux/$(shell uname -m)/$(A2_CATEGORY)
 jni-angus-mbox:
 	mkdir -p $(A2_NATIVE_CATEGORY)
 	$(CC) -o $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) \
-	 -shared -fPIC -fpic -Wl,-soname,$(MBOX_TARGET_EXEC).1.6 \
+	 -shared -fPIC -fpic -Wl,-soname,$(MBOX_TARGET_EXEC).$(ANGUS_BRANCH) \
 	 -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux $(MBOX_JNI_SRC)/*.c
 
