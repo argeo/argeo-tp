@@ -1,10 +1,10 @@
 Bundle-SymbolicName: org.eclipse.parsson
 SPDX-License-Identifier: GPL-2.0-only WITH Classpath-exception-2.0 OR EPL-2.0
-Argeo-Origin-M2: :1.1.4
+Argeo-Origin-M2: :1.1.5
 Export-Package: org.eclipse.*, jakarta.*
 Import-Package:\
 org.glassfish.hk2.osgiresourcelocator;resolution:="optional",\
 *
 Argeo-Origin-M2-Merge: \
 org.eclipse.parsson:parsson,\
-jakarta.json:jakarta.json-api:2.1.2,\
+jakarta.json:jakarta.json-api:2.1.3,\

@@ -1,0 +1,13 @@
+Bundle-SymbolicName: org.eclipse.angus.activation
+SPDX-License-Identifier: BSD-3-Clause
+Argeo-Origin-M2: :2.0.1
+Import-Package:\
+org.glassfish.hk2.osgiresourcelocator;resolution:="optional",\
+org.graalvm.*;resolution:="optional",\
+*
+
+Export-Package: org.eclipse.*, jakarta.*;version="2.1.2"
+
+Argeo-Origin-M2-Merge: \
+org.eclipse.angus:angus-activation,\
+jakarta.activation:jakarta.activation-api:2.1.2,\

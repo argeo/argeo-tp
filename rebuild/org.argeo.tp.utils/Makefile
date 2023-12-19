@@ -3,50 +3,65 @@ include ../../sdk.mk
 
 export NO_SDK_LEGAL := true
 
-MBOX_JNI_SRC=jni/com_sun_mail_mbox
+A2_CATEGORY = org.argeo.tp.sys
+
+# GNU
+prefix ?= /usr/local
+exec_prefix ?= $(prefix)
+libdir ?= $(exec_prefix)/lib
+A2_NATIVE_INSTALL_TARGET ?= $(DESTDIR)$(libdir)/a2
+
+MBOX_JNI_SRC=jni/org_eclipse_angus_mail_mbox
 MBOX_TARGET_EXEC=libmbox.so
 
-all: retrieve-ee4j-mbox osgi jni-ee4j-mbox
+## FIXME - DON'T FORGET TO UPDATE THE VERSION IN THE RELATED bnd.bnd FILE!
+ANGUS_BRANCH=2.0
+ANGUS_VERSION=$(ANGUS_BRANCH).2
 
-install: osgi-install
+all: retrieve-angus-mbox osgi jni-angus-mbox
+
+install:
+	mkdir -p $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY)
+	# Angus mbox
+	cp -Rv $(SDK_BUILD_BASE)/a2/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.$(ANGUS_BRANCH).jar $(A2_INSTALL_TARGET)/$(A2_CATEGORY)
+	cp -v $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY)
 	
 uninstall: osgi-uninstall
 
-retrieve-ee4j-mbox: SRC_DIR=src/ee4j-mail
-retrieve-ee4j-mbox:
+retrieve-angus-mbox: SRC_DIR=src/angus-mail
+retrieve-angus-mbox:
 	rm -rf $(SRC_DIR)
 	mkdir -p $(SRC_DIR)
-	#git -C $(SRC_DIR) init
-	#git -C $(SRC_DIR) remote add -f origin https://github.com/eclipse-ee4j/mail.git
-	#git -C $(SRC_DIR) config core.sparseCheckout true
-	#echo "mbox" >> $(SRC_DIR)/.git/info/sparse-checkout
-	#git -C $(SRC_DIR) pull origin 1.6.7
-	git clone --branch 1.6.7 https://github.com/eclipse-ee4j/mail.git $(SRC_DIR)
+#git -C $(SRC_DIR) init
+#git -C $(SRC_DIR) remote add -f origin https://github.com/eclipse-ee4j/mail.git
+#git -C $(SRC_DIR) config core.sparseCheckout true
+#echo "mbox" >> $(SRC_DIR)/.git/info/sparse-checkout
+#git -C $(SRC_DIR) pull origin 1.6.7
+	git clone --branch $(ANGUS_VERSION) https://github.com/eclipse-ee4j/angus-mail.git $(SRC_DIR)
 	rm -rf $(SRC_DIR)/.git
-	rsync -a --delete --exclude module-info.java $(SRC_DIR)/mbox/src/main/java/ com.sun.mail.mbox/src
+	rsync -a --delete --exclude module-info.java $(SRC_DIR)/providers/mbox/src/main/java/ org.eclipse.angus.mail.mbox/src
 	# jni
-	rsync -a $(SRC_DIR)/mbox/src/main/cpp/com/sun/mail/mbox/ $(MBOX_JNI_SRC)
-	mkdir -p com.sun.mail.mbox/bin
-	javac -h jni/com_sun_mail_mbox/ -cp "$(A2_OUTPUT)/org.argeo.tp.utils/*" com.sun.mail.mbox/src/com/sun/mail/mbox/*.java
-	rm -rf com.sun.mail.mbox/bin
+	rsync -a $(SRC_DIR)/providers/mbox/src/main/cpp/org/eclipse/angus/mail/mbox/ $(MBOX_JNI_SRC)
+	mkdir -p org.eclipse.angus.mail.mbox/bin
+	javac -h $(MBOX_JNI_SRC) -cp "$(A2_OUTPUT)/org.argeo.tp.sys/*" org.eclipse.angus.mail.mbox/src/org/eclipse/angus/mail/mbox/*.java
+	rm -rf org.eclipse.angus.mail.mbox/bin
 
-A2_CATEGORY = org.argeo.tp.utils
 
 BUNDLES = \
-com.sun.mail.mbox \
+org.eclipse.angus.mail.mbox \
 
 clean:
 	rm -rf $(BUILD_BASE)
 
-DEP_CATEGORIES = org.argeo.tp.utils
+DEP_CATEGORIES = org.argeo.tp.sys
 
 include  $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk
 
 A2_NATIVE_CATEGORY=$(A2_OUTPUT)/lib/linux/$(shell uname -m)/$(A2_CATEGORY)
 
-jni-ee4j-mbox:
+jni-angus-mbox:
 	mkdir -p $(A2_NATIVE_CATEGORY)
 	$(CC) -o $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) \
-	 -shared -fPIC -fpic -Wl,-soname,$(MBOX_TARGET_EXEC).1.6 \
+	 -shared -fPIC -fpic -Wl,-soname,$(MBOX_TARGET_EXEC).$(ANGUS_BRANCH) \
 	 -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux $(MBOX_JNI_SRC)/*.c
 

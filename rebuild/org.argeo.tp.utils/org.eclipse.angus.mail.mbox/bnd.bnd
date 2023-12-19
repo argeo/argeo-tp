@@ -1,0 +1,10 @@
+Export-Package: org.eclipse.angus.mail.*
+
+Import-Package: \
+jakarta.mail.event,\
+org.graalvm.*;resolution:="optional",\
+*
+
+major: 2
+minor: 0
+micro: 2

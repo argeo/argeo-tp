@@ -1,9 +1,0 @@
-SPDX-License-Identifier: BSD-3-Clause
-Argeo-Origin-M2: org.jline:jline:3.23.0
-Import-Package:\
-sun.misc.*;resolution:="optional",\
-com.sun.jna.*;resolution:="optional",\
-org.fusesource.jansi.*;resolution:="optional",\
-org.apache.sshd.*;resolution:="optional",\
-javax.annotation.*;resolution:="optional",\
-*
