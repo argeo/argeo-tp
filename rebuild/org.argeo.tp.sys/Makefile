@@ -5,12 +5,6 @@ export NO_SDK_LEGAL := true
 
 A2_CATEGORY = org.argeo.tp.sys
 
-# GNU
-prefix ?= /usr/local
-exec_prefix ?= $(prefix)
-libdir ?= $(exec_prefix)/lib
-A2_NATIVE_INSTALL_TARGET ?= $(DESTDIR)$(libdir)/a2
-
 MBOX_JNI_SRC=jni/org_eclipse_angus_mail_mbox
 MBOX_TARGET_EXEC=libmbox.so
 
@@ -23,10 +17,12 @@ all: retrieve-angus-mbox osgi jni-angus-mbox
 install:
 	mkdir -p $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY)
 	# Angus mbox
-	cp -Rv $(SDK_BUILD_BASE)/a2/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.$(ANGUS_BRANCH).jar $(A2_INSTALL_TARGET)/$(A2_CATEGORY)
-	cp -v $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY)
+	$(INSTALL) $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY) $(SDK_BUILD_BASE)/a2/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.$(ANGUS_BRANCH).jar
+	$(INSTALL) $(A2_NATIVE_INSTALL_TARGET) $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC)
 	
 uninstall: osgi-uninstall
+	$(RM) $(A2_NATIVE_INSTALL_TARGET)/$(MBOX_TARGET_EXEC)
+	@if [ -d $(A2_NATIVE_INSTALL_TARGET) ]; then find $(A2_NATIVE_INSTALL_TARGET) -empty -type d -delete; fi
 
 retrieve-angus-mbox: SRC_DIR=src/angus-mail
 retrieve-angus-mbox:
@@ -55,7 +51,7 @@ clean:
 
 DEP_CATEGORIES = org.argeo.tp.sys
 
-include  $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk
+include $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk
 
 A2_NATIVE_CATEGORY=$(A2_OUTPUT)/lib/linux/$(shell uname -m)/$(A2_CATEGORY)
 

@@ -1,0 +1,5 @@
+# Fake JNA bundle
+# FIXME make it smaller
+Argeo-Origin-M2: net.java.dev.jna:jna:5.13.0
+SPDX-License-Identifier: Apache-2.0
+Export-Package:
