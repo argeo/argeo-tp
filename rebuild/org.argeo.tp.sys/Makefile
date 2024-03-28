@@ -18,10 +18,10 @@ install:
 	mkdir -p $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY)
 	# Angus mbox
 	$(INSTALL) $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY) $(SDK_BUILD_BASE)/a2/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.$(ANGUS_BRANCH).jar
-	$(INSTALL) $(A2_NATIVE_INSTALL_TARGET) $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC)
+	#$(INSTALL) $(A2_NATIVE_INSTALL_TARGET) $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC)
 	
 uninstall: osgi-uninstall
-	$(RM) $(A2_NATIVE_INSTALL_TARGET)/$(MBOX_TARGET_EXEC)
+	#$(RM) $(A2_NATIVE_INSTALL_TARGET)/$(MBOX_TARGET_EXEC)
 	@if [ -d $(A2_NATIVE_INSTALL_TARGET) ]; then find $(A2_NATIVE_INSTALL_TARGET) -empty -type d -delete; fi
 
 retrieve-angus-mbox: SRC_DIR=src/angus-mail
