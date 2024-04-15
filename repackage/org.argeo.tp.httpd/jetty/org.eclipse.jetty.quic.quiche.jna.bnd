@@ -1,5 +1,2 @@
 Argeo-Origin-M2: org.eclipse.jetty.quic:jetty-quic-quiche-jna
 Argeo-Origin-NoMetadataGeneration: true
-Import-Package:\
-com.sun.jna*;resolution:="optional",\
-*
