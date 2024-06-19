@@ -1,2 +1,4 @@
 SPDX-License-Identifier: Apache-2.0
-Argeo-Origin-M2: org.apache.tomcat:tomcat-jni:10.1.19
+# Apache SSHD expects Tomcat JNI v9
+# (Tomcat JNI v10 causes java.lang.NoClassDefFoundError: org.apache.tomcat.jni.Local)
+Argeo-Origin-M2: org.apache.tomcat:tomcat-jni:9.0.89
