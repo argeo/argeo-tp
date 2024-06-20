@@ -1,6 +1,6 @@
 Bundle-SymbolicName: org.eclipse.jetty.websocket
 SPDX-License-Identifier: Apache-2.0 OR EPL-2.0
-Argeo-Origin-M2: :12.0.7
+Argeo-Origin-M2: :12.0.10
 # TODO split ee8 and ee10 ?
 Argeo-Origin-M2-Merge: \
 org.eclipse.jetty.websocket:jetty-websocket-core-client, \

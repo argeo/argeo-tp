@@ -1,6 +1,6 @@
 Bundle-SymbolicName: org.apache.tika
 SPDX-License-Identifier: Apache-2.0
-Argeo-Origin-M2: :2.9.1
+Argeo-Origin-M2: :2.9.2
 Export-Package: org.apache.*
 Import-Package: *;resolution:=optional
 Argeo-Origin-M2-Merge: \

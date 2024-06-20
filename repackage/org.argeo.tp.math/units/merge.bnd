@@ -1,5 +1,6 @@
 SPDX-License-Identifier: BSD-3-Clause
 Bundle-SymbolicName: tech.units.indriya
+# Note: GeoTools is not compatible with v2.2
 Argeo-Origin-M2: :2.1.4
 Export-Package: javax.measure.*, tech.units.indriya.*, si.uom.*, systems.uom.*
 Import-Package: \
