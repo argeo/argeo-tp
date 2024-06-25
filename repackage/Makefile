@@ -6,6 +6,7 @@ org.argeo.tp \
 org.argeo.tp.httpd \
 crypto/fips/org.argeo.tp.crypto \
 org.argeo.tp.sshd \
+osgi/equinox/org.argeo.tp.osgi.framework \
 osgi/equinox/org.argeo.tp.osgi \
 osgi/equinox/org.argeo.tp.eclipse \
 
