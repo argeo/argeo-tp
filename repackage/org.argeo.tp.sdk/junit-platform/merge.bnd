@@ -13,6 +13,8 @@ org.junit.platform:junit-platform-suite-engine, \
 org.junit.platform:junit-platform-testkit, \
 org.junit.platform:junit-platform-launcher, \
 
+Provide-Capability: org.junit.platform.launcher;org.junit.platform.launcher=junit-platform-launcher;version:Version="1.10.2"
+ 
 Export-Package: org.junit.platform.*
 
 Import-Package: \
