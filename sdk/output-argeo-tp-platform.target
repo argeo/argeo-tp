@@ -5,6 +5,7 @@
 		<location path="${project_loc:argeo-tp}/../output/a2/crypto/fips/org.argeo.tp.crypto" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/log/syslogger/org.argeo.tp" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp" type="Directory"/>
+		<location path="${project_loc:argeo-tp}/../output/a2/osgi/equinox/org.argeo.tp.osgi.framework" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/osgi/equinox/org.argeo.tp.osgi" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/osgi/equinox/org.argeo.tp.eclipse" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.httpd" type="Directory"/>
@@ -13,6 +14,7 @@
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.sdk" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.sys" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.sdk" type="Directory"/>
+		<location path="${project_loc:argeo-tp}/../output/a2/lib/linux/x86_64/org.argeo.tp.sys" type="Directory"/>
 	</locations>
 	<targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17"/>
 </target>

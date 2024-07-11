@@ -1,2 +1,7 @@
 Argeo-Origin-M2: org.orbisgis:h2gis
 Fragment-Host: org.h2
+Import-Package:\
+com.google.flatbuffers.*;resolution:="optional",\
+net.sf.geographiclib.*;resolution:="optional",\
+org.wololo.flatgeobuf.*;resolution:="optional",\
+*

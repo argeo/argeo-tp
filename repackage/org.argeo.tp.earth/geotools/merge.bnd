@@ -1,6 +1,6 @@
 SPDX-License-Identifier: LGPL-2.1-only
 Bundle-SymbolicName: org.geotools
-Argeo-Origin-M2: :30.1
+Argeo-Origin-M2: :31.2
 Argeo-Origin-M2-Repo: https://repo.osgeo.org/repository/release/
 
 Export-Package: org.geotools.*, org.w3.xlink.*

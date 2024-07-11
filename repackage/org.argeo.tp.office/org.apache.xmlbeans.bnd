@@ -4,4 +4,4 @@ Import-Package: org.apache.tools.ant.*;resolution:=optional,
 net.sf.saxon.*;resolution:=optional,
 com.sun.*;resolution:=optional,
 *
-Argeo-Origin-M2: org.apache.xmlbeans:xmlbeans:5.2.0
+Argeo-Origin-M2: org.apache.xmlbeans:xmlbeans:5.2.1

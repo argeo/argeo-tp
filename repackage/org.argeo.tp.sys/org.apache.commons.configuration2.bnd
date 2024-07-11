@@ -1,5 +1,5 @@
 SPDX-License-Identifier: Apache-2.0
-Argeo-Origin-M2: org.apache.commons:commons-configuration2:2.9.0
+Argeo-Origin-M2: org.apache.commons:commons-configuration2:2.11.0
 Import-Package: \
 org.apache.commons.jexl2.*;resolution:=optional,
 *

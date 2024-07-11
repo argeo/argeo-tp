@@ -1,6 +1,6 @@
 SPDX-License-Identifier: EPL-2.0
 Bundle-SymbolicName: org.junit.platform
-Argeo-Origin-M2: :1.10.1
+Argeo-Origin-M2: :1.10.2
 Argeo-Origin-M2-Merge: \
 org.junit.platform:junit-platform-commons, \
 org.junit.platform:junit-platform-console, \
@@ -13,6 +13,8 @@ org.junit.platform:junit-platform-suite-engine, \
 org.junit.platform:junit-platform-testkit, \
 org.junit.platform:junit-platform-launcher, \
 
+Provide-Capability: org.junit.platform.launcher;org.junit.platform.launcher=junit-platform-launcher;version:Version="1.10.2"
+ 
 Export-Package: org.junit.platform.*
 
 Import-Package: \
