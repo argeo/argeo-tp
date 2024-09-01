@@ -9,6 +9,8 @@
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.earth" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/osgi/equinox/org.argeo.tp.eclipse" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.jcr" type="Directory"/>
+		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp.ml" type="Directory"/>
+		<location path="${project_loc:argeo-tp}/../output/a2/lib/linux/x86_64/org.argeo.tp.ml" type="Directory"/>
 		<location type="Target" uri="file:${project_loc:argeo-tp}/sdk/output-argeo-tp-platform.target"/>
 	</locations>
 </target>

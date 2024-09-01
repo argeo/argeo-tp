@@ -1,5 +1,5 @@
 SPDX-License-Identifier: Apache-2.0
-# Note: Used only by h2gis
+# Note: Used only by h2gis and jlama
 Argeo-Origin-M2: com.google.guava:guava:33.2.1-jre
 Bundle-Version: 33.2.1.jre
 Import-Package:\

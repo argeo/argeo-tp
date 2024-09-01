@@ -1,0 +1,3 @@
+SPDX-License-Identifier: Apache-2.0
+# Note: Used only by langchain
+Argeo-Origin-M2: com.google.code.gson:gson:2.11.0

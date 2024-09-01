@@ -1,0 +1,7 @@
+
+major: 0
+minor: 2
+micro: 1
+
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=20))"
+Bundle-RequiredExecutionEnvironment: JavaSE-20

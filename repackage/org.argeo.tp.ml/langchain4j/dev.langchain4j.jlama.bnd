@@ -1,0 +1,2 @@
+Argeo-Origin-M2: dev.langchain4j:langchain4j-jlama
+Require-Capability: osgi.ee; filter="(&(osgi.ee=JavaSE)(version=20))"

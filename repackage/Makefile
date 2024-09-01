@@ -36,6 +36,7 @@ org.argeo.tp.math \
 org.argeo.tp.jcr \
 org.argeo.tp.office \
 org.argeo.tp.earth \
+org.argeo.tp.ml \
 crypto/full/org.argeo.tp.crypto \
 
 install-for-minimal-cms:
