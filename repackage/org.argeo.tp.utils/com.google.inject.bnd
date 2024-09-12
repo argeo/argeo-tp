@@ -1,0 +1,5 @@
+SPDX-License-Identifier: Apache-2.0
+Argeo-Origin-M2: com.google.inject:guice:7.0.0
+Import-Package:\
+com.google.errorprone.*;resolution:=optional,\
+*
