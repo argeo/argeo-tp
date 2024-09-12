@@ -1,4 +1,5 @@
 Argeo-Origin-M2: com.github.tjake:jlama-core
 Import-Package:\
 org.jctools.queues,\
+net.fellbaum.jemoji.*;resolution:=optional,\
 *

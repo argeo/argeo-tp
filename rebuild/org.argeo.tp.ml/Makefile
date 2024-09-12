@@ -5,9 +5,6 @@ export NO_SDK_LEGAL := true
 
 A2_CATEGORY = org.argeo.tp.ml
 
-JLAMA_JNI_SRC=jni/com_github_tjake_jlama
-JLAMA_TARGET_EXEC=libjlama.so
-
 ## FIXME - DON'T FORGET TO UPDATE THE VERSION IN THE RELATED bnd.bnd FILE!
 JLLAMA_BRANCH=3.3
 JLLAMA_VERSION=$(JLLAMA_BRANCH).0
@@ -15,8 +12,11 @@ JLLAMA_VERSION=$(JLLAMA_BRANCH).0
 LLAMA3_COMMIT=5f602500beb593dce2726df7e2dd08b0803aa86b
 LLAMA3_VERSION=0.1.0
 
-JLAMA_BRANCH=0.2
+JLAMA_BRANCH=0.3
 JLAMA_VERSION=$(JLAMA_BRANCH).1
+
+JLAMA_JNI_SRC=jni/com_github_tjake_jlama
+JLAMA_TARGET_EXEC=libjlama.so
 
 all: retrieve-jllama retrieve-llama3 retrieve-jlama osgi jni-jlama
 	mkdir -p $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)
@@ -54,8 +54,10 @@ retrieve-jlama:
 	mkdir -p $(SRC_DIR)
 	git clone --branch v$(JLAMA_VERSION) https://github.com/tjake/Jlama.git $(SRC_DIR)
 	rm -rf $(SRC_DIR)/.git
+	# First common code
 	rsync -a --delete --exclude module-info.java $(SRC_DIR)/jlama-native/src/main/java/ com.github.tjake.jlama.native/src
-	# future: rsync -a --delete --exclude module-info.java $(SRC_DIR)/jlama-native/src/main/java21/ com.github.tjake.jlama.native/src
+	# Then override with Java 21 specific
+	rsync -a --exclude module-info.java $(SRC_DIR)/jlama-native/src/main/java21/ com.github.tjake.jlama.native/src
 	rsync -a --delete --exclude module-info.java $(SRC_DIR)/jlama-native/src/main/c/ $(JLAMA_JNI_SRC)
 
 BUNDLES = \

@@ -2,15 +2,17 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Export-Package: com.github.tjake.jlama.tensor.operations;uses:="com.gith
  ub.tjake.jlama.safetensors,com.github.tjake.jlama.tensor",com.github.tj
- ake.jlama.tensor.operations.cnative
+ ake.jlama.tensor.operations.cnative,com.github.tjake.jlama.tensor.opera
+ tions.util
 Import-Package: com.github.tjake.jlama.safetensors,com.github.tjake.jlam
  a.tensor,com.github.tjake.jlama.tensor.operations.cnative,com.github.tj
- ake.jlama.util,java.io,java.lang,java.lang.foreign,java.lang.invoke,jav
- a.net,java.nio.file,java.nio.file.attribute,java.util,java.util.functio
- n,org.slf4j
+ ake.jlama.tensor.operations.util,com.github.tjake.jlama.util,java.io,ja
+ va.lang,java.lang.foreign,java.lang.invoke,java.net,java.nio.file,java.
+ nio.file.attribute,java.util,java.util.function,org.slf4j
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=20))"
 Bundle-RequiredExecutionEnvironment: JavaSE-20
-Bundle-Version: 0.2.1.next
+Fragment-Host: com.github.tjake.jlama
+Bundle-Version: 0.3.1.next
 Automatic-Module-Name: com.github.tjake.jlama.native
 Bundle-SymbolicName: com.github.tjake.jlama.native
 Bundle-Name: com.github.tjake.jlama.native

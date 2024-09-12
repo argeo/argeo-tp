@@ -1,7 +1,9 @@
 
 major: 0
-minor: 2
+minor: 3
 micro: 1
 
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=20))"
 Bundle-RequiredExecutionEnvironment: JavaSE-20
+
+Fragment-Host: com.github.tjake.jlama
