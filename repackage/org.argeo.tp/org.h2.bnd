@@ -6,6 +6,7 @@ Argeo-Origin-M2: com.h2database:h2:2.2.224
 
 Import-Package:\
 jakarta.*;resolution:=optional,\
+java.lang.instrument.*;resolution:=optional,\
 org.apache.lucene.*;resolution:=optional,\
 org.codehaus.groovy.*;resolution:=optional,\
 org.osgi.*;resolution:=optional,\
