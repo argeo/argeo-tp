@@ -1,5 +1,5 @@
 SPDX-License-Identifier: BSD-3-Clause
-Argeo-Origin-M2: org.eclipse.jgit:org.eclipse.jgit:6.10.0.202406032230-r
+Argeo-Origin-M2: org.eclipse.jgit:org.eclipse.jgit:7.0.0.202409031743-r
 Import-Package: \
 sun.*;resolution:=optional, \
 com.jcraft.jsch;resolution:=optional, \

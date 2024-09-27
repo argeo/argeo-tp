@@ -1,5 +1,5 @@
 SPDX-License-Identifier: BSD-3-Clause
-Argeo-Origin-M2: org.jline:jline:3.26.2
+Argeo-Origin-M2: org.jline:jline:3.26.3
 Import-Package:\
 sun.misc.*;resolution:="optional",\
 com.sun.jna.*;resolution:="optional",\

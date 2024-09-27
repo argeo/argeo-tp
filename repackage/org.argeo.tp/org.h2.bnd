@@ -2,7 +2,7 @@ SPDX-License-Identifier: MPL-2.0
 
 #Argeo-Origin-M2: com.h2database:h2:2.1.214
 # New format (3) was introduced with 2.2.220
-Argeo-Origin-M2: com.h2database:h2:2.2.224
+Argeo-Origin-M2: com.h2database:h2:2.3.232
 
 Import-Package:\
 jakarta.*;resolution:=optional,\

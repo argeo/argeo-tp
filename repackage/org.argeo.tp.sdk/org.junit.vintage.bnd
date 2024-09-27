@@ -1,2 +1,3 @@
 SPDX-License-Identifier: EPL-2.0
-Argeo-Origin-M2: org.junit.vintage:junit-vintage-engine:5.10.2
+# TODO Put it in the merged jar, since it is always the same version?
+Argeo-Origin-M2: org.junit.vintage:junit-vintage-engine:5.11.1

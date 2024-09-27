@@ -1,4 +1,4 @@
 # this is actually dnsjava, see https://github.com/dnsjava/dnsjava
 SPDX-License-Identifier: BSD-3-Clause
-Argeo-Origin-M2: dnsjava:dnsjava:3.6.1
+Argeo-Origin-M2: dnsjava:dnsjava:3.6.2
 Argeo-Origin-NoMetadataGeneration: true

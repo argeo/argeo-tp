@@ -1,0 +1,4 @@
+# Note: no needed in platform but by some fancy libraries in apps.
+# Since it is small, we keep it here, in order to avoid duplication of version maintenance
+Argeo-Origin-M2: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml
+Argeo-Origin-NoMetadataGeneration: true
