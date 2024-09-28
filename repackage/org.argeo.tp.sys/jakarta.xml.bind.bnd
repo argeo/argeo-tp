@@ -1,0 +1,3 @@
+SPDX-License-Identifier: BSD-3-Clause
+# Note: Only used by Apache Santuario
+Argeo-Origin-M2: jakarta.xml.bind:jakarta.xml.bind-api:4.0.2

@@ -1,4 +1,4 @@
 SPDX-License-Identifier: Apache-2.0
-Argeo-Origin-M2: com.hubspot.jinjava:jinjava:2.7.2
+Argeo-Origin-M2: com.hubspot.jinjava:jinjava:2.7.3
 Import-Package:\
 *;resolution:="optional"

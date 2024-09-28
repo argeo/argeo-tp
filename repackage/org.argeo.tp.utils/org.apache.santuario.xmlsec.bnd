@@ -1,2 +1,5 @@
 SPDX-License-Identifier: Apache-2.0
-Argeo-Origin-M2: org.apache.santuario:xmlsec:2.3.4
+# Note: not used for the time being, but esp. canonicalization may be useful
+Argeo-Origin-M2: org.apache.santuario:xmlsec:4.0.2
+# Note: no other bundle seems to depend on v2.x anymore
+#Argeo-Origin-M2: org.apache.santuario:xmlsec:2.3.4

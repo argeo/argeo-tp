@@ -1,5 +1,5 @@
 SPDX-License-Identifier: Apache-2.0
-Argeo-Origin-M2: org.xmlresolver:xmlresolver:5.2.3
+Argeo-Origin-M2: org.xmlresolver:xmlresolver:6.0.10
 Import-Package:\
 com.thaiopensource.*;resolution:="optional",\
 org.apache.xerces.*;resolution:="optional",\

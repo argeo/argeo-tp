@@ -1,2 +1,3 @@
 SPDX-License-Identifier: LGPL-2.0-only
+# TODO Check whether project is still active and/or help them update their deps
 Argeo-Origin-M2: com.github.thjomnx:java-systemd:2.1.0

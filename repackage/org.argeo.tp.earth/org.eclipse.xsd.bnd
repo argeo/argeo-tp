@@ -1,4 +1,5 @@
 SPDX-License-Identifier: EPL-2.0
 # Required by GeoTools
-Argeo-Origin-M2: org.eclipse.emf:org.eclipse.xsd:2.19.0
+# TODO Get rid of it, as it requires EMF to be available
+Argeo-Origin-M2: org.eclipse.emf:org.eclipse.xsd:2.20.0
 Argeo-Origin-NoMetadataGeneration: true

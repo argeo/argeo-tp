@@ -1,4 +1,5 @@
 SPDX-License-Identifier: GPL-2.0-only WITH Classpath-exception-2.0 OR CDDL-1.0
+# TODO Seems to be only used by de.thjom.java.systemd
 Argeo-Origin-M2: javax.xml.bind:jaxb-api:2.4.0-b180830.0359
 Bundle-Version: 2.4.0.b1808300359
 

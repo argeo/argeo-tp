@@ -1,3 +1,4 @@
 SPDX-License-Identifier: BSD-3-Clause
 # No source available in Maven Central for 6.1.11
+# but we keep it because com.drew.metadata really needs it
 Argeo-Origin-M2: com.adobe.xmp:xmpcore:6.1.11
