@@ -1,4 +1,0 @@
-SPDX-License-Identifier: Apache-2.0
-# !! Keep in line with Jackson in platform
-Argeo-Origin-M2: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.18.0
-Argeo-Origin-NoMetadataGeneration: true

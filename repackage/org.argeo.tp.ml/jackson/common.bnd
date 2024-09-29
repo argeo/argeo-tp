@@ -1,0 +1,3 @@
+SPDX-License-Identifier: Apache-2.0
+# !! Keep in line with Jackson in platform
+Argeo-Origin-M2: :2.18.0

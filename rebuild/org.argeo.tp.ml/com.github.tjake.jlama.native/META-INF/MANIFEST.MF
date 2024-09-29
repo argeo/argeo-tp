@@ -12,7 +12,7 @@ Import-Package: com.github.tjake.jlama.safetensors,com.github.tjake.jlam
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=20))"
 Bundle-RequiredExecutionEnvironment: JavaSE-20
 Fragment-Host: com.github.tjake.jlama
-Bundle-Version: 0.3.1.next
+Bundle-Version: 0.5.0.next
 Automatic-Module-Name: com.github.tjake.jlama.native
 Bundle-SymbolicName: com.github.tjake.jlama.native
 Bundle-Name: com.github.tjake.jlama.native
