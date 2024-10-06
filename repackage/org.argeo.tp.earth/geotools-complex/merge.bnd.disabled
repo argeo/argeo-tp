@@ -1,0 +1,71 @@
+Bundle-SymbolicName: org.geotools.complex
+
+SPDX-License-Identifier: LGPL-2.1-only
+Argeo-Origin-M2: :32.0
+Argeo-Origin-M2-Repo: https://repo.osgeo.org/repository/release/
+
+Export-Package: org.geotools.*
+
+Import-Package: \
+org.geotools.gui.swing.*;resolution:="optional",\
+org.locationtech.jts.*,\
+org.geotools.*,\
+org.opengis.*,\
+net.opengis.*,\
+javax.measure.*, \
+tech.units.indriya.*, \
+si.uom.*, \
+systems.uom.*, \
+org.ejml.*,\
+au.com.objectix.*;resolution:="optional",\
+ch.qos.logback.*;resolution:="optional",\
+com.conversantmedia.*;resolution:="optional",\
+com.google.re2j.*;resolution:="optional",\
+com.sun.media.*;resolution:="optional",\
+com.sun.medialib.*;resolution:="optional",\
+geodb.*;resolution:="optional",\
+it.geosolutions.*;resolution:="optional",\
+javax.imageio.*;resolution:="optional",\
+javax.media.*;resolution:="optional",\
+javax.sql.*;resolution:="optional",\
+net.sf.geographiclib.*;resolution:="optional",\
+org.apache.log4j.*;resolution:="optional",\
+org.apache.logging.log4j.*;resolution:="optional",\
+org.eclipse.*;resolution:="optional",\
+org.jaitools.*;resolution:="optional",\
+org.jdom2.*;resolution:="optional",\
+org.junit.*;resolution:="optional",\
+org.picocontainer.*;resolution:="optional",\
+org.apache.commons.text.*;resolution:="optional",\
+*
+
+Argeo-Origin-M2-Merge: \
+org.geotools:gt-wfs-ng, \
+org.geotools:gt-wms, \
+org.geotools:gt-wmts, \
+org.geotools:gt-complex, \
+org.geotools:gt-app-schema, \
+org.geotools:gt-app-schema-resolver, \
+org.geotools:gt-gml-geometry-streaming, \
+org.geotools:gt-tile-client, \
+org.geotools.xsd:gt-xsd-core, \
+org.geotools.xsd:gt-xsd-filter, \
+org.geotools.xsd:gt-xsd-ows, \
+org.geotools.xsd:gt-xsd-fes, \
+org.geotools.xsd:gt-xsd-gml2, \
+org.geotools.xsd:gt-xsd-gml3, \
+org.geotools.xsd:gt-xsd-wfs, \
+org.geotools.xsd:gt-xsd-wmts, \
+org.geotools.xsd:gt-xsd-sld, \
+org.geotools.ogc:net.opengis.ows, \
+org.geotools.ogc:net.opengis.wfs, \
+org.geotools.ogc:net.opengis.wmts, \
+org.geotools.ogc:net.opengis.fes, \
+org.geotools.ogc:org.w3.xlink, \
+org.picocontainer:picocontainer:1.2, \
+org.eclipse.emf:org.eclipse.xsd:2.20.0,\
+
+# Note: PicoContainer (v1.2) is needed for dependency injection by GeoTools XSD (GML, etc.)
+# Note: Eclipse XSD is required by geotools XSD. It requires in turn Eclipse EMF
+# Note: XLink requires Eclipse EMF
+
