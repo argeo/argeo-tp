@@ -5,6 +5,8 @@ export NO_SDK_LEGAL := true
 
 A2_CATEGORY = org.argeo.tp.sys
 
+msys_version := $(if $(findstring Msys, $(shell uname -o)),$(word 1, $(subst ., ,$(shell uname -r))),0)
+
 MBOX_JNI_SRC=jni/org_eclipse_angus_mail_mbox
 MBOX_TARGET_EXEC=libmbox.so
 
@@ -58,8 +60,9 @@ include $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk
 A2_NATIVE_CATEGORY=$(A2_OUTPUT)/lib/linux/$(shell uname -m)/$(A2_CATEGORY)
 
 jni-angus-mbox:
+ifeq ($(msys_version), '0')	
 	mkdir -p $(A2_NATIVE_CATEGORY)
 	$(CC) -o $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) \
 	 -shared -fPIC -fpic -Wl,-soname,$(MBOX_TARGET_EXEC).$(ANGUS_BRANCH) \
 	 -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux $(MBOX_JNI_SRC)/*.c
-
+endif
