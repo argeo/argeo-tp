@@ -1,0 +1,8 @@
+# TODO Check licences more in details, as it may be Apache 2-tainted
+# https://jogamp.org/cgit/jogl.git/tree/LICENSE.txt?p=jogl.git;a=blob;f=LICENSE.txt
+SPDX-License-Identifier: BSD-2-Clause
+# !! Imaginary Maven coordinates, as it is not deployed on Maven central
+Argeo-Origin-M2: org.jogamp:jogamp-fat:2.5.0
+Argeo-Origin-URI: https://jogamp.org/deployment/v2.5.0/fat/jogamp-fat.jar
+Argeo-Origin-Sources-URI: https://jogamp.org/deployment/v2.5.0/fat/jogamp-fat-java-src.zip
+SPDX-License-Identifier: BSD-2-Clause
