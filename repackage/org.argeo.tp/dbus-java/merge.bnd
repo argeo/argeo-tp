@@ -1,4 +1,4 @@
-Bundle-SymbolicName: org.freeedesktop.dbus
+Bundle-SymbolicName: org.freedesktop.dbus
 SPDX-License-Identifier: LGPL-2.0
 # TODO Check whether relicensing of this fork was allowed
 #SPDX-License-Identifier: MIT
