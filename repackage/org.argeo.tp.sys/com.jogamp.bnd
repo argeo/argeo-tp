@@ -5,4 +5,10 @@ SPDX-License-Identifier: BSD-2-Clause
 Argeo-Origin-M2: org.jogamp:jogamp-fat:2.5.0
 Argeo-Origin-URI: https://jogamp.org/deployment/v2.5.0/fat/jogamp-fat.jar
 Argeo-Origin-Sources-URI: https://jogamp.org/deployment/v2.5.0/fat/jogamp-fat-java-src.zip
-SPDX-License-Identifier: BSD-2-Clause
+
+Import-Package:\
+javafx.*;resolution:=optional,\
+com.sun.javafx.*;resolution:=optional,\
+jdk.internal.module.*;resolution:=optional,\
+org.jdesktop.*;resolution:=optional,\
+*
