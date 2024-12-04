@@ -18,12 +18,6 @@ osgi/api/org.argeo.tp.osgi \
 swt/rap/org.argeo.tp.swt \
 swt/rap/org.argeo.tp.swt.workbench \
 swt/rcp/org.argeo.tp.swt \
-lib/x86_64-linux-gnu/swt/rcp/org.argeo.tp.swt \
-lib/aarch64-linux-gnu/swt/rcp/org.argeo.tp.swt \
-lib/x86_64-win32-default/swt/rcp/org.argeo.tp.swt \
-lib/x86_64-macosx-default/swt/rcp/org.argeo.tp.swt \
-lib/x86_64-macosx-default/swt/rcp/org.argeo.tp.swt.workbench \
-swt/rcp/org.argeo.tp.swt \
 swt/rcp/org.argeo.tp.swt.workbench \
 org.argeo.tp.utils \
 org.argeo.tp.img \

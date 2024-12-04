@@ -15,18 +15,19 @@ ANGUS_BRANCH=2.0
 ANGUS_VERSION=$(ANGUS_BRANCH).3
 
 all: retrieve-angus-mbox osgi jni-angus-mbox
-	mkdir -p $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)
+#	mkdir -p $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)
 #	mv $(SDK_BUILD_BASE)/a2/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.$(ANGUS_BRANCH).jar $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)
 
-install: osgi-install
+install:
 	mkdir -p $(A2_NATIVE_INSTALL_TARGET)
 	# Angus mbox
-	#$(INSTALL) $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY) $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.$(ANGUS_BRANCH).jar
-	$(INSTALL) $(A2_NATIVE_INSTALL_TARGET) $(A2_NATIVE_CATEGORY)/${MBOX_TARGET_EXEC}
+	$(INSTALL) $(A2_INSTALL_TARGET)/$(A2_CATEGORY) $(A2_OUTPUT)/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.$(ANGUS_BRANCH).jar
+	$(INSTALL) $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY) $(TARGET_NATIVE_CATEGORY)/${MBOX_TARGET_EXEC}
+	cd  $(A2_NATIVE_INSTALL_TARGET) && ln -fs $(A2_CATEGORY)/${MBOX_TARGET_EXEC}
 	
-uninstall: osgi-uninstall
+uninstall:
 	#$(RM) $(A2_NATIVE_INSTALL_TARGET)/$(MBOX_TARGET_EXEC)
-	@if [ -d $(A2_NATIVE_INSTALL_TARGET) ]; then find $(A2_NATIVE_INSTALL_TARGET) -empty -type d -delete; fi
+	#@if [ -d $(A2_NATIVE_INSTALL_TARGET) ]; then find $(A2_NATIVE_INSTALL_TARGET) -empty -type d -delete; fi
 
 retrieve-angus-mbox: SRC_DIR=src/angus-mail
 retrieve-angus-mbox:
@@ -57,7 +58,7 @@ DEP_CATEGORIES = org.argeo.tp.sys
 
 include $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk
 
-A2_NATIVE_CATEGORY=$(A2_OUTPUT)/lib/$(shell uname -m)-linux-gnu
+A2_NATIVE_CATEGORY=$(TARGET_NATIVE_CATEGORY)
 
 jni-angus-mbox:
 	echo $(A2_NATIVE_CATEGORY)
@@ -65,6 +66,8 @@ jni-angus-mbox:
 ifeq ($(msys_version), 0)	
 	mkdir -p $(A2_NATIVE_CATEGORY)
 	$(CC) -o $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) \
-	 -shared -fPIC -fpic -Wl,-soname,$(MBOX_TARGET_EXEC).$(ANGUS_BRANCH) \
+	 -shared -fPIC -fpic -Wl,-soname,$(MBOX_TARGET_EXEC).$(ANGUS_VERSION) \
 	 -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux $(MBOX_JNI_SRC)/*.c
+	$(RM) $(TARGET_NATIVE_OUTPUT)/$(MBOX_TARGET_EXEC)
+	cd $(TARGET_NATIVE_OUTPUT) && ln -s $(A2_CATEGORY)/$(MBOX_TARGET_EXEC) $(MBOX_TARGET_EXEC)
 endif
