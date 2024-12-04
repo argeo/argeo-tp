@@ -3,7 +3,7 @@
 <target name="argeo-tp-swt">
 	<locations>
 		<location path="${project_loc:argeo-tp}/../output/a2/swt/rcp/org.argeo.tp.swt" type="Directory"/>
-		<location path="${project_loc:argeo-tp}/../output/a2/lib/x86_64-linux-gnu/swt/rcp/org.argeo.tp.swt" type="Directory"/>
+		<location path="${project_loc:argeo-tp}/../output/a2/lib/local/swt/rcp/org.argeo.tp.swt" type="Directory"/>
 		<location type="Target" uri="file:${project_loc:argeo-tp}/sdk/output-argeo-tp-platform.target"/>
 	</locations>
 </target>
