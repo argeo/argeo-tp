@@ -19,10 +19,10 @@ all: retrieve-angus-mbox osgi jni-angus-mbox
 #	mv $(SDK_BUILD_BASE)/a2/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.$(ANGUS_BRANCH).jar $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)
 
 install: osgi-install
-	mkdir -p $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY)
+	mkdir -p $(A2_NATIVE_INSTALL_TARGET)
 	# Angus mbox
 	#$(INSTALL) $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY) $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.$(ANGUS_BRANCH).jar
-	$(INSTALL) $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY) $(A2_NATIVE_CATEGORY)/*.so
+	$(INSTALL) $(A2_NATIVE_INSTALL_TARGET) $(A2_NATIVE_CATEGORY)/${MBOX_TARGET_EXEC}
 	
 uninstall: osgi-uninstall
 	#$(RM) $(A2_NATIVE_INSTALL_TARGET)/$(MBOX_TARGET_EXEC)
@@ -57,7 +57,7 @@ DEP_CATEGORIES = org.argeo.tp.sys
 
 include $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk
 
-A2_NATIVE_CATEGORY=$(A2_OUTPUT)/lib/$(shell uname -m)-linux-gnu/$(A2_CATEGORY)
+A2_NATIVE_CATEGORY=$(A2_OUTPUT)/lib/$(shell uname -m)-linux-gnu
 
 jni-angus-mbox:
 	echo $(A2_NATIVE_CATEGORY)
