@@ -28,6 +28,13 @@ org.argeo.tp.office \
 org.argeo.tp.earth \
 org.argeo.tp.ml \
 crypto/full/org.argeo.tp.crypto \
+lib/x86_64-linux-gnu/swt/rcp/org.argeo.tp.swt \
+lib/aarch64-linux-gnu/swt/rcp/org.argeo.tp.swt \
+lib/x86_64-win32-default/swt/rcp/org.argeo.tp.swt \
+lib/aarch64-win32-default/swt/rcp/org.argeo.tp.swt \
+lib/x86_64-macosx-default/swt/rcp/org.argeo.tp.swt \
+lib/aarch64-macosx-default/swt/rcp/org.argeo.tp.swt \
+
 
 install-for-minimal-cms:
 	$(MAKE) install CATEGORIES="$(CATEGORIES_CMS)"
