@@ -25,6 +25,11 @@ The *.target files under ./sdk can then be used within the Eclipse IDE (with the
 The descriptors for the repackaging in (extended) BND format are available under:
 ./repackage
 
+## Windows / MSYS
+- User needs to have the right to create symbolic links.
+see https://stackoverflow.com/questions/23217460/how-to-create-soft-symbolic-link-using-java-nio-files/24353758#24353758
+
+
 ## Acknowledgements
 Most third-party libraries are provided by:
 - the Eclipse Foundation http://eclipse.org
