@@ -14,6 +14,7 @@ CATEGORIES=\
 $(CATEGORIES_CMS) \
 org.argeo.tp.sys \
 org.argeo.tp.sdk \
+org.argeo.tp.desktop \
 osgi/api/org.argeo.tp.osgi \
 swt/rap/org.argeo.tp.swt \
 swt/rap/org.argeo.tp.swt.workbench \
