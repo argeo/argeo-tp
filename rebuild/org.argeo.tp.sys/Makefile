@@ -63,8 +63,6 @@ include $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk
 A2_NATIVE_CATEGORY=$(TARGET_NATIVE_CATEGORY)
 
 jni-angus-mbox:
-	echo $(A2_NATIVE_CATEGORY)
-	echo $(msys_version)
 ifeq ($(msys_version), 0)	
 	mkdir -p $(A2_NATIVE_CATEGORY)
 	$(CC) -o $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) \
