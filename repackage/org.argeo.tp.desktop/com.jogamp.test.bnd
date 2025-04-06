@@ -1,4 +1,4 @@
-#!! Temporary, while we develop our own tests
+# !! Temporary, while we develop our own tests
 
 SPDX-License-Identifier: BSD-2-Clause
 # !! Imaginary Maven coordinates, as it is not deployed on Maven central
