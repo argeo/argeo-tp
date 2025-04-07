@@ -1,0 +1,8 @@
+SPDX-License-Identifier: Apache-2.0
+
+Export-Package: gov.nasa.worldwindx.*
+
+major: 2
+minor: 2
+micro: 1
+qualifier:

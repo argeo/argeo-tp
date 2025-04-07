@@ -5,41 +5,53 @@ export NO_SDK_LEGAL := true
 
 A2_CATEGORY = org.argeo.tp.sys
 
+A2_NATIVE_CATEGORY=$(TARGET_NATIVE_CATEGORY)
+
+BUNDLES = \
+org.eclipse.angus.mail.mbox \
+org.gdal \
+
+DEP_CATEGORIES = org.argeo.tp.sys
+
 msys_version := $(if $(findstring Msys, $(shell uname -o)),$(word 1, $(subst ., ,$(shell uname -r))),0)
 
-MBOX_JNI_SRC=jni/org_eclipse_angus_mail_mbox
-MBOX_TARGET_EXEC=libmbox.so
+## !! DON'T FORGET TO UPDATE THE VERSION IN THE RELATED bnd.bnd FILE!
+#ANGUS_BRANCH=2.0
+#ANGUS_VERSION=$(ANGUS_BRANCH).3
 
-## FIXME - DON'T FORGET TO UPDATE THE VERSION IN THE RELATED bnd.bnd FILE!
-ANGUS_BRANCH=2.0
-ANGUS_VERSION=$(ANGUS_BRANCH).3
-
-all: retrieve-angus-mbox osgi jni-angus-mbox
+all: retrieve-angus-mbox jni-angus-mbox jni-gdal osgi
 #	mkdir -p $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)
 #	mv $(SDK_BUILD_BASE)/a2/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.$(ANGUS_BRANCH).jar $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)
 
+clean:
+	rm -rf $(BUILD_BASE)/$(A2_CATEGORY)
+	$(foreach bundle,$(BUNDLES),rm -rf $(bundle)/src)
+	$(foreach bundle,$(BUNDLES),rm -rf $(bundle)/META-INF/MANIFEST.MF)
+
 install:
+# TODO load versions from bnd files?
 	mkdir -p $(A2_NATIVE_INSTALL_TARGET)
 	# Angus mbox
-	$(INSTALL) $(A2_INSTALL_TARGET)/$(A2_CATEGORY) $(A2_OUTPUT)/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.$(ANGUS_BRANCH).jar
+	$(INSTALL) $(A2_INSTALL_TARGET)/$(A2_CATEGORY) $(A2_OUTPUT)/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.*.jar
 	$(INSTALL) $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY) $(TARGET_NATIVE_CATEGORY)/${MBOX_TARGET_EXEC}
 	cd  $(A2_NATIVE_INSTALL_TARGET) && ln -fs $(A2_CATEGORY)/${MBOX_TARGET_EXEC}
+	# GDAL
+	$(INSTALL) $(A2_INSTALL_TARGET)/$(A2_CATEGORY) $(A2_OUTPUT)/$(A2_CATEGORY)/org.gdal.*.jar
+	$(INSTALL) $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY) $(TARGET_NATIVE_CATEGORY)/${GDAL_TARGET_EXEC}
+	cd  $(A2_NATIVE_INSTALL_TARGET) && ln -fs $(A2_CATEGORY)/${GDAL_TARGET_EXEC}
 	
 uninstall:
 	#$(RM) $(A2_NATIVE_INSTALL_TARGET)/$(MBOX_TARGET_EXEC)
 	#@if [ -d $(A2_NATIVE_INSTALL_TARGET) ]; then find $(A2_NATIVE_INSTALL_TARGET) -empty -type d -delete; fi
 
+#
+# ANGUS MAIL
+#
+MBOX_JNI_SRC=jni/org_eclipse_angus_mail_mbox
+MBOX_TARGET_EXEC=libmbox.so
+
 retrieve-angus-mbox: SRC_DIR=src/angus-mail
 retrieve-angus-mbox:
-	rm -rf $(SRC_DIR)
-	mkdir -p $(SRC_DIR)
-#git -C $(SRC_DIR) init
-#git -C $(SRC_DIR) remote add -f origin https://github.com/eclipse-ee4j/mail.git
-#git -C $(SRC_DIR) config core.sparseCheckout true
-#echo "mbox" >> $(SRC_DIR)/.git/info/sparse-checkout
-#git -C $(SRC_DIR) pull origin 1.6.7
-	git clone --branch $(ANGUS_VERSION) https://github.com/eclipse-ee4j/angus-mail.git $(SRC_DIR)
-	rm -rf $(SRC_DIR)/.git
 	rsync -a --delete --exclude module-info.java $(SRC_DIR)/providers/mbox/src/main/java/ org.eclipse.angus.mail.mbox/src
 	# jni
 	rsync -a $(SRC_DIR)/providers/mbox/src/main/cpp/org/eclipse/angus/mail/mbox/ $(MBOX_JNI_SRC)
@@ -49,25 +61,42 @@ retrieve-angus-mbox:
 	 org.eclipse.angus.mail.mbox/src/org/eclipse/angus/mail/mbox/*.java
 	rm -rf org.eclipse.angus.mail.mbox/bin
 
-
-BUNDLES = \
-org.eclipse.angus.mail.mbox \
-
-clean:
-	rm -rf $(BUILD_BASE)
-
-DEP_CATEGORIES = org.argeo.tp.sys
-
-include $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk
-
-A2_NATIVE_CATEGORY=$(TARGET_NATIVE_CATEGORY)
-
 jni-angus-mbox:
 ifeq ($(msys_version), 0)	
 	mkdir -p $(A2_NATIVE_CATEGORY)
 	$(CC) -o $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) \
-	 -shared -fPIC -fpic -Wl,-soname,$(MBOX_TARGET_EXEC).$(ANGUS_VERSION) \
+	 -shared -fPIC -fpic -Wl,-soname,$(MBOX_TARGET_EXEC) \
 	 -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux $(MBOX_JNI_SRC)/*.c
 	$(RM) $(TARGET_NATIVE_OUTPUT)/$(MBOX_TARGET_EXEC)
 	cd $(TARGET_NATIVE_OUTPUT) && ln -s $(A2_CATEGORY)/$(MBOX_TARGET_EXEC) $(MBOX_TARGET_EXEC)
 endif
+
+#
+# GDAL BINDINGS
+#
+GDAL_TARGET_EXEC=libgdalalljni.so
+
+jni-gdal: SRC_DIR=src/gdal
+jni-gdal: BUILD_DIR=$(BUILD_BASE)/$(A2_CATEGORY)/gdal
+jni-gdal:
+	cmake -B $(BUILD_DIR) -DCMAKE_BUILD_TYPE=Release -DCMAKE_SKIP_INSTALL_RPATH=ON \
+		-DBUILD_SHARED_LIBS=ON -DBUILD_APPS=OFF -DBUILD_TESTING=OFF \
+		-DGDAL_USE_EXTERNAL_LIBS=ON -DGDAL_BUILD_OPTIONAL_DRIVERS=OFF -DOGR_BUILD_OPTIONAL_DRIVERS=OFF \
+		-DENABLE_GNM=ON \
+		-DBUILD_CSHARP_BINDINGS=OFF -DBUILD_PYTHON_BINDINGS=OFF \
+		-DBUILD_JAVA_BINDINGS=ON -DGDAL_JAVA_GENERATE_JAVADOC=OFF \
+		$(SRC_DIR)
+	# FIXME find a way not to rebuild everything
+	cmake --build $(BUILD_DIR) -j $(shell nproc)
+	
+	cp $(BUILD_DIR)/swig/java/$(GDAL_TARGET_EXEC) $(A2_NATIVE_CATEGORY)/$(GDAL_TARGET_EXEC)
+	$(RM) $(TARGET_NATIVE_OUTPUT)/$(GDAL_TARGET_EXEC)
+	cd $(TARGET_NATIVE_OUTPUT) && ln -s $(A2_CATEGORY)/$(GDAL_TARGET_EXEC) $(GDAL_TARGET_EXEC)
+
+	# copy java sources
+	mkdir -p org.gdal/src/org
+	rsync -av --delete \
+		--exclude "*.cpp" --exclude "*.c" \
+		$(BUILD_DIR)/swig/java/org/ org.gdal/src/org
+
+include $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk

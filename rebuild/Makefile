@@ -2,17 +2,21 @@
 
 all:
 	make -C org.argeo.tp.sys all
+	make -C org.argeo.tp.desktop all
 #	make -C org.argeo.tp.ml all
 
 install:
 	make -C org.argeo.tp.sys install
+	make -C org.argeo.tp.desktop install
 #	make -C org.argeo.tp.ml install
 	
 uninstall:
 	make -C org.argeo.tp.sys uninstall
+	make -C org.argeo.tp.desktop uninstall
 #	make -C org.argeo.tp.ml uninstall
 	
 clean:
 	make -C org.argeo.tp.sys clean
+	make -C org.argeo.tp.desktop clean
 #	make -C org.argeo.tp.ml clean
 	
