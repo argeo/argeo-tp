@@ -36,6 +36,7 @@ retrieve-worldwind:
 		$(SRC_DIR)/src/com/zebraimaging/ gov.nasa.worldwind/src/com/zebraimaging
 	rsync -a --delete \
 		$(SRC_DIR)/src/org/codehaus/ gov.nasa.worldwind/src/org/codehaus
+	patch -p0 < wordlwind-gdal.patch
 	
 	rsync -a --delete \
 		$(SRC_DIR)/src/gov/nasa/worldwindx/ gov.nasa.worldwindx/src/gov/nasa/worldwindx
