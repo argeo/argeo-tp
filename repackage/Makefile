@@ -16,6 +16,7 @@ org.argeo.tp.sys \
 org.argeo.tp.sdk \
 org.argeo.tp.desktop \
 osgi/api/org.argeo.tp.osgi \
+osgi/equinox/org.argeo.tp.p2 \
 swt/rap/org.argeo.tp.swt \
 swt/rap/org.argeo.tp.swt.workbench \
 swt/rcp/org.argeo.tp.swt \
