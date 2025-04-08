@@ -1,4 +1,7 @@
 include ../../sdk.mk
+# Required first in order to use make conditionals
+include $(SDK_SRC_BASE)/sdk/argeo-build/common.mk
+
 .PHONY: clean all osgi
 
 export NO_SDK_LEGAL := true
@@ -13,19 +16,15 @@ org.gdal \
 
 DEP_CATEGORIES = org.argeo.tp.sys
 
-msys_version := $(if $(findstring Msys, $(shell uname -o)),$(word 1, $(subst ., ,$(shell uname -r))),0)
-
 ## !! DON'T FORGET TO UPDATE THE VERSION IN THE RELATED bnd.bnd FILE!
-#ANGUS_BRANCH=2.0
-#ANGUS_VERSION=$(ANGUS_BRANCH).3
 
-all: retrieve-angus-mbox jni-angus-mbox jni-gdal osgi
+all: retrieve-angus-mbox jni-angus-mbox $(A2_NATIVE_CATEGORY)/$(GDAL_TARGET_EXEC) osgi
 #	mkdir -p $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)
 #	mv $(SDK_BUILD_BASE)/a2/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.$(ANGUS_BRANCH).jar $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)
 
 clean:
 	rm -rf $(BUILD_BASE)/$(A2_CATEGORY)
-	$(foreach bundle,$(BUNDLES),rm -rf $(bundle)/src)
+#	$(foreach bundle,$(BUNDLES),rm -rf $(bundle)/src)
 	$(foreach bundle,$(BUNDLES),rm -rf $(bundle)/META-INF/MANIFEST.MF)
 
 install:
@@ -54,7 +53,7 @@ retrieve-angus-mbox: SRC_DIR=src/angus-mail
 retrieve-angus-mbox:
 	rsync -a --delete --exclude module-info.java $(SRC_DIR)/providers/mbox/src/main/java/ org.eclipse.angus.mail.mbox/src
 	# jni
-	rsync -a $(SRC_DIR)/providers/mbox/src/main/cpp/org/eclipse/angus/mail/mbox/ $(MBOX_JNI_SRC)
+	rsync -a --delete $(SRC_DIR)/providers/mbox/src/main/cpp/org/eclipse/angus/mail/mbox/ $(MBOX_JNI_SRC)
 	mkdir -p org.eclipse.angus.mail.mbox/bin
 	javac -h $(MBOX_JNI_SRC) \
 	 -cp $(A2_OUTPUT)/org.argeo.tp.sys/jakarta.mail.2.0.jar:$(A2_OUTPUT)/org.argeo.tp.sys/org.eclipse.angus.activation.2.0.jar \
@@ -62,7 +61,8 @@ retrieve-angus-mbox:
 	rm -rf org.eclipse.angus.mail.mbox/bin
 
 jni-angus-mbox:
-ifeq ($(msys_version), 0)	
+	echo TARGET_OS=$(TARGET_OS)
+ifeq ($(TARGET_OS),linux)	
 	mkdir -p $(A2_NATIVE_CATEGORY)
 	$(CC) -o $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) \
 	 -shared -fPIC -fpic -Wl,-soname,$(MBOX_TARGET_EXEC) \
@@ -74,7 +74,16 @@ endif
 #
 # GDAL BINDINGS
 #
+ifeq ($(TARGET_OS),win32)
+GDAL_TARGET_EXEC=gdalalljni.dll
+else
 GDAL_TARGET_EXEC=libgdalalljni.so
+endif
+
+# Workaround so that GDAL is not rebuilt each time
+# !! delete the shared library when updating
+# TODO: make it more robust
+$(A2_NATIVE_CATEGORY)/$(GDAL_TARGET_EXEC): jni-gdal
 
 jni-gdal: SRC_DIR=src/gdal
 jni-gdal: BUILD_DIR=$(BUILD_BASE)/$(A2_CATEGORY)/gdal
@@ -100,3 +109,4 @@ jni-gdal:
 		$(BUILD_DIR)/swig/java/org/ org.gdal/src/org
 
 include $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk
+		

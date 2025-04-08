@@ -2,6 +2,10 @@ SPDX-License-Identifier: Apache-2.0
 
 Export-Package: gov.nasa.worldwindx.*
 
+Import-Package: \
+com.apple.eawt;resolution:=optional,\
+*
+
 major: 2
 minor: 3
 micro: 1

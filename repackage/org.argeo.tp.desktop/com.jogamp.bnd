@@ -7,6 +7,8 @@ Argeo-Origin-URI: https://jogamp.org/deployment/v2.5.0/fat/jogamp-fat.jar
 Argeo-Origin-Sources-URI: https://jogamp.org/deployment/v2.5.0/fat/jogamp-fat-java-src.zip
 
 Import-Package:\
+sun.awt;resolution:=optional,\
+sun.java2d.opengl;resolution:=optional,\
 javafx.*;resolution:=optional,\
 com.sun.javafx.*;resolution:=optional,\
 jdk.internal.module.*;resolution:=optional,\
