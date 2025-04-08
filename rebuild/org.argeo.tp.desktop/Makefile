@@ -32,17 +32,17 @@ retrieve-worldwind:
 		--exclude "*/worldwindx/*" \
 		--exclude "*/overview.html" \
 		$(SRC_DIR)/src/ gov.nasa.worldwind/src
-	# Apply patches
-	patch -p0 < wordlwind-gdal.patch
+# Apply patches to v2.2.1
+#patch -p0 < wordlwind-gdal.patch
 	
 	rsync -a --delete \
 		$(SRC_DIR)/src/gov/nasa/worldwindx/ gov.nasa.worldwindx/src/gov/nasa/worldwindx
 
-	# VPF original archive is hard to find:
-	# https://nsgreg.nga.mil/doc/view?i=2286
-	# and uses an old vector format (CGM). Maybe it can be converted with:
-	# https://github.com/sk1project/uniconvertor
-	# or https://darrengoossens.wordpress.com/2019/01/03/open-or-convert-a-cgm-computer-graphics-metafile-in-linux-and-a-deb-file-to-help/
+# VPF original archive is hard to find:
+# https://nsgreg.nga.mil/doc/view?i=2286
+# and uses an old vector format (CGM). Maybe it can be converted with:
+# https://github.com/sk1project/uniconvertor
+# or https://darrengoossens.wordpress.com/2019/01/03/open-or-convert-a-cgm-computer-graphics-metafile-in-linux-and-a-deb-file-to-help/
 	unzip -q $(SRC_DIR)/vpf-symbols.jar "geosym/*" -d "gov.nasa.worldwind.symbology/src/"
 
 	rsync -a --delete \

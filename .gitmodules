@@ -4,7 +4,7 @@
 	branch = unstable
 [submodule "rebuild/org.argeo.tp.desktop/src/WorldWindJava"]
 	path = rebuild/org.argeo.tp.desktop/src/WorldWindJava
-	url = https://github.com/NASAWorldWind/WorldWindJava.git
+	url = https://github.com/WorldWindEarth/WorldWindJava.git
 [submodule "rebuild/org.argeo.tp.sys/src/angus-mail"]
 	path = rebuild/org.argeo.tp.sys/src/angus-mail
 	url = https://github.com/eclipse-ee4j/angus-mail.git
