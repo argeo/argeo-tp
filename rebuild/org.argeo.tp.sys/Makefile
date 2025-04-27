@@ -14,7 +14,9 @@ BUNDLES = \
 org.eclipse.angus.mail.mbox \
 org.gdal \
 
-DEP_CATEGORIES = org.argeo.tp.sys
+DEP_CATEGORIES =\
+org.argeo.tp \
+org.argeo.tp.sys \
 
 ## !! DON'T FORGET TO UPDATE THE VERSION IN THE RELATED bnd.bnd FILE!
 
@@ -56,7 +58,7 @@ retrieve-angus-mbox:
 	rsync -a --delete $(SRC_DIR)/providers/mbox/src/main/cpp/org/eclipse/angus/mail/mbox/ $(MBOX_JNI_SRC)
 	mkdir -p org.eclipse.angus.mail.mbox/bin
 	javac -h $(MBOX_JNI_SRC) \
-	 -cp $(A2_OUTPUT)/org.argeo.tp.sys/jakarta.mail.2.0.jar:$(A2_OUTPUT)/org.argeo.tp.sys/org.eclipse.angus.activation.2.0.jar \
+	 -cp $(A2_OUTPUT)/org.argeo.tp/org.eclipse.angus.mail.2.0.jar:$(A2_OUTPUT)/org.argeo.tp/org.eclipse.angus.activation.2.0.jar \
 	 org.eclipse.angus.mail.mbox/src/org/eclipse/angus/mail/mbox/*.java
 	rm -rf org.eclipse.angus.mail.mbox/bin
 
