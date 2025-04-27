@@ -18,6 +18,8 @@ DEP_CATEGORIES =\
 org.argeo.tp \
 org.argeo.tp.sys \
 
+JAVAC = $(JAVA_HOME)/bin/javac
+
 ## !! DON'T FORGET TO UPDATE THE VERSION IN THE RELATED bnd.bnd FILE!
 
 all: retrieve-angus-mbox jni-angus-mbox $(A2_NATIVE_CATEGORY)/$(GDAL_TARGET_EXEC) osgi
@@ -57,7 +59,7 @@ retrieve-angus-mbox:
 	# jni
 	rsync -a --delete $(SRC_DIR)/providers/mbox/src/main/cpp/org/eclipse/angus/mail/mbox/ $(MBOX_JNI_SRC)
 	mkdir -p org.eclipse.angus.mail.mbox/bin
-	javac -h $(MBOX_JNI_SRC) \
+	$(JAVAC) -h $(MBOX_JNI_SRC) \
 	 -cp $(A2_OUTPUT)/org.argeo.tp/org.eclipse.angus.mail.2.0.jar:$(A2_OUTPUT)/org.argeo.tp/org.eclipse.angus.activation.2.0.jar \
 	 org.eclipse.angus.mail.mbox/src/org/eclipse/angus/mail/mbox/*.java
 	rm -rf org.eclipse.angus.mail.mbox/bin
