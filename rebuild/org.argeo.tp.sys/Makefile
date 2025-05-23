@@ -81,7 +81,7 @@ endif
 GDAL_API_VERSION=36
 
 ifeq ($(TARGET_OS),win32)
-GDAL_TARGET_EXEC=libgdal.dll
+GDAL_TARGET_EXEC=libgdal-$(GDAL_API_VERSION).dll
 GDAL_JNI_TARGET_EXEC=libgdalalljni.dll
 else
 GDAL_TARGET_EXEC=libgdal.so.$(GDAL_API_VERSION)
