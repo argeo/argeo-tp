@@ -22,7 +22,7 @@ JAVAC = $(JAVA_HOME)/bin/javac
 
 ## !! DON'T FORGET TO UPDATE THE VERSION IN THE RELATED bnd.bnd FILE!
 
-all: retrieve-angus-mbox jni-angus-mbox $(A2_NATIVE_CATEGORY)/$(GDAL_TARGET_EXEC) osgi
+all: retrieve-angus-mbox jni-angus-mbox gdal osgi
 #	mkdir -p $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)
 #	mv $(SDK_BUILD_BASE)/a2/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.$(ANGUS_BRANCH).jar $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)
 
@@ -78,16 +78,23 @@ endif
 #
 # GDAL BINDINGS
 #
+GDAL_API_VERSION=36
+
 ifeq ($(TARGET_OS),win32)
-GDAL_TARGET_EXEC=libgdalalljni.dll
+GDAL_TARGET_EXEC=libgdal.dll
+GDAL_JNI_TARGET_EXEC=libgdalalljni.dll
 else
-GDAL_TARGET_EXEC=libgdalalljni.so
+GDAL_TARGET_EXEC=libgdal.so.$(GDAL_API_VERSION)
+GDAL_JNI_TARGET_EXEC=libgdalalljni.so
 endif
+
+gdal: $(TARGET_NATIVE_OUTPUT)/$(GDAL_TARGET_EXEC) $(TARGET_NATIVE_OUTPUT)/$(GDAL_JNI_TARGET_EXEC) osgi
 
 # Workaround so that GDAL is not rebuilt each time
 # !! delete the shared library when updating
 # TODO: make it more robust
-$(A2_NATIVE_CATEGORY)/$(GDAL_TARGET_EXEC): jni-gdal
+$(TARGET_NATIVE_OUTPUT)/$(GDAL_TARGET_EXEC): jni-gdal
+$(TARGET_NATIVE_OUTPUT)/$(GDAL_JNI_TARGET_EXEC): jni-gdal
 
 jni-gdal: SRC_DIR=src/gdal
 jni-gdal: BUILD_DIR=$(BUILD_BASE)/$(A2_CATEGORY)/gdal
@@ -100,18 +107,29 @@ jni-gdal:
 		-DBUILD_CSHARP_BINDINGS=OFF -DBUILD_PYTHON_BINDINGS=OFF \
 		-DBUILD_JAVA_BINDINGS=ON -DGDAL_JAVA_GENERATE_JAVADOC=OFF \
 		$(SRC_DIR)
-	# FIXME find a way not to rebuild everything
+	# TODO find a way not to rebuild everything
 	cmake --build $(BUILD_DIR) -j $(shell nproc)
-	
-	cp $(BUILD_DIR)/swig/java/$(GDAL_TARGET_EXEC) $(A2_NATIVE_CATEGORY)/$(GDAL_TARGET_EXEC)
-	$(RM) $(TARGET_NATIVE_OUTPUT)/$(GDAL_TARGET_EXEC)
-	cd $(TARGET_NATIVE_OUTPUT) && ln -s $(A2_CATEGORY)/$(GDAL_TARGET_EXEC) $(GDAL_TARGET_EXEC)
+
+	# Main library goes directly to /lib, as it could be provided externally (by the Linux distribution)	
+	cp $(BUILD_DIR)/$(GDAL_TARGET_EXEC) $(TARGET_NATIVE_OUTPUT)
+
+	# JNI
+	cp $(BUILD_DIR)/swig/java/$(GDAL_JNI_TARGET_EXEC) $(A2_NATIVE_CATEGORY)/$(GDAL_JNI_TARGET_EXEC)
+	$(RM) $(TARGET_NATIVE_OUTPUT)/$(GDAL_JNI_TARGET_EXEC)
+	cd $(TARGET_NATIVE_OUTPUT) && ln -s $(A2_CATEGORY)/$(GDAL_JNI_TARGET_EXEC) $(GDAL_JNI_TARGET_EXEC)
 
 	# copy java sources
 	mkdir -p org.gdal/src/org
 	rsync -av --delete \
 		--exclude "*.cpp" --exclude "*.c" \
 		$(BUILD_DIR)/swig/java/org/ org.gdal/src/org
+
+clean-gdal:
+	$(RM) $(TARGET_NATIVE_OUTPUT)/$(GDAL_TARGET_EXEC)
+	$(RM) $(TARGET_NATIVE_OUTPUT)/$(GDAL_JNI_TARGET_EXEC)
+	$(RM) $(A2_NATIVE_CATEGORY)/$(GDAL_JNI_TARGET_EXEC)
+	
+	$(RM) -r $(BUILD_BASE)/$(A2_CATEGORY)/gdal
 
 include $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk
 		
