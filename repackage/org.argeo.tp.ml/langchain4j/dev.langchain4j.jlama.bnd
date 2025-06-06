@@ -1,0 +1,4 @@
+Argeo-Origin-M2: dev.langchain4j:langchain4j-jlama
+# FIXME hack fro compatibility with Eclipse
+Require-Capability: osgi.ee; filter="(&(osgi.ee=JavaSE)(version=17))"
+#Require-Capability: osgi.ee; filter="(&(osgi.ee=JavaSE)(version=21))"
