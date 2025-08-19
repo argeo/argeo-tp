@@ -1,0 +1,10 @@
+SPDX-License-Identifier: Apache-2.0
+
+Fragment-Host: gov.nasa.worldwind
+
+Export-Package: gov.nasa.worldwind.*
+
+major: 2
+minor: 3
+micro: 1
+qualifier:

@@ -1,3 +1,5 @@
+SPDX-License-Identifier: GPL-2.0-only WITH Classpath-exception-2.0 OR EPL-2.0
+
 Export-Package: org.eclipse.angus.mail.*
 
 Import-Package: \
@@ -8,3 +10,4 @@ org.graalvm.*;resolution:="optional",\
 major: 2
 minor: 0
 micro: 2
+qualifier:

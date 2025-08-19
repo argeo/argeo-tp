@@ -23,7 +23,10 @@ clean:
 	make -C rebuild clean
 
 native-deps-debian:
-	sudo apt install liblockfile-dev
+	sudo apt -y install rsync liblockfile-dev
+
+native-deps-msys2:
+	pacman --noconfirm rsync
 
 clean-origin-cache:
 	rm -rf $(HOME)/.cache/argeo/build

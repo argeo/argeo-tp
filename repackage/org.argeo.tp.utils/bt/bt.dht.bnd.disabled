@@ -1,0 +1,4 @@
+# Disabled due to conflict with bt.tracker.http because of exported package
+# bt.protocol
+Argeo-Origin-M2: com.github.atomashpolskiy:bt-dht
+Export-Package: bt.*

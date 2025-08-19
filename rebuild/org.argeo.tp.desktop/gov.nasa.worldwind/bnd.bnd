@@ -1,0 +1,15 @@
+SPDX-License-Identifier: Apache-2.0
+
+Export-Package: gov.nasa.worldwind.*
+
+Import-Package: \
+com.jogamp.opengl.fixedfunc,\
+com.jogamp.common.type,\
+com.jogamp.common.util,\
+com.apple.eio;resolution:=optional,\
+*
+
+major: 2
+minor: 3
+micro: 1
+qualifier:

@@ -1,2 +1,3 @@
 SPDX-License-Identifier: BSD-3-Clause
+# Note: we stick with v1.3, since this is what JUnit uses
 Argeo-Origin-M2: org.hamcrest:hamcrest-core:1.3

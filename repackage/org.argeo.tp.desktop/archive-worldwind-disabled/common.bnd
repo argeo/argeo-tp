@@ -1,0 +1,13 @@
+SPDX-License-Identifier: Apache-2.0
+# prefix
+Bundle-SymbolicName: gov.nasa
+Bundle-Version: 2.2.1
+Argeo-Origin-URI: https://github.com/NASAWorldWind/WorldWindJava/releases/download/v2.2.1/worldwind-v2.2.1.zip
+
+Export-Package: gov.nasa.*
+Import-Package:\
+org.gdal.*;resolution:=optional,\
+com.apple.eio.*;resolution:=optional,\
+com.apple.eawt.*;resolution:=optional,\
+*
+

@@ -1,0 +1,16 @@
+Argeo-Origin-M2: org.geotools:gt-css
+
+Import-Package: \
+org.parboiled.annotations;resolution:="optional",\
+org.parboiled.buffers;resolution:="optional",\
+org.parboiled.common;resolution:="optional",\
+org.parboiled.errors;resolution:="optional",\
+org.parboiled.matchers;resolution:="optional",\
+org.parboiled.matchervisitors;resolution:="optional",\
+org.parboiled.parserunners;resolution:="optional",\
+org.parboiled.support;resolution:="optional",\
+org.parboiled.test;resolution:="optional",\
+org.parboiled.transform;resolution:="optional",\
+org.parboiled.trees;resolution:="optional",\
+org.parboiled.*;resolution:="optional",\
+*

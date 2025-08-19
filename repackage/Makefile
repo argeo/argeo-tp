@@ -14,19 +14,11 @@ CATEGORIES=\
 $(CATEGORIES_CMS) \
 org.argeo.tp.sys \
 org.argeo.tp.sdk \
+org.argeo.tp.desktop \
 osgi/api/org.argeo.tp.osgi \
+osgi/equinox/org.argeo.tp.p2 \
 swt/rap/org.argeo.tp.swt \
 swt/rap/org.argeo.tp.swt.workbench \
-swt/rcp/org.argeo.tp.swt \
-lib/linux/x86_64/org.argeo.tp.sys \
-lib/linux/aarch64/org.argeo.tp.sys \
-lib/win32/x86_64/org.argeo.tp.sys \
-lib/macosx/x86_64/org.argeo.tp.sys \
-lib/linux/x86_64/swt/rcp/org.argeo.tp.swt \
-lib/linux/aarch64/swt/rcp/org.argeo.tp.swt \
-lib/win32/x86_64/swt/rcp/org.argeo.tp.swt \
-lib/macosx/x86_64/swt/rcp/org.argeo.tp.swt \
-lib/macosx/x86_64/swt/rcp/org.argeo.tp.swt.workbench \
 swt/rcp/org.argeo.tp.swt \
 swt/rcp/org.argeo.tp.swt.workbench \
 org.argeo.tp.utils \
@@ -36,7 +28,15 @@ org.argeo.tp.math \
 org.argeo.tp.jcr \
 org.argeo.tp.office \
 org.argeo.tp.earth \
+org.argeo.tp.ml \
 crypto/full/org.argeo.tp.crypto \
+lib/x86_64-linux-gnu/swt/rcp/org.argeo.tp.swt \
+lib/aarch64-linux-gnu/swt/rcp/org.argeo.tp.swt \
+lib/x86_64-win32-default/swt/rcp/org.argeo.tp.swt \
+lib/aarch64-win32-default/swt/rcp/org.argeo.tp.swt \
+lib/x86_64-macosx-default/swt/rcp/org.argeo.tp.swt \
+lib/aarch64-macosx-default/swt/rcp/org.argeo.tp.swt \
+
 
 install-for-minimal-cms:
 	$(MAKE) install CATEGORIES="$(CATEGORIES_CMS)"

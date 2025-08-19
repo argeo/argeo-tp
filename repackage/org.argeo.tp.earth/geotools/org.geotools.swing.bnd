@@ -1,0 +1,9 @@
+Argeo-Origin-M2: org.geotools:gt-swing
+
+Export-Package: org.geotools.*
+
+Import-Package: \
+org.geotools.*;resolution:="optional",\
+org.eclipse.*;resolution:="optional",\
+net.miginfocom.*;resolution:="optional",\
+*
