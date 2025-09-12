@@ -49,9 +49,11 @@ retrieve-worldwind:
 	unzip -q $(SRC_DIR)/vpf-symbols.jar "geosym/*" -d "gov.nasa.worldwind.symbology/src/"
 
 	rsync -a --delete \
-		$(SRC_DIR)/milstd2525/ gov.nasa.worldwind.symbology/src/gov/nasa/worldwind/symbology/milstd2525
+		gov.nasa.worldwind/src/gov/nasa/worldwind/symbology/ \
+		gov.nasa.worldwind.symbology/src/gov/nasa/worldwind/symbology
+	rm -rf gov.nasa.worldwind/src/gov/nasa/worldwind/symbology/
 
-	rsync -a --delete \
+	rsync -a \
 		$(SRC_DIR)/milstd2525/ gov.nasa.worldwind.symbology/src/gov/nasa/worldwind/symbology/milstd2525
 
 include $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk

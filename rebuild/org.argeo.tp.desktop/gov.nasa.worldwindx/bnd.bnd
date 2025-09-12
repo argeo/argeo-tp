@@ -4,6 +4,13 @@ Export-Package: gov.nasa.worldwindx.*
 
 Import-Package: \
 com.apple.eawt;resolution:=optional,\
+com.jogamp.opengl.fixedfunc,\
+com.jogamp.nativewindow,\
+gov.nasa.worldwind.util.xml,\
+gov.nasa.worldwind.ogc.kml.gx,\
+gov.nasa.worldwind.formats.json,\
+gov.nasa.worldwind.symbology,\
+gov.nasa.worldwind.symbology.milstd2525,\
 *
 
 major: 2
