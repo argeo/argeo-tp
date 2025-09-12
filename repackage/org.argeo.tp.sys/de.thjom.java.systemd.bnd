@@ -4,4 +4,5 @@ Argeo-Origin-M2: com.github.thjomnx:java-systemd:2.1.0
 
 Import-Package:\
 javax.xml.bind;resolution:=optional,\
+org.freedesktop.dbus.*;version="[4,5)",\
 *

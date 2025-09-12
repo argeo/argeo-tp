@@ -2,9 +2,9 @@
 
 SPDX-License-Identifier: BSD-2-Clause
 # !! Imaginary Maven coordinates, as it is not deployed on Maven central
-Argeo-Origin-M2: org.jogamp:jogamp-fat-test:2.5.0
-Argeo-Origin-URI: https://jogamp.org/deployment/v2.5.0/fat/jogamp-fat-test.jar
-Argeo-Origin-Sources-URI: https://jogamp.org/deployment/v2.5.0/fat/jogamp-fat-test-java-src.zip
+Argeo-Origin-M2: org.jogamp:jogamp-fat-test:2.6.0
+Argeo-Origin-URI: https://jogamp.org/deployment/v2.6.0/fat/jogamp-fat-test.jar
+Argeo-Origin-Sources-URI: https://jogamp.org/deployment/v2.6.0/fat/jogamp-fat-test-java-src.zip
 
 Import-Package:\
 *;resolution:=optional
