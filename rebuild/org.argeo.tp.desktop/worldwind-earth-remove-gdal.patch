@@ -1,0 +1,80 @@
+diff -ur gov.nasa.worldwind/src.orig/gov/nasa/worldwind/data/BasicDataRasterReaderFactory.java gov.nasa.worldwind/src/gov/nasa/worldwind/data/BasicDataRasterReaderFactory.java
+--- gov.nasa.worldwind/src.orig/gov/nasa/worldwind/data/BasicDataRasterReaderFactory.java	2025-09-12 13:09:33.954531630 +0200
++++ gov.nasa.worldwind/src/gov/nasa/worldwind/data/BasicDataRasterReaderFactory.java	2025-09-12 13:21:47.130968587 +0200
+@@ -60,7 +60,7 @@
+             // NOTE: Update the javadoc above if this list changes.
+             new RPFRasterReader(),
+             new DTEDRasterReader(),
+-            new GDALDataRasterReader(),
++//            new GDALDataRasterReader(),
+             new GeotiffRasterReader(),
+             new BILRasterReader(),
+             new ImageIORasterReader(),
+diff -ur gov.nasa.worldwind/src.orig/gov/nasa/worldwind/data/TiledElevationProducer.java gov.nasa.worldwind/src/gov/nasa/worldwind/data/TiledElevationProducer.java
+--- gov.nasa.worldwind/src.orig/gov/nasa/worldwind/data/TiledElevationProducer.java	2025-09-12 13:09:33.954531630 +0200
++++ gov.nasa.worldwind/src/gov/nasa/worldwind/data/TiledElevationProducer.java	2025-09-12 13:21:51.667070871 +0200
+@@ -53,7 +53,7 @@
+     protected static DataRasterReader[] readers = new DataRasterReader[]
+         {
+             new DTEDRasterReader(),
+-            new GDALDataRasterReader(),
++//            new GDALDataRasterReader(),
+             new BILRasterReader(),
+             new GeotiffRasterReader()
+         };
+diff -ur gov.nasa.worldwind/src.orig/gov/nasa/worldwind/data/TiledImageProducer.java gov.nasa.worldwind/src/gov/nasa/worldwind/data/TiledImageProducer.java
+--- gov.nasa.worldwind/src.orig/gov/nasa/worldwind/data/TiledImageProducer.java	2025-09-12 13:09:33.954531630 +0200
++++ gov.nasa.worldwind/src/gov/nasa/worldwind/data/TiledImageProducer.java	2025-09-12 13:21:54.667138520 +0200
+@@ -50,7 +50,7 @@
+     protected static DataRasterReader[] readers = new DataRasterReader[]
+         {
+             new RPFRasterReader(),
+-            new GDALDataRasterReader(),
++//            new GDALDataRasterReader(),
+             new ImageIORasterReader(),
+             new GeotiffRasterReader()
+         };
+diff -ur gov.nasa.worldwind/src.orig/gov/nasa/worldwind/layers/SurfaceImageLayer.java gov.nasa.worldwind/src/gov/nasa/worldwind/layers/SurfaceImageLayer.java
+--- gov.nasa.worldwind/src.orig/gov/nasa/worldwind/layers/SurfaceImageLayer.java	2025-09-12 13:09:33.958531720 +0200
++++ gov.nasa.worldwind/src/gov/nasa/worldwind/layers/SurfaceImageLayer.java	2025-09-12 13:22:06.691409657 +0200
+@@ -106,16 +106,16 @@
+         if (null == raster)
+             return null;
+ 
+-        if (raster instanceof GDALDataRaster)
+-        {
+-            AVList params = new AVListImpl();
+-
+-            params.setValue(AVKey.WIDTH, raster.getWidth());
+-            params.setValue(AVKey.HEIGHT, raster.getHeight());
+-            params.setValue(AVKey.SECTOR, raster.getSector());
+-
+-            raster = raster.getSubRaster(params);
+-        }
++//        if (raster instanceof GDALDataRaster)
++//        {
++//            AVList params = new AVListImpl();
++//
++//            params.setValue(AVKey.WIDTH, raster.getWidth());
++//            params.setValue(AVKey.HEIGHT, raster.getHeight());
++//            params.setValue(AVKey.SECTOR, raster.getSector());
++//
++//            raster = raster.getSubRaster(params);
++//        }
+ 
+         if (raster instanceof BufferedImageRaster)
+         {
+@@ -173,9 +173,9 @@
+                 {
+                     Sector sector = (Sector) o;
+ 
+-                    if (raster instanceof GDALDataRaster)
+-                        ((GDALDataRaster) raster).setSector(sector);
+-                    else
++//                    if (raster instanceof GDALDataRaster)
++//                        ((GDALDataRaster) raster).setSector(sector);
++//                    else
+                         raster.setValue(AVKey.SECTOR, sector);
+                 }
+             }
+Only in gov.nasa.worldwind/src.orig/: src

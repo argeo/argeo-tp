@@ -33,8 +33,9 @@ retrieve-worldwind:
 		--exclude "*/worldwindx/*" \
 		--exclude "*/overview.html" \
 		$(SRC_DIR)/src/ gov.nasa.worldwind/src
-# Apply patches to v2.2.1
-#patch -p0 < wordlwind-gdal.patch
+	rm -rv gov.nasa.worldwind/src/gov/nasa/worldwind/util/gdal
+	rm -v gov.nasa.worldwind/src/gov/nasa/worldwind/data/GDAL*
+	patch -p0 -i worldwind-earth-remove-gdal.patch
 	
 	rsync -a --delete \
 		$(SRC_DIR)/src/gov/nasa/worldwindx/ gov.nasa.worldwindx/src/gov/nasa/worldwindx
@@ -46,6 +47,9 @@ retrieve-worldwind:
 # or https://darrengoossens.wordpress.com/2019/01/03/open-or-convert-a-cgm-computer-graphics-metafile-in-linux-and-a-deb-file-to-help/
 	rm -rf gov.nasa.worldwind.symbology/src/geosym
 	unzip -q $(SRC_DIR)/vpf-symbols.jar "geosym/*" -d "gov.nasa.worldwind.symbology/src/"
+
+	rsync -a --delete \
+		$(SRC_DIR)/milstd2525/ gov.nasa.worldwind.symbology/src/gov/nasa/worldwind/symbology/milstd2525
 
 	rsync -a --delete \
 		$(SRC_DIR)/milstd2525/ gov.nasa.worldwind.symbology/src/gov/nasa/worldwind/symbology/milstd2525
