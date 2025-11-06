@@ -12,7 +12,6 @@ A2_NATIVE_CATEGORY=$(TARGET_NATIVE_CATEGORY)
 
 BUNDLES = \
 org.eclipse.angus.mail.mbox \
-org.gdal \
 
 DEP_CATEGORIES =\
 org.argeo.tp \
