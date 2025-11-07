@@ -12,7 +12,6 @@ A2_NATIVE_CATEGORY=$(TARGET_NATIVE_CATEGORY)
 
 BUNDLES = \
 org.eclipse.angus.mail.mbox \
-org.gdal \
 
 DEP_CATEGORIES =\
 org.argeo.tp \
@@ -22,7 +21,7 @@ JAVAC = $(JAVA_HOME)/bin/javac
 
 ## !! DON'T FORGET TO UPDATE THE VERSION IN THE RELATED bnd.bnd FILE!
 
-all: retrieve-angus-mbox jni-angus-mbox gdal osgi
+all: retrieve-angus-mbox jni-angus-mbox osgi
 #	mkdir -p $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)
 #	mv $(SDK_BUILD_BASE)/a2/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.$(ANGUS_BRANCH).jar $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)
 

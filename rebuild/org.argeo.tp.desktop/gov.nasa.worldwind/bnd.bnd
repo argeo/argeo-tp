@@ -7,6 +7,7 @@ com.jogamp.opengl.fixedfunc,\
 com.jogamp.common.type,\
 com.jogamp.common.util,\
 com.apple.eio;resolution:=optional,\
+org.gdal.*;resolution:=optional,\
 *
 
 major: 2

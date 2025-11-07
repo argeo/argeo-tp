@@ -33,8 +33,9 @@ retrieve-worldwind:
 		--exclude "*/worldwindx/*" \
 		--exclude "*/overview.html" \
 		$(SRC_DIR)/src/ gov.nasa.worldwind/src
-# Apply patches to v2.2.1
-#patch -p0 < wordlwind-gdal.patch
+	rm -rv gov.nasa.worldwind/src/gov/nasa/worldwind/util/gdal
+	rm -v gov.nasa.worldwind/src/gov/nasa/worldwind/data/GDAL*
+	patch -p0 -i worldwind-earth-remove-gdal.patch
 	
 	rsync -a --delete \
 		$(SRC_DIR)/src/gov/nasa/worldwindx/ gov.nasa.worldwindx/src/gov/nasa/worldwindx
@@ -48,6 +49,11 @@ retrieve-worldwind:
 	unzip -q $(SRC_DIR)/vpf-symbols.jar "geosym/*" -d "gov.nasa.worldwind.symbology/src/"
 
 	rsync -a --delete \
+		gov.nasa.worldwind/src/gov/nasa/worldwind/symbology/ \
+		gov.nasa.worldwind.symbology/src/gov/nasa/worldwind/symbology
+	rm -rf gov.nasa.worldwind/src/gov/nasa/worldwind/symbology/
+
+	rsync -a \
 		$(SRC_DIR)/milstd2525/ gov.nasa.worldwind.symbology/src/gov/nasa/worldwind/symbology/milstd2525
 
 include $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk

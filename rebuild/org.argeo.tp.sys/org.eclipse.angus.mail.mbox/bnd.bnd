@@ -9,5 +9,5 @@ org.graalvm.*;resolution:="optional",\
 
 major: 2
 minor: 0
-micro: 2
+micro: 4
 qualifier:

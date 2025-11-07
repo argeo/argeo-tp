@@ -8,6 +8,3 @@
 [submodule "rebuild/org.argeo.tp.sys/src/angus-mail"]
 	path = rebuild/org.argeo.tp.sys/src/angus-mail
 	url = https://github.com/eclipse-ee4j/angus-mail.git
-[submodule "rebuild/org.argeo.tp.sys/src/gdal"]
-	path = rebuild/org.argeo.tp.sys/src/gdal
-	url = https://github.com/OSGeo/gdal.git

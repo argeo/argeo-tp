@@ -1,8 +1,12 @@
 SPDX-License-Identifier: Apache-2.0
 
-Fragment-Host: gov.nasa.worldwind
+Export-Package: gov.nasa.worldwind.symbology.*
 
-Export-Package: gov.nasa.worldwind.*
+Import-Package: \
+com.jogamp.opengl.fixedfunc,\
+com.jogamp.nativewindow,\
+gov.nasa.worldwind.event;resolution:=optional,\
+*
 
 major: 2
 minor: 3
