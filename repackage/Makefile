@@ -13,8 +13,10 @@ osgi/equinox/org.argeo.tp.eclipse \
 CATEGORIES=\
 $(CATEGORIES_CMS) \
 org.argeo.tp.sys \
+lib/org.argeo.tp.sys \
 org.argeo.tp.sdk \
 org.argeo.tp.desktop \
+lib/org.argeo.tp.desktop \
 osgi/api/org.argeo.tp.osgi \
 osgi/equinox/org.argeo.tp.p2 \
 swt/rap/org.argeo.tp.swt \
