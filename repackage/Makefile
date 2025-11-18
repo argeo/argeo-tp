@@ -36,6 +36,12 @@ lib/x86_64-win32-default/swt/rcp/org.argeo.tp.swt \
 lib/aarch64-win32-default/swt/rcp/org.argeo.tp.swt \
 lib/x86_64-macosx-default/swt/rcp/org.argeo.tp.swt \
 lib/aarch64-macosx-default/swt/rcp/org.argeo.tp.swt \
+lib/x86_64-linux-gnu/osgi/equinox/org.argeo.tp.eclipse \
+lib/aarch64-linux-gnu/osgi/equinox/org.argeo.tp.eclipse \
+lib/x86_64-win32-default/osgi/equinox/org.argeo.tp.eclipse \
+lib/aarch64-win32-default/osgi/equinox/org.argeo.tp.eclipse \
+lib/x86_64-macosx-default/osgi/equinox/org.argeo.tp.eclipse \
+lib/aarch64-macosx-default/osgi/equinox/org.argeo.tp.eclipse \
 
 
 install-for-minimal-cms:
