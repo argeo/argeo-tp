@@ -1,1 +1,4 @@
 Argeo-Origin-M2: org.bouncycastle:bcpkix-fips:2.1.9
+# 2.1.10 depends on bgpqc, whose OSGi dependencies are
+# not compatible with bc-fips 2.1.x
+#Argeo-Origin-M2: org.bouncycastle:bcpkix-fips:2.1.10
