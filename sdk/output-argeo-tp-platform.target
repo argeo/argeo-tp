@@ -6,6 +6,7 @@
 		<location path="${project_loc:argeo-tp}/../output/a2/log/syslogger/org.argeo.tp" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/org.argeo.tp" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/osgi/equinox/org.argeo.tp.osgi.framework" type="Directory"/>
+		<location path="${project_loc:argeo-tp}/../output/a2/osgi/org.argeo.tp.osgi" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/osgi/equinox/org.argeo.tp.osgi" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/osgi/equinox/org.argeo.tp.eclipse" type="Directory"/>
 		<location path="${project_loc:argeo-tp}/../output/a2/lib/local/osgi/equinox/org.argeo.tp.eclipse" type="Directory"/>

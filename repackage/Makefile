@@ -6,9 +6,8 @@ org.argeo.tp \
 org.argeo.tp.httpd \
 crypto/fips/org.argeo.tp.crypto \
 org.argeo.tp.sshd \
-osgi/equinox/org.argeo.tp.osgi.framework \
-osgi/equinox/org.argeo.tp.osgi \
-osgi/equinox/org.argeo.tp.eclipse \
+osgi/api/org.argeo.tp.osgi.framework \
+osgi/org.argeo.tp.osgi \
 
 CATEGORIES=\
 $(CATEGORIES_CMS) \
@@ -17,7 +16,9 @@ lib/org.argeo.tp.sys \
 org.argeo.tp.sdk \
 org.argeo.tp.desktop \
 lib/org.argeo.tp.desktop \
-osgi/api/org.argeo.tp.osgi \
+osgi/equinox/org.argeo.tp.osgi.framework \
+osgi/equinox/org.argeo.tp.osgi \
+osgi/equinox/org.argeo.tp.eclipse \
 osgi/equinox/org.argeo.tp.p2 \
 swt/rap/org.argeo.tp.swt \
 swt/rap/org.argeo.tp.swt.workbench \
