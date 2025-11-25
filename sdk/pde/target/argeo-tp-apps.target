@@ -7,6 +7,7 @@
 		<location path="/usr/share/a2/org.argeo.tp.publish" type="Directory"/>
 		<location path="/usr/share/a2/org.argeo.tp.math" type="Directory"/>
 		<location path="/usr/share/a2/org.argeo.tp.earth" type="Directory"/>
+		<location path="/usr/share/a2/org.argeo.tp.ml" type="Directory"/>
 		<location path="/usr/share/a2/osgi/equinox/org.argeo.tp.eclipse" type="Directory"/>
 		<location path="/usr/share/a2/org.argeo.tp.jcr" type="Directory"/>
 		<location type="Target" uri="file:/usr/share/argeo/pde/target/argeo-tp-platform.target"/>
