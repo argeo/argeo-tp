@@ -54,9 +54,12 @@ MBOX_TARGET_EXEC=libmbox.so
 
 retrieve-angus-mbox: SRC_DIR=src/angus-mail
 retrieve-angus-mbox:
-	rsync -a --delete --exclude module-info.java $(SRC_DIR)/providers/mbox/src/main/java/ org.eclipse.angus.mail.mbox/src
+	$(RM) -r org.eclipse.angus.mail.mbox/src
+	cp -a $(SRC_DIR)/providers/mbox/src/main/java/ org.eclipse.angus.mail.mbox/src
+	$(RM) org.eclipse.angus.mail.mbox/src/module-info.java
 	# jni
-	rsync -a --delete $(SRC_DIR)/providers/mbox/src/main/cpp/org/eclipse/angus/mail/mbox/ $(MBOX_JNI_SRC)
+	$(RM) -r $(MBOX_JNI_SRC)
+	cp -a $(SRC_DIR)/providers/mbox/src/main/cpp/org/eclipse/angus/mail/mbox/ $(MBOX_JNI_SRC)
 	mkdir -p org.eclipse.angus.mail.mbox/bin
 	$(JAVAC) -h $(MBOX_JNI_SRC) \
 	 -cp $(A2_OUTPUT)/org.argeo.tp/org.eclipse.angus.mail.2.0.jar:$(A2_OUTPUT)/org.argeo.tp/org.eclipse.angus.activation.2.0.jar \
@@ -72,6 +75,10 @@ ifeq ($(TARGET_OS),linux)
 	 -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux $(MBOX_JNI_SRC)/*.c
 	$(RM) $(TARGET_NATIVE_OUTPUT)/$(MBOX_TARGET_EXEC)
 	cd $(TARGET_NATIVE_OUTPUT) && ln -s $(A2_CATEGORY)/$(MBOX_TARGET_EXEC) $(MBOX_TARGET_EXEC)
+	
+	# jmod
+	mkdir -p $(A2_JMODS)/org.eclipse.angus.mail.mbox.jni/lib
+	cp -a $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) $(A2_JMODS)/org.eclipse.angus.mail.mbox.jni/lib
 endif
 
 #

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>com.sun.mail.mbox</name>
+	<name>org.eclipse.angus.mail.mbox</name>
 	<comment></comment>
 	<projects>
 	</projects>

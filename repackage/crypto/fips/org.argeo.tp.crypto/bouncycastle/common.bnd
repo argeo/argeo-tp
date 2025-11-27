@@ -1,4 +1,5 @@
 SPDX-License-Identifier: MIT
 Argeo-Origin-NoMetadataGeneration: true
 Argeo-Origin-Do-Not-Modify: true
-Argeo-Origin-M2: :2.1.1
+# ! Version of bc-fips
+Argeo-Origin-M2: :2.1.2

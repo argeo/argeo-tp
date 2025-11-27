@@ -12,5 +12,6 @@ sun.java2d.opengl;resolution:=optional,\
 javafx.*;resolution:=optional,\
 com.sun.javafx.*;resolution:=optional,\
 jdk.internal.module.*;resolution:=optional,\
+org.eclipse.swt.*;resolution:=optional,\
 org.jdesktop.*;resolution:=optional,\
 *
