@@ -19,7 +19,7 @@ distribution:
 	make -C rebuild all
 	
 	# jogamp Mac OS (universal libraries9
-	# TODO improve repackaging
+# TODO improve repackaging
 	mkdir -p $(A2_OUTPUT)/lib/aarch64-macos-std/org.argeo.tp.desktop
 	cp -a $(A2_OUTPUT)/lib/x86_64-macos-std/org.argeo.tp.desktop/* $(A2_OUTPUT)/lib/aarch64-macos-std/org.argeo.tp.desktop
 	mkdir -p $(A2_OUTPUT)/lib/aarch64-macos-std/jmods/com.jogamp.jni/
@@ -27,6 +27,8 @@ distribution:
 	
 package-jmods:
 	$(JAVA_HOME)/bin/java sdk/argeo-build/src/org/argeo/build/PackageJmods.java $(A2_OUTPUT)
+# FIXME prepare jmods in output
+	$(RM) -r $(SDK_BUILD_BASE)/a2/lib/*/jmods/*.*
 	
 clean:
 	make -C repackage clean

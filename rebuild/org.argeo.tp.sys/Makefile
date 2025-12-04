@@ -1,6 +1,7 @@
 include ../../sdk.mk
 # Required first in order to use make conditionals
 include $(SDK_SRC_BASE)/sdk/argeo-build/common.mk
+include $(SDK_SRC_BASE)/sdk/argeo-build/jpms.mk
 
 .PHONY: clean all osgi
 
@@ -68,7 +69,6 @@ retrieve-angus-mbox:
 	rm -rf org.eclipse.angus.mail.mbox/bin
 
 jni-angus-mbox:
-	echo TARGET_OS=$(TARGET_OS)
 ifeq ($(TARGET_OS),linux)	
 	mkdir -p $(A2_NATIVE_CATEGORY)
 	$(CC) -o $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) \
@@ -78,9 +78,9 @@ ifeq ($(TARGET_OS),linux)
 	cd $(TARGET_NATIVE_OUTPUT) && ln -s $(A2_CATEGORY)/$(MBOX_TARGET_EXEC) $(MBOX_TARGET_EXEC)
 	
 	# jmod
-	mkdir -p $(A2_JMODS)/org.eclipse.angus.mail.mbox.jni/lib
-	echo "$(MBOX_VERSION)" > $(A2_JMODS)/org.eclipse.angus.mail.mbox.jni/VERSION.txt
-	cp -a $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) $(A2_JMODS)/org.eclipse.angus.mail.mbox.jni/lib
+	mkdir -p $(A2_JMODS_NATIVE)/org.eclipse.angus.mail.mbox.jni/lib
+	echo "$(MBOX_VERSION)" > $(A2_JMODS_NATIVE)/org.eclipse.angus.mail.mbox.jni/VERSION.txt
+	cp -a $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) $(A2_JMODS_NATIVE)/org.eclipse.angus.mail.mbox.jni/lib
 endif
 
 #
