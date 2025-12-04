@@ -22,8 +22,8 @@ distribution:
 	# TODO improve repackaging
 	mkdir -p $(A2_OUTPUT)/lib/aarch64-macos-default/org.argeo.tp.desktop
 	cp -a $(A2_OUTPUT)/lib/x86_64-macos-default/org.argeo.tp.desktop/* $(A2_OUTPUT)/lib/aarch64-macos-default/org.argeo.tp.desktop
-	mkdir -p $(A2_OUTPUT)/lib/aarch64-macos-default/jmods/com.jogamp.jni/lib
-	cp -a $(A2_OUTPUT)/lib/x86_64-macos-default/jmods/com.jogamp.jni/lib/* $(A2_OUTPUT)/lib/aarch64-macos-default/jmods/com.jogamp.jni/lib
+	mkdir -p $(A2_OUTPUT)/lib/aarch64-macos-default/jmods/com.jogamp.jni/
+	cp -a $(A2_OUTPUT)/lib/x86_64-macos-default/jmods/com.jogamp.jni/* $(A2_OUTPUT)/lib/aarch64-macos-default/jmods/com.jogamp.jni/
 	
 package-jmods:
 	$(JAVA_HOME)/bin/java sdk/argeo-build/src/org/argeo/build/PackageJmods.java $(A2_OUTPUT)
