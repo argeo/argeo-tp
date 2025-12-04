@@ -35,16 +35,16 @@ org.argeo.tp.ml \
 crypto/full/org.argeo.tp.crypto \
 lib/x86_64-linux-gnu/swt/rcp/org.argeo.tp.swt \
 lib/aarch64-linux-gnu/swt/rcp/org.argeo.tp.swt \
-lib/x86_64-win32-default/swt/rcp/org.argeo.tp.swt \
-lib/aarch64-win32-default/swt/rcp/org.argeo.tp.swt \
-lib/x86_64-macos-default/swt/rcp/org.argeo.tp.swt \
-lib/aarch64-macos-default/swt/rcp/org.argeo.tp.swt \
+lib/x86_64-windows-std/swt/rcp/org.argeo.tp.swt \
+lib/aarch64-windows-std/swt/rcp/org.argeo.tp.swt \
+lib/x86_64-macos-std/swt/rcp/org.argeo.tp.swt \
+lib/aarch64-macos-std/swt/rcp/org.argeo.tp.swt \
 lib/x86_64-linux-gnu/osgi/equinox/org.argeo.tp.eclipse \
 lib/aarch64-linux-gnu/osgi/equinox/org.argeo.tp.eclipse \
-lib/x86_64-win32-default/osgi/equinox/org.argeo.tp.eclipse \
-lib/aarch64-win32-default/osgi/equinox/org.argeo.tp.eclipse \
-lib/x86_64-macos-default/osgi/equinox/org.argeo.tp.eclipse \
-lib/aarch64-macos-default/osgi/equinox/org.argeo.tp.eclipse \
+lib/x86_64-windows-std/osgi/equinox/org.argeo.tp.eclipse \
+lib/aarch64-windows-std/osgi/equinox/org.argeo.tp.eclipse \
+lib/x86_64-macos-std/osgi/equinox/org.argeo.tp.eclipse \
+lib/aarch64-macos-std/osgi/equinox/org.argeo.tp.eclipse \
 
 
 install-for-minimal-cms:

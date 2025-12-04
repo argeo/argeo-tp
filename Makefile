@@ -20,10 +20,10 @@ distribution:
 	
 	# jogamp Mac OS (universal libraries9
 	# TODO improve repackaging
-	mkdir -p $(A2_OUTPUT)/lib/aarch64-macos-default/org.argeo.tp.desktop
-	cp -a $(A2_OUTPUT)/lib/x86_64-macos-default/org.argeo.tp.desktop/* $(A2_OUTPUT)/lib/aarch64-macos-default/org.argeo.tp.desktop
-	mkdir -p $(A2_OUTPUT)/lib/aarch64-macos-default/jmods/com.jogamp.jni/
-	cp -a $(A2_OUTPUT)/lib/x86_64-macos-default/jmods/com.jogamp.jni/* $(A2_OUTPUT)/lib/aarch64-macos-default/jmods/com.jogamp.jni/
+	mkdir -p $(A2_OUTPUT)/lib/aarch64-macos-std/org.argeo.tp.desktop
+	cp -a $(A2_OUTPUT)/lib/x86_64-macos-std/org.argeo.tp.desktop/* $(A2_OUTPUT)/lib/aarch64-macos-std/org.argeo.tp.desktop
+	mkdir -p $(A2_OUTPUT)/lib/aarch64-macos-std/jmods/com.jogamp.jni/
+	cp -a $(A2_OUTPUT)/lib/x86_64-macos-std/jmods/com.jogamp.jni/* $(A2_OUTPUT)/lib/aarch64-macos-std/jmods/com.jogamp.jni/
 	
 package-jmods:
 	$(JAVA_HOME)/bin/java sdk/argeo-build/src/org/argeo/build/PackageJmods.java $(A2_OUTPUT)
