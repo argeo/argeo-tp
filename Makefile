@@ -18,12 +18,14 @@ distribution:
 	make -C repackage all
 	make -C rebuild all
 	
-	# jogamp Mac OS (universal libraries9
+	# jogamp Mac OS (universal libraries)
 # TODO improve repackaging
 	mkdir -p $(A2_OUTPUT)/lib/aarch64-macos-std/org.argeo.tp.desktop
 	cp -a $(A2_OUTPUT)/lib/x86_64-macos-std/org.argeo.tp.desktop/* $(A2_OUTPUT)/lib/aarch64-macos-std/org.argeo.tp.desktop
 	mkdir -p $(A2_OUTPUT)/lib/aarch64-macos-std/jmods/com.jogamp.jni/
 	cp -a $(A2_OUTPUT)/lib/x86_64-macos-std/jmods/com.jogamp.jni/* $(A2_OUTPUT)/lib/aarch64-macos-std/jmods/com.jogamp.jni/
+	
+	rm $(A2_OUTPUT)/lib/*-linux-gnu/org.argeo.tp.desktop/libopenal.so
 
 clean:
 	make -C repackage clean
@@ -43,7 +45,7 @@ JMOD_EQUINOX_FRAMEWORK=org.eclipse.osgi
 package-jmods: jmods jmod-equinox-framework
 
 jmod-equinox-framework:
-	$(RM) $(A2_JMODS)/$(JMOD_EQUINOX_FRAMEWORK).jmod
+	$(RM) $(A2_JMODS)/$(JLINK_JAVA_RELEASE)/$(JMOD_EQUINOX_FRAMEWORK).jmod
 	$(JLINK_HOME)/bin/jmod create \
 	 --class-path "$(A2_OUTPUT)/osgi/equinox/org.argeo.tp.osgi.framework/*" \
 	 $(A2_JMODS)/$(JLINK_JAVA_RELEASE)/$(JMOD_EQUINOX_FRAMEWORK).jmod
