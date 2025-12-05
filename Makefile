@@ -1,5 +1,5 @@
 include sdk.mk
-.PHONY: clean all bootstrap
+include sdk/argeo-build/jpms.mk
 
 all: distribution package-jmods
 
@@ -24,12 +24,7 @@ distribution:
 	cp -a $(A2_OUTPUT)/lib/x86_64-macos-std/org.argeo.tp.desktop/* $(A2_OUTPUT)/lib/aarch64-macos-std/org.argeo.tp.desktop
 	mkdir -p $(A2_OUTPUT)/lib/aarch64-macos-std/jmods/com.jogamp.jni/
 	cp -a $(A2_OUTPUT)/lib/x86_64-macos-std/jmods/com.jogamp.jni/* $(A2_OUTPUT)/lib/aarch64-macos-std/jmods/com.jogamp.jni/
-	
-package-jmods:
-	$(JAVA_HOME)/bin/java sdk/argeo-build/src/org/argeo/build/PackageJmods.java $(A2_OUTPUT)
-# FIXME prepare jmods in output
-	$(RM) -r $(SDK_BUILD_BASE)/a2/lib/*/jmods/*.*
-	
+
 clean:
 	make -C repackage clean
 	make -C rebuild clean
@@ -40,7 +35,20 @@ native-deps-debian:
 native-deps-msys2:
 	pacman --noconfirm rsync
 
-clean-origin-cache:
-	rm -rf $(HOME)/.cache/argeo/build
+#
+# PACKAGING
+#
+JMOD_EQUINOX_FRAMEWORK=org.eclipse.osgi
+
+package-jmods: jmods jmod-equinox-framework
+
+jmod-equinox-framework:
+	$(RM) $(A2_JMODS)/$(JMOD_EQUINOX_FRAMEWORK).jmod
+	$(JLINK_HOME)/bin/jmod create \
+	 --class-path "$(A2_OUTPUT)/osgi/equinox/org.argeo.tp.osgi.framework/*" \
+	 $(A2_JMODS)/$(JLINK_JAVA_RELEASE)/$(JMOD_EQUINOX_FRAMEWORK).jmod
+
+
+.PHONY: clean all
 
 include  $(SDK_SRC_BASE)/sdk/argeo-build/osgi.mk
