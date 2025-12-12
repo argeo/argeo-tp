@@ -1,0 +1,13 @@
+Argeo-Origin-M2: org.infinispan:infinispan-core
+Import-Package:\
+jakarta.transaction.*;resolution:=optional,\
+com.github.benmanes.caffeine.*;resolution:=optional,\
+com.google.errorprone.*;resolution:=optional,\
+io.mashona.*;resolution:=optional,\
+io.micrometer.*;resolution:=optional,\
+io.reactivex.*;resolution:=optional,\
+org.jboss.*;resolution:=optional,\
+org.wildfly.*;resolution:=optional,\
+reactor.*;resolution:=optional,\
+org.jgroups.*;resolution:=optional,\
+*

@@ -1,0 +1,4 @@
+Argeo-Origin-M2: dev.langchain4j:langchain4j-infinispan
+Import-Package:\
+org.infinispan.client.*;resolution:=optional,\
+*

@@ -1,0 +1,4 @@
+Argeo-Origin-M2: org.infinispan.protostream:protostream-types
+Import-Package:\
+org.jboss.*;resolution:=optional,\
+*

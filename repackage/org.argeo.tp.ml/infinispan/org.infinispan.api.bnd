@@ -1,0 +1,5 @@
+Argeo-Origin-M2: org.infinispan:infinispan-api
+Import-Package:\
+io.smallrye.mutiny.*;resolution:=optional,\
+org.hibernate.*;resolution:=optional,\
+*

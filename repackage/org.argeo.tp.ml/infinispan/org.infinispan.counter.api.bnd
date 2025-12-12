@@ -1,0 +1,3 @@
+Argeo-Origin-M2: org.infinispan:infinispan-counter-api
+Import-Package:\
+*
