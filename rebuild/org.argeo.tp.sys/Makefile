@@ -1,6 +1,7 @@
 include ../../sdk.mk
 # Required first in order to use make conditionals
 include $(SDK_SRC_BASE)/sdk/argeo-build/common.mk
+include $(SDK_SRC_BASE)/sdk/argeo-build/jpms.mk
 
 .PHONY: clean all osgi
 
@@ -20,6 +21,7 @@ org.argeo.tp.sys \
 JAVAC = $(JAVA_HOME)/bin/javac
 
 ## !! DON'T FORGET TO UPDATE THE VERSION IN THE RELATED bnd.bnd FILE!
+MBOX_VERSION=2.0.5
 
 all: retrieve-angus-mbox jni-angus-mbox osgi
 #	mkdir -p $(SDK_BUILD_BASE)/a2/$(TARGET_ARCH_CATEGORY_PREFIX)/$(A2_CATEGORY)
@@ -37,10 +39,10 @@ install:
 	$(INSTALL) $(A2_INSTALL_TARGET)/$(A2_CATEGORY) $(A2_OUTPUT)/$(A2_CATEGORY)/org.eclipse.angus.mail.mbox.*.jar
 	$(INSTALL) $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY) $(TARGET_NATIVE_CATEGORY)/${MBOX_TARGET_EXEC}
 	cd  $(A2_NATIVE_INSTALL_TARGET) && ln -fs $(A2_CATEGORY)/${MBOX_TARGET_EXEC}
-	# GDAL
-	$(INSTALL) $(A2_INSTALL_TARGET)/$(A2_CATEGORY) $(A2_OUTPUT)/$(A2_CATEGORY)/org.gdal.*.jar
-	$(INSTALL) $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY) $(TARGET_NATIVE_CATEGORY)/${GDAL_TARGET_EXEC}
-	cd  $(A2_NATIVE_INSTALL_TARGET) && ln -fs $(A2_CATEGORY)/${GDAL_TARGET_EXEC}
+# GDAL
+#	$(INSTALL) $(A2_INSTALL_TARGET)/$(A2_CATEGORY) $(A2_OUTPUT)/$(A2_CATEGORY)/org.gdal.*.jar
+#	$(INSTALL) $(A2_NATIVE_INSTALL_TARGET)/$(A2_CATEGORY) $(TARGET_NATIVE_CATEGORY)/${GDAL_TARGET_EXEC}
+#	cd  $(A2_NATIVE_INSTALL_TARGET) && ln -fs $(A2_CATEGORY)/${GDAL_TARGET_EXEC}
 	
 uninstall:
 	#$(RM) $(A2_NATIVE_INSTALL_TARGET)/$(MBOX_TARGET_EXEC)
@@ -67,7 +69,6 @@ retrieve-angus-mbox:
 	rm -rf org.eclipse.angus.mail.mbox/bin
 
 jni-angus-mbox:
-	echo TARGET_OS=$(TARGET_OS)
 ifeq ($(TARGET_OS),linux)	
 	mkdir -p $(A2_NATIVE_CATEGORY)
 	$(CC) -o $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) \
@@ -77,8 +78,9 @@ ifeq ($(TARGET_OS),linux)
 	cd $(TARGET_NATIVE_OUTPUT) && ln -s $(A2_CATEGORY)/$(MBOX_TARGET_EXEC) $(MBOX_TARGET_EXEC)
 	
 	# jmod
-	mkdir -p $(A2_JMODS)/org.eclipse.angus.mail.mbox.jni/lib
-	cp -a $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) $(A2_JMODS)/org.eclipse.angus.mail.mbox.jni/lib
+	mkdir -p $(A2_JMODS_NATIVE)/org.eclipse.angus.mail.mbox.jni/lib
+	echo "$(MBOX_VERSION)" > $(A2_JMODS_NATIVE)/org.eclipse.angus.mail.mbox.jni/VERSION.txt
+	cp -a $(A2_NATIVE_CATEGORY)/$(MBOX_TARGET_EXEC) $(A2_JMODS_NATIVE)/org.eclipse.angus.mail.mbox.jni/lib
 endif
 
 #
