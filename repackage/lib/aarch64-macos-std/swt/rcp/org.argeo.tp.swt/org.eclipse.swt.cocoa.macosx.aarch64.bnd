@@ -1,0 +1,4 @@
+SPDX-License-Identifier: EPL-2.0
+# TODO factorize (at least the version)
+Argeo-Origin-M2: org.eclipse.platform:org.eclipse.swt.cocoa.macosx.aarch64:3.132.0
+Argeo-Origin-NoMetadataGeneration: true
