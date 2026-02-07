@@ -1,0 +1,8 @@
+SPDX-License-Identifier: LGPL-2.0
+
+Argeo-Origin-M2: com.github.hypfvieh:dbus-java:2.7.5
+Export-Package: org.freedesktop.dbus.*;version=2.7
+
+Import-Package:\
+cx.ath.matthew.*;resolution:="optional",\
+*

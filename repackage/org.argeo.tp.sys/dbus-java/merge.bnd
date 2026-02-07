@@ -1,9 +1,11 @@
-Bundle-SymbolicName: org.freedesktop.dbus
+Bundle-SymbolicName: com.github.hypfvieh.dbus
 SPDX-License-Identifier: LGPL-2.0
 # TODO Check whether relicensing of this fork was allowed
 #SPDX-License-Identifier: MIT
+
 Argeo-Origin-M2: :5.1.1
-Export-Package: org.freedesktop.dbus.*
+Export-Package: org.freedesktop.dbus.*;version=5.1
+
 Argeo-Origin-M2-Merge: \
 com.github.hypfvieh:dbus-java-core,\
 com.github.hypfvieh:dbus-java-utils,\
