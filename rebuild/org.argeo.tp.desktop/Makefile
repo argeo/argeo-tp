@@ -13,7 +13,7 @@ gov.nasa.worldwindx \
 
 DEP_CATEGORIES = \
 org.argeo.tp.desktop \
-lib/org.argeo.tp.desktop \
+lib/org.argeo.tp.sys \
 org.argeo.tp.sys
 
 all: retrieve-worldwind osgi

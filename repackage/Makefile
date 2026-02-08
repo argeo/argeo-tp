@@ -15,7 +15,6 @@ org.argeo.tp.sys \
 lib/org.argeo.tp.sys \
 org.argeo.tp.sdk \
 org.argeo.tp.desktop \
-lib/org.argeo.tp.desktop \
 osgi/equinox/org.argeo.tp.osgi.framework \
 osgi/equinox/org.argeo.tp.osgi \
 osgi/equinox/org.argeo.tp.eclipse \

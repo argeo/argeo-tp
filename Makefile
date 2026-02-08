@@ -20,12 +20,12 @@ distribution:
 	
 	# jogamp Mac OS (universal libraries)
 # TODO improve repackaging
-	mkdir -p $(A2_OUTPUT)/lib/aarch64-macos-std/org.argeo.tp.desktop
-	cp -a $(A2_OUTPUT)/lib/x86_64-macos-std/org.argeo.tp.desktop/* $(A2_OUTPUT)/lib/aarch64-macos-std/org.argeo.tp.desktop
+	mkdir -p $(A2_OUTPUT)/lib/aarch64-macos-std/org.argeo.tp.sys
+	cp -a $(A2_OUTPUT)/lib/x86_64-macos-std/org.argeo.tp.sys/*.dylib $(A2_OUTPUT)/lib/aarch64-macos-std/org.argeo.tp.sys
 	mkdir -p $(A2_OUTPUT)/lib/aarch64-macos-std/jmods/com.jogamp.jni/
 	cp -a $(A2_OUTPUT)/lib/x86_64-macos-std/jmods/com.jogamp.jni/* $(A2_OUTPUT)/lib/aarch64-macos-std/jmods/com.jogamp.jni/
 	
-	rm $(A2_OUTPUT)/lib/*-linux-gnu/org.argeo.tp.desktop/libopenal.so
+	rm $(A2_OUTPUT)/lib/*-linux-gnu/org.argeo.tp.sys/libopenal.so
 
 clean:
 	make -C repackage clean
