@@ -1,5 +1,5 @@
 SPDX-License-Identifier: MIT
-Argeo-Origin-M2: io.modelcontextprotocol.sdk:mcp:0.16.0
+Argeo-Origin-M2: io.modelcontextprotocol.sdk:mcp:0.17.2
 Import-Package:\
 com.networknt.*;resolution:=optional,\
 *

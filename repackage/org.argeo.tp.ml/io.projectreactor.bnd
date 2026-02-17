@@ -1,5 +1,5 @@
 SPDX-License-Identifier: Apache-2.0
-Argeo-Origin-M2: io.projectreactor:reactor-core:3.8.0
+Argeo-Origin-M2: io.projectreactor:reactor-core:3.8.3
 
 Import-Package:\
 javax.annotation.*;resolution:=optional,
